@@ -1,0 +1,497 @@
+{
+  "comparison": {
+    "historical_only": [
+      "npm/cli"
+    ],
+    "historical_repositories": [
+      "npm/cli"
+    ],
+    "present_only": [],
+    "present_repositories": []
+  },
+  "coverage": {
+    "abstentions": [],
+    "coverage": {
+      "resolvable_repositories": 1,
+      "total_repositories": 1,
+      "unknown_repositories": 0,
+      "unknown_repository_ids": []
+    },
+    "query": "Q8 abstention and coverage",
+    "results": []
+  },
+  "generated_at": "2026-08-13T23:44:31Z",
+  "graph": {
+    "edge_count": 22951,
+    "fingerprint": "83f4c7a43e11e81b69048beef53e3f55dd9f9fd32ac87eddfe5d5506ce38b7e9",
+    "node_counts": {
+      "Advisory": 3,
+      "Maintainer": 7,
+      "Package": 844,
+      "PublishInfra": 2,
+      "Repository": 1,
+      "Resolution": 5887,
+      "Version": 1296
+    }
+  },
+  "historical_exposure": {
+    "abstentions": [],
+    "coverage": {
+      "resolvable_repositories": 1,
+      "total_repositories": 1,
+      "unknown_repositories": 0,
+      "unknown_repository_ids": []
+    },
+    "query": "Q3 window exposure npm:write-file-atomic@7.0.1",
+    "results": [
+      {
+        "edge_commit_at": "2026-07-08T20:21:05Z",
+        "lock_path": "node_modules/write-file-atomic",
+        "repository": "npm/cli",
+        "resolution": "resolution:724ab8411a3b30168ade84ca1f0aa615f8249961a7b89981ef318f03c0b2dafd",
+        "valid_overlap": {
+          "end": "2026-07-09T12:00:00Z",
+          "start": "2026-07-09T00:00:00Z"
+        }
+      }
+    ]
+  },
+  "incident": {
+    "package": "write-file-atomic",
+    "registry": "npm",
+    "version": "7.0.1",
+    "window": {
+      "from": "2026-07-09T00:00:00Z",
+      "to": "2026-07-09T12:00:00Z"
+    }
+  },
+  "present_exposure": {
+    "abstentions": [
+      {
+        "reason": "no observed Resolution interval intersects the requested window",
+        "scope": "npm:write-file-atomic@7.0.1"
+      }
+    ],
+    "coverage": {
+      "resolvable_repositories": 1,
+      "total_repositories": 1,
+      "unknown_repositories": 0,
+      "unknown_repository_ids": []
+    },
+    "query": "Q3 window exposure npm:write-file-atomic@7.0.1",
+    "results": []
+  },
+  "still_dirty": {
+    "abstentions": [],
+    "coverage": {
+      "resolvable_repositories": 1,
+      "total_repositories": 1,
+      "unknown_repositories": 0,
+      "unknown_repository_ids": []
+    },
+    "query": "Q7 still dirty npm:write-file-atomic@7.0.1",
+    "results": [
+      {
+        "current_lockfile_versions": [
+          "write-file-atomic@3.0.3",
+          "write-file-atomic@8.0.0"
+        ],
+        "historical_exposure": {
+          "edge_commit_at": "2026-07-08T20:21:05Z",
+          "lock_path": "node_modules/write-file-atomic",
+          "repository": "npm/cli",
+          "resolution": "resolution:724ab8411a3b30168ade84ca1f0aa615f8249961a7b89981ef318f03c0b2dafd",
+          "valid_overlap": {
+            "end": "2026-07-09T12:00:00Z",
+            "start": "2026-07-09T00:00:00Z"
+          }
+        },
+        "repository": "npm/cli",
+        "status": "still-dirty-candidate"
+      }
+    ]
+  },
+  "timeline_configuration": {
+    "demo_from": "2026-07-09T00:00:00Z",
+    "demo_package": "write-file-atomic",
+    "demo_registry": "npm",
+    "demo_to": "2026-07-09T12:00:00Z",
+    "demo_version": "7.0.1",
+    "frame_count": 12,
+    "frame_duration_seconds": 30
+  },
+  "verification": {
+    "cases": [
+      {
+        "abstentions": [],
+        "case": {
+          "case_id": "lodash@4.17.21:2026-07-08T18:17:43Z:resolution:300cd453a47811505cd074e47b8c91b23e34d88353aedc534a30d81b9c4feb27",
+          "known_at": "2026-07-08T18:17:43Z",
+          "observed_repositories": [
+            "npm/cli"
+          ],
+          "package": "lodash",
+          "registry": "npm",
+          "version": "4.17.21",
+          "window_end": "2026-07-08T20:21:05Z",
+          "window_start": "2026-07-08T18:17:43Z"
+        },
+        "false_negatives": [],
+        "false_positives": [],
+        "gradable": true,
+        "observed_repositories": [
+          "npm/cli"
+        ],
+        "predicted_repositories": [
+          "npm/cli"
+        ]
+      },
+      {
+        "abstentions": [],
+        "case": {
+          "case_id": "lodash@4.17.21:2026-07-08T20:21:05Z:resolution:415ed424486a2447bd5a58e2086814e450de2a2fb62f5fa69a361062b5546ccf",
+          "known_at": "2026-07-08T20:21:05Z",
+          "observed_repositories": [
+            "npm/cli"
+          ],
+          "package": "lodash",
+          "registry": "npm",
+          "version": "4.17.21",
+          "window_end": "2026-07-09T20:21:05Z",
+          "window_start": "2026-07-08T20:21:05Z"
+        },
+        "false_negatives": [],
+        "false_positives": [],
+        "gradable": true,
+        "observed_repositories": [
+          "npm/cli"
+        ],
+        "predicted_repositories": [
+          "npm/cli"
+        ]
+      },
+      {
+        "abstentions": [],
+        "case": {
+          "case_id": "lodash@4.17.21:2026-07-10T14:58:00Z:resolution:ce927df25e6baad9e1233ccd25a27b118b1ccde70790f3fefee1f51510853331",
+          "known_at": "2026-07-10T14:58:00Z",
+          "observed_repositories": [
+            "npm/cli"
+          ],
+          "package": "lodash",
+          "registry": "npm",
+          "version": "4.17.21",
+          "window_end": "2026-07-10T15:45:05Z",
+          "window_start": "2026-07-10T14:58:00Z"
+        },
+        "false_negatives": [],
+        "false_positives": [],
+        "gradable": true,
+        "observed_repositories": [
+          "npm/cli"
+        ],
+        "predicted_repositories": [
+          "npm/cli"
+        ]
+      },
+      {
+        "abstentions": [],
+        "case": {
+          "case_id": "lodash@4.17.21:2026-07-10T15:45:05Z:resolution:5b57e402710e8944df4fddf623e94abd688b462c782c7082fc3e349915e9effc",
+          "known_at": "2026-07-10T15:45:05Z",
+          "observed_repositories": [
+            "npm/cli"
+          ],
+          "package": "lodash",
+          "registry": "npm",
+          "version": "4.17.21",
+          "window_end": "2026-07-11T15:45:05Z",
+          "window_start": "2026-07-10T15:45:05Z"
+        },
+        "false_negatives": [],
+        "false_positives": [],
+        "gradable": true,
+        "observed_repositories": [
+          "npm/cli"
+        ],
+        "predicted_repositories": [
+          "npm/cli"
+        ]
+      },
+      {
+        "abstentions": [],
+        "case": {
+          "case_id": "lodash@4.17.21:2026-07-27T23:11:54Z:resolution:728ae11bd1a86c6e9f13c9c2685ad2b5d3d17c76152576dfe1ca4aa799fc7853",
+          "known_at": "2026-07-27T23:11:54Z",
+          "observed_repositories": [
+            "npm/cli"
+          ],
+          "package": "lodash",
+          "registry": "npm",
+          "version": "4.17.21",
+          "window_end": "2026-07-28T23:11:54Z",
+          "window_start": "2026-07-27T23:11:54Z"
+        },
+        "false_negatives": [],
+        "false_positives": [],
+        "gradable": true,
+        "observed_repositories": [
+          "npm/cli"
+        ],
+        "predicted_repositories": [
+          "npm/cli"
+        ]
+      },
+      {
+        "abstentions": [],
+        "case": {
+          "case_id": "lodash@4.17.21:2026-07-08T18:17:43Z:resolution:300cd453a47811505cd074e47b8c91b23e34d88353aedc534a30d81b9c4feb27",
+          "known_at": "2026-07-08T18:17:43Z",
+          "observed_repositories": [
+            "npm/cli"
+          ],
+          "package": "lodash",
+          "registry": "npm",
+          "version": "4.17.21",
+          "window_end": "2026-07-08T20:21:05Z",
+          "window_start": "2026-07-08T18:17:43Z"
+        },
+        "false_negatives": [],
+        "false_positives": [],
+        "gradable": true,
+        "observed_repositories": [
+          "npm/cli"
+        ],
+        "predicted_repositories": [
+          "npm/cli"
+        ]
+      },
+      {
+        "abstentions": [],
+        "case": {
+          "case_id": "lodash@4.17.21:2026-07-08T20:21:05Z:resolution:415ed424486a2447bd5a58e2086814e450de2a2fb62f5fa69a361062b5546ccf",
+          "known_at": "2026-07-08T20:21:05Z",
+          "observed_repositories": [
+            "npm/cli"
+          ],
+          "package": "lodash",
+          "registry": "npm",
+          "version": "4.17.21",
+          "window_end": "2026-07-09T20:21:05Z",
+          "window_start": "2026-07-08T20:21:05Z"
+        },
+        "false_negatives": [],
+        "false_positives": [],
+        "gradable": true,
+        "observed_repositories": [
+          "npm/cli"
+        ],
+        "predicted_repositories": [
+          "npm/cli"
+        ]
+      },
+      {
+        "abstentions": [],
+        "case": {
+          "case_id": "lodash@4.17.21:2026-07-10T14:58:00Z:resolution:ce927df25e6baad9e1233ccd25a27b118b1ccde70790f3fefee1f51510853331",
+          "known_at": "2026-07-10T14:58:00Z",
+          "observed_repositories": [
+            "npm/cli"
+          ],
+          "package": "lodash",
+          "registry": "npm",
+          "version": "4.17.21",
+          "window_end": "2026-07-10T15:45:05Z",
+          "window_start": "2026-07-10T14:58:00Z"
+        },
+        "false_negatives": [],
+        "false_positives": [],
+        "gradable": true,
+        "observed_repositories": [
+          "npm/cli"
+        ],
+        "predicted_repositories": [
+          "npm/cli"
+        ]
+      },
+      {
+        "abstentions": [],
+        "case": {
+          "case_id": "lodash@4.17.21:2026-07-10T15:45:05Z:resolution:5b57e402710e8944df4fddf623e94abd688b462c782c7082fc3e349915e9effc",
+          "known_at": "2026-07-10T15:45:05Z",
+          "observed_repositories": [
+            "npm/cli"
+          ],
+          "package": "lodash",
+          "registry": "npm",
+          "version": "4.17.21",
+          "window_end": "2026-07-11T15:45:05Z",
+          "window_start": "2026-07-10T15:45:05Z"
+        },
+        "false_negatives": [],
+        "false_positives": [],
+        "gradable": true,
+        "observed_repositories": [
+          "npm/cli"
+        ],
+        "predicted_repositories": [
+          "npm/cli"
+        ]
+      },
+      {
+        "abstentions": [],
+        "case": {
+          "case_id": "lodash@4.17.21:2026-07-27T23:11:54Z:resolution:728ae11bd1a86c6e9f13c9c2685ad2b5d3d17c76152576dfe1ca4aa799fc7853",
+          "known_at": "2026-07-27T23:11:54Z",
+          "observed_repositories": [
+            "npm/cli"
+          ],
+          "package": "lodash",
+          "registry": "npm",
+          "version": "4.17.21",
+          "window_end": "2026-07-28T23:11:54Z",
+          "window_start": "2026-07-27T23:11:54Z"
+        },
+        "false_negatives": [],
+        "false_positives": [],
+        "gradable": true,
+        "observed_repositories": [
+          "npm/cli"
+        ],
+        "predicted_repositories": [
+          "npm/cli"
+        ]
+      },
+      {
+        "abstentions": [],
+        "case": {
+          "case_id": "lodash@4.17.21:2026-07-08T18:17:43Z:resolution:300cd453a47811505cd074e47b8c91b23e34d88353aedc534a30d81b9c4feb27",
+          "known_at": "2026-07-08T18:17:43Z",
+          "observed_repositories": [
+            "npm/cli"
+          ],
+          "package": "lodash",
+          "registry": "npm",
+          "version": "4.17.21",
+          "window_end": "2026-07-08T20:21:05Z",
+          "window_start": "2026-07-08T18:17:43Z"
+        },
+        "false_negatives": [],
+        "false_positives": [],
+        "gradable": true,
+        "observed_repositories": [
+          "npm/cli"
+        ],
+        "predicted_repositories": [
+          "npm/cli"
+        ]
+      },
+      {
+        "abstentions": [],
+        "case": {
+          "case_id": "lodash@4.17.21:2026-07-08T20:21:05Z:resolution:415ed424486a2447bd5a58e2086814e450de2a2fb62f5fa69a361062b5546ccf",
+          "known_at": "2026-07-08T20:21:05Z",
+          "observed_repositories": [
+            "npm/cli"
+          ],
+          "package": "lodash",
+          "registry": "npm",
+          "version": "4.17.21",
+          "window_end": "2026-07-09T20:21:05Z",
+          "window_start": "2026-07-08T20:21:05Z"
+        },
+        "false_negatives": [],
+        "false_positives": [],
+        "gradable": true,
+        "observed_repositories": [
+          "npm/cli"
+        ],
+        "predicted_repositories": [
+          "npm/cli"
+        ]
+      },
+      {
+        "abstentions": [],
+        "case": {
+          "case_id": "lodash@4.17.21:2026-07-10T14:58:00Z:resolution:ce927df25e6baad9e1233ccd25a27b118b1ccde70790f3fefee1f51510853331",
+          "known_at": "2026-07-10T14:58:00Z",
+          "observed_repositories": [
+            "npm/cli"
+          ],
+          "package": "lodash",
+          "registry": "npm",
+          "version": "4.17.21",
+          "window_end": "2026-07-10T15:45:05Z",
+          "window_start": "2026-07-10T14:58:00Z"
+        },
+        "false_negatives": [],
+        "false_positives": [],
+        "gradable": true,
+        "observed_repositories": [
+          "npm/cli"
+        ],
+        "predicted_repositories": [
+          "npm/cli"
+        ]
+      },
+      {
+        "abstentions": [],
+        "case": {
+          "case_id": "lodash@4.17.21:2026-07-10T15:45:05Z:resolution:5b57e402710e8944df4fddf623e94abd688b462c782c7082fc3e349915e9effc",
+          "known_at": "2026-07-10T15:45:05Z",
+          "observed_repositories": [
+            "npm/cli"
+          ],
+          "package": "lodash",
+          "registry": "npm",
+          "version": "4.17.21",
+          "window_end": "2026-07-11T15:45:05Z",
+          "window_start": "2026-07-10T15:45:05Z"
+        },
+        "false_negatives": [],
+        "false_positives": [],
+        "gradable": true,
+        "observed_repositories": [
+          "npm/cli"
+        ],
+        "predicted_repositories": [
+          "npm/cli"
+        ]
+      },
+      {
+        "abstentions": [],
+        "case": {
+          "case_id": "lodash@4.17.21:2026-07-27T23:11:54Z:resolution:728ae11bd1a86c6e9f13c9c2685ad2b5d3d17c76152576dfe1ca4aa799fc7853",
+          "known_at": "2026-07-27T23:11:54Z",
+          "observed_repositories": [
+            "npm/cli"
+          ],
+          "package": "lodash",
+          "registry": "npm",
+          "version": "4.17.21",
+          "window_end": "2026-07-28T23:11:54Z",
+          "window_start": "2026-07-27T23:11:54Z"
+        },
+        "false_negatives": [],
+        "false_positives": [],
+        "gradable": true,
+        "observed_repositories": [
+          "npm/cli"
+        ],
+        "predicted_repositories": [
+          "npm/cli"
+        ]
+      }
+    ],
+    "commit_sha": "f4e0336611b0279d98be847f1352f8f96c141bdb",
+    "false_negatives": 0,
+    "false_positives": 0,
+    "gradable_cases": 15,
+    "graph_fingerprint": "83f4c7a43e11e81b69048beef53e3f55dd9f9fd32ac87eddfe5d5506ce38b7e9",
+    "precision": 1.0,
+    "recall": 1.0,
+    "true_positives": 15,
+    "ungradable_cases": 0
+  },
+  "verification_record": "cache/verification/runs.jsonl"
+}
