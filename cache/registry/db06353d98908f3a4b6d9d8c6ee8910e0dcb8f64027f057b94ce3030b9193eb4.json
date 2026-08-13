@@ -1,0 +1,18 @@
+{
+  "body_base64": "eyJyZXN1bHRzIjpbeyJ2dWxucyI6W3siaWQiOiJHSFNBLWYyM20tcjNwZi00MnJoIiwibW9kaWZpZWQiOiIyMDI2LTA3LTA4VDA3OjEwOjI2Ljk1Nzg1M1oifSx7ImlkIjoiR0hTQS1yNWZyLXJqeHItNjZqYyIsIm1vZGlmaWVkIjoiMjAyNi0wNy0wOFQwODoxMToxMS43NTk1NjBaIn0seyJpZCI6IkdIU0EteHhqci1tbWp2LTRncGciLCJtb2RpZmllZCI6IjIwMjYtMDctMDhUMDc6MTA6MjYuOTU3ODUzWiJ9XX1dfQ==",
+  "headers": {
+    "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+    "connection": "close",
+    "content-length": "235",
+    "content-type": "application/json",
+    "date": "Thu, 13 Aug 2026 20:46:33 GMT",
+    "grpc-message": "",
+    "grpc-status": "0",
+    "server": "Google Frontend",
+    "traceparent": "00-8ba132fbcbca7bcef12e6184eb398f2e-9f53ddf77b01b75a-01",
+    "x-cloud-trace-context": "8ba132fbcbca7bcef12e6184eb398f2e/11480763930087896922;o=1",
+    "x-envoy-decorator-operation": "ingress QueryAffectedBatch"
+  },
+  "status": 200,
+  "url": "https://api.osv.dev/v1/querybatch"
+}

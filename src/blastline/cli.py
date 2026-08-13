@@ -5,12 +5,17 @@ from __future__ import annotations
 import argparse
 import json
 import sys
+from datetime import datetime
 from pathlib import Path
 
 from .config import Settings
 from .errors import BlastlineError, ConfigurationError
 from .hydra import HydraClient, load_hydra_config, response_success
 from .ingest.pipeline import RegistryIngestor
+from .infer.typosquat import TyposquatScorer
+from .query.engine import QueryEngine
+from .query.types import QueryResponse
+from .verify.grader import Verifier
 from .model import Edge, EdgeType, Node, NodeType, TimeInterval
 from .store import GraphStore
 from .timeutil import format_time, now_utc, parse_time
@@ -29,7 +34,7 @@ def build_hydra(settings: Settings) -> HydraClient:
 
 
 def hello(settings: Settings) -> int:
-    store = build_store(settings)
+    store = GraphStore(settings.root / "data" / "m0-hello")
     node = Node("hello:blastline", NodeType.REPOSITORY, {"name": "hello", "source": "M0"})
     store.add_nodes([node])
     stored = store.node(node.node_id)
@@ -49,7 +54,7 @@ def hello(settings: Settings) -> int:
 
 
 def demo_timetravel(settings: Settings) -> int:
-    store = build_store(settings)
+    store = GraphStore(settings.root / "data" / "m1-timetravel")
     first = parse_time("2026-08-13T09:00:00Z", "demo start")
     second = parse_time("2026-08-13T09:05:00Z", "demo update")
     query_time = parse_time("2026-08-13T09:06:00Z", "demo query")
@@ -87,7 +92,14 @@ def ingest(settings: Settings, args: argparse.Namespace) -> int:
     ingestor = RegistryIngestor(settings)
     refresh = bool(args.refresh)
     ran = False
-    explicit_source = bool(args.npm_package or args.pypi_package or args.npm_changes or args.pypi_simple)
+    explicit_source = bool(
+        args.npm_package
+        or args.pypi_package
+        or args.npm_changes
+        or args.pypi_simple
+        or args.github_repository
+        or args.osv_package
+    )
     if args.npm_package:
         ingestor.print_report(ingestor.npm_packages(tuple(args.npm_package), refresh=refresh))
         ran = True
@@ -102,9 +114,116 @@ def ingest(settings: Settings, args: argparse.Namespace) -> int:
         limit = settings.integer("ingest", "pypi_simple_limit")
         ingestor.print_report(ingestor.pypi_simple(limit, refresh=refresh))
         ran = True
+    if args.github_repository is not None:
+        if args.github_path is None:
+            raise ConfigurationError("--github-path is required with --github-repository")
+        snapshots, resolutions, failures, fingerprint = ingestor.github_lockfile(
+            args.github_repository,
+            args.github_path,
+            args.github_ref,
+            args.github_ecosystem,
+        )
+        print(
+            f"github-lockfile: parsed {snapshots} real snapshots and {resolutions} resolutions; "
+            f"failed {failures}; graph fingerprint {fingerprint}"
+        )
+        ran = True
+    if args.osv_package is not None:
+        versions = tuple(args.osv_version) if args.osv_version else None
+        matched, failures, fingerprint = ingestor.osv_package(args.osv_registry, args.osv_package, versions)
+        print(
+            f"osv: matched {matched} advisory/version relationships; failed {failures}; "
+            f"graph fingerprint {fingerprint}"
+        )
+        ran = True
     if not ran:
         raise ConfigurationError("ingest requires a registry source selection")
     return 0
+
+
+def query_engine(settings: Settings) -> QueryEngine:
+    return QueryEngine(build_store(settings), settings)
+
+
+def print_query(response: QueryResponse, as_json: bool) -> None:
+    if as_json:
+        print(json.dumps(response.as_json(), sort_keys=True, indent=2))
+    else:
+        print(response.human())
+
+
+def parse_optional_time(value: str | None, context: str) -> datetime | None:
+    if value is None:
+        return None
+    return parse_time(value, context)
+
+
+def run_query(settings: Settings, args: argparse.Namespace) -> int:
+    engine = query_engine(settings)
+    registry = args.registry if hasattr(args, "registry") else "npm"
+    if args.command == "blast":
+        response = engine.blast_radius(
+            registry,
+            args.package,
+            args.version,
+            parse_optional_time(args.valid_at, "blast valid_at"),
+            parse_optional_time(args.known_at, "blast known_at"),
+        )
+    elif args.command == "window":
+        start = parse_time(args.from_time, "window from")
+        end = parse_time(args.to_time, "window to")
+        response = engine.window_exposure(registry, args.package, args.version, (start, end), parse_optional_time(args.known_at, "window known_at"))
+        current = engine.current_exposure(registry, args.package, args.version)
+        historical_repositories = {item.get("repository") for item in response.results if isinstance(item.get("repository"), str)}
+        current_repositories = {item.get("repository") for item in current.results if isinstance(item.get("repository"), str)}
+        print_query(response, args.json)
+        print(
+            "present-day comparison: "
+            f"historical={len(historical_repositories)} repositories, current={len(current_repositories)}; "
+            f"historical-only={len(historical_repositories - current_repositories)}, "
+            f"current-only={len(current_repositories - historical_repositories)}"
+        )
+        return 0
+    elif args.command == "first-affected":
+        response = engine.first_affected_version(registry, args.package, args.version, parse_optional_time(args.known_at, "first-affected known_at"))
+    elif args.command == "maintainer-risk":
+        response = engine.maintainer_risk(args.maintainer, parse_optional_time(args.valid_at, "maintainer valid_at"))
+    elif args.command == "shared-infra":
+        response = engine.shared_infrastructure(registry, args.package, args.version, parse_optional_time(args.valid_at, "shared-infra valid_at"))
+    elif args.command == "still-dirty":
+        start = parse_time(args.from_time, "still-dirty from")
+        end = parse_time(args.to_time, "still-dirty to")
+        response = engine.still_dirty(registry, args.package, args.version, (start, end), parse_optional_time(args.as_of, "still-dirty as_of"))
+    elif args.command == "coverage":
+        response = engine.coverage_report()
+    elif args.command == "typosquats":
+        response = TyposquatScorer(build_store(settings), settings).score(registry, args.package, parse_optional_time(args.as_of, "typosquats as_of"))
+    else:
+        raise ConfigurationError(f"query command is not implemented: {args.command}")
+    print_query(response, args.json)
+    return 0
+
+
+def verify(settings: Settings, as_json: bool) -> int:
+    verifier = Verifier(build_store(settings), settings)
+    scorecard = verifier.grade()
+    path = verifier.record(scorecard)
+    if as_json:
+        print(json.dumps(scorecard.as_json(), sort_keys=True, indent=2))
+    else:
+        print(scorecard.human())
+        print(f"append-only verification run: {path}")
+    return 0
+
+
+def add_output_options(command_parser: argparse.ArgumentParser) -> None:
+    command_parser.add_argument("--json", action="store_true", help="print machine-readable JSON")
+
+
+def add_package_options(command_parser: argparse.ArgumentParser) -> None:
+    command_parser.add_argument("--registry", default="npm")
+    command_parser.add_argument("--package", required=True)
+    command_parser.add_argument("--version", required=True)
 
 
 def parser() -> argparse.ArgumentParser:
@@ -117,7 +236,52 @@ def parser() -> argparse.ArgumentParser:
     ingest_parser.add_argument("--pypi-package", action="append", default=[])
     ingest_parser.add_argument("--npm-changes", action="store_true")
     ingest_parser.add_argument("--pypi-simple", action="store_true")
+    ingest_parser.add_argument("--github-repository")
+    ingest_parser.add_argument("--github-path")
+    ingest_parser.add_argument("--github-ref", default="main")
+    ingest_parser.add_argument("--github-ecosystem", default="npm")
+    ingest_parser.add_argument("--osv-package")
+    ingest_parser.add_argument("--osv-registry", default="npm")
+    ingest_parser.add_argument("--osv-version", action="append", default=[])
     ingest_parser.add_argument("--refresh", action="store_true")
+    blast_parser = subparsers.add_parser("blast")
+    add_package_options(blast_parser)
+    blast_parser.add_argument("--valid-at")
+    blast_parser.add_argument("--known-at")
+    add_output_options(blast_parser)
+    window_parser = subparsers.add_parser("window")
+    add_package_options(window_parser)
+    window_parser.add_argument("--from", dest="from_time", required=True)
+    window_parser.add_argument("--to", dest="to_time", required=True)
+    window_parser.add_argument("--known-at")
+    add_output_options(window_parser)
+    first_parser = subparsers.add_parser("first-affected")
+    add_package_options(first_parser)
+    first_parser.add_argument("--known-at")
+    add_output_options(first_parser)
+    maintainer_parser = subparsers.add_parser("maintainer-risk")
+    maintainer_parser.add_argument("--maintainer", required=True)
+    maintainer_parser.add_argument("--valid-at")
+    add_output_options(maintainer_parser)
+    infra_parser = subparsers.add_parser("shared-infra")
+    add_package_options(infra_parser)
+    infra_parser.add_argument("--valid-at")
+    add_output_options(infra_parser)
+    dirty_parser = subparsers.add_parser("still-dirty")
+    add_package_options(dirty_parser)
+    dirty_parser.add_argument("--from", dest="from_time", required=True)
+    dirty_parser.add_argument("--to", dest="to_time", required=True)
+    dirty_parser.add_argument("--as-of")
+    add_output_options(dirty_parser)
+    typo_parser = subparsers.add_parser("typosquats")
+    typo_parser.add_argument("--registry", default="npm")
+    typo_parser.add_argument("--package", required=True)
+    typo_parser.add_argument("--as-of")
+    add_output_options(typo_parser)
+    coverage_parser = subparsers.add_parser("coverage")
+    add_output_options(coverage_parser)
+    verify_parser = subparsers.add_parser("verify")
+    add_output_options(verify_parser)
     return command_parser
 
 
@@ -130,6 +294,19 @@ def main(argv: list[str] | None = None) -> int:
         return demo_timetravel(settings)
     if args.command == "ingest":
         return ingest(settings, args)
+    if args.command == "verify":
+        return verify(settings, args.json)
+    if args.command in {
+        "blast",
+        "window",
+        "first-affected",
+        "maintainer-risk",
+        "shared-infra",
+        "still-dirty",
+        "typosquats",
+        "coverage",
+    }:
+        return run_query(settings, args)
     raise ConfigurationError(f"command is not implemented yet: {args.command}")
 
 

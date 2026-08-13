@@ -1,0 +1,87 @@
+from __future__ import annotations
+
+import tempfile
+import unittest
+from datetime import datetime, timezone
+from pathlib import Path
+
+from blastline.config import Settings
+from blastline.model import Edge, EdgeType, Node, NodeType, TimeInterval, package_id, repository_id, resolution_id, version_id
+from blastline.query.engine import QueryEngine
+from blastline.store import GraphStore
+
+
+class QueryEngineTest(unittest.TestCase):
+    def test_window_query_uses_resolution_interval_and_differs_from_current(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            store = GraphStore(Path(directory))
+            start = datetime(2026, 7, 1, tzinfo=timezone.utc)
+            end = datetime(2026, 7, 2, tzinfo=timezone.utc)
+            window_end = datetime(2026, 7, 1, 12, tzinfo=timezone.utc)
+            repo_id = repository_id("github.com", "example/service")
+            package_node_id = package_id("npm", "compromised")
+            bad_version_id = version_id("npm", "compromised", "1.0.0")
+            app_version_id = version_id("npm", "service", "2.0.0")
+            resolution_node_id = resolution_id(repo_id, package_id("npm", "service"), "2.0.0", start, "node_modules/service")
+            compromised_resolution_id = resolution_id(repo_id, package_node_id, "1.0.0", start, "node_modules/compromised")
+            store.add_nodes(
+                [
+                    Node(repo_id, NodeType.REPOSITORY, {"host": "github.com", "full_name": "example/service"}),
+                    Node(package_node_id, NodeType.PACKAGE, {"registry": "npm", "name": "compromised"}),
+                    Node(bad_version_id, NodeType.VERSION, {"registry": "npm", "package": "compromised", "version": "1.0.0"}),
+                    Node(app_version_id, NodeType.VERSION, {"registry": "npm", "package": "service", "version": "2.0.0"}),
+                    Node(resolution_node_id, NodeType.RESOLUTION, {"lock_path": "node_modules/service"}),
+                    Node(compromised_resolution_id, NodeType.RESOLUTION, {"lock_path": "node_modules/compromised"}),
+                ]
+            )
+            store.add_edges(
+                [
+                    Edge.create(app_version_id, EdgeType.DEPENDS_ON, package_node_id, TimeInterval(start), start),
+                    Edge.create(resolution_node_id, EdgeType.RESOLVED_TO, app_version_id, TimeInterval(start, end), start),
+                    Edge.create(repo_id, EdgeType.DECLARES, resolution_node_id, TimeInterval(start, end), start),
+                    Edge.create(compromised_resolution_id, EdgeType.RESOLVED_TO, bad_version_id, TimeInterval(start, end), start),
+                    Edge.create(repo_id, EdgeType.DECLARES, compromised_resolution_id, TimeInterval(start, end), start),
+                ]
+            )
+            settings = Settings.load(Path(__file__).resolve().parents[1])
+            engine = QueryEngine(store, settings)
+            historical = engine.window_exposure("npm", "compromised", "1.0.0", (start, window_end), end)
+            current = engine.current_exposure("npm", "compromised", "1.0.0", end)
+            self.assertEqual({item["repository"] for item in historical.results}, {"example/service"})
+            self.assertEqual(current.results, ())
+            self.assertEqual(historical.coverage.resolvable_repositories, 1)
+
+    def test_blast_radius_returns_path(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            store = GraphStore(Path(directory))
+            instant = datetime(2026, 7, 1, tzinfo=timezone.utc)
+            repo_id = repository_id("github.com", "example/service")
+            bad_package = package_id("npm", "compromised")
+            bad_version = version_id("npm", "compromised", "1.0.0")
+            app_version = version_id("npm", "service", "2.0.0")
+            resolution_node = resolution_id(repo_id, package_id("npm", "service"), "2.0.0", instant, "node_modules/service")
+            store.add_nodes(
+                [
+                    Node(repo_id, NodeType.REPOSITORY, {"full_name": "example/service"}),
+                    Node(bad_package, NodeType.PACKAGE, {"registry": "npm", "name": "compromised"}),
+                    Node(bad_version, NodeType.VERSION, {"registry": "npm", "package": "compromised", "version": "1.0.0"}),
+                    Node(app_version, NodeType.VERSION, {"registry": "npm", "package": "service", "version": "2.0.0"}),
+                    Node(resolution_node, NodeType.RESOLUTION, {"lock_path": "node_modules/service"}),
+                ]
+            )
+            store.add_edges(
+                [
+                    Edge.create(app_version, EdgeType.DEPENDS_ON, bad_package, TimeInterval(instant), instant),
+                    Edge.create(resolution_node, EdgeType.RESOLVED_TO, app_version, TimeInterval(instant), instant),
+                    Edge.create(repo_id, EdgeType.DECLARES, resolution_node, TimeInterval(instant), instant),
+                ]
+            )
+            engine = QueryEngine(store, Settings.load(Path(__file__).resolve().parents[1]))
+            response = engine.blast_radius("npm", "compromised", "1.0.0", instant, instant)
+            self.assertEqual(len(response.results), 1)
+            self.assertEqual(response.results[0]["repository"], "example/service")
+            self.assertIn("service@2.0.0", response.results[0]["path"])
+
+
+if __name__ == "__main__":
+    unittest.main()

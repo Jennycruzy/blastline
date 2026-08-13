@@ -16,7 +16,15 @@
     "npm_changes_limit": 50,
     "pypi_package_url": "https://pypi.org/pypi",
     "pypi_simple_url": "https://pypi.org/simple/",
-    "pypi_simple_limit": 10
+    "pypi_simple_limit": 10,
+    "github_api_url": "https://api.github.com",
+    "github_raw_url": "https://raw.githubusercontent.com",
+    "github_history_limit": 5
+  },
+  "osv": {
+    "endpoint": "https://api.osv.dev/v1/querybatch",
+    "vulnerability_endpoint": "https://api.osv.dev/v1/vulns",
+    "batch_size": 50
   },
   "graph": {
     "directory": "data/graph",
@@ -34,7 +42,10 @@
     "dependent_count_weight": 0.2,
     "shadow_publish_weight": 0.15,
     "young_account_days": 90,
-    "popular_dependent_count": 1000
+    "popular_dependent_count": 1000,
+    "max_name_distance": 2,
+    "candidate_limit": 20,
+    "shadow_window_days": 30
   },
   "timeline": {
     "frame_count": 12,

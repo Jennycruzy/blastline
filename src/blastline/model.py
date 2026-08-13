@@ -190,6 +190,12 @@ def repository_id(host: str, full_name: str) -> str:
     return f"repository:{host}:{full_name}"
 
 
-def resolution_id(repository: str, package: str, version: str, start: datetime) -> str:
-    material = f"{repository}|{package}|{version}|{format_time(start)}"
+def resolution_id(
+    repository: str,
+    package: str,
+    version: str,
+    start: datetime,
+    lock_path: str | None = None,
+) -> str:
+    material = f"{repository}|{package}|{version}|{format_time(start)}|{lock_path or ''}"
     return f"resolution:{hashlib.sha256(material.encode()).hexdigest()}"

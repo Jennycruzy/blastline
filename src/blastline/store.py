@@ -19,6 +19,8 @@ class GraphStore:
         self.nodes_path = directory / "nodes.jsonl"
         self.edges_path = directory / "edges.jsonl"
         self.runs_path = directory / "runs.jsonl"
+        self._nodes_cache: list[Node] | None = None
+        self._edges_cache: list[Edge] | None = None
         self.directory.mkdir(parents=True, exist_ok=True)
 
     def _read_records(self, path: Path) -> list[JsonObject]:
@@ -36,10 +38,14 @@ class GraphStore:
         return records
 
     def nodes(self) -> list[Node]:
-        return [Node.from_json(record) for record in self._read_records(self.nodes_path)]
+        if self._nodes_cache is None:
+            self._nodes_cache = [Node.from_json(record) for record in self._read_records(self.nodes_path)]
+        return list(self._nodes_cache)
 
     def edges(self) -> list[Edge]:
-        return [Edge.from_json(record) for record in self._read_records(self.edges_path)]
+        if self._edges_cache is None:
+            self._edges_cache = [Edge.from_json(record) for record in self._read_records(self.edges_path)]
+        return list(self._edges_cache)
 
     def _append_unique(self, path: Path, records: Iterable[JsonObject]) -> int:
         existing_ids = {
@@ -65,10 +71,18 @@ class GraphStore:
         return added
 
     def add_nodes(self, nodes: Iterable[Node]) -> int:
-        return self._append_unique(self.nodes_path, (node.as_json() for node in nodes))
+        materialized = list(nodes)
+        added = self._append_unique(self.nodes_path, (node.as_json() for node in materialized))
+        if added:
+            self._nodes_cache = None
+        return added
 
     def add_edges(self, edges: Iterable[Edge]) -> int:
-        return self._append_unique(self.edges_path, (edge.as_json() for edge in edges))
+        materialized = list(edges)
+        added = self._append_unique(self.edges_path, (edge.as_json() for edge in materialized))
+        if added:
+            self._edges_cache = None
+        return added
 
     def record_run(self, run: JsonObject) -> None:
         payload = dict(run)

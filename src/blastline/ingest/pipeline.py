@@ -9,11 +9,13 @@ from pathlib import Path
 from ..config import Settings
 from ..errors import BlastlineError, ExternalCallError
 from ..json_types import JsonObject
-from ..model import Edge, Node
+from ..model import Edge, Node, NodeType
 from ..store import GraphStore
 from .failures import FailureLedger
+from .github import GitHubLockfileSource
 from .graphify import graphify_package
 from .http import DiskHttpClient, HttpPolicy
+from .osv import OsvClient, OsvTarget, attach_advisories
 from .parsers import parse_npm, parse_pypi
 from .simple_index import parse_simple_index
 from .sources import NpmRegistry, PyPIRegistry, read_checkpoint, write_checkpoint
@@ -154,6 +156,65 @@ class RegistryIngestor:
         names = parse_simple_index(response.body)
         selected = names[:limit]
         return self.pypi_packages(selected, refresh=refresh)
+
+    def github_lockfile(
+        self,
+        repository: str,
+        path: str,
+        ref: str,
+        ecosystem: str,
+    ) -> tuple[int, int, int, str]:
+        parts = repository.split("/", 1)
+        if len(parts) != 2 or not all(parts):
+            raise BlastlineError("GitHub repository must be owner/name")
+        ingest_section = self.settings.section("ingest")
+        source = GitHubLockfileSource(
+            self.http,
+            self._string(ingest_section, "github_api_url"),
+            self._string(ingest_section, "github_raw_url"),
+            self.store,
+            self.ledger,
+        )
+        limit = self.settings.integer("ingest", "github_history_limit")
+        return source.ingest_history(parts[0], parts[1], path, ref, limit, ecosystem)
+
+    def osv_package(
+        self,
+        registry: str,
+        package_name: str,
+        versions: tuple[str, ...] | None = None,
+    ) -> tuple[int, int, str]:
+        ecosystem = "npm" if registry.lower() == "npm" else "PyPI"
+        selected_versions = set(versions) if versions is not None else None
+        targets: list[OsvTarget] = []
+        for node in self.store.nodes_of_type(NodeType.VERSION):
+            if node.attributes.get("registry") != registry or node.attributes.get("package") != package_name:
+                continue
+            version_value = node.attributes.get("version")
+            published_value = node.attributes.get("published_at")
+            if not isinstance(version_value, str) or not isinstance(published_value, str):
+                continue
+            if selected_versions is not None and version_value not in selected_versions:
+                continue
+            from ..timeutil import parse_time
+
+            try:
+                published_at = parse_time(published_value, f"{node.node_id}.published_at")
+            except ValueError as exc:
+                self.ledger.record("osv", node.node_id, str(exc))
+                continue
+            targets.append(OsvTarget(ecosystem, package_name, version_value, published_at))
+        if not targets:
+            raise BlastlineError(f"no graph versions available for OSV lookup: {registry}:{package_name}")
+        osv_section = self.settings.section("osv")
+        endpoint = self._string(osv_section, "endpoint")
+        vulnerability_endpoint = self._string(osv_section, "vulnerability_endpoint")
+        batch_size = osv_section.get("batch_size")
+        if isinstance(batch_size, bool) or not isinstance(batch_size, int):
+            raise BlastlineError("configuration osv.batch_size must be an integer")
+        client = OsvClient(self.http, endpoint, vulnerability_endpoint)
+        matched, failures = attach_advisories(self.store, client, tuple(targets), batch_size, self.ledger)
+        return matched, failures, self.store.fingerprint()
 
     def print_report(self, report: IngestReport) -> None:
         print(
