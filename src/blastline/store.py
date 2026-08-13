@@ -21,6 +21,9 @@ class GraphStore:
         self.runs_path = directory / "runs.jsonl"
         self._nodes_cache: list[Node] | None = None
         self._edges_cache: list[Edge] | None = None
+        self._node_index: dict[str, Node] | None = None
+        self._outgoing_index: dict[str, list[Edge]] | None = None
+        self._incoming_index: dict[str, list[Edge]] | None = None
         self.directory.mkdir(parents=True, exist_ok=True)
 
     def _read_records(self, path: Path) -> list[JsonObject]:
@@ -40,21 +43,22 @@ class GraphStore:
     def nodes(self) -> list[Node]:
         if self._nodes_cache is None:
             self._nodes_cache = [Node.from_json(record) for record in self._read_records(self.nodes_path)]
+            self._node_index = {node.node_id: node for node in self._nodes_cache}
         return list(self._nodes_cache)
 
     def edges(self) -> list[Edge]:
         if self._edges_cache is None:
             self._edges_cache = [Edge.from_json(record) for record in self._read_records(self.edges_path)]
+            self._outgoing_index = {}
+            self._incoming_index = {}
+            for edge in self._edges_cache:
+                self._outgoing_index.setdefault(edge.source_id, []).append(edge)
+                self._incoming_index.setdefault(edge.target_id, []).append(edge)
         return list(self._edges_cache)
 
-    def _append_unique(self, path: Path, records: Iterable[JsonObject]) -> int:
-        existing_ids = {
-            record_id
-            for record in self._read_records(path)
-            if isinstance(record_id := record.get("id"), str)
-        }
+    def _append_unique(self, path: Path, records: Iterable[JsonObject], existing_ids: set[str]) -> list[JsonObject]:
         new_lines: list[str] = []
-        added = 0
+        added: list[JsonObject] = []
         for record in records:
             record_id = record.get("id")
             if not isinstance(record_id, str):
@@ -63,7 +67,7 @@ class GraphStore:
                 continue
             new_lines.append(json.dumps(record, sort_keys=True, separators=(",", ":")))
             existing_ids.add(record_id)
-            added += 1
+            added.append(record)
         if new_lines:
             with path.open("a", encoding="utf-8") as handle:
                 handle.write("\n".join(new_lines))
@@ -72,17 +76,30 @@ class GraphStore:
 
     def add_nodes(self, nodes: Iterable[Node]) -> int:
         materialized = list(nodes)
-        added = self._append_unique(self.nodes_path, (node.as_json() for node in materialized))
-        if added:
-            self._nodes_cache = None
-        return added
+        self.nodes()
+        if self._node_index is None or self._nodes_cache is None:
+            raise RuntimeError("node indexes were not initialized")
+        existing_ids = set(self._node_index)
+        records = self._append_unique(self.nodes_path, (node.as_json() for node in materialized), existing_ids)
+        for record in records:
+            node = Node.from_json(record)
+            self._nodes_cache.append(node)
+            self._node_index[node.node_id] = node
+        return len(records)
 
     def add_edges(self, edges: Iterable[Edge]) -> int:
         materialized = list(edges)
-        added = self._append_unique(self.edges_path, (edge.as_json() for edge in materialized))
-        if added:
-            self._edges_cache = None
-        return added
+        self.edges()
+        if self._edges_cache is None or self._outgoing_index is None or self._incoming_index is None:
+            raise RuntimeError("edge indexes were not initialized")
+        existing_ids = {edge.edge_id for edge in self._edges_cache}
+        records = self._append_unique(self.edges_path, (edge.as_json() for edge in materialized), existing_ids)
+        for record in records:
+            edge = Edge.from_json(record)
+            self._edges_cache.append(edge)
+            self._outgoing_index.setdefault(edge.source_id, []).append(edge)
+            self._incoming_index.setdefault(edge.target_id, []).append(edge)
+        return len(records)
 
     def record_run(self, run: JsonObject) -> None:
         payload = dict(run)
@@ -100,10 +117,10 @@ class GraphStore:
         return hashlib.sha256(encoded).hexdigest()
 
     def node(self, node_id: str) -> Node | None:
-        for item in self.nodes():
-            if item.node_id == node_id:
-                return item
-        return None
+        self.nodes()
+        if self._node_index is None:
+            raise RuntimeError("node index was not initialized")
+        return self._node_index.get(node_id)
 
     def nodes_of_type(self, node_type: NodeType) -> list[Node]:
         return [item for item in self.nodes() if item.node_type is node_type]
@@ -132,10 +149,15 @@ class GraphStore:
         valid_at: datetime | None = None,
         commit_at: datetime | None = None,
     ) -> list[Edge]:
+        self.edges()
+        if self._outgoing_index is None:
+            raise RuntimeError("outgoing edge index was not initialized")
         return [
             edge
-            for edge in self.visible_edges(valid_at, commit_at, edge_type)
-            if edge.source_id == node_id
+            for edge in self._outgoing_index.get(node_id, [])
+            if (edge_type is None or edge.edge_type is edge_type)
+            and (commit_at is None or edge.commit_at <= commit_at)
+            and (valid_at is None or edge.valid.contains(valid_at))
         ]
 
     def incoming(
@@ -145,8 +167,13 @@ class GraphStore:
         valid_at: datetime | None = None,
         commit_at: datetime | None = None,
     ) -> list[Edge]:
+        self.edges()
+        if self._incoming_index is None:
+            raise RuntimeError("incoming edge index was not initialized")
         return [
             edge
-            for edge in self.visible_edges(valid_at, commit_at, edge_type)
-            if edge.target_id == node_id
+            for edge in self._incoming_index.get(node_id, [])
+            if (edge_type is None or edge.edge_type is edge_type)
+            and (commit_at is None or edge.commit_at <= commit_at)
+            and (valid_at is None or edge.valid.contains(valid_at))
         ]
