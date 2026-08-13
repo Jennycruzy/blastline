@@ -45,6 +45,7 @@ class QueryEngine:
         for repository in repositories:
             declarations = self.store.outgoing(repository.node_id, EdgeType.DECLARES)
             if not declarations:
+                unknown.append(self._node_label(repository.node_id))
                 continue
             has_resolved = any(self.store.outgoing(edge.target_id, EdgeType.RESOLVED_TO) for edge in declarations)
             if has_resolved:

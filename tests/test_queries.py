@@ -12,6 +12,18 @@ from blastline.store import GraphStore
 
 
 class QueryEngineTest(unittest.TestCase):
+    def test_coverage_itemizes_repository_without_resolution(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            store = GraphStore(Path(directory))
+            repository = repository_id("github.com", "example/no-lockfile")
+            store.add_nodes([Node(repository, NodeType.REPOSITORY, {"full_name": "example/no-lockfile"})])
+            engine = QueryEngine(store, Settings.load(Path(__file__).resolve().parents[1]))
+            response = engine.coverage_report()
+            self.assertEqual(response.coverage.total_repositories, 1)
+            self.assertEqual(response.coverage.resolvable_repositories, 0)
+            self.assertEqual(response.coverage.unknown_repositories, 1)
+            self.assertEqual(response.coverage.unknown_repository_ids, ("example/no-lockfile",))
+
     def test_window_query_uses_resolution_interval_and_differs_from_current(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             store = GraphStore(Path(directory))

@@ -2,7 +2,7 @@ PYTHON ?= python3
 RUN = PYTHONPATH=src $(PYTHON) -m blastline.cli
 REGISTRY ?= npm
 
-.PHONY: hello test ingest ingest-full demo demo-timetravel blast window verify maintainer-risk typosquats timeline report check-lockfile
+.PHONY: hello test ingest ingest-full demo demo-timetravel blast window verify maintainer-risk typosquats coverage timeline report check-lockfile
 
 hello:
 	$(RUN) hello
@@ -38,6 +38,9 @@ maintainer-risk:
 
 typosquats:
 	$(RUN) typosquats --registry "$(REGISTRY)" --package "$(PKG)"
+
+coverage:
+	$(RUN) coverage
 
 timeline:
 	PYTHONPATH=src $(PYTHON) -m ui.server
