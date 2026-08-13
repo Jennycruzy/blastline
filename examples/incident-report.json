@@ -20,7 +20,7 @@
     "query": "Q8 abstention and coverage",
     "results": []
   },
-  "generated_at": "2026-08-13T23:44:31Z",
+  "generated_at": "2026-08-13T23:54:15Z",
   "graph": {
     "edge_count": 22951,
     "fingerprint": "83f4c7a43e11e81b69048beef53e3f55dd9f9fd32ac87eddfe5d5506ce38b7e9",
@@ -483,7 +483,7 @@
         ]
       }
     ],
-    "commit_sha": "f4e0336611b0279d98be847f1352f8f96c141bdb",
+    "commit_sha": "76bf63aecead810970da2ab4acf43e6cb7e16aa2",
     "false_negatives": 0,
     "false_positives": 0,
     "gradable_cases": 15,
