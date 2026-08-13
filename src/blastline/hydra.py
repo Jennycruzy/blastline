@@ -173,18 +173,27 @@ class HydraClient:
         return self.request("POST", "/tenants/create", payload)
 
     def add_memory(self, source_id: str, text: str, metadata: JsonObject) -> HydraResponse:
-        memory: JsonObject = {
-            "source_id": source_id,
-            "text": text,
-            "is_markdown": True,
-            "infer": False,
-            "title": source_id,
-            "additional_metadata": metadata,
-        }
+        return self.add_memories(((source_id, text, metadata),))
+
+    def add_memories(self, records: tuple[tuple[str, str, JsonObject], ...]) -> HydraResponse:
+        if not records:
+            raise ValueError("HydraDB memory batch cannot be empty")
+        memories: list[JsonObject] = []
+        for source_id, text, metadata in records:
+            memories.append(
+                {
+                    "source_id": source_id,
+                    "text": text,
+                    "is_markdown": True,
+                    "infer": False,
+                    "title": source_id,
+                    "additional_metadata": metadata,
+                }
+            )
         payload: JsonObject = {
             "tenant_id": self.config.tenant_id,
             "sub_tenant_id": self.config.sub_tenant_id,
-            "memories": [memory],
+            "memories": memories,
             "upsert": True,
         }
         return self.request("POST", "/memories/add_memory", payload)

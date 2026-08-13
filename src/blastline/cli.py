@@ -15,6 +15,7 @@ from .ingest.pipeline import RegistryIngestor
 from .infer.typosquat import TyposquatScorer
 from .query.engine import QueryEngine
 from .query.types import QueryResponse
+from .report import generate_incident_report
 from .verify.grader import Verifier
 from .model import Edge, EdgeType, Node, NodeType, TimeInterval
 from .store import GraphStore
@@ -93,11 +94,13 @@ def ingest(settings: Settings, args: argparse.Namespace) -> int:
     refresh = bool(args.refresh)
     ran = False
     explicit_source = bool(
-        args.npm_package
+        args.full
+        or args.npm_package
         or args.pypi_package
         or args.npm_changes
         or args.pypi_simple
         or args.github_repository
+        or args.lockfile_path
         or args.osv_package
     )
     if args.npm_package:
@@ -106,13 +109,20 @@ def ingest(settings: Settings, args: argparse.Namespace) -> int:
     if args.pypi_package:
         ingestor.print_report(ingestor.pypi_packages(tuple(args.pypi_package), refresh=refresh))
         ran = True
-    if args.npm_changes or not explicit_source:
+    if args.full or args.npm_changes or not explicit_source:
         limit = settings.integer("ingest", "npm_changes_limit")
-        ingestor.print_report(ingestor.npm_changes(limit, refresh=refresh))
+        if args.full:
+            while True:
+                page = ingestor.npm_changes(limit, refresh=refresh)
+                ingestor.print_report(page)
+                if page.feed_exhausted:
+                    break
+        else:
+            ingestor.print_report(ingestor.npm_changes(limit, refresh=refresh))
         ran = True
-    if args.pypi_simple or not explicit_source:
+    if args.full or args.pypi_simple or not explicit_source:
         limit = settings.integer("ingest", "pypi_simple_limit")
-        ingestor.print_report(ingestor.pypi_simple(limit, refresh=refresh))
+        ingestor.print_report(ingestor.pypi_simple(None if args.full else limit, refresh=refresh))
         ran = True
     if args.github_repository is not None:
         if args.github_path is None:
@@ -127,6 +137,25 @@ def ingest(settings: Settings, args: argparse.Namespace) -> int:
             f"github-lockfile: parsed {snapshots} real snapshots and {resolutions} resolutions; "
             f"failed {failures}; graph fingerprint {fingerprint}"
         )
+        ran = True
+    if args.lockfile_path is not None:
+        if args.lockfile_repository is None:
+            raise ConfigurationError("--lockfile-repository is required with --lockfile-path")
+        if args.lockfile_valid_from is None:
+            raise ConfigurationError("--lockfile-valid-from is required with --lockfile-path")
+        resolutions, issues, failures, fingerprint = ingestor.local_lockfile(
+            Path(args.lockfile_path),
+            args.lockfile_repository,
+            args.lockfile_ecosystem,
+            args.lockfile_valid_from,
+            args.lockfile_valid_to,
+        )
+        print(
+            f"local-lockfile: parsed {resolutions} resolutions; itemized issues {issues}; "
+            f"failed {failures}; graph fingerprint {fingerprint}"
+        )
+        coverage = query_engine(settings).coverage_report()
+        print(coverage.human())
         ran = True
     if args.osv_package is not None:
         versions = tuple(args.osv_version) if args.osv_version else None
@@ -216,6 +245,25 @@ def verify(settings: Settings, as_json: bool) -> int:
     return 0
 
 
+def report(settings: Settings, as_json: bool) -> int:
+    artifact, payload = generate_incident_report(settings)
+    if as_json:
+        print(json.dumps(payload, sort_keys=True, indent=2))
+    else:
+        incident = payload["incident"]
+        if not isinstance(incident, dict):
+            raise BlastlineError("generated incident report has invalid incident section")
+        print(
+            f"incident report: {incident.get('package')}@{incident.get('version')} "
+            f"from {incident.get('window', {}).get('from')} to {incident.get('window', {}).get('to')}"
+        )
+        print(f"historical exposure: {len(payload['historical_exposure']['results'])} result(s)")
+        print(f"still dirty: {len(payload['still_dirty']['results'])} result(s)")
+        print(f"verification: {payload['verification']['precision']} precision, {payload['verification']['recall']} recall")
+        print(f"generated artifact: {artifact.relative_to(settings.root)}")
+    return 0
+
+
 def add_output_options(command_parser: argparse.ArgumentParser) -> None:
     command_parser.add_argument("--json", action="store_true", help="print machine-readable JSON")
 
@@ -232,6 +280,7 @@ def parser() -> argparse.ArgumentParser:
     subparsers.add_parser("hello")
     subparsers.add_parser("demo-timetravel")
     ingest_parser = subparsers.add_parser("ingest")
+    ingest_parser.add_argument("--full", action="store_true", help="drain the npm feed and enumerate the full PyPI simple index")
     ingest_parser.add_argument("--npm-package", action="append", default=[])
     ingest_parser.add_argument("--pypi-package", action="append", default=[])
     ingest_parser.add_argument("--npm-changes", action="store_true")
@@ -240,6 +289,11 @@ def parser() -> argparse.ArgumentParser:
     ingest_parser.add_argument("--github-path")
     ingest_parser.add_argument("--github-ref", default="main")
     ingest_parser.add_argument("--github-ecosystem", default="npm")
+    ingest_parser.add_argument("--lockfile-path")
+    ingest_parser.add_argument("--lockfile-repository")
+    ingest_parser.add_argument("--lockfile-ecosystem", default="npm")
+    ingest_parser.add_argument("--lockfile-valid-from")
+    ingest_parser.add_argument("--lockfile-valid-to")
     ingest_parser.add_argument("--osv-package")
     ingest_parser.add_argument("--osv-registry", default="npm")
     ingest_parser.add_argument("--osv-version", action="append", default=[])
@@ -282,6 +336,8 @@ def parser() -> argparse.ArgumentParser:
     add_output_options(coverage_parser)
     verify_parser = subparsers.add_parser("verify")
     add_output_options(verify_parser)
+    report_parser = subparsers.add_parser("report")
+    add_output_options(report_parser)
     return command_parser
 
 
@@ -296,6 +352,8 @@ def main(argv: list[str] | None = None) -> int:
         return ingest(settings, args)
     if args.command == "verify":
         return verify(settings, args.json)
+    if args.command == "report":
+        return report(settings, args.json)
     if args.command in {
         "blast",
         "window",

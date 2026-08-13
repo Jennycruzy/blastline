@@ -33,6 +33,9 @@ class QueryEngine:
         self.max_depth = settings.integer("graph", "max_traversal_depth")
         if self.max_depth < 1:
             raise ValueError("graph.max_traversal_depth must be positive")
+        self.current_query_epsilon_microseconds = settings.integer("graph", "current_query_epsilon_microseconds")
+        if self.current_query_epsilon_microseconds < 1:
+            raise ValueError("graph.current_query_epsilon_microseconds must be positive")
 
     def coverage(self) -> Coverage:
         repositories = self.store.nodes_of_type(NodeType.REPOSITORY)
@@ -207,6 +210,8 @@ class QueryEngine:
                     "valid_at": format_time(observed_at),
                 }
             )
+        if not results and not abstentions:
+            abstentions.append(AbstentionNotice(f"{registry}:{package}@{version}", "no repository path is supported by the observed graph at this time"))
         return self._response(f"Q1 blast radius {registry}:{package}@{version}", results, abstentions)
 
     def window_exposure(
@@ -256,7 +261,13 @@ class QueryEngine:
 
     def current_exposure(self, registry: str, package: str, version: str, as_of: datetime | None = None) -> QueryResponse:
         instant = as_of if as_of is not None else now_utc()
-        return self.window_exposure(registry, package, version, (instant, instant + timedelta(microseconds=1)), known_at=instant)
+        return self.window_exposure(
+            registry,
+            package,
+            version,
+            (instant, instant + timedelta(microseconds=self.current_query_epsilon_microseconds)),
+            known_at=instant,
+        )
 
     def first_affected_version(
         self,
@@ -307,7 +318,11 @@ class QueryEngine:
             abstentions.append(AbstentionNotice(maintainer, "maintainer is not in the graph"))
         for maintainer_node in candidates:
             package_edges = self.store.outgoing(maintainer_node.node_id, EdgeType.MAINTAINS, valid_at=instant)
+            seen_packages: set[str] = set()
             for package_edge in package_edges:
+                if package_edge.target_id in seen_packages:
+                    continue
+                seen_packages.add(package_edge.target_id)
                 paths, closure_abstentions = self._reverse_repository_paths(package_edge.target_id, instant, None)
                 abstentions.extend(closure_abstentions)
                 repositories = sorted({self._node_label(item[0]) for item in paths})
@@ -327,7 +342,7 @@ class QueryEngine:
     def shared_infrastructure(self, registry: str, package: str, version: str, valid_at: datetime | None = None) -> QueryResponse:
         instant = valid_at if valid_at is not None else now_utc()
         abstentions: list[AbstentionNotice] = []
-        results: list[JsonObject] = []
+        grouped: dict[tuple[str, str, str], set[str]] = {}
         try:
             target = self._version_node(registry, package, version)
         except Abstention as exc:
@@ -345,16 +360,22 @@ class QueryEngine:
                         continue
                     other_package = other.attributes.get("package")
                     other_version = other.attributes.get("version")
-                    if isinstance(other_package, str) and isinstance(other_version, str):
-                        results.append(
-                            {
-                                "shared_by": edge_type.value,
-                                "shared_identifier": edge.target_id,
-                                "version": f"{other_package}@{other_version}",
-                            }
-                        )
+                    if isinstance(other_package, str) and isinstance(other_version, str) and other_package != package:
+                        grouped.setdefault((edge_type.value, edge.target_id, other_package), set()).add(other_version)
+        results: list[JsonObject] = [
+            {
+                "shared_by": edge_type,
+                "shared_identifier": shared_identifier,
+                "package": other_package,
+                "versions": sorted(versions),
+                "version_count": len(versions),
+            }
+            for (edge_type, shared_identifier, other_package), versions in sorted(grouped.items())
+        ]
         if not results and not keys:
             abstentions.append(AbstentionNotice(target.node_id, "compromised Version has no publish maintainer or infrastructure edge"))
+        elif not results:
+            abstentions.append(AbstentionNotice(target.node_id, "shared publisher/infrastructure edge exists, but no distinct package has corroborating Version evidence"))
         return self._response(f"Q5 shared infrastructure {registry}:{package}@{version}", dedupe_objects(results), abstentions)
 
     def still_dirty(
@@ -381,7 +402,7 @@ class QueryEngine:
         results: list[JsonObject] = []
         for repository, result in sorted(historic.items()):
             if repository not in current_repositories:
-                current_versions = self._current_versions_for_repository(repository, instant)
+                current_versions = self._current_versions_for_repository(repository, instant, registry, package)
                 results.append(
                     {
                         "repository": repository,
@@ -394,7 +415,13 @@ class QueryEngine:
             abstentions.append(AbstentionNotice(f"{registry}:{package}@{version}", "no repository was both historically exposed and currently resolved clean"))
         return self._response(f"Q7 still dirty {registry}:{package}@{version}", results, abstentions)
 
-    def _current_versions_for_repository(self, label: str, instant: datetime) -> list[str]:
+    def _current_versions_for_repository(
+        self,
+        label: str,
+        instant: datetime,
+        registry: str | None = None,
+        package: str | None = None,
+    ) -> list[str]:
         repository_nodes = [
             node
             for node in self.store.nodes_of_type(NodeType.REPOSITORY)
@@ -408,7 +435,8 @@ class QueryEngine:
                     if node is not None:
                         pkg = node.attributes.get("package")
                         ver = node.attributes.get("version")
-                        if isinstance(pkg, str) and isinstance(ver, str):
+                        node_registry = node.attributes.get("registry")
+                        if isinstance(pkg, str) and isinstance(ver, str) and (registry is None or node_registry == registry) and (package is None or pkg == package):
                             versions.append(f"{pkg}@{ver}")
         return sorted(set(versions))
 

@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Blastline exposure timeline</title>
+  <style>
+    :root { color-scheme: dark; --ink:#e9edf3; --muted:#9ca9bb; --panel:#111925; --line:#263246; --hot:#ff6b4a; --cool:#65d6b3; }
+    * { box-sizing: border-box; }
+    body { margin:0; min-height:100vh; background:#0a0f17; color:var(--ink); font:16px/1.5 system-ui,-apple-system,sans-serif; }
+    main { max-width:980px; margin:0 auto; padding:40px 24px 64px; }
+    .eyebrow { color:var(--hot); letter-spacing:.16em; text-transform:uppercase; font-size:12px; font-weight:700; }
+    h1 { margin:8px 0 4px; font-size:clamp(32px,6vw,64px); letter-spacing:-.05em; }
+    .lede { color:var(--muted); max-width:700px; margin:0 0 30px; }
+    .panel { background:var(--panel); border:1px solid var(--line); border-radius:16px; padding:24px; box-shadow:0 20px 60px #0005; }
+    .incident { display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; border-bottom:1px solid var(--line); padding-bottom:18px; }
+    .incident strong { display:block; font-size:22px; }
+    .incident span, .meta { color:var(--muted); }
+    input[type=range] { width:100%; accent-color:var(--hot); margin:28px 0 10px; }
+    .clock { display:flex; justify-content:space-between; color:var(--muted); font:13px ui-monospace,SFMono-Regular,monospace; }
+    .frame { margin-top:24px; display:grid; gap:18px; grid-template-columns:1.4fr .8fr; }
+    .metric { border:1px solid var(--line); border-radius:12px; padding:18px; }
+    .metric h2 { margin:0 0 8px; font-size:13px; color:var(--muted); text-transform:uppercase; letter-spacing:.1em; }
+    .count { font-size:48px; line-height:1; color:var(--cool); }
+    ul { margin:10px 0 0; padding-left:22px; }
+    li { margin:5px 0; }
+    code, pre { font:13px ui-monospace,SFMono-Regular,monospace; }
+    pre { white-space:pre-wrap; color:var(--muted); margin:0; }
+    .error { color:var(--hot); }
+    @media (max-width:700px) { .frame { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+<main>
+  <div class="eyebrow">Blastline / Q3</div>
+  <h1>Who was exposed while nobody knew?</h1>
+  <p class="lede">Scrub the incident window. Every frame asks the bitemporal graph a fresh question and reports the query latency beside the result.</p>
+  <section class="panel">
+    <div class="incident">
+      <div><strong id="target">loading…</strong><span>compromised version</span></div>
+      <div><strong id="mode">live temporal query</strong><span>no precomputed animation</span></div>
+    </div>
+    <input id="scrubber" type="range" min="0" max="11" value="0" aria-label="Incident timeline">
+    <div class="clock"><span id="from">—</span><span id="to">—</span></div>
+    <div class="frame">
+      <div class="metric"><h2>Exposed repositories</h2><div class="count" id="count">—</div><ul id="repos"></ul></div>
+      <div class="metric"><h2>Evidence</h2><pre id="evidence">Querying…</pre></div>
+    </div>
+  </section>
+</main>
+<script>
+  const scrubber = document.querySelector('#scrubber');
+  const target = document.querySelector('#target');
+  const mode = document.querySelector('#mode');
+  const from = document.querySelector('#from');
+  const to = document.querySelector('#to');
+  const count = document.querySelector('#count');
+  const repos = document.querySelector('#repos');
+  const evidence = document.querySelector('#evidence');
+  let frames = [];
+  function render(index) {
+    const frame = frames[index];
+    if (!frame) return;
+    from.textContent = frame.from;
+    to.textContent = frame.to;
+    count.textContent = frame.exposed_repositories.length;
+    repos.replaceChildren(...frame.exposed_repositories.map(repo => { const item=document.createElement('li'); item.textContent=repo; return item; }));
+    evidence.textContent = `Q3 window query\n${frame.from} → ${frame.to}\nlatency ${frame.latency_ms} ms\n\n${JSON.stringify(frame.query, null, 2)}`;
+  }
+  async function load() {
+    try {
+      const response = await fetch('/api/timeline', {cache:'no-store'});
+      const body = await response.json();
+      if (!response.ok) throw new Error(body.error || 'timeline request failed');
+      frames = body.frames;
+      scrubber.max = String(Math.max(0, frames.length - 1));
+      target.textContent = `${body.package}@${body.version}`;
+      mode.textContent = body.mode;
+      render(0);
+    } catch (error) {
+      evidence.classList.add('error');
+      evidence.textContent = String(error);
+    }
+  }
+  scrubber.addEventListener('input', event => render(Number(event.target.value)));
+  load();
+</script>
+</body>
+</html>

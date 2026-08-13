@@ -6,7 +6,8 @@
     "request_timeout_seconds": 20,
     "retry_attempts": 5,
     "retry_base_seconds": 1.0,
-    "cache_directory": "cache/http"
+    "cache_directory": "cache/http",
+    "batch_size": 100
   },
   "ingest": {
     "user_agent": "blastline/0.1.0 (Hack Hydra supply-chain research)",
@@ -14,6 +15,7 @@
     "npm_changes_url": "https://replicate.npmjs.com/registry",
     "npm_initial_since": "0",
     "npm_changes_limit": 50,
+    "fetch_concurrency": 4,
     "pypi_package_url": "https://pypi.org/pypi",
     "pypi_simple_url": "https://pypi.org/simple/",
     "pypi_simple_limit": 10,
@@ -29,7 +31,8 @@
   "graph": {
     "directory": "data/graph",
     "max_traversal_depth": 20,
-    "default_window_days": 1
+    "default_window_days": 1,
+    "current_query_epsilon_microseconds": 1
   },
   "verification": {
     "repository_limit": 50,
@@ -49,6 +52,14 @@
   },
   "timeline": {
     "frame_count": 12,
-    "frame_duration_seconds": 30
+    "frame_duration_seconds": 30,
+    "demo_registry": "npm",
+    "demo_package": "write-file-atomic",
+    "demo_version": "7.0.1",
+    "demo_from": "2026-07-09T00:00:00Z",
+    "demo_to": "2026-07-09T12:00:00Z"
+  },
+  "report": {
+    "artifact": "examples/incident-report.json"
   }
 }

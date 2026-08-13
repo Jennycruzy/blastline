@@ -117,6 +117,8 @@ class TyposquatScorer:
                 }
             )
         results.sort(key=lambda item: float(item["score"]) if isinstance(item.get("score"), (float, int)) else -1.0, reverse=True)
+        if not results and not abstentions:
+            abstentions.append(AbstentionNotice(target.node_id, "no candidate is within the configured name-distance bound"))
         return QueryResponse(
             f"Q6 typosquat proximity {registry}:{name}",
             tuple(results[: self.candidate_limit]),

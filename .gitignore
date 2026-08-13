@@ -6,6 +6,8 @@ __pycache__/
 .mypy_cache/
 .ruff_cache/
 .env
-data/
+data/*
+!data/graph/
+!data/graph/*.jsonl
 dist/
 *.egg-info/
