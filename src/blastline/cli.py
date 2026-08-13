@@ -5,12 +5,12 @@ from __future__ import annotations
 import argparse
 import json
 import sys
-from datetime import timedelta
 from pathlib import Path
 
 from .config import Settings
 from .errors import BlastlineError, ConfigurationError
 from .hydra import HydraClient, load_hydra_config, response_success
+from .ingest.pipeline import RegistryIngestor
 from .model import Edge, EdgeType, Node, NodeType, TimeInterval
 from .store import GraphStore
 from .timeutil import format_time, now_utc, parse_time
@@ -83,11 +83,41 @@ def demo_timetravel(settings: Settings) -> int:
     return 0
 
 
+def ingest(settings: Settings, args: argparse.Namespace) -> int:
+    ingestor = RegistryIngestor(settings)
+    refresh = bool(args.refresh)
+    ran = False
+    explicit_source = bool(args.npm_package or args.pypi_package or args.npm_changes or args.pypi_simple)
+    if args.npm_package:
+        ingestor.print_report(ingestor.npm_packages(tuple(args.npm_package), refresh=refresh))
+        ran = True
+    if args.pypi_package:
+        ingestor.print_report(ingestor.pypi_packages(tuple(args.pypi_package), refresh=refresh))
+        ran = True
+    if args.npm_changes or not explicit_source:
+        limit = settings.integer("ingest", "npm_changes_limit")
+        ingestor.print_report(ingestor.npm_changes(limit, refresh=refresh))
+        ran = True
+    if args.pypi_simple or not explicit_source:
+        limit = settings.integer("ingest", "pypi_simple_limit")
+        ingestor.print_report(ingestor.pypi_simple(limit, refresh=refresh))
+        ran = True
+    if not ran:
+        raise ConfigurationError("ingest requires a registry source selection")
+    return 0
+
+
 def parser() -> argparse.ArgumentParser:
     command_parser = argparse.ArgumentParser(prog="blastline")
     subparsers = command_parser.add_subparsers(dest="command", required=True)
     subparsers.add_parser("hello")
     subparsers.add_parser("demo-timetravel")
+    ingest_parser = subparsers.add_parser("ingest")
+    ingest_parser.add_argument("--npm-package", action="append", default=[])
+    ingest_parser.add_argument("--pypi-package", action="append", default=[])
+    ingest_parser.add_argument("--npm-changes", action="store_true")
+    ingest_parser.add_argument("--pypi-simple", action="store_true")
+    ingest_parser.add_argument("--refresh", action="store_true")
     return command_parser
 
 
@@ -98,6 +128,8 @@ def main(argv: list[str] | None = None) -> int:
         return hello(settings)
     if args.command == "demo-timetravel":
         return demo_timetravel(settings)
+    if args.command == "ingest":
+        return ingest(settings, args)
     raise ConfigurationError(f"command is not implemented yet: {args.command}")
 
 

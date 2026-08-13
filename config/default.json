@@ -8,6 +8,16 @@
     "retry_base_seconds": 1.0,
     "cache_directory": "cache/http"
   },
+  "ingest": {
+    "user_agent": "blastline/0.1.0 (Hack Hydra supply-chain research)",
+    "npm_registry_url": "https://registry.npmjs.org",
+    "npm_changes_url": "https://replicate.npmjs.com/registry",
+    "npm_initial_since": "0",
+    "npm_changes_limit": 50,
+    "pypi_package_url": "https://pypi.org/pypi",
+    "pypi_simple_url": "https://pypi.org/simple/",
+    "pypi_simple_limit": 10
+  },
   "graph": {
     "directory": "data/graph",
     "max_traversal_depth": 20,

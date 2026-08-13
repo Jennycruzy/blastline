@@ -6,8 +6,6 @@ __pycache__/
 .mypy_cache/
 .ruff_cache/
 .env
-cache/http/
-cache/work/
 data/
 dist/
 *.egg-info/

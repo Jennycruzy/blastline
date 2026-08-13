@@ -1,0 +1,8 @@
+{"identifier":"lodash","reason":"HTTP GET https://registry.npmjs.org/lodash failed after retries","recorded_at":"2026-08-13T20:18:30Z","source":"npm"}
+{"identifier":"requests","reason":"HTTP GET https://pypi.org/pypi/requests/json failed after retries","recorded_at":"2026-08-13T20:18:45Z","source":"pypi"}
+{"identifier":"requests@0.0.1","payload_hash":"bcfc6a202592e4e90f5a28ff002694eaa7c58ba741b76077f432b8bee1480111","reason":"release has no file records","recorded_at":"2026-08-13T20:24:54Z","source":"pypi"}
+{"identifier":"requests@0.12.01","payload_hash":"bcfc6a202592e4e90f5a28ff002694eaa7c58ba741b76077f432b8bee1480111","reason":"release has no file records","recorded_at":"2026-08-13T20:24:54Z","source":"pypi"}
+{"identifier":"requests@2.15.0","payload_hash":"bcfc6a202592e4e90f5a28ff002694eaa7c58ba741b76077f432b8bee1480111","reason":"release has no file records","recorded_at":"2026-08-13T20:24:54Z","source":"pypi"}
+{"identifier":"requests@0.0.1","payload_hash":"bcfc6a202592e4e90f5a28ff002694eaa7c58ba741b76077f432b8bee1480111","reason":"release has no file records","recorded_at":"2026-08-13T20:25:04Z","source":"pypi"}
+{"identifier":"requests@0.12.01","payload_hash":"bcfc6a202592e4e90f5a28ff002694eaa7c58ba741b76077f432b8bee1480111","reason":"release has no file records","recorded_at":"2026-08-13T20:25:04Z","source":"pypi"}
+{"identifier":"requests@2.15.0","payload_hash":"bcfc6a202592e4e90f5a28ff002694eaa7c58ba741b76077f432b8bee1480111","reason":"release has no file records","recorded_at":"2026-08-13T20:25:04Z","source":"pypi"}
