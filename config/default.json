@@ -1,0 +1,33 @@
+{
+  "hydra": {
+    "base_url": "https://api.hydradb.com",
+    "tenant_id": "blastline",
+    "sub_tenant_id": "supply-chain",
+    "request_timeout_seconds": 20,
+    "retry_attempts": 5,
+    "retry_base_seconds": 1.0,
+    "cache_directory": "cache/http"
+  },
+  "graph": {
+    "directory": "data/graph",
+    "max_traversal_depth": 20,
+    "default_window_days": 1
+  },
+  "verification": {
+    "repository_limit": 50,
+    "max_lockfile_bytes": 10000000,
+    "max_unresolved_dependencies": 0
+  },
+  "inference": {
+    "name_distance_weight": 0.45,
+    "account_age_weight": 0.2,
+    "dependent_count_weight": 0.2,
+    "shadow_publish_weight": 0.15,
+    "young_account_days": 90,
+    "popular_dependent_count": 1000
+  },
+  "timeline": {
+    "frame_count": 12,
+    "frame_duration_seconds": 30
+  }
+}

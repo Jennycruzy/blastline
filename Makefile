@@ -1,36 +1,37 @@
 PYTHON ?= python3
+RUN = PYTHONPATH=src $(PYTHON) -m blastline.cli
 
 .PHONY: hello test ingest demo-timetravel blast window verify maintainer-risk typosquats timeline report
 
 hello:
-	$(PYTHON) -m blastline.cli hello
+	$(RUN) hello
 
 test:
-	$(PYTHON) -m unittest discover -s tests -v
+	PYTHONPATH=src $(PYTHON) -m unittest discover -s tests -v
 
 ingest:
-	$(PYTHON) -m blastline.cli ingest
+	$(RUN) ingest
 
 demo-timetravel:
-	$(PYTHON) -m blastline.cli demo-timetravel
+	$(RUN) demo-timetravel
 
 blast:
-	$(PYTHON) -m blastline.cli blast --package "$(PKG)" --version "$(VERSION)"
+	$(RUN) blast --package "$(PKG)" --version "$(VERSION)"
 
 window:
-	$(PYTHON) -m blastline.cli window --from "$(FROM)" --to "$(TO)"
+	$(RUN) window --from "$(FROM)" --to "$(TO)"
 
 verify:
-	$(PYTHON) -m blastline.cli verify
+	$(RUN) verify
 
 maintainer-risk:
-	$(PYTHON) -m blastline.cli maintainer-risk --maintainer "$(MAINTAINER)"
+	$(RUN) maintainer-risk --maintainer "$(MAINTAINER)"
 
 typosquats:
-	$(PYTHON) -m blastline.cli typosquats --package "$(PKG)"
+	$(RUN) typosquats --package "$(PKG)"
 
 timeline:
-	$(PYTHON) -m blastline.cli timeline
+	$(RUN) timeline
 
 report:
-	$(PYTHON) -m blastline.cli report
+	$(RUN) report
