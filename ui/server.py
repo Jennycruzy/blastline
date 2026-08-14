@@ -11,8 +11,54 @@ from pathlib import Path
 from urllib.parse import parse_qs, urlparse
 
 from blastline.config import Settings
+from blastline.json_types import JsonObject
 from blastline.query.engine import QueryEngine
 from blastline.timeutil import format_time, parse_time
+
+
+def build_timeline_payload(settings: Settings, engine: QueryEngine, query: dict[str, list[str]] | None = None) -> JsonObject:
+    """Build the live frame payload used by both HTTP and offline checks."""
+
+    values = query if query is not None else {}
+    timeline = settings.section("timeline")
+    registry = TimelineHandler._one(values, "registry", TimelineHandler._config_string(timeline, "demo_registry"))
+    package = TimelineHandler._one(values, "package", TimelineHandler._config_string(timeline, "demo_package"))
+    version = TimelineHandler._one(values, "version", TimelineHandler._config_string(timeline, "demo_version"))
+    start = parse_time(TimelineHandler._one(values, "from", TimelineHandler._config_string(timeline, "demo_from")), "timeline from")
+    end = parse_time(TimelineHandler._one(values, "to", TimelineHandler._config_string(timeline, "demo_to")), "timeline to")
+    if end <= start:
+        raise ValueError("timeline to must be after from")
+    frame_count = settings.integer("timeline", "frame_count")
+    if frame_count < 1:
+        raise ValueError("timeline.frame_count must be positive")
+    duration = (end - start) / frame_count
+    frames: list[JsonObject] = []
+    for index in range(frame_count):
+        frame_end = end if index == frame_count - 1 else start + duration * (index + 1)
+        began = time.perf_counter()
+        response = engine.window_exposure(registry, package, version, (start, frame_end))
+        latency_ms = (time.perf_counter() - began) * 1000
+        frames.append(
+            {
+                "frame": index,
+                "from": format_time(start),
+                "to": format_time(frame_end),
+                "latency_ms": round(latency_ms, 3),
+                "exposed_repositories": sorted({
+                    str(item["repository"])
+                    for item in response.results
+                    if isinstance(item.get("repository"), str)
+                }),
+                "query": response.as_json(),
+            }
+        )
+    return {
+        "mode": "live-temporal-query",
+        "registry": registry,
+        "package": package,
+        "version": version,
+        "frames": frames,
+    }
 
 
 class TimelineHandler(BaseHTTPRequestHandler):
@@ -31,50 +77,10 @@ class TimelineHandler(BaseHTTPRequestHandler):
         self._send(404, "text/plain; charset=utf-8", b"not found\n")
 
     def _timeline(self, query: dict[str, list[str]]) -> None:
-        timeline = self.settings.section("timeline")
-        registry = self._one(query, "registry", self._config_string(timeline, "demo_registry"))
-        package = self._one(query, "package", self._config_string(timeline, "demo_package"))
-        version = self._one(query, "version", self._config_string(timeline, "demo_version"))
-        start = parse_time(self._one(query, "from", self._config_string(timeline, "demo_from")), "timeline from")
-        end = parse_time(self._one(query, "to", self._config_string(timeline, "demo_to")), "timeline to")
-        if end <= start:
-            self._send_json(400, {"error": "timeline to must be after from"})
-            return
-        frame_count = self.settings.integer("timeline", "frame_count")
-        if frame_count < 1:
-            self._send_json(500, {"error": "timeline.frame_count must be positive"})
-            return
-        duration = (end - start) / frame_count
-        frames: list[dict[str, object]] = []
-        for index in range(frame_count):
-            frame_end = end if index == frame_count - 1 else start + duration * (index + 1)
-            began = time.perf_counter()
-            response = self.engine.window_exposure(registry, package, version, (start, frame_end))
-            latency_ms = (time.perf_counter() - began) * 1000
-            frames.append(
-                {
-                    "frame": index,
-                    "from": format_time(start),
-                    "to": format_time(frame_end),
-                    "latency_ms": round(latency_ms, 3),
-                    "exposed_repositories": sorted(
-                        str(item["repository"])
-                        for item in response.results
-                        if isinstance(item.get("repository"), str)
-                    ),
-                    "query": response.as_json(),
-                }
-            )
-        self._send_json(
-            200,
-            {
-                "mode": "live-temporal-query",
-                "registry": registry,
-                "package": package,
-                "version": version,
-                "frames": frames,
-            },
-        )
+        try:
+            self._send_json(200, build_timeline_payload(self.settings, self.engine, query))
+        except ValueError as exc:
+            self._send_json(400, {"error": str(exc)})
 
     @staticmethod
     def _one(query: dict[str, list[str]], key: str, default: str) -> str:
@@ -84,13 +90,13 @@ class TimelineHandler(BaseHTTPRequestHandler):
         return values[0]
 
     @staticmethod
-    def _config_string(section: dict[str, object], key: str) -> str:
+    def _config_string(section: JsonObject, key: str) -> str:
         value = section.get(key)
         if not isinstance(value, str):
             raise ValueError(f"timeline.{key} must be a string")
         return value
 
-    def _send_json(self, status: int, value: dict[str, object]) -> None:
+    def _send_json(self, status: int, value: JsonObject) -> None:
         self._send(status, "application/json; charset=utf-8", json.dumps(value, sort_keys=True).encode())
 
     def _send(self, status: int, content_type: str, body: bytes) -> None:

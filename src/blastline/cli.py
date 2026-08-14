@@ -17,7 +17,7 @@ from .query.engine import QueryEngine
 from .query.types import QueryResponse
 from .report import generate_incident_report
 from .verify.grader import Verifier
-from .model import Edge, EdgeType, Node, NodeType, TimeInterval
+from .model import EdgeType, Node, NodeType, version_id
 from .store import GraphStore
 from .timeutil import format_time, now_utc, parse_time
 
@@ -55,36 +55,21 @@ def hello(settings: Settings) -> int:
 
 
 def demo_timetravel(settings: Settings) -> int:
-    store = GraphStore(settings.root / "data" / "m1-timetravel")
-    first = parse_time("2026-08-13T09:00:00Z", "demo start")
-    second = parse_time("2026-08-13T09:05:00Z", "demo update")
-    query_time = parse_time("2026-08-13T09:06:00Z", "demo query")
-    repository = Node("repository:demo:payments", NodeType.REPOSITORY, {"name": "payments"})
-    vulnerable = Node("version:npm:demo-lib@1.0.0", NodeType.VERSION, {"package": "demo-lib", "version": "1.0.0"})
-    fixed = Node("version:npm:demo-lib@1.0.1", NodeType.VERSION, {"package": "demo-lib", "version": "1.0.1"})
-    store.add_nodes([repository, vulnerable, fixed])
-    old_edge = Edge.create(
-        repository.node_id,
-        EdgeType.RESOLVED_TO,
-        vulnerable.node_id,
-        TimeInterval(first, second),
-        first,
-        {"lockfile": "package-lock.json", "source": "demo"},
-    )
-    new_edge = Edge.create(
-        repository.node_id,
-        EdgeType.RESOLVED_TO,
-        fixed.node_id,
-        TimeInterval(second, None),
-        query_time,
-        {"lockfile": "package-lock.json", "source": "demo"},
-    )
-    store.add_edges([old_edge, new_edge])
-    before_learning = store.outgoing(repository.node_id, EdgeType.RESOLVED_TO, query_time, first)
-    after_learning = store.outgoing(repository.node_id, EdgeType.RESOLVED_TO, query_time, query_time)
-    print("bitemporal demo: repository=payments, valid_at=2026-08-13T09:06:00Z")
-    print(f"  as known at 09:00: {len(before_learning)} relationship(s) — {before_learning[0].target_id if before_learning else 'ABSTAIN'}")
-    print(f"  as known at 09:03: {len(after_learning)} relationship(s) — {after_learning[0].target_id if after_learning else 'ABSTAIN'}")
+    store = build_store(settings)
+    registry = settings.string("timetravel_demo", "registry")
+    package = settings.string("timetravel_demo", "package")
+    version = settings.string("timetravel_demo", "version")
+    valid_at = parse_time(settings.string("timetravel_demo", "valid_at"), "timetravel_demo.valid_at")
+    known_before = parse_time(settings.string("timetravel_demo", "known_before"), "timetravel_demo.known_before")
+    known_after = parse_time(settings.string("timetravel_demo", "known_after"), "timetravel_demo.known_after")
+    target_id = version_id(registry, package, version)
+    before = store.incoming(target_id, EdgeType.RESOLVED_TO, valid_at=valid_at, commit_at=known_before)
+    after = store.incoming(target_id, EdgeType.RESOLVED_TO, valid_at=valid_at, commit_at=known_after)
+    print(f"bitemporal demo: {registry}:{package}@{version}, valid_at={format_time(valid_at)}")
+    print(f"  as known at {format_time(known_before)}: {len(before)} relationship(s) — {'ABSTAIN' if not before else 'visible'}")
+    print(f"  as known at {format_time(known_after)}: {len(after)} relationship(s) — {'ABSTAIN' if not after else 'visible'}")
+    if not after:
+        raise BlastlineError("real bitemporal demo has no post-commit Resolution edge")
     print(f"  append-only fingerprint: {store.fingerprint()}")
     return 0
 

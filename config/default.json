@@ -56,8 +56,16 @@
     "demo_registry": "npm",
     "demo_package": "write-file-atomic",
     "demo_version": "7.0.1",
-    "demo_from": "2026-07-09T00:00:00Z",
-    "demo_to": "2026-07-09T12:00:00Z"
+    "demo_from": "2026-07-08T18:00:00Z",
+    "demo_to": "2026-07-08T20:30:00Z"
+  },
+  "timetravel_demo": {
+    "registry": "npm",
+    "package": "write-file-atomic",
+    "version": "7.0.1",
+    "valid_at": "2026-07-08T19:00:00Z",
+    "known_before": "2026-07-08T18:17:42Z",
+    "known_after": "2026-07-08T18:17:43Z"
   },
   "report": {
     "artifact": "examples/incident-report.json"

@@ -22,12 +22,12 @@ Rebuild the committed offline demo graph from recorded real registry responses:
 ```sh
 make demo
 make window REGISTRY=npm PKG=write-file-atomic VERSION=7.0.1 \
-  FROM=2026-07-09T00:00:00Z TO=2026-07-09T12:00:00Z
+  FROM=2026-07-08T18:00:00Z TO=2026-07-08T20:30:00Z
 make verify
 make report
 ```
 
-The window command prints the live temporal query, its paths and latency-independent evidence, then compares the historical set with the present-day set. In the committed demo, the historical set contains `npm/cli` and the present-day set is empty.
+The window command prints the live temporal query, its paths and latency-independent evidence, then compares the historical set with the present-day set. In the committed demo, the historical set contains `npm/cli` and the present-day set is empty. The timeline starts before the real `npm/cli` resolution commit, so its exposed set grows from zero to one as the scrubber crosses that commit.
 
 `make ingest` advances the cached incremental feeds. `make ingest-full` drains npm changes from its checkpoint and enumerates the complete PyPI Simple index; it is resumable, network-bound, and reports every failed record. The checked-in demo is deliberately a measured partial corpus rather than a completeness claim.
 
