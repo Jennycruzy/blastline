@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJ0b3RhbF9yb3dzIjo0MjkwOTI4LCJvZmZzZXQiOjAsInJvd3MiOlt7ImlkIjoiLSIsImtleSI6Ii0iLCJ2YWx1ZSI6eyJyZXYiOiI4LWQwMmY2MWU5ZjczOWMyNjEzMmJlNmY4ZjMzN2VjMTc0In19XX0=",
+  "headers": {
+    "accept-ranges": "bytes",
+    "cache-control": "public, max-age=14400",
+    "cf-cache-status": "EXPIRED",
+    "cf-ray": "a2b33fe81b46b8a6-AMS",
+    "connection": "close",
+    "content-length": "116",
+    "content-type": "application/json",
+    "date": "Fri, 14 Aug 2026 22:03:27 GMT",
+    "expires": "Sat, 15 Aug 2026 02:03:27 GMT",
+    "last-modified": "Fri, 14 Aug 2026 22:03:27 GMT",
+    "server": "cloudflare",
+    "set-cookie": "__cf_bm=1gXv3Cqlird7U_AJ_LVew24dEAUHmnn357iGyqTUJBU-1786745007.3756325-1.0.1.1-JqwO5OzffXGjYXWPfj0QQWNtVJFF_gC_jXmM9oqq8PhtqfvLy.K_PUcQwU4Pf91qfVfswXHfvzWeallZHU4DuERJrbcQ2y0le9kjnYfNf38ziuqQ12CkgJtd_pn.kwGx; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.com; Expires=Fri, 14 Aug 2026 22:33:27 GMT",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+    "x-content-type-options": "nosniff"
+  },
+  "status": 200,
+  "url": "https://replicate.npmjs.com/registry/_all_docs?limit=1"
+}

@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiI4cG9vbGJhbGxoYWNrLW5wbSIsIl9yZXYiOiIyLTZkN2FhMWYwMWI0MDk1MTNkMzU5YzQxYzc0ZTZiNzEzIiwibmFtZSI6Ijhwb29sYmFsbGhhY2stbnBtIiwidGltZSI6eyJtb2RpZmllZCI6IjIwMTgtMDMtMTZUMjM6MzI6MjMuMDIxWiIsImNyZWF0ZWQiOiIyMDE4LTAxLTI0VDA5OjUyOjAxLjA5OFoiLCIxLjAuMCI6IjIwMTgtMDEtMjRUMDk6NTI6MDEuMDk4WiIsInVucHVibGlzaGVkIjp7InRpbWUiOiIyMDE4LTAzLTE2VDIzOjMyOjIzLjAyMVoiLCJ2ZXJzaW9ucyI6WyIxLjAuMCJdfX0sIl9hdHRhY2htZW50cyI6e319",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "REVALIDATED",
+    "cf-ray": "a2b32daade03cbb9-AMS",
+    "connection": "close",
+    "content-length": "306",
+    "content-type": "application/octet-stream",
+    "date": "Fri, 14 Aug 2026 21:51:00 GMT",
+    "etag": "\"883a84d707fffe81b4dd9bc7aeadc714\"",
+    "last-modified": "Tue, 24 May 2022 11:47:53 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=2GGsYoDO0xneBGmpJiyRgV964glB1iNnvYND1ho4ryw-1786744260.2923074-1.0.1.1-2QIkyfxiexPl1I7FSM6.FnVTtJPXTtIqZo5aARU74s4; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/8poolballhack-npm"
+}

@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJkcmFnb24tYmFsbC16LWRva2thbi1iYXR0bGUtbW9kLWFuZHJvaWQtaW9zIiwiX3JldiI6IjItNjZlOTlmZWZjNGM3NDNjNzk4NzQ4YzhiMDliNTAxY2EiLCJuYW1lIjoiZHJhZ29uLWJhbGwtei1kb2trYW4tYmF0dGxlLW1vZC1hbmRyb2lkLWlvcyIsInRpbWUiOnsibW9kaWZpZWQiOiIyMDE4LTAzLTE2VDIzOjMxOjQ4LjgzOFoiLCJjcmVhdGVkIjoiMjAxOC0wMS0yOFQxMDoyNzoxMy44NDlaIiwiMS4wLjEiOiIyMDE4LTAxLTI4VDEwOjI3OjEzLjg0OVoiLCJ1bnB1Ymxpc2hlZCI6eyJ0aW1lIjoiMjAxOC0wMy0xNlQyMzozMTo0OC44MzhaIiwidmVyc2lvbnMiOlsiMS4wLjEiXX19LCJfYXR0YWNobWVudHMiOnt9fQ==",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "REVALIDATED",
+    "cf-ray": "a2b32d6ddec41229-AMS",
+    "connection": "close",
+    "content-length": "358",
+    "content-type": "application/octet-stream",
+    "date": "Fri, 14 Aug 2026 21:50:50 GMT",
+    "etag": "\"05b202edd8122bbd359dae7ebe6a01e4\"",
+    "last-modified": "Tue, 24 May 2022 11:46:12 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=qiEhoKRXftEHJyGX41D0KPsNA6tmzLKq7LiuGhOctHA-1786744250.5393827-1.0.1.1-UzrRbfqMZ.tH5Q90hoEu221_V84V_899CmBouEe7O3s; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/dragon-ball-z-dokkan-battle-mod-android-ios"
+}

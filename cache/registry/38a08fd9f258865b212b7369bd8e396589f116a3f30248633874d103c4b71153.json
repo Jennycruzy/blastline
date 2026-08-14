@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJmaXJlLWVtYmxlbS1oZXJvZXMtaGFjayIsIl9yZXYiOiI1LTMxZDMzZGM1ODk1Y2UxNjEwOGIyNGRjNjY2ZDk4OGE3IiwibmFtZSI6ImZpcmUtZW1ibGVtLWhlcm9lcy1oYWNrIiwidGltZSI6eyJtb2RpZmllZCI6IjIwMTgtMDMtMTZUMjM6MzA6MTcuMDI3WiIsImNyZWF0ZWQiOiIyMDE3LTEyLTI3VDA5OjE3OjAzLjIwM1oiLCIxLjAuMCI6IjIwMTctMTItMjdUMDk6MTc6MDMuMjAzWiIsIjEuMC4xIjoiMjAxNy0xMi0yN1QwOToyODo0Ni4zNTJaIiwiMS4wLjMiOiIyMDE3LTEyLTI3VDA5OjMzOjMyLjQzOFoiLCJ1bnB1Ymxpc2hlZCI6eyJ0aW1lIjoiMjAxOC0wMy0xNlQyMzozMDoxNy4wMjdaIiwidmVyc2lvbnMiOlsiMS4wLjMiXX19LCJfYXR0YWNobWVudHMiOnt9fQ==",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "HIT",
+    "cf-ray": "a2b32a26083bad10-AMS",
+    "connection": "close",
+    "content-length": "388",
+    "content-type": "application/octet-stream",
+    "date": "Fri, 14 Aug 2026 21:48:36 GMT",
+    "etag": "\"41087ccd8211222aaa853ee1417f28a8\"",
+    "last-modified": "Tue, 24 May 2022 11:36:59 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=c5afJEhxwE6tkAIDcccJ5QDKNhfGOuAX.HeazWnvCNo-1786744116.1666296-1.0.1.1-F0mOHeiyiOnbRBL3RcrgCYZ2th.o0XtownyFK0ewjIM; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/fire-emblem-heroes-hack"
+}

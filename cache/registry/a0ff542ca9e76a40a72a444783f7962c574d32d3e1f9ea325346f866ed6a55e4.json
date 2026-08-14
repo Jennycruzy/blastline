@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJ0aGVzaW1wc29uc3RhcHBlZG91dGhhY2stOTk5OTlyZXNvdXJjZXMiLCJfcmV2IjoiMi03OTY4MWQ3MGJjZDRjYTYyYjhjYWRhMjQ2YWVmMzhjMiIsIm5hbWUiOiJ0aGVzaW1wc29uc3RhcHBlZG91dGhhY2stOTk5OTlyZXNvdXJjZXMiLCJ0aW1lIjp7Im1vZGlmaWVkIjoiMjAxOC0wMy0xNlQyMzozNDowMC43ODNaIiwiY3JlYXRlZCI6IjIwMTctMTItMTFUMDg6MzA6NTUuNTQ1WiIsIjEuMC4wIjoiMjAxNy0xMi0xMVQwODozMDo1NS41NDVaIiwidW5wdWJsaXNoZWQiOnsidGltZSI6IjIwMTgtMDMtMTZUMjM6MzQ6MDAuNzgzWiIsInZlcnNpb25zIjpbIjEuMC4wIl19fSwiX2F0dGFjaG1lbnRzIjp7fX0=",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "REVALIDATED",
+    "cf-ray": "a2b330484f08b1fb-AMS",
+    "connection": "close",
+    "content-length": "350",
+    "content-type": "application/octet-stream",
+    "date": "Fri, 14 Aug 2026 21:52:47 GMT",
+    "etag": "\"428796666aad043d22a6b3688360d5f5\"",
+    "last-modified": "Tue, 24 May 2022 12:05:24 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=X.tGUmEXuV4Mn6pHF81ngs7OyeDc6BrhhZHzT80C92I-1786744367.4012208-1.0.1.1-jyQDH35su9fvPTjtdyi77RC4ducamwQAIihuPyGghJ8; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/thesimpsonstappedouthack-99999resources"
+}

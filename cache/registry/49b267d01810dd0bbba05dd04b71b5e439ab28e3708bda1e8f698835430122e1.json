@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJpbnZhc2lvbi1tb2Rlcm4tZW1waXJlLWhhY2tzLW1vZC1hcGsiLCJfcmV2IjoiMi1lMWU5M2UzMzhjZDIzZDM5MWY0YTNkODdjNjEzNTA2YyIsIm5hbWUiOiJpbnZhc2lvbi1tb2Rlcm4tZW1waXJlLWhhY2tzLW1vZC1hcGsiLCJ0aW1lIjp7Im1vZGlmaWVkIjoiMjAxOC0wMy0xOVQyMjoyMzowMS42OTZaIiwiY3JlYXRlZCI6IjIwMTgtMDEtMjJUMTk6MDQ6MzcuMDU1WiIsIjEuMC4xIjoiMjAxOC0wMS0yMlQxOTowNDozNy4wNTVaIiwidW5wdWJsaXNoZWQiOnsidGltZSI6IjIwMTgtMDMtMTlUMjI6MjM6MDEuNjk2WiIsInZlcnNpb25zIjpbIjEuMC4xIl19fSwiX2F0dGFjaG1lbnRzIjp7fX0=",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "REVALIDATED",
+    "cf-ray": "a2b3387ad8b5fc28-AMS",
+    "connection": "close",
+    "content-length": "344",
+    "content-type": "application/octet-stream",
+    "date": "Fri, 14 Aug 2026 21:58:23 GMT",
+    "etag": "\"911180f9024055d4248a1afc21b1a326\"",
+    "last-modified": "Tue, 24 May 2022 11:33:49 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=UC6Zer_5Z8xK4iqwnuaW2YaIkaQhbaMk42SpHtZ3Ncw-1786744703.1755557-1.0.1.1-mYu_Zc6K1VDXYdv4sy4t.FnNwMF4QTsvi13aGTc2fi4; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/invasion-modern-empire-hacks-mod-apk"
+}

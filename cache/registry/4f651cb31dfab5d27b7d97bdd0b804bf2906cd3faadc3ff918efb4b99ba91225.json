@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJibGl0ei1icmlnYWRlLWhhY2stZGlhbW9uZHMiLCJfcmV2IjoiMi1iYzkxMTQ1MzBjZTdhMTdiNTc1MjhlMjUzOTdlNjZiMiIsIm5hbWUiOiJibGl0ei1icmlnYWRlLWhhY2stZGlhbW9uZHMiLCJ0aW1lIjp7Im1vZGlmaWVkIjoiMjAxOC0wMy0xOVQyMjoyMjoxOC4yOTlaIiwiY3JlYXRlZCI6IjIwMTgtMDEtMTJUMTM6NDQ6NTUuMjQ3WiIsIjEuMC4wIjoiMjAxOC0wMS0xMlQxMzo0NDo1NS4yNDdaIiwidW5wdWJsaXNoZWQiOnsidGltZSI6IjIwMTgtMDMtMTlUMjI6MjI6MTguMjk5WiIsInZlcnNpb25zIjpbIjEuMC4wIl19fSwiX2F0dGFjaG1lbnRzIjp7fX0=",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "REVALIDATED",
+    "cf-ray": "a2b32ea1c909b8b5-AMS",
+    "connection": "close",
+    "content-length": "326",
+    "content-type": "application/octet-stream",
+    "date": "Fri, 14 Aug 2026 21:51:40 GMT",
+    "etag": "\"07b18d48d6894ff231adb9d2fbaa8d29\"",
+    "last-modified": "Tue, 24 May 2022 11:55:51 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=kU.N2zD8HdxI9XQiXlXNxc7O4Z5OUrKnjxHZdrEOQQw-1786744299.806425-1.0.1.1-YbnvxjOrWtllzR71I1JVp5_HoBW3nylSFviGnU5okp4; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/blitz-brigade-hack-diamonds"
+}

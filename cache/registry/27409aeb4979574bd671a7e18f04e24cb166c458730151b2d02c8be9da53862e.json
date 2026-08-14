@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJ0b3RhbC1jb25xdWVzdC1oYWNrcy1tb2QtYXBrIiwiX3JldiI6IjItMzUyOWViNjVjYzQ5YWUwNjg0ZjU0ODJhOGQxZGIyYzAiLCJuYW1lIjoidG90YWwtY29ucXVlc3QtaGFja3MtbW9kLWFwayIsInRpbWUiOnsibW9kaWZpZWQiOiIyMDE4LTAzLTE5VDIzOjEyOjQxLjE1OFoiLCJjcmVhdGVkIjoiMjAxOC0wMS0yNVQxNjozMTo1Ni42NDhaIiwiMS4wLjEiOiIyMDE4LTAxLTI1VDE2OjMxOjU2LjY0OFoiLCJ1bnB1Ymxpc2hlZCI6eyJuYW1lIjoibnBtIiwidGltZSI6IjIwMTgtMDMtMTlUMjM6MTI6NDEuMTU4WiIsInRhZ3MiOnsibGF0ZXN0IjoiMS4wLjEifSwibWFpbnRhaW5lcnMiOlt7Im5hbWUiOiJvaW5qZDQ1IiwiZW1haWwiOiJrZW5uZXRoLnIub2RyLmkuZy51LmU1LjNAZ21haWwuY29tIn1dLCJ2ZXJzaW9ucyI6WyIxLjAuMSJdfX0sIl9hdHRhY2htZW50cyI6e319",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "HIT",
+    "cf-ray": "a2b32b3d980ce18e-AMS",
+    "connection": "close",
+    "content-length": "447",
+    "content-type": "application/json; charset=UTF-8",
+    "date": "Fri, 14 Aug 2026 21:49:21 GMT",
+    "etag": "\"49df9b3f17a5aedff71a4acc2ab1ed50\"",
+    "last-modified": "Sun, 27 May 2018 19:45:27 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=EantHQDfm4KrS.i8Vx.UZSS3hYe4Mxwoory8lbCJUlU-1786744160.8906732-1.0.1.1-Xi7ZQpJt7MMNcsXBlkXopw4r09N.xTG8gRYPO84.aTI; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/total-conquest-hacks-mod-apk"
+}

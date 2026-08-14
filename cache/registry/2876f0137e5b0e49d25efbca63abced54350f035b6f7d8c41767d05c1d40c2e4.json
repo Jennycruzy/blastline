@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJoZWFkLWJhbGwtMi1vbmxpbmUtY29pbnMtZ2VuZXJhdG9yIiwiX3JldiI6IjItZjI0NTZiYjg4ZDk2MGE1MjBlMDI2YmFhM2JmNDNlOTYiLCJuYW1lIjoiaGVhZC1iYWxsLTItb25saW5lLWNvaW5zLWdlbmVyYXRvciIsInRpbWUiOnsibW9kaWZpZWQiOiIyMDE4LTAzLTE2VDIzOjMxOjM0Ljk4MFoiLCJjcmVhdGVkIjoiMjAxOC0wMS0yNVQyMjoyOTo1Ni4yMDVaIiwiMS4wLjAiOiIyMDE4LTAxLTI1VDIyOjI5OjU2LjIwNVoiLCJ1bnB1Ymxpc2hlZCI6eyJ0aW1lIjoiMjAxOC0wMy0xNlQyMzozMTozNC45ODBaIiwidmVyc2lvbnMiOlsiMS4wLjAiXX19LCJfYXR0YWNobWVudHMiOnt9fQ==",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "REVALIDATED",
+    "cf-ray": "a2b32deb7ebab8c0-AMS",
+    "connection": "close",
+    "content-length": "340",
+    "content-type": "application/octet-stream",
+    "date": "Fri, 14 Aug 2026 21:51:10 GMT",
+    "etag": "\"a6d5a5ba4c28917a5ad5b35c52731fea\"",
+    "last-modified": "Tue, 24 May 2022 11:49:21 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=Xze4.vouSFc3Hw2DPkcSyW00D2.rqRiXE8O.gGuhWLc-1786744270.633849-1.0.1.1-j2u3a_ummy40qMPxve2MqDozZ5pC.nifniqzlYGhLdA; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/head-ball-2-online-coins-generator"
+}

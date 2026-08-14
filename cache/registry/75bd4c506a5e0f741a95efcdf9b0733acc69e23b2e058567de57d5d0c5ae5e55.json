@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJuYXJ1dG8teC1ib3J1dG8tbmluamEtdm9sdGFnZS1jaGVhdC1zaGlub2JpdGUiLCJfcmV2IjoiMy0zZGJkZDhhNTgyNWVlZDkxMmUwMTgxMWViNmEwNzViMyIsIm5hbWUiOiJuYXJ1dG8teC1ib3J1dG8tbmluamEtdm9sdGFnZS1jaGVhdC1zaGlub2JpdGUiLCJ0aW1lIjp7Im1vZGlmaWVkIjoiMjAxOC0wMy0xNlQyMzozMDozMy42MzdaIiwiY3JlYXRlZCI6IjIwMTgtMDEtMjRUMDc6MTk6NTkuNjU0WiIsIjEuMC4wIjoiMjAxOC0wMS0yNFQwNzoxOTo1OS42NTRaIiwiMS4wLjEiOiIyMDE4LTAxLTI0VDA3OjIwOjU5LjYzOFoiLCJ1bnB1Ymxpc2hlZCI6eyJ0aW1lIjoiMjAxOC0wMy0xNlQyMzozMDozMy42MzdaIiwidmVyc2lvbnMiOlsiMS4wLjAiLCIxLjAuMSJdfX0sIl9hdHRhY2htZW50cyI6e319",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "HIT",
+    "cf-ray": "a2b32af7ee796688-AMS",
+    "connection": "close",
+    "content-length": "405",
+    "content-type": "application/octet-stream",
+    "date": "Fri, 14 Aug 2026 21:49:09 GMT",
+    "etag": "\"60f7402f383f6c9bda590af45f5d900e\"",
+    "last-modified": "Tue, 24 May 2022 11:42:59 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=WMSD_9AA69Lji68D6UcF2jQoZxhSNp6epMkZ8_3uljM-1786744149.7435782-1.0.1.1-j1NfTxm.GsTyHH_KnC1auP.xWTtkAxuRyeG1IKnIkGU; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/naruto-x-boruto-ninja-voltage-cheat-shinobite"
+}

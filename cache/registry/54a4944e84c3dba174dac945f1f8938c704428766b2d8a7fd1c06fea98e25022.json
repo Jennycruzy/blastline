@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJoYXktZGF5LWhhY2stdW5saW1pdGVkLWRpYW1vbmRzIiwiX3JldiI6IjMtNWQ5YTM0ZjBiZGZhZTExOTFlMWYzZWViZWM3ODU1NzMiLCJuYW1lIjoiaGF5LWRheS1oYWNrLXVubGltaXRlZC1kaWFtb25kcyIsInRpbWUiOnsibW9kaWZpZWQiOiIyMDE4LTAzLTE2VDIzOjI5OjQwLjE0MloiLCJjcmVhdGVkIjoiMjAxOC0wMS0xOFQwNjoxOTo1NC40MTBaIiwiMS4wLjAiOiIyMDE4LTAxLTE4VDA2OjE5OjU0LjQxMFoiLCIxLjAuMSI6IjIwMTgtMDEtMThUMDY6MjI6MDUuMTQ0WiIsInVucHVibGlzaGVkIjp7InRpbWUiOiIyMDE4LTAzLTE2VDIzOjI5OjQwLjE0MloiLCJ2ZXJzaW9ucyI6WyIxLjAuMCIsIjEuMC4xIl19fSwiX2F0dGFjaG1lbnRzIjp7fX0=",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "HIT",
+    "cf-ray": "a2b32ab62ac8f54e-AMS",
+    "connection": "close",
+    "content-length": "377",
+    "content-type": "application/octet-stream",
+    "date": "Fri, 14 Aug 2026 21:48:59 GMT",
+    "etag": "\"de4f1f319ebb8e456bb62d6bc981354c\"",
+    "last-modified": "Tue, 24 May 2022 11:42:51 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=EXFJhFKrAmYW6eLvgKjTc7ugwECMAJBOqrkut2s15Cc-1786744139.2269382-1.0.1.1-bAAtP21duq4evaSiuTaZpDosifAiFukbMPXhsnCaJGI; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/hay-day-hack-unlimited-diamonds"
+}

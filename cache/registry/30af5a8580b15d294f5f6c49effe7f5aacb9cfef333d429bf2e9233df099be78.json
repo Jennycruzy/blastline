@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJucG0tZGVwbG95LWFuZ3VsYXItZGlzdCIsIl9yZXYiOiIyLTIzZDA4MDNjZjhjZmU2OTFiMGUzMjJjY2MyYjBhZGZlIiwibmFtZSI6Im5wbS1kZXBsb3ktYW5ndWxhci1kaXN0IiwidGltZSI6eyJjcmVhdGVkIjoiMjAxOC0wMy0yMFQwMTozMToxOC4xNzlaIiwiMS4wLjAiOiIyMDE4LTAzLTIwVDAxOjMxOjE4LjMyMFoiLCJtb2RpZmllZCI6IjIwMTgtMDMtMjBUMDE6MzQ6NDAuMjU5WiIsInVucHVibGlzaGVkIjp7InRpbWUiOiIyMDE4LTAzLTIwVDAxOjM0OjQwLjI1OVoiLCJ2ZXJzaW9ucyI6WyIxLjAuMCJdfX0sIl9hdHRhY2htZW50cyI6e319",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "REVALIDATED",
+    "cf-ray": "a2b3389d9a260b38-AMS",
+    "connection": "close",
+    "content-length": "318",
+    "content-type": "application/octet-stream",
+    "date": "Fri, 14 Aug 2026 21:58:28 GMT",
+    "etag": "\"3f178512b03bede637df8506491f7655\"",
+    "last-modified": "Tue, 24 May 2022 11:39:00 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=YPvujfHdEYZwHfc4AJX2A3xB8FMv369RpHF_NFapSvQ-1786744708.73653-1.0.1.1-ibNVrCq7wSDuhgL1TgXLCTZmMmBeln7yL94l78FzQIc; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/npm-deploy-angular-dist"
+}

@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJucG0tZ29sYW5nLWV4YW1wbGUiLCJfcmV2IjoiMi1kMWQwZDFlZDU3OWYxYzJkYTFmYjNjMGNmOTBmODRhNiIsIm5hbWUiOiJucG0tZ29sYW5nLWV4YW1wbGUiLCJ0aW1lIjp7ImNyZWF0ZWQiOiIyMDE4LTAzLTI3VDAzOjIwOjE2LjE0OFoiLCIxLjAuMCI6IjIwMTgtMDMtMjdUMDM6MjA6MTYuMjgwWiIsIm1vZGlmaWVkIjoiMjAxOC0wMy0yN1QwMzoyMDo1NC40NDlaIiwidW5wdWJsaXNoZWQiOnsidGltZSI6IjIwMTgtMDMtMjdUMDM6MjA6NTQuNDQ4WiIsInZlcnNpb25zIjpbIjEuMC4wIl19fSwiX2F0dGFjaG1lbnRzIjp7fX0=",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "REVALIDATED",
+    "cf-ray": "a2b3388d08788b7c-AMS",
+    "connection": "close",
+    "content-length": "308",
+    "content-type": "application/octet-stream",
+    "date": "Fri, 14 Aug 2026 21:58:26 GMT",
+    "etag": "\"e51fd56561a58f81bf737d135ae85a1d\"",
+    "last-modified": "Tue, 24 May 2022 11:38:30 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=zPkR03RniueL4EcVtZHJBAXGBIh_qzcFOLxLF11WZoA-1786744706.087878-1.0.1.1-XGoXCYgTu0IU4KWzwXzccT25CLnv5TUe8AO.hNwiHi4; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/npm-golang-example"
+}

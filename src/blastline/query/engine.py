@@ -394,7 +394,13 @@ class QueryEngine:
         current_repositories: dict[str, set[str]] = {}
         for edge in self.store.incoming(target_id, EdgeType.RESOLVED_TO, instant, instant):
             for declared in self.store.incoming(edge.source_id, EdgeType.DECLARES, instant, instant):
-                current_repositories.setdefault(declared.source_id, set()).add(target_id)
+                # Historical query results use the repository's display label,
+                # so compare current state in the same identity space. Using
+                # the internal node id here makes every historical repository
+                # look dirty even when the compromised version is still
+                # currently resolved.
+                repository_label = self._node_label(declared.source_id)
+                current_repositories.setdefault(repository_label, set()).add(target_id)
         historic: dict[str, JsonObject] = {}
         for result in historical.results:
             repository_value = result.get("repository")

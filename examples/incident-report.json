@@ -20,18 +20,18 @@
     "query": "Q8 abstention and coverage",
     "results": []
   },
-  "generated_at": "2026-08-14T00:01:29Z",
+  "generated_at": "2026-08-14T21:59:54Z",
   "graph": {
-    "edge_count": 22951,
-    "fingerprint": "83f4c7a43e11e81b69048beef53e3f55dd9f9fd32ac87eddfe5d5506ce38b7e9",
+    "edge_count": 30607,
+    "fingerprint": "812899da3f19920100bfd0855a2cb2279e3389fd4db83b8dd6fc2a6ea0275535",
     "node_counts": {
-      "Advisory": 3,
-      "Maintainer": 7,
-      "Package": 844,
+      "Advisory": 10,
+      "Maintainer": 8,
+      "Package": 878,
       "PublishInfra": 2,
       "Repository": 1,
       "Resolution": 5887,
-      "Version": 1296
+      "Version": 1641
     }
   },
   "historical_exposure": {
@@ -493,11 +493,11 @@
         ]
       }
     ],
-    "commit_sha": "e5d9ac3756da5ed113100d8dfd2ad72358160b20",
+    "commit_sha": "0ea9ef17c8d671b5e572eafd45e740ab7b1ac6c1",
     "false_negatives": 0,
     "false_positives": 0,
     "gradable_cases": 15,
-    "graph_fingerprint": "83f4c7a43e11e81b69048beef53e3f55dd9f9fd32ac87eddfe5d5506ce38b7e9",
+    "graph_fingerprint": "812899da3f19920100bfd0855a2cb2279e3389fd4db83b8dd6fc2a6ea0275535",
     "precision": 1.0,
     "recall": 1.0,
     "true_positives": 15,

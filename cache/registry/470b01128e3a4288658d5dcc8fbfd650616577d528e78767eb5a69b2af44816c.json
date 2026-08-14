@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJhZHZlbnR1cmUtb2YtaGVyb2VzLWNoZWF0LTIwMTgiLCJfcmV2IjoiMi05YmM1MzkzNzExM2EzMDI4MjI1MjAzYjA0ZTNiNmQyOSIsIm5hbWUiOiJhZHZlbnR1cmUtb2YtaGVyb2VzLWNoZWF0LTIwMTgiLCJ0aW1lIjp7Im1vZGlmaWVkIjoiMjAxOC0wMy0xOVQyMjoyMDozMS42MzlaIiwiY3JlYXRlZCI6IjIwMTgtMDEtMjBUMDc6NTI6MjcuOTI1WiIsIjEuMC4xIjoiMjAxOC0wMS0yMFQwNzo1MjoyNy45MjVaIiwidW5wdWJsaXNoZWQiOnsibmFtZSI6Im5wbSIsInRpbWUiOiIyMDE4LTAzLTE5VDIyOjIwOjMxLjYzOVoiLCJ0YWdzIjp7ImxhdGVzdCI6IjEuMC4xIn0sIm1haW50YWluZXJzIjpbeyJuYW1lIjoieXV1bXE1MSIsImVtYWlsIjoia2VubmV0aC5yb2RyaS5nLnUuZS41M0BnbWFpbC5jb20ifV0sInZlcnNpb25zIjpbIjEuMC4xIl19fSwiX2F0dGFjaG1lbnRzIjp7fX0=",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "REVALIDATED",
+    "cf-ray": "a2b32c669e2ce00a-AMS",
+    "connection": "close",
+    "content-length": "449",
+    "content-type": "application/json; charset=UTF-8",
+    "date": "Fri, 14 Aug 2026 21:50:08 GMT",
+    "etag": "\"c1eb6c92a712f05a4d13462eb963461c\"",
+    "last-modified": "Sat, 26 May 2018 16:13:46 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=vmfP1X2WIDE1enKMLSrAzc0KNepoXf_4MdbWHmQ7vug-1786744208.412283-1.0.1.1-e10aqCwVJMnaAJs94BoJ7eFo7fy8R9bKPcKNTU6jy0Y; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/adventure-of-heroes-cheat-2018"
+}

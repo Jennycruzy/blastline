@@ -84,6 +84,7 @@ def ingest(settings: Settings, args: argparse.Namespace) -> int:
         or args.pypi_package
         or args.npm_changes
         or args.pypi_simple
+        or args.pypi_full
         or args.github_repository
         or args.lockfile_path
         or args.osv_package
@@ -97,16 +98,12 @@ def ingest(settings: Settings, args: argparse.Namespace) -> int:
     if args.full or args.npm_changes or not explicit_source:
         limit = settings.integer("ingest", "npm_changes_limit")
         if args.full:
-            while True:
-                page = ingestor.npm_changes(limit, refresh=refresh)
-                ingestor.print_report(page)
-                if page.feed_exhausted:
-                    break
+            ingestor.npm_catalog(settings.integer("ingest", "npm_catalog_page_limit"), refresh=refresh)
         else:
             ingestor.print_report(ingestor.npm_changes(limit, refresh=refresh))
         ran = True
-    if args.full or args.pypi_simple or not explicit_source:
-        limit = settings.integer("ingest", "pypi_simple_limit")
+    if args.full or args.pypi_simple or args.pypi_full or not explicit_source:
+        limit = None if args.full or args.pypi_full else settings.integer("ingest", "pypi_simple_limit")
         ingestor.print_report(ingestor.pypi_simple(None if args.full else limit, refresh=refresh))
         ran = True
     if args.github_repository is not None:
@@ -190,13 +187,29 @@ def run_query(settings: Settings, args: argparse.Namespace) -> int:
         current = engine.current_exposure(registry, args.package, args.version)
         historical_repositories = {item.get("repository") for item in response.results if isinstance(item.get("repository"), str)}
         current_repositories = {item.get("repository") for item in current.results if isinstance(item.get("repository"), str)}
-        print_query(response, args.json)
-        print(
-            "present-day comparison: "
-            f"historical={len(historical_repositories)} repositories, current={len(current_repositories)}; "
-            f"historical-only={len(historical_repositories - current_repositories)}, "
-            f"current-only={len(current_repositories - historical_repositories)}"
-        )
+        comparison: JsonObject = {
+            "historical_repositories": sorted(historical_repositories),
+            "current_repositories": sorted(current_repositories),
+            "historical_only": sorted(historical_repositories - current_repositories),
+            "current_only": sorted(current_repositories - historical_repositories),
+        }
+        if args.json:
+            payload = response.as_json()
+            payload["present_day"] = current.as_json()
+            payload["comparison"] = comparison
+            print(json.dumps(payload, sort_keys=True, indent=2))
+        else:
+            print_query(response, False)
+            print(
+                "present-day comparison: "
+                f"historical={len(historical_repositories)} repositories, current={len(current_repositories)}; "
+                f"historical-only={len(historical_repositories - current_repositories)}, "
+                f"current-only={len(current_repositories - historical_repositories)}"
+            )
+            if current.abstentions:
+                print(f"present-day abstentions: {len(current.abstentions)}")
+                for notice in current.abstentions:
+                    print(f"  {notice.scope}: {notice.reason}")
         return 0
     elif args.command == "first-affected":
         response = engine.first_affected_version(registry, args.package, args.version, parse_optional_time(args.known_at, "first-affected known_at"))
@@ -270,6 +283,7 @@ def parser() -> argparse.ArgumentParser:
     ingest_parser.add_argument("--pypi-package", action="append", default=[])
     ingest_parser.add_argument("--npm-changes", action="store_true")
     ingest_parser.add_argument("--pypi-simple", action="store_true")
+    ingest_parser.add_argument("--pypi-full", action="store_true", help="enumerate and resume the complete PyPI Simple index")
     ingest_parser.add_argument("--github-repository")
     ingest_parser.add_argument("--github-path")
     ingest_parser.add_argument("--github-ref", default="main")

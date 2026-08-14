@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJuYmEtMmsxOC1oYWNrIiwiX3JldiI6IjMtYzExZmZmNmYyYTdiY2RiMDIyODEzNjcxYzBlNzUzMmQiLCJuYW1lIjoibmJhLTJrMTgtaGFjayIsInRpbWUiOnsibW9kaWZpZWQiOiIyMDE4LTAzLTE2VDE5OjM5OjEwLjE1OFoiLCJjcmVhdGVkIjoiMjAxNy0xMi0xOVQwNDo0NToxMS4wMDRaIiwiMS4wLjAiOiIyMDE3LTEyLTE5VDA0OjQ1OjExLjAwNFoiLCIyLjAuMCI6IjIwMTctMTItMTlUMDU6MDg6MjYuMDg4WiIsInVucHVibGlzaGVkIjp7InRpbWUiOiIyMDE4LTAzLTE2VDE5OjM5OjEwLjE1OFoiLCJ2ZXJzaW9ucyI6WyIxLjAuMCIsIjIuMC4wIl19fSwiX2F0dGFjaG1lbnRzIjp7fX0=",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "REVALIDATED",
+    "cf-ray": "a2b32ecf8833666e-AMS",
+    "connection": "close",
+    "content-length": "341",
+    "content-type": "application/octet-stream",
+    "date": "Fri, 14 Aug 2026 21:51:47 GMT",
+    "etag": "\"f4e771c17d3bbc831410320cfedffdd4\"",
+    "last-modified": "Tue, 24 May 2022 11:56:10 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=TGsFOPtmHWpVOKuF1rIXeMnvBJDW.JnGXZKVVqvRCMw-1786744307.1269794-1.0.1.1-zEaLtP_VOp4a2xPBenLRTE4pUTO.qPV4h2nNkEwugfs; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/nba-2k18-hack"
+}

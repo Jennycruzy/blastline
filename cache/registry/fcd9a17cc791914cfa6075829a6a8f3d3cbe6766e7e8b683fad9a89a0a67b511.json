@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJoYWNrZWQtd29ybGQtd2FyLWhlcm9lcy1nb2xkLWdlbmVyYXRvciIsIl9yZXYiOiI2LTliZTAxOTEzYmZkMmY5MTUyN2ZhYjYwMWI2ZDIxOTlkIiwibmFtZSI6ImhhY2tlZC13b3JsZC13YXItaGVyb2VzLWdvbGQtZ2VuZXJhdG9yIiwidGltZSI6eyIxLjAuMiI6IjIwMTgtMDMtMTZUMjM6MDg6MzMuMDAyWiIsImNyZWF0ZWQiOiIyMDE4LTAzLTE3VDIzOjM0OjQxLjE1N1oiLCIxLjAuMyI6IjIwMTgtMDMtMTdUMjM6MzQ6NDEuMjcxWiIsIm1vZGlmaWVkIjoiMjAxOC0wMy0yN1QwMDowNzozMy4wMjZaIiwidW5wdWJsaXNoZWQiOnsidGltZSI6IjIwMTgtMDMtMjdUMDA6MDc6MzMuMDI2WiIsInZlcnNpb25zIjpbIjEuMC4zIl19fSwiX2F0dGFjaG1lbnRzIjp7fX0=",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "REVALIDATED",
+    "cf-ray": "a2b32d531f25fff7-AMS",
+    "connection": "close",
+    "content-length": "383",
+    "content-type": "application/octet-stream",
+    "date": "Fri, 14 Aug 2026 21:50:46 GMT",
+    "etag": "\"c2c119d1eb7480dd2ed0f6661fa9a50a\"",
+    "last-modified": "Tue, 24 May 2022 11:45:12 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=oS_a6AkAxOkLBb.Xdpw1Sd.E3CDWNCRXqLH.XgI3jvY-1786744246.252848-1.0.1.1-2AQuLD3_ws060EW7wFvD6o1ElvUumEvzJrRMaiK.jBw; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/hacked-world-war-heroes-gold-generator"
+}

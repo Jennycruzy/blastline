@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJyaWEtbGl0ZSIsIl9yZXYiOiIyLWM5MTAxNmY1ZDUwMDFkZDcyMTJkMjhhMTEzNTNkMjQ1IiwibmFtZSI6InJpYS1saXRlIiwidGltZSI6eyJjcmVhdGVkIjoiMjAxOC0wMy0xNlQwNjoxODowNy4yNzNaIiwiMC4wLjAiOiIyMDE4LTAzLTE2VDA2OjE4OjA4LjE4M1oiLCJtb2RpZmllZCI6IjIwMTgtMDMtMTZUMDY6Mzk6NTMuMDAyWiIsInVucHVibGlzaGVkIjp7InRpbWUiOiIyMDE4LTAzLTE2VDA2OjM5OjUzLjAwMloiLCJ2ZXJzaW9ucyI6WyIwLjAuMCJdfX0sIl9hdHRhY2htZW50cyI6e319",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "REVALIDATED",
+    "cf-ray": "a2b3312d7f6c65fe-AMS",
+    "connection": "close",
+    "content-length": "288",
+    "content-type": "application/octet-stream",
+    "date": "Fri, 14 Aug 2026 21:53:24 GMT",
+    "etag": "\"dd9b492fac7c35960055af03e05de713\"",
+    "last-modified": "Tue, 24 May 2022 11:30:43 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=clmgST.J5QFoQZiwHPTrrwRuHkMkYVwiitB5JIB_Jg8-1786744404.0720093-1.0.1.1-v8pgIDrquZP6NgiktqXSuxfVb4Mrwt5siGbbUu4w5mU; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/ria-lite"
+}

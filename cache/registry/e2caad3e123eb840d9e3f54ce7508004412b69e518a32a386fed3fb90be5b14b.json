@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJraWNrYmFjay11aSIsIl9yZXYiOiIyLWYyMmQ5MzE3OWZjMTljZTYyY2UyODk2ODM5ZDBkMTQ2IiwibmFtZSI6ImtpY2tiYWNrLXVpIiwidGltZSI6eyJjcmVhdGVkIjoiMjAxOC0wMy0yMlQwOTo0MzoxMy41NDlaIiwiMC4xLjEiOiIyMDE4LTAzLTIyVDA5OjQzOjEzLjY0M1oiLCJtb2RpZmllZCI6IjIwMTgtMDMtMjJUMDk6NTM6NTcuODcwWiIsInVucHVibGlzaGVkIjp7InRpbWUiOiIyMDE4LTAzLTIyVDA5OjUzOjU3Ljg3MFoiLCJ2ZXJzaW9ucyI6WyIwLjEuMSJdfX0sIl9hdHRhY2htZW50cyI6e319",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "MISS",
+    "cf-ray": "a2b32f66fad4b823-AMS",
+    "connection": "close",
+    "content-length": "294",
+    "content-type": "application/octet-stream",
+    "date": "Fri, 14 Aug 2026 21:52:11 GMT",
+    "etag": "\"12bcf355026eaa3e2001b118899b4ae3\"",
+    "last-modified": "Tue, 24 May 2022 11:59:11 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=Ibl5czSC3FekWS_OFJQg4Uoec1vaUDl9gZvPxlnc.pg-1786744331.3530955-1.0.1.1-nTnIQTrMOR2BbrR1BcypN0lvhZXvQAIRL0DPkkd2mFo; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/kickback-ui"
+}

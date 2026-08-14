@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJidWJibGUtc2hvb3Rlci1oYWNrcy1tb2QtYXBrIiwiX3JldiI6IjItMzVkYTI4Zjk1NTE3ZTJmYzYwYWU0MDg2YTI5YmVkM2EiLCJuYW1lIjoiYnViYmxlLXNob290ZXItaGFja3MtbW9kLWFwayIsInRpbWUiOnsibW9kaWZpZWQiOiIyMDE4LTAzLTE5VDIzOjEyOjQwLjkwOFoiLCJjcmVhdGVkIjoiMjAxOC0wMS0yNVQxNjozMjoxMC44NDlaIiwiMS4wLjEiOiIyMDE4LTAxLTI1VDE2OjMyOjEwLjg0OVoiLCJ1bnB1Ymxpc2hlZCI6eyJuYW1lIjoibnBtIiwidGltZSI6IjIwMTgtMDMtMTlUMjM6MTI6NDAuOTA4WiIsInRhZ3MiOnsibGF0ZXN0IjoiMS4wLjEifSwibWFpbnRhaW5lcnMiOlt7Im5hbWUiOiJvaW5qZDQ1IiwiZW1haWwiOiJrZW5uZXRoLnIub2RyLmkuZy51LmU1LjNAZ21haWwuY29tIn1dLCJ2ZXJzaW9ucyI6WyIxLjAuMSJdfX0sIl9hdHRhY2htZW50cyI6e319",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "REVALIDATED",
+    "cf-ray": "a2b32c32baa8e18e-AMS",
+    "connection": "close",
+    "content-length": "447",
+    "content-type": "application/json; charset=UTF-8",
+    "date": "Fri, 14 Aug 2026 21:50:00 GMT",
+    "etag": "\"1dca8944c4feaf289f856d155b39996e\"",
+    "last-modified": "Sat, 26 May 2018 19:06:12 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=Whk7bBvW_UR9xD_FdHAkyJCGZHk8O0zrKKTIbIrDI0c-1786744200.1158605-1.0.1.1-H8p.jgfzFOJHSp9cScxc.onQ4rZVm3cCujxY04VajVU; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/bubble-shooter-hacks-mod-apk"
+}

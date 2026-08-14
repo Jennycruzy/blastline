@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJjbGFzaC1yb3lhbGUtbmV3LXVwZGF0ZSIsIl9yZXYiOiIzLWQ5NGVlZTAwZGU1ZTE1YzExOWRlNjU2ZDNlMjllMzFmIiwibmFtZSI6ImNsYXNoLXJveWFsZS1uZXctdXBkYXRlIiwidGltZSI6eyJjcmVhdGVkIjoiMjAxOC0wMi0wOFQwNzowNDowNS4yODRaIiwiMS4wLjAiOiIyMDE4LTAyLTA4VDA3OjA0OjA1Ljk5M1oiLCJtb2RpZmllZCI6IjIwMTgtMDMtMTlUMjI6MjA6MDguMTU5WiIsIjEuMC4xIjoiMjAxOC0wMi0wOFQwNzoxMjoyMy4xMjdaIiwidW5wdWJsaXNoZWQiOnsibmFtZSI6Im5wbSIsInRpbWUiOiIyMDE4LTAzLTE5VDIyOjIwOjA4LjE1OVoiLCJ0YWdzIjp7ImxhdGVzdCI6IjEuMC4xIn0sIm1haW50YWluZXJzIjpbeyJuYW1lIjoibndycmUiLCJlbWFpbCI6Im53cnJlQHlhbmRleC5jb20ifV0sInZlcnNpb25zIjpbIjEuMC4wIiwiMS4wLjEiXX19LCJfYXR0YWNobWVudHMiOnt9fQ==",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "REVALIDATED",
+    "cf-ray": "a2b32c756c5b655f-AMS",
+    "connection": "close",
+    "content-length": "460",
+    "content-type": "application/json; charset=UTF-8",
+    "date": "Fri, 14 Aug 2026 21:50:10 GMT",
+    "etag": "\"4194aa9b8668645a4136afe0915e15b2\"",
+    "last-modified": "Sat, 26 May 2018 19:55:24 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=l1s8vdUoOkfVZSoxLNeZvQGRhN5qG3U3POJ3lnwm4Ts-1786744210.781282-1.0.1.1-E0w67m34.cEi_keYvlpozWTB2DgElKOXfvTjpVrMqZM; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/clash-royale-new-update"
+}

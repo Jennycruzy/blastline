@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJyYWRhci1pb25pYzEiLCJfcmV2IjoiMi04M2NiMTUzNzk1ZWM5NGY4M2MyNmE5YWY1OTUzNDFkMyIsIm5hbWUiOiJyYWRhci1pb25pYzEiLCJ0aW1lIjp7ImNyZWF0ZWQiOiIyMDE4LTAzLTIwVDIyOjM5OjAwLjA0OVoiLCIxLjAuMSI6IjIwMTgtMDMtMjBUMjI6Mzk6MDAuMTA2WiIsIm1vZGlmaWVkIjoiMjAxOC0wMy0yMFQyMjo1NzoyNi4yNzZaIiwidW5wdWJsaXNoZWQiOnsidGltZSI6IjIwMTgtMDMtMjBUMjI6NTc6MjYuMjc2WiIsInZlcnNpb25zIjpbIjEuMC4xIl19fSwiX2F0dGFjaG1lbnRzIjp7fX0=",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "REVALIDATED",
+    "cf-ray": "a2b32d15282bdb48-AMS",
+    "connection": "close",
+    "content-length": "296",
+    "content-type": "application/octet-stream",
+    "date": "Fri, 14 Aug 2026 21:50:36 GMT",
+    "etag": "\"b3b7832b640166d82d3443813f83c418\"",
+    "last-modified": "Tue, 24 May 2022 11:43:44 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=T2J37cmeUNCqBSTrOEjVWQF69NQFT6FbzGyr4Qn0Y3Q-1786744236.3504095-1.0.1.1-99kLM9DFn4kKZRXg1GHTeHx.DI4ndvR2tMKG_JB8lvw; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/radar-ionic1"
+}

@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJnb2RkZXNzLXByaW1hbC1jaGFvcy1oYWNrcy1tb2QtYXBrIiwiX3JldiI6IjItMTJlNTg5MjdlMjljYjRjYTc1YWQ0ZjcxNzZiNTgyNGMiLCJuYW1lIjoiZ29kZGVzcy1wcmltYWwtY2hhb3MtaGFja3MtbW9kLWFwayIsInRpbWUiOnsibW9kaWZpZWQiOiIyMDE4LTAzLTE5VDIyOjIzOjAxLjI2NloiLCJjcmVhdGVkIjoiMjAxOC0wMS0yMlQxOTowNDo1NS43NjJaIiwiMS4wLjEiOiIyMDE4LTAxLTIyVDE5OjA0OjU1Ljc2MloiLCJ1bnB1Ymxpc2hlZCI6eyJ0aW1lIjoiMjAxOC0wMy0xOVQyMjoyMzowMS4yNjZaIiwidmVyc2lvbnMiOlsiMS4wLjEiXX19LCJfYXR0YWNobWVudHMiOnt9fQ==",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "REVALIDATED",
+    "cf-ray": "a2b32eae99aa0e60-AMS",
+    "connection": "close",
+    "content-length": "340",
+    "content-type": "application/octet-stream",
+    "date": "Fri, 14 Aug 2026 21:51:42 GMT",
+    "etag": "\"3c95e519f84e3b102a6662c1b5f7455f\"",
+    "last-modified": "Tue, 24 May 2022 11:55:56 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=.6bIAZpVUCGWjsQ99zdu8UPks2x1.oEES8HC.cAjJcA-1786744301.8522782-1.0.1.1-gIkirAUzOablt5JHg2S2xOn2doFXFS1d4Ln8oOxFeeo; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/goddess-primal-chaos-hacks-mod-apk"
+}

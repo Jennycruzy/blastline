@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJzdG9yeWJvb2stYWRkb24tY2FudmFzIiwiX3JldiI6IjItOTgyOWMzMzczOGE4MDAyZWZlNGU4YjgwNDFjNTBjMjciLCJuYW1lIjoic3Rvcnlib29rLWFkZG9uLWNhbnZhcyIsInRpbWUiOnsiY3JlYXRlZCI6IjIwMTgtMDMtMjJUMTE6MDE6MDUuNjExWiIsIjAuMC4xIjoiMjAxOC0wMy0yMlQxMTowMTowNS44MjJaIiwibW9kaWZpZWQiOiIyMDE4LTAzLTIyVDExOjA3OjI3LjczOFoiLCJ1bnB1Ymxpc2hlZCI6eyJ0aW1lIjoiMjAxOC0wMy0yMlQxMTowNzoyNy43MzhaIiwidmVyc2lvbnMiOlsiMC4wLjEiXX19LCJfYXR0YWNobWVudHMiOnt9fQ==",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "REVALIDATED",
+    "cf-ray": "a2b32f88eac53c6d-AMS",
+    "connection": "close",
+    "content-length": "316",
+    "content-type": "application/octet-stream",
+    "date": "Fri, 14 Aug 2026 21:52:16 GMT",
+    "etag": "\"8ac7a5fc28de4490186c7790e293d03d\"",
+    "last-modified": "Tue, 24 May 2022 12:00:14 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=4SwGGGUHYn89hqkce2Fylu8wbSBIdOYxUO9BZ7Au24Q-1786744336.781608-1.0.1.1-RqTxqSN8WZ73nlmEAjG8NEh3HaWrgKavk02WBPsfFlc; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/storybook-addon-canvas"
+}

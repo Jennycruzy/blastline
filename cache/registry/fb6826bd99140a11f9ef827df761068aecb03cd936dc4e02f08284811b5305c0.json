@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJob21lc2NhcGVzLWNoZWF0cyIsIl9yZXYiOiIzLTVhNWU2YTA1MzNiYWExZTYwMzNhODc0YzNjMDI1OThhIiwibmFtZSI6ImhvbWVzY2FwZXMtY2hlYXRzIiwidGltZSI6eyJtb2RpZmllZCI6IjIwMTgtMDMtMTZUMTk6Mzk6NTQuOTk3WiIsImNyZWF0ZWQiOiIyMDE3LTEyLTEyVDA3OjQzOjQzLjA2MFoiLCIxLjAuMCI6IjIwMTctMTItMTJUMDc6NDM6NDMuMDYwWiIsInVucHVibGlzaGVkIjp7InRpbWUiOiIyMDE4LTAzLTE2VDE5OjM5OjU0Ljk5N1oiLCJ2ZXJzaW9ucyI6WyIxLjAuMCJdfX0sIl9hdHRhY2htZW50cyI6e319",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "REVALIDATED",
+    "cf-ray": "a2b32eb46fbf0b40-AMS",
+    "connection": "close",
+    "content-length": "306",
+    "content-type": "application/octet-stream",
+    "date": "Fri, 14 Aug 2026 21:51:42 GMT",
+    "etag": "\"eed520d8163a7794a8f857a5d9b1a15d\"",
+    "last-modified": "Tue, 24 May 2022 11:55:59 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=toZ5Vydn_lFmGKnnojxM5VqHjEOIEFSh.sxlELfBVSo-1786744302.7914517-1.0.1.1-7qr2df5y6vIwcmXx.gRsylc5wPMw_z6GrjEj3lpR8x0; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/homescapes-cheats"
+}

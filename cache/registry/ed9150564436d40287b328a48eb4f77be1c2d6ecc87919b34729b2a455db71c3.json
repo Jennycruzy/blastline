@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJkZWVwLXRvd24taGFja3MtbW9kLWFwayIsIl9yZXYiOiIyLTE4MTcxMDZhMmI1YzVhODljMzAxNzI5OGU4ZDg3YzZiIiwibmFtZSI6ImRlZXAtdG93bi1oYWNrcy1tb2QtYXBrIiwidGltZSI6eyJtb2RpZmllZCI6IjIwMTgtMDMtMTVUMjI6MTQ6MzAuMDA4WiIsImNyZWF0ZWQiOiIyMDE4LTAxLTIyVDExOjQyOjMzLjAzN1oiLCIxLjAuMSI6IjIwMTgtMDEtMjJUMTE6NDI6MzMuMDM3WiIsInVucHVibGlzaGVkIjp7InRpbWUiOiIyMDE4LTAzLTE1VDIyOjE0OjMwLjAwOFoiLCJ2ZXJzaW9ucyI6WyIxLjAuMSJdfX0sIl9hdHRhY2htZW50cyI6e319",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "HIT",
+    "cf-ray": "a2b32a5b5d590a75-AMS",
+    "connection": "close",
+    "content-length": "318",
+    "content-type": "application/octet-stream",
+    "date": "Fri, 14 Aug 2026 21:48:44 GMT",
+    "etag": "\"07a7b66ccab22793cfa7f44dc33c040f\"",
+    "last-modified": "Tue, 24 May 2022 11:39:22 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=Y0FNXzoQb.O5mCbPP2D6d__0CzANx_82fD5ZcMfw3M4-1786744124.6985042-1.0.1.1-9BciILcZ9rBgAJr_VKxA1LDh0vMCR77gchC7pIi6nhg; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/deep-town-hacks-mod-apk"
+}

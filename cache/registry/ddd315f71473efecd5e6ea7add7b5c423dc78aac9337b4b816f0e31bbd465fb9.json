@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJmcmVlLWNvaW5zLWZvci13aXphcmQtb2Ytb3oiLCJfcmV2IjoiMi1iNmFkYzQ2M2YzYmI4NTZlZjA0YTI4OWFlMjhhNzFiYyIsIm5hbWUiOiJmcmVlLWNvaW5zLWZvci13aXphcmQtb2Ytb3oiLCJ0aW1lIjp7Im1vZGlmaWVkIjoiMjAxOC0wMy0xNlQyMzoyMjo1OS4xNzRaIiwiY3JlYXRlZCI6IjIwMTgtMDEtMTFUMDk6NTY6MzYuMTc4WiIsIjIuOC41IjoiMjAxOC0wMS0xMVQwOTo1NjozNi4xNzhaIiwidW5wdWJsaXNoZWQiOnsibmFtZSI6Im5wbSIsInRpbWUiOiIyMDE4LTAzLTE2VDIzOjIyOjU5LjE3NVoiLCJ0YWdzIjp7ImxhdGVzdCI6IjIuOC41In0sIm1haW50YWluZXJzIjpbeyJuYW1lIjoicGF0cmljaWFwYXVsZXMiLCJlbWFpbCI6InBhdHJpY2lhcGF1bGVzQG91dGxvb2suY29tIn1dLCJ2ZXJzaW9ucyI6WyIyLjguNSJdfX0sIl9hdHRhY2htZW50cyI6e319",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "HIT",
+    "cf-ray": "a2b32afe9d4e656c-AMS",
+    "connection": "close",
+    "content-length": "444",
+    "content-type": "application/json; charset=UTF-8",
+    "date": "Fri, 14 Aug 2026 21:49:10 GMT",
+    "etag": "\"2beb0cc6823dfba8b5e777d2968486f4\"",
+    "last-modified": "Sun, 27 May 2018 01:13:21 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=drrELayHWdaHmjeNbO.B5mS_4OaaJRFZ3ACLxrbdups-1786744150.8194263-1.0.1.1-tNcE2qZhhffD4RWcGbQh5hngsfSW83bnqv0VpC6Yn2w; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/free-coins-for-wizard-of-oz"
+}

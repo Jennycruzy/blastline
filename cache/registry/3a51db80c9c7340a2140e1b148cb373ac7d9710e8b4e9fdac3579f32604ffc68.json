@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJoYWNrZWQtYmF0dGxlLWJvb20tdW5saW1pdGVkLWNvaW5zIiwiX3JldiI6IjQtNjFmOWEzZWUxNThjNjkyYTAxZTJiMjZhOGVlMjRhZjAiLCJuYW1lIjoiaGFja2VkLWJhdHRsZS1ib29tLXVubGltaXRlZC1jb2lucyIsInRpbWUiOnsiMS4wLjAiOiIyMDE4LTAzLTAyVDE3OjQzOjA5LjQ4NloiLCJjcmVhdGVkIjoiMjAxOC0wMy0wM1QyMTo1MzozNy4zOTBaIiwiMS4wLjEiOiIyMDE4LTAzLTAzVDIxOjUzOjM3LjQzN1oiLCJtb2RpZmllZCI6IjIwMTgtMDMtMjdUMDA6MDc6MTIuNDc1WiIsInVucHVibGlzaGVkIjp7Im5hbWUiOiJucG0iLCJ0aW1lIjoiMjAxOC0wMy0yN1QwMDowNzoxMi40NzVaIiwidGFncyI6eyJsYXRlc3QiOiIxLjAuMSJ9LCJtYWludGFpbmVycyI6W3sibmFtZSI6ImxvZHV0YSIsImVtYWlsIjoibG9kdXRhQGNyeXAuZW1haWwifV0sInZlcnNpb25zIjpbIjEuMC4xIl19fSwiX2F0dGFjaG1lbnRzIjp7fX0=",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "REVALIDATED",
+    "cf-ray": "a2b32cc64dc466a4-AMS",
+    "connection": "close",
+    "content-length": "476",
+    "content-type": "application/json; charset=UTF-8",
+    "date": "Fri, 14 Aug 2026 21:50:23 GMT",
+    "etag": "\"ac102bff0ed99528a3ff6caf3be2759e\"",
+    "last-modified": "Sun, 27 May 2018 03:25:20 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=gqwzb8qVP6BVnNNWI0Px0mabo_9EoYB4_SpkVsZTX0s-1786744223.7225506-1.0.1.1-QZ4.tZTzjNf72S5ymkLhMIOj8L7vSxT7UHgQm0gEUfQ; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/hacked-battle-boom-unlimited-coins"
+}

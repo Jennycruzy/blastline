@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJsZWFndWUtb2YtbGVnZW5kcy1jaGVhdC0yMDE4IiwiX3JldiI6IjItYjEyMGYyODUwYzQyMjAzNjdkNThkZDBlODQ3Y2U4NDYiLCJuYW1lIjoibGVhZ3VlLW9mLWxlZ2VuZHMtY2hlYXQtMjAxOCIsInRpbWUiOnsibW9kaWZpZWQiOiIyMDE4LTAzLTE5VDIyOjIwOjMxLjQ3OFoiLCJjcmVhdGVkIjoiMjAxOC0wMS0yMFQwNzo1MjozMi4yNzlaIiwiMS4wLjEiOiIyMDE4LTAxLTIwVDA3OjUyOjMyLjI3OVoiLCJ1bnB1Ymxpc2hlZCI6eyJ0aW1lIjoiMjAxOC0wMy0xOVQyMjoyMDozMS40NzhaIiwidmVyc2lvbnMiOlsiMS4wLjEiXX19LCJfYXR0YWNobWVudHMiOnt9fQ==",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "REVALIDATED",
+    "cf-ray": "a2b32d8f4d01da9e-AMS",
+    "connection": "close",
+    "content-length": "328",
+    "content-type": "application/octet-stream",
+    "date": "Fri, 14 Aug 2026 21:50:56 GMT",
+    "etag": "\"b1d0fd175f1180d6f102534a222f71dc\"",
+    "last-modified": "Tue, 24 May 2022 11:46:28 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=ZEPJYqTGj8kEqhYH_eX20Rz5nePoyMVdq31.hilmNfk-1786744255.8849516-1.0.1.1-l3Vi_.p4NsOrTnaZcrtjE53lJpmwGD26APAVH6AL6fk; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/league-of-legends-cheat-2018"
+}

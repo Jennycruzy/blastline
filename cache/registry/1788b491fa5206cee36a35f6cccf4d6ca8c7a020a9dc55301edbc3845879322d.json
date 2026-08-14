@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJoYWNrZWQtdGFwLWtuaWdodHMtaGVyb2VzLW1vbnN0ZXJzLXVubGltaXRlZC1jb2lucyIsIl9yZXYiOiI0LTExOGMxMTEwMWQxZDJhZDFjYzMzNjA1NmI1NmMxODU0IiwibmFtZSI6ImhhY2tlZC10YXAta25pZ2h0cy1oZXJvZXMtbW9uc3RlcnMtdW5saW1pdGVkLWNvaW5zIiwidGltZSI6eyIxLjAuMCI6IjIwMTgtMDItMjBUMTc6MzU6NDYuOTYzWiIsImNyZWF0ZWQiOiIyMDE4LTAyLTIyVDE1OjAzOjIzLjUzMFoiLCIxLjAuMSI6IjIwMTgtMDItMjJUMTU6MDM6MjMuNjAxWiIsIm1vZGlmaWVkIjoiMjAxOC0wMy0yN1QwMDowODoxMi45NzJaIiwidW5wdWJsaXNoZWQiOnsidGltZSI6IjIwMTgtMDMtMjdUMDA6MDg6MTIuOTcyWiIsInZlcnNpb25zIjpbIjEuMC4xIl19fSwiX2F0dGFjaG1lbnRzIjp7fX0=",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "REVALIDATED",
+    "cf-ray": "a2b32d407ef7feac-AMS",
+    "connection": "close",
+    "content-length": "407",
+    "content-type": "application/octet-stream",
+    "date": "Fri, 14 Aug 2026 21:50:43 GMT",
+    "etag": "\"0f831f3ac9c0504358bd235b29aa48b8\"",
+    "last-modified": "Tue, 24 May 2022 11:45:04 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=2kabZqzI8eUbU6D.2.pXZR0updA4baQubrGwzzqVqM4-1786744243.273248-1.0.1.1-z7DyoGwKFlbPYsd3ZS7iioHX_fSABs6sD3guPzVpMu0; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/hacked-tap-knights-heroes-monsters-unlimited-coins"
+}

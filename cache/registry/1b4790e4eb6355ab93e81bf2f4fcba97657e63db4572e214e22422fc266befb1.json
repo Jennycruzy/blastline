@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJuYmEtMmsxOC1oYWNrLXRvb2wiLCJfcmV2IjoiMy01ZmQwODc4YjEyNzUyZmNhYzNiZmRiNDgyZWFlOWY3YSIsIm5hbWUiOiJuYmEtMmsxOC1oYWNrLXRvb2wiLCJ0aW1lIjp7Im1vZGlmaWVkIjoiMjAxOC0wMy0xNlQxOTozOTowOC4zNTRaIiwiY3JlYXRlZCI6IjIwMTctMTItMTlUMDQ6NDg6MjkuNjE2WiIsIjEuMC4wIjoiMjAxNy0xMi0xOVQwNDo0ODoyOS42MTZaIiwiMi4wLjAiOiIyMDE3LTEyLTE5VDA1OjEwOjE4Ljc0NloiLCJ1bnB1Ymxpc2hlZCI6eyJ0aW1lIjoiMjAxOC0wMy0xNlQxOTozOTowOC4zNTRaIiwidmVyc2lvbnMiOlsiMS4wLjAiLCIyLjAuMCJdfX0sIl9hdHRhY2htZW50cyI6e319",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "REVALIDATED",
+    "cf-ray": "a2b32edc2e55c875-AMS",
+    "connection": "close",
+    "content-length": "351",
+    "content-type": "application/octet-stream",
+    "date": "Fri, 14 Aug 2026 21:51:49 GMT",
+    "etag": "\"819870fb55b3a6df3882436c4dabdd29\"",
+    "last-modified": "Tue, 24 May 2022 11:57:02 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=czvdVZlJ1SqeMRmbx_5WKg7jedEVGtmxQGeIxMPOWXs-1786744309.1423974-1.0.1.1-2AeJpYpg032nwdNi8FXCEJR3.1cGNFUqv3zAmGOaq30; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/nba-2k18-hack-tool"
+}

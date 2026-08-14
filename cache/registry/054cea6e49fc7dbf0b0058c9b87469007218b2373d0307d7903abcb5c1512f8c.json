@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJ3aWtpLXNlY29uZCIsIl9yZXYiOiIyLWIxODA1NDA2MmNkZmFiMWJmMjkwMzY3MzFkOGU0MjE2IiwibmFtZSI6Indpa2ktc2Vjb25kIiwidGltZSI6eyJjcmVhdGVkIjoiMjAxOC0wMy0yMVQwNjowNDo0MS4wOTNaIiwiMC4wLjAiOiIyMDE4LTAzLTIxVDA2OjA0OjQxLjE5MVoiLCJtb2RpZmllZCI6IjIwMTgtMDMtMjJUMDI6NDg6MDcuMTI2WiIsInVucHVibGlzaGVkIjp7InRpbWUiOiIyMDE4LTAzLTIyVDAyOjQ4OjA3LjEyNloiLCJ2ZXJzaW9ucyI6WyIwLjAuMCJdfX0sIl9hdHRhY2htZW50cyI6e319",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "REVALIDATED",
+    "cf-ray": "a2b32e948ff25897-AMS",
+    "connection": "close",
+    "content-length": "294",
+    "content-type": "application/octet-stream",
+    "date": "Fri, 14 Aug 2026 21:51:37 GMT",
+    "etag": "\"367678fe4a56b18e2785aba2c27ea6df\"",
+    "last-modified": "Tue, 24 May 2022 11:54:49 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=5mbfw_8A78WtDVdJbH2gYwAfdnPVOr_T80CIcwXe25s-1786744297.681646-1.0.1.1-MaXrrWA9VrGb08mRi2gxSkXmKmEa7M4YbPo.5ezuW1U; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/wiki-second"
+}

@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJkb3VibGVkb3duLWNhc2luby1mcmVlLWNoaXBzLWNvaW5zIiwiX3JldiI6IjItZTY1MWIwZjBmYjE4OWQ5ZDg1YmRhNzllNzY2ZjBkYzgiLCJuYW1lIjoiZG91YmxlZG93bi1jYXNpbm8tZnJlZS1jaGlwcy1jb2lucyIsInRpbWUiOnsibW9kaWZpZWQiOiIyMDE4LTAzLTE2VDIzOjIyOjQyLjMyNloiLCJjcmVhdGVkIjoiMjAxOC0wMS0xMVQxMDowNzo1Ni42NjhaIiwiMi40LjEiOiIyMDE4LTAxLTExVDEwOjA3OjU2LjY2OFoiLCJ1bnB1Ymxpc2hlZCI6eyJ0aW1lIjoiMjAxOC0wMy0xNlQyMzoyMjo0Mi4zMjZaIiwidmVyc2lvbnMiOlsiMi40LjEiXX19LCJfYXR0YWNobWVudHMiOnt9fQ==",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "HIT",
+    "cf-ray": "a2b32a60cb7f8850-AMS",
+    "connection": "close",
+    "content-length": "340",
+    "content-type": "application/octet-stream",
+    "date": "Fri, 14 Aug 2026 21:48:45 GMT",
+    "etag": "\"68f2c88042f6dc7e2e02a08c406ac9e4\"",
+    "last-modified": "Tue, 24 May 2022 11:39:27 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=2tsrTYhWCm0vKODiQotOpF0m3BVU1G3Ot8DzOEZD3R0-1786744125.5678105-1.0.1.1-C11hxEhTy.9iO0cT9kk0BFbnomGG.OYDvD73AMtaWiM; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/doubledown-casino-free-chips-coins"
+}

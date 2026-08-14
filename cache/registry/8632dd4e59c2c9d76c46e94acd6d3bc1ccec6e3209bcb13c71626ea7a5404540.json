@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiIxMGstZm9sbG93ZXJzLW9uLWluc3RhZ3JhbSIsIl9yZXYiOiIyLTIxOTdhMGE0Y2FlZDBiODYwZjY1OWJiOWI5NzFiNjFiIiwibmFtZSI6IjEway1mb2xsb3dlcnMtb24taW5zdGFncmFtIiwidGltZSI6eyJtb2RpZmllZCI6IjIwMTgtMDMtMTlUMjM6MTI6MTQuNDI5WiIsImNyZWF0ZWQiOiIyMDE4LTAxLTEyVDEwOjQ5OjI1LjkwMloiLCIxLjAuMCI6IjIwMTgtMDEtMTJUMTA6NDk6MjUuOTAyWiIsInVucHVibGlzaGVkIjp7Im5hbWUiOiJucG0iLCJ0aW1lIjoiMjAxOC0wMy0xOVQyMzoxMjoxNC40MjlaIiwidGFncyI6eyJsYXRlc3QiOiIxLjAuMCJ9LCJtYWludGFpbmVycyI6W3sibmFtZSI6ImNhc3Ryb2txZCIsImVtYWlsIjoiY2FzdHJvS1FkZW56ZXJ0YjAxQHJlZGlmZm1haWwuY29tIn1dLCJ2ZXJzaW9ucyI6WyIxLjAuMCJdfX0sIl9hdHRhY2htZW50cyI6e319",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "REVALIDATED",
+    "cf-ray": "a2b32c2059232f85-AMS",
+    "connection": "close",
+    "content-length": "444",
+    "content-type": "application/json; charset=UTF-8",
+    "date": "Fri, 14 Aug 2026 21:49:57 GMT",
+    "etag": "\"5a81ded9ab18df70b0943c7f7f54ae89\"",
+    "last-modified": "Sat, 26 May 2018 14:08:31 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=bNDQtR83r9iZaHOJY2ir0GRXgSwiY.O3d8lu33h6sqU-1786744197.1746147-1.0.1.1-XcNb01mEWg4RjVIOrEDNZycc5Xgkou8S9gdR4oyGtvc; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/10k-followers-on-instagram"
+}

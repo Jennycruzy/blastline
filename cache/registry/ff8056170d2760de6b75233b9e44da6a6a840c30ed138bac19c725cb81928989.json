@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJyZXZlYWwtc2FyYWhhaC1zZW5kZXJzLW5hbWUiLCJfcmV2IjoiMi1mOTAzYzY1MGMxYmYyZmFkMGVkNjRjYjViZWI0YTczNyIsIm5hbWUiOiJyZXZlYWwtc2FyYWhhaC1zZW5kZXJzLW5hbWUiLCJ0aW1lIjp7Im1vZGlmaWVkIjoiMjAxOC0wMy0xOVQyMjoyMDo1My40MzVaIiwiY3JlYXRlZCI6IjIwMTgtMDEtMDlUMDE6NTE6NTEuMjgyWiIsIjEuMC4wIjoiMjAxOC0wMS0wOVQwMTo1MTo1MS4yODJaIiwidW5wdWJsaXNoZWQiOnsidGltZSI6IjIwMTgtMDMtMTlUMjI6MjA6NTMuNDM1WiIsInZlcnNpb25zIjpbIjEuMC4wIl19fSwiX2F0dGFjaG1lbnRzIjp7fX0=",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "REVALIDATED",
+    "cf-ray": "a2b32ef09ff1feb8-AMS",
+    "connection": "close",
+    "content-length": "326",
+    "content-type": "application/octet-stream",
+    "date": "Fri, 14 Aug 2026 21:51:52 GMT",
+    "etag": "\"c79b6f715d6aa75d005d39911fb70b98\"",
+    "last-modified": "Tue, 24 May 2022 11:57:11 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=5eReH8MCs6a0GgHD11fq1WCc6bqngwHGQzM4zu.hd7w-1786744312.4118354-1.0.1.1-iZgvxNwQrA5JYcmWqVzliBlb.aK1gmuxZHgHfJsY.1I; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/reveal-sarahah-senders-name"
+}

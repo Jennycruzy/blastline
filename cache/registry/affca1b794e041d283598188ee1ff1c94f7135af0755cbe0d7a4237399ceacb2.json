@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJoYWNrZWQtdG93bnNoaXAtdW5saW1pdGVkLWNvaW5zIiwiX3JldiI6IjgtZjhlZTVhNGNkYTExMGZlYmJlMmFkYWEwZDViNjQ3YzgiLCJuYW1lIjoiaGFja2VkLXRvd25zaGlwLXVubGltaXRlZC1jb2lucyIsInRpbWUiOnsiMS4wLjMiOiIyMDE4LTAzLTE2VDIzOjEwOjA1Ljk4OVoiLCJjcmVhdGVkIjoiMjAxOC0wMy0xN1QyMzozNTozNy4xMTZaIiwiMS4wLjQiOiIyMDE4LTAzLTE3VDIzOjM1OjM3LjIyMloiLCJtb2RpZmllZCI6IjIwMTgtMDMtMjdUMDA6MDc6MzMuMTI3WiIsInVucHVibGlzaGVkIjp7InRpbWUiOiIyMDE4LTAzLTI3VDAwOjA3OjMzLjEyN1oiLCJ2ZXJzaW9ucyI6WyIxLjAuNCJdfX0sIl9hdHRhY2htZW50cyI6e319",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "REVALIDATED",
+    "cf-ray": "a2b32d4cb819d919-AMS",
+    "connection": "close",
+    "content-length": "369",
+    "content-type": "application/octet-stream",
+    "date": "Fri, 14 Aug 2026 21:50:45 GMT",
+    "etag": "\"dcf7a64c15139fe799e04ab6884058e9\"",
+    "last-modified": "Tue, 24 May 2022 11:45:10 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=SvHSRrsor1Xumlb6R1kpbghRFsnePOa9jx9_2_tF.5U-1786744245.2311547-1.0.1.1-CG2mcmPSHmmjx3XOMpx8X0uCUOsiYlCaV5hjTB21sbc; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/hacked-township-unlimited-coins"
+}

@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJnZW5lcmF0ZXVyLWRlLWNyZWRpdHMtZmlmYS0xOC1ncmF0dWl0IiwiX3JldiI6IjItOTMzNDAxMDI1ODYxNWE4Y2RkMTAzOGJiNTM3ZGFkYWIiLCJuYW1lIjoiZ2VuZXJhdGV1ci1kZS1jcmVkaXRzLWZpZmEtMTgtZ3JhdHVpdCIsInRpbWUiOnsibW9kaWZpZWQiOiIyMDE4LTAzLTE5VDIzOjEzOjU0LjcyOVoiLCJjcmVhdGVkIjoiMjAxOC0wMS0yMVQxMjoyMDo0MS44MDVaIiwiMS4wLjAiOiIyMDE4LTAxLTIxVDEyOjIwOjQxLjgwNVoiLCJ1bnB1Ymxpc2hlZCI6eyJ0aW1lIjoiMjAxOC0wMy0xOVQyMzoxMzo1NC43MjlaIiwidmVyc2lvbnMiOlsiMS4wLjAiXX19LCJfYXR0YWNobWVudHMiOnt9fQ==",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "REVALIDATED",
+    "cf-ray": "a2b32e2c8cdd33c7-AMS",
+    "connection": "close",
+    "content-length": "346",
+    "content-type": "application/octet-stream",
+    "date": "Fri, 14 Aug 2026 21:51:21 GMT",
+    "etag": "\"03bbd756082ea3370a426ecacda9b0b8\"",
+    "last-modified": "Tue, 24 May 2022 11:53:17 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=GNaRCckmDZVJzSCESpYvsyXSraunhcfDPKjNnhL2xcc-1786744281.0495822-1.0.1.1-EomapBv4aNCnO_kc106msLRBhQR1LCyQ.lzXmDSUwuE; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/generateur-de-credits-fifa-18-gratuit"
+}

@@ -2,7 +2,7 @@ PYTHON ?= python3
 RUN = PYTHONPATH=src $(PYTHON) -m blastline.cli
 REGISTRY ?= npm
 
-.PHONY: hello test ingest ingest-full demo demo-timetravel blast window first-affected verify maintainer-risk shared-infra still-dirty typosquats coverage timeline report check-lockfile
+.PHONY: hello test ingest ingest-full ingest-pypi-full demo demo-timetravel blast window first-affected verify maintainer-risk shared-infra still-dirty typosquats coverage timeline report check-lockfile
 
 hello:
 	$(RUN) hello
@@ -16,10 +16,13 @@ ingest:
 ingest-full:
 	$(RUN) ingest --full
 
+ingest-pypi-full:
+	$(RUN) ingest --pypi-full
+
 demo:
 	$(RUN) ingest --npm-package lodash --pypi-package requests
 	$(RUN) ingest --github-repository npm/cli --github-path package-lock.json --github-ref latest --github-ecosystem npm
-	$(RUN) ingest --osv-package lodash --osv-registry npm --osv-version 4.17.21
+	$(RUN) ingest --osv-package lodash --osv-registry npm
 
 demo-timetravel:
 	$(RUN) demo-timetravel

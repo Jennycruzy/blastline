@@ -1,9 +1,11 @@
 from __future__ import annotations
 
 import unittest
+import tempfile
 from pathlib import Path
 
 from blastline.ingest.parsers import parse_npm, parse_pypi
+from blastline.ingest.sources import read_index_checkpoint, write_index_checkpoint
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -18,6 +20,13 @@ class RecordedRegistryResponseTest(unittest.TestCase):
         self.assertEqual(package.name, "lodash")
         self.assertGreater(len(package.versions), 0)
         self.assertIsInstance(issues, tuple)
+
+    def test_pypi_catalog_checkpoint_resumes_only_same_catalog(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "pypi.json"
+            write_index_checkpoint(path, "pypi", "catalog-a", 7)
+            self.assertEqual(read_index_checkpoint(path, "pypi", "catalog-a", 10), 7)
+            self.assertEqual(read_index_checkpoint(path, "pypi", "catalog-b", 10), 0)
 
     def test_recorded_pypi_response_is_real_and_parseable(self) -> None:
         path = ROOT / "cache" / "recordings" / "pypi" / "requests.json"

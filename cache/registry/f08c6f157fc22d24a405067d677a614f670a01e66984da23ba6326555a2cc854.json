@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJoYWNrZWQtaGVhZC1ib3hpbmctdW5saW1pdGVkLWNvaW5zIiwiX3JldiI6IjgtNTc5ODc0M2ZhNGYyMmM3YWQ3ZGFiYTdjNzk3ZjY1NTAiLCJuYW1lIjoiaGFja2VkLWhlYWQtYm94aW5nLXVubGltaXRlZC1jb2lucyIsInRpbWUiOnsiMS4wLjIiOiIyMDE4LTAzLTE1VDIxOjM3OjAzLjE0NloiLCJjcmVhdGVkIjoiMjAxOC0wMy0xNlQyMjowNzozMC41ODBaIiwiMS4wLjMiOiIyMDE4LTAzLTE2VDIyOjA3OjMwLjY0NFoiLCJtb2RpZmllZCI6IjIwMTgtMDMtMjdUMDA6MDc6MjIuNjc2WiIsInVucHVibGlzaGVkIjp7InRpbWUiOiIyMDE4LTAzLTI3VDAwOjA3OjIyLjY3NloiLCJ2ZXJzaW9ucyI6WyIxLjAuMyJdfX0sIl9hdHRhY2htZW50cyI6e319",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "REVALIDATED",
+    "cf-ray": "a2b32dfe0b759e3c-AMS",
+    "connection": "close",
+    "content-length": "375",
+    "content-type": "application/octet-stream",
+    "date": "Fri, 14 Aug 2026 21:51:13 GMT",
+    "etag": "\"253031f308e0aecf17b50b604928c9ea\"",
+    "last-modified": "Tue, 24 May 2022 11:49:16 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=Uq.U4p2._5g9vdB8tr0ayHzdy2WRZ85GJv_gd6qgJSo-1786744273.6051295-1.0.1.1-Jyo0CDUvtVpBAOE7wLOvw2iqnS47s1T2x.DyXMYzO64; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/hacked-head-boxing-unlimited-coins"
+}

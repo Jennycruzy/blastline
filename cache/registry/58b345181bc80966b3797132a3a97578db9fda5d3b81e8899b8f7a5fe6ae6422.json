@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJyZWFjdC1uZW9mb3JtIiwiX3JldiI6IjItYzNjMzdjMmRiZDgxYTQwNmM2NWJiOGFhMWViNzliMjMiLCJuYW1lIjoicmVhY3QtbmVvZm9ybSIsInRpbWUiOnsiY3JlYXRlZCI6IjIwMTgtMDMtMjdUMDE6NTE6NDYuNjM2WiIsIjAuMC4xIjoiMjAxOC0wMy0yN1QwMTo1MTo0Ni43MTlaIiwibW9kaWZpZWQiOiIyMDE4LTAzLTI3VDAxOjU2OjA3Ljg1NloiLCJ1bnB1Ymxpc2hlZCI6eyJ0aW1lIjoiMjAxOC0wMy0yN1QwMTo1NjowNy44NTZaIiwidmVyc2lvbnMiOlsiMC4wLjEiXX19LCJfYXR0YWNobWVudHMiOnt9fQ==",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "REVALIDATED",
+    "cf-ray": "a2b32e8219891c04-AMS",
+    "connection": "close",
+    "content-length": "298",
+    "content-type": "application/octet-stream",
+    "date": "Fri, 14 Aug 2026 21:51:34 GMT",
+    "etag": "\"a12ec571dfe0c30a6581247e9bb9e914\"",
+    "last-modified": "Tue, 24 May 2022 11:54:35 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=g5TLi4.V86njyUGY7r7b9bOMsTdvcY.EagoExiIn1lI-1786744294.7329528-1.0.1.1-4qQMkCwLa63r9.MOcl8OFxi.nvPHvlUoF1p_tmMHSck; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/react-neoform"
+}

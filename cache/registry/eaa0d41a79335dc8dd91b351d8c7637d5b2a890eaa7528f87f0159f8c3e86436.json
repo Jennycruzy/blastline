@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJoYWNrZWQtbmVlZC1mb3Itc3BlZWQtbm8tbGltaXRzLXVubGltaXRlZC1jb2lucyIsIl9yZXYiOiI0LWYwNDFiZjBiYWNjNmU4MmIxNDNlNDhjY2QwZGZlYTAzIiwibmFtZSI6ImhhY2tlZC1uZWVkLWZvci1zcGVlZC1uby1saW1pdHMtdW5saW1pdGVkLWNvaW5zIiwidGltZSI6eyIxLjAuMCI6IjIwMTgtMDEtMzFUMjE6MDE6MDkuNzg0WiIsImNyZWF0ZWQiOiIyMDE4LTAyLTIwVDAwOjI3OjA2LjU5MFoiLCIxLjAuMSI6IjIwMTgtMDItMjBUMDA6Mjc6MDYuNjI3WiIsIm1vZGlmaWVkIjoiMjAxOC0wMy0yN1QwMDowODowMy40NjVaIiwidW5wdWJsaXNoZWQiOnsidGltZSI6IjIwMTgtMDMtMjdUMDA6MDg6MDMuNDY1WiIsInZlcnNpb25zIjpbIjEuMC4xIl19fSwiX2F0dGFjaG1lbnRzIjp7fX0=",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "REVALIDATED",
+    "cf-ray": "a2b32f465ffeaa76-AMS",
+    "connection": "close",
+    "content-length": "401",
+    "content-type": "application/octet-stream",
+    "date": "Fri, 14 Aug 2026 21:52:06 GMT",
+    "etag": "\"6a4b94c419f969bb3f42269da84b10f1\"",
+    "last-modified": "Tue, 24 May 2022 11:59:09 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=_jLPHpvHsDTXSHQhVKrWhgtt_MK8zOHgKibSnbtPr6Q-1786744326.1351116-1.0.1.1-k0RwUibF1BmrnlLiMbCNRPFDK4hUv6Jzd83MfhOxJPk; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/hacked-need-for-speed-no-limits-unlimited-coins"
+}

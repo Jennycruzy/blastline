@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJ3aXphcmQtb2Ytb3otZnJlZS1jb2lucyIsIl9yZXYiOiIyLTJmZWRiYjE3MTIwMmJhN2IyYTAyMDQxNWQwOGMyY2JiIiwibmFtZSI6IndpemFyZC1vZi1vei1mcmVlLWNvaW5zIiwidGltZSI6eyJtb2RpZmllZCI6IjIwMTgtMDMtMTZUMjM6MjI6NTkuMDczWiIsImNyZWF0ZWQiOiIyMDE4LTAxLTExVDA5OjU2OjI5LjkxOFoiLCIzLjYuMiI6IjIwMTgtMDEtMTFUMDk6NTY6MjkuOTE4WiIsInVucHVibGlzaGVkIjp7Im5hbWUiOiJucG0iLCJ0aW1lIjoiMjAxOC0wMy0xNlQyMzoyMjo1OS4wNzNaIiwidGFncyI6eyJsYXRlc3QiOiIzLjYuMiJ9LCJtYWludGFpbmVycyI6W3sibmFtZSI6InBhdHJpY2lhcGF1bGVzIiwiZW1haWwiOiJwYXRyaWNpYXBhdWxlc0BvdXRsb29rLmNvbSJ9XSwidmVyc2lvbnMiOlsiMy42LjIiXX19LCJfYXR0YWNobWVudHMiOnt9fQ==",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "REVALIDATED",
+    "cf-ray": "a2b32cb7b96eb994-AMS",
+    "connection": "close",
+    "content-length": "436",
+    "content-type": "application/json; charset=UTF-8",
+    "date": "Fri, 14 Aug 2026 21:50:21 GMT",
+    "etag": "\"c89c11dcf70f8cf47060e10ec17407c4\"",
+    "last-modified": "Sun, 27 May 2018 22:12:12 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=bTMsIw2taypqh50sXA9TMz_BLz6jcd8pR00gfB3CLj4-1786744221.394178-1.0.1.1-ZtepAsbuHGAhhSuD8ISx3.fvhjz_0l3bVd.p6CDi114; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/wizard-of-oz-free-coins"
+}

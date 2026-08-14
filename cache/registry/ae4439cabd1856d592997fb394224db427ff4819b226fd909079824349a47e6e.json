@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJ2dWUtZWFzeS1kYXRhZ3JpZCIsIl9yZXYiOiI2LWE3NzI5YmE5YTUyOGJmZTM1MGRmZjg0OThjOTJhZDI3IiwibmFtZSI6InZ1ZS1lYXN5LWRhdGFncmlkIiwidGltZSI6eyJjcmVhdGVkIjoiMjAxOC0wMy0xNlQxMDowNTozMi45MzdaIiwiMC4xLjEiOiIyMDE4LTAzLTE2VDEwOjA1OjMzLjAxNloiLCJtb2RpZmllZCI6IjIwMTgtMDMtMTdUMDk6MzI6MTYuMzM3WiIsIjAuMC4xIjoiMjAxOC0wMy0xNlQxMDoxNjoyNy4zMTJaIiwiMC4wLjIiOiIyMDE4LTAzLTE3VDA5OjE3OjQ1LjE2N1oiLCJ1bnB1Ymxpc2hlZCI6eyJuYW1lIjoiaHVudGVyYWRzIiwidGltZSI6IjIwMTgtMDMtMTdUMDk6MzI6MTYuMzM3WiIsInRhZ3MiOnsibGF0ZXN0IjoiMC4wLjEifSwidmVyc2lvbnMiOlsiMC4wLjEiXSwibWFpbnRhaW5lcnMiOlt7Im5hbWUiOiJodW50ZXJhZHMiLCJlbWFpbCI6Imh1bnRlcmFkc0AxMjYuY29tIn1dfX0sIl9hdHRhY2htZW50cyI6e319",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "REVALIDATED",
+    "cf-ray": "a2b32c5f9dc3bd33-AMS",
+    "connection": "close",
+    "content-length": "486",
+    "content-type": "application/json; charset=UTF-8",
+    "date": "Fri, 14 Aug 2026 21:50:07 GMT",
+    "etag": "\"b2cd7facac64093b86cccc269f93a2d6\"",
+    "last-modified": "Sun, 27 May 2018 21:12:22 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=D91RComWjuzH0QPeFIpTy.UkJk06O4kI79TeKFvO5R8-1786744207.2925258-1.0.1.1-CoK8SY6EpythpNeRunZeB6NpL7DbMbjaLxRCXMkObrk; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/vue-easy-datagrid"
+}

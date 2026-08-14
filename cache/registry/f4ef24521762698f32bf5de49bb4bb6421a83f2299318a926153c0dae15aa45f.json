@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJoYWNrZWQtc3Rvcm0tY2hhdGVsYWluLXVubGltaXRlZC1nZW1zIiwiX3JldiI6IjQtMzc4ZTA1MWNlZWNmNjcxM2YyMTliNDg4Y2I1ZjlmNjAiLCJuYW1lIjoiaGFja2VkLXN0b3JtLWNoYXRlbGFpbi11bmxpbWl0ZWQtZ2VtcyIsInRpbWUiOnsiMS4wLjAiOiIyMDE4LTAzLTE1VDIxOjQxOjA1LjczMFoiLCJjcmVhdGVkIjoiMjAxOC0wMy0xNlQyMjowODo0NC40NDhaIiwiMS4wLjEiOiIyMDE4LTAzLTE2VDIyOjA4OjQ0LjQ4NloiLCJtb2RpZmllZCI6IjIwMTgtMDMtMjdUMDA6MDc6MjIuOTQ4WiIsInVucHVibGlzaGVkIjp7InRpbWUiOiIyMDE4LTAzLTI3VDAwOjA3OjIyLjk0OFoiLCJ2ZXJzaW9ucyI6WyIxLjAuMSJdfX0sIl9hdHRhY2htZW50cyI6e319",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "MISS",
+    "cf-ray": "a2b32d3a5e3e5639-AMS",
+    "connection": "close",
+    "content-length": "381",
+    "content-type": "application/octet-stream",
+    "date": "Fri, 14 Aug 2026 21:50:42 GMT",
+    "etag": "\"2afa951cb61574da79d110c5369973aa\"",
+    "last-modified": "Tue, 24 May 2022 11:43:38 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=yhkUNXMFxT8DICplmk8ee0UIYUP_dg5A9CifnbT.udk-1786744242.2949307-1.0.1.1-6WuVpTbyT8tqKUM3Rq86QOImdZ42Tlzry4T6vHOmTzE; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/hacked-storm-chatelain-unlimited-gems"
+}

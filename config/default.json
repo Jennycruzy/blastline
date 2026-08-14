@@ -15,6 +15,7 @@
     "npm_changes_url": "https://replicate.npmjs.com/registry",
     "npm_initial_since": "0",
     "npm_changes_limit": 50,
+    "npm_catalog_page_limit": 100,
     "fetch_concurrency": 4,
     "pypi_package_url": "https://pypi.org/pypi",
     "pypi_simple_url": "https://pypi.org/simple/",

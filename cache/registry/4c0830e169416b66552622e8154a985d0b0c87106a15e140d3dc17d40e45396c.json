@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiI4ZWlnaHQtYmFsbC1wb29sLWhhY2tlci1jaGVhdGVyIiwiX3JldiI6IjItYzU3YTUxY2RhZDE2ZjIwODYwMzQ4ZmRhYTg2ZDFlMGYiLCJuYW1lIjoiOGVpZ2h0LWJhbGwtcG9vbC1oYWNrZXItY2hlYXRlciIsInRpbWUiOnsibW9kaWZpZWQiOiIyMDE4LTAzLTE2VDIzOjI1OjU0Ljc2NloiLCJjcmVhdGVkIjoiMjAxOC0wMS0yNVQxMjozNDoxMC4wNjBaIiwiMS4wLjAiOiIyMDE4LTAxLTI1VDEyOjM0OjEwLjA2MFoiLCJ1bnB1Ymxpc2hlZCI6eyJuYW1lIjoibnBtIiwidGltZSI6IjIwMTgtMDMtMTZUMjM6MjU6NTQuNzY2WiIsInRhZ3MiOnsibGF0ZXN0IjoiMS4wLjAifSwibWFpbnRhaW5lcnMiOlt7Im5hbWUiOiJjaGVyeWxlMzU4MjM1IiwiZW1haWwiOiJ2b2Z1aGV0dUAwbWl4bWFpbC5pbmZvIn1dLCJ2ZXJzaW9ucyI6WyIxLjAuMCJdfX0sIl9hdHRhY2htZW50cyI6e319",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "REVALIDATED",
+    "cf-ray": "a2b32c390badb89a-AMS",
+    "connection": "close",
+    "content-length": "447",
+    "content-type": "application/json; charset=UTF-8",
+    "date": "Fri, 14 Aug 2026 21:50:01 GMT",
+    "etag": "\"87f96c5ea81ecaf50262cecf2e58d458\"",
+    "last-modified": "Sat, 26 May 2018 14:11:07 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=xk4IHyM9Ex5O.kpgp1vv02tjNwZHFRi3x5q0IUjbFw8-1786744201.1303842-1.0.1.1-Ud2r2S986zpJkDDw0X_NfHnfqnnGFGAOAZ1tD6OWdwI; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/8eight-ball-pool-hacker-cheater"
+}

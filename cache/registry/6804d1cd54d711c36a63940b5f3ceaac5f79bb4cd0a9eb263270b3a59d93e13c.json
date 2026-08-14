@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJub2RlYmItcGx1Z2luLXdpc2V0di1jaGVja3JlbW90ZSIsIl9yZXYiOiIyLThlZWJkYmY4ODg3MjkzY2FkNDg3ZjM0MWM2YWI2ZjA1IiwibmFtZSI6Im5vZGViYi1wbHVnaW4td2lzZXR2LWNoZWNrcmVtb3RlIiwidGltZSI6eyJjcmVhdGVkIjoiMjAxOC0wMy0xOVQwNjowODo0MC44OTdaIiwiMC4xLjAiOiIyMDE4LTAzLTE5VDA2OjA4OjQwLjk5N1oiLCJtb2RpZmllZCI6IjIwMTgtMDMtMTlUMDc6MDA6MDAuMDE4WiIsInVucHVibGlzaGVkIjp7InRpbWUiOiIyMDE4LTAzLTE5VDA3OjAwOjAwLjAxN1oiLCJ2ZXJzaW9ucyI6WyIwLjEuMCJdfX0sIl9hdHRhY2htZW50cyI6e319",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "REVALIDATED",
+    "cf-ray": "a2b32e203a597752-AMS",
+    "connection": "close",
+    "content-length": "336",
+    "content-type": "application/octet-stream",
+    "date": "Fri, 14 Aug 2026 21:51:19 GMT",
+    "etag": "\"8f7f1d0aab20d0bf56135dc28e1ec127\"",
+    "last-modified": "Tue, 24 May 2022 11:51:30 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=VUV_BXvWq6nMftQeZhLPZYVxQk80bMMlKv.sI2bSLzI-1786744279.0739286-1.0.1.1-9M.XJoqJE_rC4wdmNR0j9HALnEjenFcp3or813SmGa4; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/nodebb-plugin-wisetv-checkremote"
+}

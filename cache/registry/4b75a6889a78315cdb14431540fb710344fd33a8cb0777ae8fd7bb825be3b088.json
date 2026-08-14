@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJraW5nLW9mLWF2YWxvbi1mcmVlLWdpZnQtY29kZXMiLCJfcmV2IjoiMy1iMzVhYzM0Y2M3MmQ5YTExMDExYTI1MDAxMDZiMDdhMiIsIm5hbWUiOiJraW5nLW9mLWF2YWxvbi1mcmVlLWdpZnQtY29kZXMiLCJ0aW1lIjp7Im1vZGlmaWVkIjoiMjAxOC0wMy0xNlQyMzoyMzoxOC45NDZaIiwiY3JlYXRlZCI6IjIwMTgtMDEtMTFUMDk6MDc6MTcuOTMyWiIsIjMuOC40IjoiMjAxOC0wMS0xMVQwOTowNzoxNy45MzJaIiwiMy44LjUiOiIyMDE4LTAxLTExVDA5OjEwOjU5LjY4MVoiLCJ1bnB1Ymxpc2hlZCI6eyJuYW1lIjoibnBtIiwidGltZSI6IjIwMTgtMDMtMTZUMjM6MjM6MTguOTQ2WiIsInRhZ3MiOnsibGF0ZXN0IjoiMy44LjUifSwibWFpbnRhaW5lcnMiOlt7Im5hbWUiOiJ3aWxsd2llbGFuZCIsImVtYWlsIjoid2lsbHdpZWxhbmRAb3V0bG9vay5jby50aCJ9XSwidmVyc2lvbnMiOlsiMy44LjQiLCIzLjguNSJdfX0sIl9hdHRhY2htZW50cyI6e319",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "REVALIDATED",
+    "cf-ray": "a2b32c129ca6df30-AMS",
+    "connection": "close",
+    "content-length": "489",
+    "content-type": "application/json; charset=UTF-8",
+    "date": "Fri, 14 Aug 2026 21:49:55 GMT",
+    "etag": "\"ad9e457eca905df0f739171cfcec3796\"",
+    "last-modified": "Sun, 27 May 2018 06:05:14 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=1zvychOBOibCRe0cC7rRGLS0uveJSTmbopixtMC0q5I-1786744194.9721158-1.0.1.1-PbJaSgOXNbRh64uZUOiNSdftAZurnLbsnhaij6fRKqo; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/king-of-avalon-free-gift-codes"
+}

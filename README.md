@@ -29,7 +29,7 @@ make report
 
 The window command prints the live temporal query, its paths and latency-independent evidence, then compares the historical set with the present-day set. In the committed demo, the historical set contains `npm/cli` and the present-day set is empty. The timeline starts before the real `npm/cli` resolution commit, so its exposed set grows from zero to one as the scrubber crosses that commit.
 
-`make ingest` advances the cached incremental feeds. `make ingest-full` drains npm changes from its checkpoint and enumerates the complete PyPI Simple index; it is resumable, network-bound, and reports every failed record. The checked-in demo is deliberately a measured partial corpus rather than a completeness claim.
+`make ingest` advances the cached incremental feeds. `make ingest-full` bootstraps npm from the supported paginated replication catalog, then enumerates the complete PyPI Simple index; both paths checkpoint progress and report every failed record. `make ingest-pypi-full` runs only the PyPI catalog path. Full ecosystem ingestion is network- and disk-bound, so the checked-in demo remains deliberately labeled as a measured partial corpus rather than a completeness claim.
 
 Q8 can be exercised against an input that cannot be parsed: `make check-lockfile LOCKFILE=/path/to/bad/package-lock.json REPOSITORY=example/bad VALID_FROM=2026-08-13T00:00:00Z`. Blastline retains that real repository as unknown, records the failure, and prints the changed `M of N` coverage instead of treating it as clean.
 
@@ -52,7 +52,7 @@ The `Resolution` node is deliberately first-class. A manifest range is not expos
 
 ## Measured demo snapshot
 
-The committed real-response recordings produce 844 packages, 1,296 versions, 7 maintainers, 2 publish-infrastructure records, 1 repository, 5,887 resolutions, 3 advisories, and 22,951 edges. The source slice is one npm package (`lodash`, 117 versions), one PyPI package (`requests`, 160 versions), and five real lockfile snapshots from `npm/cli`. Eighty lockfile records lacked a resolved version and were reported as unknown; three PyPI releases had no file records. The snapshot is intentionally labeled as a partial corpus; the resumable feeds are the path to broader coverage.
+The current local graph contains 878 packages, 1,641 versions, 8 maintainers, 2 publish-infrastructure records, 1 repository, 5,887 resolutions, 10 advisories, and 30,607 edges. It includes the real-response demo slice—one npm package (`lodash`), one PyPI package (`requests`), and five real lockfile snapshots from `npm/cli`—plus a partial real npm feed expansion. Eighty lockfile records lacked a resolved version and were reported as unknown; three PyPI releases had no file records. This is still a measured partial corpus, not an ecosystem-wide completeness claim; the resumable catalog paths are the route to broader coverage.
 
 The generated incident artifact is [`examples/incident-report.json`](examples/incident-report.json). It includes the historical/current comparison, still-dirty candidates, coverage, graph fingerprint, and verification scorecard.
 

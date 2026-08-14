@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJndGEtc2FuLWFuZHJlYXMtY2hlYXQtMjAxOCIsIl9yZXYiOiIyLWJkMDE2MjllY2U0YjUzZDU1NTJkMjNhMjYwZTA5Mjk1IiwibmFtZSI6Imd0YS1zYW4tYW5kcmVhcy1jaGVhdC0yMDE4IiwidGltZSI6eyJtb2RpZmllZCI6IjIwMTgtMDMtMTlUMjI6MjA6MzEuNzUxWiIsImNyZWF0ZWQiOiIyMDE4LTAxLTIwVDA3OjUyOjI0LjY2NloiLCIxLjAuMSI6IjIwMTgtMDEtMjBUMDc6NTI6MjQuNjY2WiIsInVucHVibGlzaGVkIjp7InRpbWUiOiIyMDE4LTAzLTE5VDIyOjIwOjMxLjc1MVoiLCJ2ZXJzaW9ucyI6WyIxLjAuMSJdfX0sIl9hdHRhY2htZW50cyI6e319",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "MISS",
+    "cf-ray": "a2b32d884fd2b948-AMS",
+    "connection": "close",
+    "content-length": "324",
+    "content-type": "application/octet-stream",
+    "date": "Fri, 14 Aug 2026 21:50:54 GMT",
+    "etag": "\"24e02f013605b914964d29077c7ebeaa\"",
+    "last-modified": "Tue, 24 May 2022 11:46:23 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=TOCRliX_at4xTa6bKWMlG9egYVKHfN4tuKrvb.5KnV0-1786744254.7637026-1.0.1.1-cfx_n07G5pWYIkZO8hnO8DIT_v.f3pBQ.b2FHjys85Y; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/gta-san-andreas-cheat-2018"
+}

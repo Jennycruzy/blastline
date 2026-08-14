@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJpbXZ1LWNyZWRpdHMtZ2VuZXJhdG9yLW9ubGluZSIsIl9yZXYiOiIyLTRiYzIxMDQ5MzQ2N2JkYTc1OWI4MTVhMjk2NjJjOWNjIiwibmFtZSI6ImltdnUtY3JlZGl0cy1nZW5lcmF0b3Itb25saW5lIiwidGltZSI6eyJtb2RpZmllZCI6IjIwMTgtMDMtMTZUMjM6MzM6MjIuMDc3WiIsImNyZWF0ZWQiOiIyMDE4LTAxLTIyVDE3OjE0OjAzLjcwM1oiLCIxLjAuMSI6IjIwMTgtMDEtMjJUMTc6MTQ6MDMuNzAzWiIsInVucHVibGlzaGVkIjp7InRpbWUiOiIyMDE4LTAzLTE2VDIzOjMzOjIyLjA3N1oiLCJ2ZXJzaW9ucyI6WyIxLjAuMSJdfX0sIl9hdHRhY2htZW50cyI6e319",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "REVALIDATED",
+    "cf-ray": "a2b32e19596f9ffd-AMS",
+    "connection": "close",
+    "content-length": "330",
+    "content-type": "application/octet-stream",
+    "date": "Fri, 14 Aug 2026 21:51:18 GMT",
+    "etag": "\"4b68dbc31d6756e2bfa1b5193ff4d411\"",
+    "last-modified": "Tue, 24 May 2022 11:49:24 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=GfT0N3kkY8Ix2BTBq8OXdNc9ZksSYJr_iaO6x13i82I-1786744277.9739063-1.0.1.1-kzNX5hZ5E0HydO_sYA2t1q9xYMCoQEYKHK7A2vTXdVo; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/imvu-credits-generator-online"
+}

@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJjYXJhLWNoZWF0LWRyYWdvbi1jaXR5IiwiX3JldiI6IjItNTcxNDRiNTViYzdiYzA4ZDE4ZWZmYjIzZTM5MmU5ZTIiLCJuYW1lIjoiY2FyYS1jaGVhdC1kcmFnb24tY2l0eSIsInRpbWUiOnsibW9kaWZpZWQiOiIyMDE4LTAzLTE2VDIzOjM1OjExLjA4MFoiLCJjcmVhdGVkIjoiMjAxOC0wMS0xM1QwNzo0ODoxNS41MjZaIiwiMS42LjMiOiIyMDE4LTAxLTEzVDA3OjQ4OjE1LjUyNloiLCJ1bnB1Ymxpc2hlZCI6eyJ0aW1lIjoiMjAxOC0wMy0xNlQyMzozNToxMS4wODBaIiwidmVyc2lvbnMiOlsiMS42LjMiXX19LCJfYXR0YWNobWVudHMiOnt9fQ==",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "REVALIDATED",
+    "cf-ray": "a2b32f95be86e568-AMS",
+    "connection": "close",
+    "content-length": "316",
+    "content-type": "application/octet-stream",
+    "date": "Fri, 14 Aug 2026 21:52:19 GMT",
+    "etag": "\"89d771cb64df73a092014ec8d8b6a064\"",
+    "last-modified": "Tue, 24 May 2022 12:01:11 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=gsP8KF..tyFqyquzJKEVbpDnWz3mb3fhuh0CVqS8neA-1786744338.83298-1.0.1.1-F4LRUV6XXJPVgKhN_Wc1CkCfczk0uhKp.d3Z9PMaIg8; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/cara-cheat-dragon-city"
+}

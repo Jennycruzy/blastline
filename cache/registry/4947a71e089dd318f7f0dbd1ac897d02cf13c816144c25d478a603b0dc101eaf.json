@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJkcm9uZS1zaGFkb3ctc3RyaWtlLWhhY2tzLW1vZC1hcGsiLCJfcmV2IjoiMi1mMzcwMTY2ZjkxMzVhODlhYjRlNzU5NmZlM2UxYTFiYyIsIm5hbWUiOiJkcm9uZS1zaGFkb3ctc3RyaWtlLWhhY2tzLW1vZC1hcGsiLCJ0aW1lIjp7Im1vZGlmaWVkIjoiMjAxOC0wMy0xOVQyMjoyMzowMS44NTJaIiwiY3JlYXRlZCI6IjIwMTgtMDEtMjJUMTk6MDQ6MzIuNzgwWiIsIjEuMC4xIjoiMjAxOC0wMS0yMlQxOTowNDozMi43ODBaIiwidW5wdWJsaXNoZWQiOnsidGltZSI6IjIwMTgtMDMtMTlUMjI6MjM6MDEuODUyWiIsInZlcnNpb25zIjpbIjEuMC4xIl19fSwiX2F0dGFjaG1lbnRzIjp7fX0=",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "REVALIDATED",
+    "cf-ray": "a2b338709ec829d3-AMS",
+    "connection": "close",
+    "content-length": "338",
+    "content-type": "application/octet-stream",
+    "date": "Fri, 14 Aug 2026 21:58:21 GMT",
+    "etag": "\"3b54854bf7402226bbe6a4c6012dbeb2\"",
+    "last-modified": "Tue, 24 May 2022 11:33:41 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=75lvlkN5nZcEPkPKhHRI19Ljlal8GUKu3RxFjd9K0KU-1786744701.5367668-1.0.1.1-EpKrh_91bYgnDYcrfkEAq6x7WC5Exh1O4seyc2XRwE8; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/drone-shadow-strike-hacks-mod-apk"
+}

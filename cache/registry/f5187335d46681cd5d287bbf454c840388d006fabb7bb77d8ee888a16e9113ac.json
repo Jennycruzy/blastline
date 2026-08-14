@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJyZWFjdC1mYW5jeS1jb21wb25lbnQtdGVzdCIsIl9yZXYiOiI4LTMyZGNhZmY2YzMyYjY4YjkwMTIyZmE0YjU3NmM0ZmY1IiwibmFtZSI6InJlYWN0LWZhbmN5LWNvbXBvbmVudC10ZXN0IiwidGltZSI6eyJjcmVhdGVkIjoiMjAxOC0wMy0yMFQxOTowODowMy42OTVaIiwiMC4wLjEiOiIyMDE4LTAzLTIwVDE5OjA4OjAzLjc3MloiLCJtb2RpZmllZCI6IjIwMTgtMDMtMjBUMjM6NDE6MDAuMTU1WiIsIjAuMC4yIjoiMjAxOC0wMy0yMFQxOTo1NDoxNy44ODRaIiwiMC4wLjMiOiIyMDE4LTAzLTIwVDIwOjM3OjAxLjY0MFoiLCIwLjAuNCI6IjIwMTgtMDMtMjBUMjA6NDQ6MzEuMzA4WiIsIjAuMC41IjoiMjAxOC0wMy0yMFQyMTowMDozNS4wMTFaIiwiMC4wLjYiOiIyMDE4LTAzLTIwVDIxOjA4OjQ4LjY0N1oiLCIwLjAuNyI6IjIwMTgtMDMtMjBUMjE6MTI6MDguODgyWiIsInVucHVibGlzaGVkIjp7InRpbWUiOiIyMDE4LTAzLTIwVDIzOjQxOjAwLjE1NVoiLCJ2ZXJzaW9ucyI6WyIwLjAuMSIsIjAuMC4yIiwiMC4wLjMiLCIwLjAuNCIsIjAuMC41IiwiMC4wLjYiLCIwLjAuNyJdfX0sIl9hdHRhY2htZW50cyI6e319",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "REVALIDATED",
+    "cf-ray": "a2b32f7b5f199f93-AMS",
+    "connection": "close",
+    "content-length": "582",
+    "content-type": "application/octet-stream",
+    "date": "Fri, 14 Aug 2026 21:52:14 GMT",
+    "etag": "\"7af757f10e48942575596c4344397dc6\"",
+    "last-modified": "Tue, 24 May 2022 12:00:11 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=7zQCwHqF0z8ksPi8qM95nuMxuL_rOhBLkxb8D9pZ.4Q-1786744334.6169138-1.0.1.1-3McOvW4AWN7JyZwQLNW2uXm_ci_hhCbsVfRCOK_pwP4; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/react-fancy-component-test"
+}

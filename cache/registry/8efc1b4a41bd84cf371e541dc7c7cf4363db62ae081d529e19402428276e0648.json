@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJwZXMtY2x1Yi1tYW5hZ2VyLWNoZWF0LTIwMTgiLCJfcmV2IjoiMi0yNzE4MDA2NTAzNGJmNjFjNjNkM2NlZDU4MWU0ZThkZiIsIm5hbWUiOiJwZXMtY2x1Yi1tYW5hZ2VyLWNoZWF0LTIwMTgiLCJ0aW1lIjp7Im1vZGlmaWVkIjoiMjAxOC0wMy0xOVQyMjoyMDozMS4zNTBaIiwiY3JlYXRlZCI6IjIwMTgtMDEtMjBUMDc6NTI6MDguNjEzWiIsIjEuMC4xIjoiMjAxOC0wMS0yMFQwNzo1MjowOC42MTNaIiwidW5wdWJsaXNoZWQiOnsidGltZSI6IjIwMTgtMDMtMTlUMjI6MjA6MzEuMzUwWiIsInZlcnNpb25zIjpbIjEuMC4xIl19fSwiX2F0dGFjaG1lbnRzIjp7fX0=",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "REVALIDATED",
+    "cf-ray": "a2b32da46e7fe459-AMS",
+    "connection": "close",
+    "content-length": "326",
+    "content-type": "application/octet-stream",
+    "date": "Fri, 14 Aug 2026 21:50:59 GMT",
+    "etag": "\"648fddaaef850268e95c8f96ec86214b\"",
+    "last-modified": "Tue, 24 May 2022 11:48:18 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=fBBXU_odrBj2THbLVjxKL3GpnluTREo_CY5sBpgmEpU-1786744259.2631035-1.0.1.1-g_hktrrYdUsydcOlmuTBGAORinA17C2JdXKzc9gLbgI; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/pes-club-manager-cheat-2018"
+}

@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJiZXN0LWZpZW5kcy1mb3JldmVyLWhhY2tpbmctdW5saW1pdGVkLWNvaW5zLWFuZC1kaWFtb25kcy1nZW5lcmF0b3IyMDE4IiwiX3JldiI6IjItOTE3MzA2MTQ0YzIzZGZhYzk3ZTdiOTAyNDk5YTBhYjciLCJuYW1lIjoiYmVzdC1maWVuZHMtZm9yZXZlci1oYWNraW5nLXVubGltaXRlZC1jb2lucy1hbmQtZGlhbW9uZHMtZ2VuZXJhdG9yMjAxOCIsInRpbWUiOnsiY3JlYXRlZCI6IjIwMTgtMDItMjhUMjA6MDY6MTQuNjEzWiIsIjEwLjAuMCI6IjIwMTgtMDItMjhUMjA6MDY6MTQuNjY4WiIsIm1vZGlmaWVkIjoiMjAxOC0wMy0xNlQyMzozMTowMS43NDVaIiwidW5wdWJsaXNoZWQiOnsidGltZSI6IjIwMTgtMDMtMTZUMjM6MzE6MDEuNzQ1WiIsInZlcnNpb25zIjpbIjEwLjAuMCJdfX0sIl9hdHRhY2htZW50cyI6e319",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "HIT",
+    "cf-ray": "a2b32aa1a9b4d3f4-AMS",
+    "connection": "close",
+    "content-length": "414",
+    "content-type": "application/octet-stream",
+    "date": "Fri, 14 Aug 2026 21:48:56 GMT",
+    "etag": "\"4914968b781ac3f45ba4f183f7c7c25d\"",
+    "last-modified": "Tue, 24 May 2022 11:40:17 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=UAtDDY6Q61DuiBI4Unn.eNh4UWEdFZLt9Ad7fjLT8lg-1786744135.9503815-1.0.1.1-hNKF3wYIIEvDmDmXTDlwXiBATVVFEy.epFAD26bp4cE; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/best-fiends-forever-hacking-unlimited-coins-and-diamonds-generator2018"
+}

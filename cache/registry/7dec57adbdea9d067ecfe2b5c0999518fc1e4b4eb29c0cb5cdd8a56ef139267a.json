@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJoYWNrZWQtYmFzZWJhbGwtYm95LXVubGltaXRlZC1jb2lucy1nZW5lcmF0b3IiLCJfcmV2IjoiNC1iZDUwMTZhODZhYWNhMjhiZGNkYzE0MTc4YjM2NDBlMyIsIm5hbWUiOiJoYWNrZWQtYmFzZWJhbGwtYm95LXVubGltaXRlZC1jb2lucy1nZW5lcmF0b3IiLCJ0aW1lIjp7IjEuMC4xIjoiMjAxOC0wMi0xM1QxODoxMjozOS43NDZaIiwiY3JlYXRlZCI6IjIwMTgtMDItMjBUMDA6MzA6NTcuMDU0WiIsIjEuMC4yIjoiMjAxOC0wMi0yMFQwMDozMDo1Ny4xMjZaIiwibW9kaWZpZWQiOiIyMDE4LTAzLTI3VDAwOjA4OjAzLjY4N1oiLCJ1bnB1Ymxpc2hlZCI6eyJ0aW1lIjoiMjAxOC0wMy0yN1QwMDowODowMy42ODdaIiwidmVyc2lvbnMiOlsiMS4wLjIiXX19LCJfYXR0YWNobWVudHMiOnt9fQ==",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "REVALIDATED",
+    "cf-ray": "a2b32e737c8d1936-AMS",
+    "connection": "close",
+    "content-length": "397",
+    "content-type": "application/octet-stream",
+    "date": "Fri, 14 Aug 2026 21:51:32 GMT",
+    "etag": "\"22ef6bdd152b2bcd5632e1de6482d015\"",
+    "last-modified": "Tue, 24 May 2022 11:54:26 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=TdEq7Zn6NzB1t3Cx3nqc2Btu.V8U0unh4iJunv4XVgU-1786744292.4006147-1.0.1.1-PguDlQ9k68VHaXysvrt3mYsr26EOw465hyYkoWf3zuw; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/hacked-baseball-boy-unlimited-coins-generator"
+}

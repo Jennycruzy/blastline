@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJjYXJhLWNoZWF0LXBiLXN0cmlrZSIsIl9yZXYiOiIyLTMxNWYzMzc0MGRiMmZkYTk3MDJiYWZkNDQ3YTJlZjc2IiwibmFtZSI6ImNhcmEtY2hlYXQtcGItc3RyaWtlIiwidGltZSI6eyJtb2RpZmllZCI6IjIwMTgtMDMtMTZUMjM6MzU6MjEuMDUwWiIsImNyZWF0ZWQiOiIyMDE4LTAxLTEzVDA3OjUwOjQ4LjQ0MFoiLCIyLjYuOSI6IjIwMTgtMDEtMTNUMDc6NTA6NDguNDQwWiIsInVucHVibGlzaGVkIjp7InRpbWUiOiIyMDE4LTAzLTE2VDIzOjM1OjIxLjA1MFoiLCJ2ZXJzaW9ucyI6WyIyLjYuOSJdfX0sIl9hdHRhY2htZW50cyI6e319",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "REVALIDATED",
+    "cf-ray": "a2b32ff84c16667f-AMS",
+    "connection": "close",
+    "content-length": "312",
+    "content-type": "application/octet-stream",
+    "date": "Fri, 14 Aug 2026 21:52:34 GMT",
+    "etag": "\"1742fb68129bbf4a3567a5f85a4554bb\"",
+    "last-modified": "Tue, 24 May 2022 12:04:15 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=GYTxctsrYgCF4kRzV5UXQOk.d2ufp1TZPVtg_EQwDvQ-1786744354.6069553-1.0.1.1-GY3CETXEYu9PGEBoicLDVANnXwR2vzUC6mvPrWZqg10; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/cara-cheat-pb-strike"
+}

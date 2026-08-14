@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJoYWNrLW5vbnN0b3AtY2h1Y2stbm9ycmlzLWNoZWF0cyIsIl9yZXYiOiIyLTZiODAwYTNhOTEyNmE4YjFjNGE2MTUwN2JkNzUzOWNkIiwibmFtZSI6ImhhY2stbm9uc3RvcC1jaHVjay1ub3JyaXMtY2hlYXRzIiwidGltZSI6eyJtb2RpZmllZCI6IjIwMTgtMDMtMTZUMjM6Mjg6MTYuMzI3WiIsImNyZWF0ZWQiOiIyMDE4LTAxLTExVDE3OjAxOjQ5LjkwOFoiLCIxLjAuMCI6IjIwMTgtMDEtMTFUMTc6MDE6NDkuOTA4WiIsInVucHVibGlzaGVkIjp7InRpbWUiOiIyMDE4LTAzLTE2VDIzOjI4OjE2LjMyN1oiLCJ2ZXJzaW9ucyI6WyIxLjAuMCJdfX0sIl9hdHRhY2htZW50cyI6e319",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "HIT",
+    "cf-ray": "a2b32a385cace6fe-AMS",
+    "connection": "close",
+    "content-length": "336",
+    "content-type": "application/octet-stream",
+    "date": "Fri, 14 Aug 2026 21:48:39 GMT",
+    "etag": "\"d7e13e4ba9bcc9fe095d5b47ff5d09f7\"",
+    "last-modified": "Tue, 24 May 2022 11:38:02 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=C0i6p4KMRPuO00gjGESd1HlnhW.7cemjXCLjr4JCeRI-1786744119.0995011-1.0.1.1-joWVKl1KP82gcIAjT5moQ1MnPTXd9Yo.GWqkQYXVRwg; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/hack-nonstop-chuck-norris-cheats"
+}

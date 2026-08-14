@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJsZWFndWUtb2Ytd2FyLWhhY2tzLW1vZC1hcGsiLCJfcmV2IjoiMi1jN2JlZGNiOGZiNTU3ODI0OGQ0MzJiNGE1YTM1YzMwZCIsIm5hbWUiOiJsZWFndWUtb2Ytd2FyLWhhY2tzLW1vZC1hcGsiLCJ0aW1lIjp7Im1vZGlmaWVkIjoiMjAxOC0wMy0xOVQyMjoyMzowMS4xNjJaIiwiY3JlYXRlZCI6IjIwMTgtMDEtMjJUMTk6MDQ6MTkuODM1WiIsIjEuMC4xIjoiMjAxOC0wMS0yMlQxOTowNDoxOS44MzVaIiwidW5wdWJsaXNoZWQiOnsidGltZSI6IjIwMTgtMDMtMTlUMjI6MjM6MDEuMTYyWiIsInZlcnNpb25zIjpbIjEuMC4xIl19fSwiX2F0dGFjaG1lbnRzIjp7fX0=",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "REVALIDATED",
+    "cf-ray": "a2b32ebab9128e2b-AMS",
+    "connection": "close",
+    "content-length": "326",
+    "content-type": "application/octet-stream",
+    "date": "Fri, 14 Aug 2026 21:51:43 GMT",
+    "etag": "\"2ccee8aa71cee3a3ea3687de056ddc4b\"",
+    "last-modified": "Tue, 24 May 2022 11:56:02 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=SmLdTLz0JntWHXtDZAXtZ5fIhiH2p118QC0Gf5M243Q-1786744303.7938652-1.0.1.1-5mmvjtAZmIYUMrhPwXJBY6A6Pl00xWtPdsp7_p4hpK4; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/league-of-war-hacks-mod-apk"
+}

@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJyZWdhcmRlcmhkLWxlcy10dWNoZS0zLXN0cmVhbWluZy1oZHZmLWxlLWZpbG1jb21wbGV0LXZvc3RmIiwiX3JldiI6IjItMzJiZTlkMGUwMDlhYjQ2ZmUxZjZlM2UwNTU0MmI3ZTYiLCJuYW1lIjoicmVnYXJkZXJoZC1sZXMtdHVjaGUtMy1zdHJlYW1pbmctaGR2Zi1sZS1maWxtY29tcGxldC12b3N0ZiIsInRpbWUiOnsiY3JlYXRlZCI6IjIwMTgtMDMtMTlUMTk6MTU6MTUuNDk5WiIsIjEuMC4wIjoiMjAxOC0wMy0xOVQxOToxNToxNS42MzFaIiwibW9kaWZpZWQiOiIyMDE4LTAzLTE5VDIxOjE1OjMyLjAwM1oiLCJ1bnB1Ymxpc2hlZCI6eyJuYW1lIjoibnBtIiwidGltZSI6IjIwMTgtMDMtMTlUMjE6MTU6MzIuMDAzWiIsInRhZ3MiOnsibGF0ZXN0IjoiMS4wLjAifSwibWFpbnRhaW5lcnMiOlt7Im5hbWUiOiJ2b2lyaGQtbGVzLXR1Y2hlLTMtc3RyZWFtaW5ndmYtMjAxOC1sZS1maWxtY29tcGxldC12b3N0ZiIsImVtYWlsIjoiaGRmcmVlc2FAY2FyYnRjLm5ldCJ9XSwidmVyc2lvbnMiOlsiMS4wLjAiXX19LCJfYXR0YWNobWVudHMiOnt9fQ==",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "MISS",
+    "cf-ray": "a2b32ca2abf31823-AMS",
+    "connection": "close",
+    "content-length": "541",
+    "content-type": "application/json; charset=UTF-8",
+    "date": "Fri, 14 Aug 2026 21:50:18 GMT",
+    "etag": "\"d8f57bcdf3288aa958b0d8781424b840\"",
+    "last-modified": "Sun, 27 May 2018 15:43:31 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=K_NJzA_xPdep7ua_wjMOr4bP_v6vVSmcgKj4CP5Usco-1786744218.030808-1.0.1.1-yuoIpCvgLFoKxkakN.04BCJvm5la81A11InqDHJebBs; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/regarderhd-les-tuche-3-streaming-hdvf-le-filmcomplet-vostf"
+}

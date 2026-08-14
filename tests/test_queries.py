@@ -6,12 +6,41 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from blastline.config import Settings
+from blastline.ingest.pipeline import RegistryIngestor
 from blastline.model import Edge, EdgeType, Node, NodeType, TimeInterval, package_id, repository_id, resolution_id, version_id
 from blastline.query.engine import QueryEngine
 from blastline.store import GraphStore
 
 
 class QueryEngineTest(unittest.TestCase):
+    def test_still_dirty_does_not_flag_repository_still_on_compromised_version(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            store = GraphStore(Path(directory))
+            start = datetime(2026, 7, 1, tzinfo=timezone.utc)
+            end = datetime(2026, 7, 2, tzinfo=timezone.utc)
+            repository = repository_id("github.com", "example/service")
+            package = package_id("npm", "compromised")
+            version = version_id("npm", "compromised", "1.0.0")
+            resolution = resolution_id(repository, package, "1.0.0", start, "node_modules/compromised")
+            store.add_nodes(
+                [
+                    Node(repository, NodeType.REPOSITORY, {"full_name": "example/service"}),
+                    Node(package, NodeType.PACKAGE, {"registry": "npm", "name": "compromised"}),
+                    Node(version, NodeType.VERSION, {"registry": "npm", "package": "compromised", "version": "1.0.0"}),
+                    Node(resolution, NodeType.RESOLUTION, {"lock_path": "node_modules/compromised"}),
+                ]
+            )
+            store.add_edges(
+                [
+                    Edge.create(resolution, EdgeType.RESOLVED_TO, version, TimeInterval(start, end), start),
+                    Edge.create(repository, EdgeType.DECLARES, resolution, TimeInterval(start, end), start),
+                ]
+            )
+            engine = QueryEngine(store, Settings.load(Path(__file__).resolve().parents[1]))
+            response = engine.still_dirty("npm", "compromised", "1.0.0", (start, end), as_of=datetime(2026, 7, 1, 12, tzinfo=timezone.utc))
+            self.assertEqual(response.results, ())
+            self.assertEqual(response.coverage.resolvable_repositories, 1)
+
     def test_coverage_itemizes_repository_without_resolution(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             store = GraphStore(Path(directory))
@@ -93,6 +122,26 @@ class QueryEngineTest(unittest.TestCase):
             self.assertEqual(len(response.results), 1)
             self.assertEqual(response.results[0]["repository"], "example/service")
             self.assertIn("service@2.0.0", response.results[0]["path"])
+
+    def test_unparseable_local_lockfile_is_unknown_in_coverage(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            settings = Settings(root, Settings.load(Path(__file__).resolve().parents[1]).values)
+            lockfile = root / "package-lock.json"
+            lockfile.write_bytes(b"not json")
+            ingestor = RegistryIngestor(settings)
+            resolutions, issues, failures, _ = ingestor.local_lockfile(
+                lockfile,
+                "example/bad-lockfile",
+                "npm",
+                "2026-08-14T00:00:00Z",
+                None,
+            )
+            self.assertEqual((resolutions, issues, failures), (0, 0, 1))
+            coverage = QueryEngine(GraphStore(settings.path("graph", "directory")), settings).coverage_report()
+            self.assertEqual(coverage.coverage.total_repositories, 1)
+            self.assertEqual(coverage.coverage.resolvable_repositories, 0)
+            self.assertEqual(coverage.coverage.unknown_repository_ids, ("example/bad-lockfile",))
 
 
 if __name__ == "__main__":

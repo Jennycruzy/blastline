@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJyYWlsLXJ1c2gtZ2VuZXJhdG9yLSIsIl9yZXYiOiIyLWI3ZTMwNWQ5ZGM5YjE1ZmRkNTdlYTc4MjQwZmNmYTQ0IiwibmFtZSI6InJhaWwtcnVzaC1nZW5lcmF0b3ItIiwidGltZSI6eyJtb2RpZmllZCI6IjIwMTgtMDMtMTlUMjM6MTI6NDEuMDIyWiIsImNyZWF0ZWQiOiIyMDE4LTAxLTI1VDE2OjMxOjU5Ljk3MFoiLCIxLjAuMSI6IjIwMTgtMDEtMjVUMTY6MzE6NTkuOTcwWiIsInVucHVibGlzaGVkIjp7Im5hbWUiOiJucG0iLCJ0aW1lIjoiMjAxOC0wMy0xOVQyMzoxMjo0MS4wMjJaIiwidGFncyI6eyJsYXRlc3QiOiIxLjAuMSJ9LCJtYWludGFpbmVycyI6W3sibmFtZSI6Im9pbmpkNDUiLCJlbWFpbCI6Imtlbm5ldGguci5vZHIuaS5nLnUuZTUuM0BnbWFpbC5jb20ifV0sInZlcnNpb25zIjpbIjEuMC4xIl19fSwiX2F0dGFjaG1lbnRzIjp7fX0=",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "REVALIDATED",
+    "cf-ray": "a2b32c536e0a0b88-AMS",
+    "connection": "close",
+    "content-length": "431",
+    "content-type": "application/json; charset=UTF-8",
+    "date": "Fri, 14 Aug 2026 21:50:05 GMT",
+    "etag": "\"f15234762f4ab91303559c5d4efa0c5c\"",
+    "last-modified": "Sun, 27 May 2018 13:31:46 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=9F31nYU5e05Jm0hVMaB22A8RORXGxOfQhlBinOl9Ces-1786744205.3422334-1.0.1.1-nGNQ3XieHLd8w4VK_.ysrqQFNnrXLlTjCB2zL.UXr50; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/rail-rush-generator-"
+}

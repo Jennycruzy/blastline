@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJpcy1pdC1sb3ZlLWRyb2dvLWNoZWF0LW9ubGluZSIsIl9yZXYiOiIzLTg2MWEwNzQ2M2RmYThhZDY3YWQ2YzlhNGQzNGUyZTgyIiwibmFtZSI6ImlzLWl0LWxvdmUtZHJvZ28tY2hlYXQtb25saW5lIiwidGltZSI6eyJtb2RpZmllZCI6IjIwMTgtMDMtMTZUMTk6MzU6NTguMzIxWiIsImNyZWF0ZWQiOiIyMDE4LTAxLTIzVDA2OjM2OjIxLjg5N1oiLCIxLjAuMCI6IjIwMTgtMDEtMjNUMDY6MzY6MjEuODk3WiIsIjEuMC4xIjoiMjAxOC0wMS0yM1QwNjozNzowMy42OTZaIiwidW5wdWJsaXNoZWQiOnsidGltZSI6IjIwMTgtMDMtMTZUMTk6MzU6NTguMzIxWiIsInZlcnNpb25zIjpbIjEuMC4wIiwiMS4wLjEiXX19LCJfYXR0YWNobWVudHMiOnt9fQ==",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "HIT",
+    "cf-ray": "a2b32a9aec449ff7-AMS",
+    "connection": "close",
+    "content-length": "373",
+    "content-type": "application/octet-stream",
+    "date": "Fri, 14 Aug 2026 21:48:55 GMT",
+    "etag": "\"e7ec317982b87e3293580e42729888ca\"",
+    "last-modified": "Tue, 24 May 2022 11:40:31 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=oxpTmOVO7IhFA79ke3sm2iX2TzCcMOn7cRG1IHZhXvI-1786744134.8634696-1.0.1.1-I2OqBAy1boQ1gCEcmiiQ..J.DzuAv2FwTTXTXoR.6dw; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/is-it-love-drogo-cheat-online"
+}

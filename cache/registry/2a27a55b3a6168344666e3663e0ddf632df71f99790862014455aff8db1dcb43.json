@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJoYXktZGF5LXVubGltaXRlZC1jb2lucyIsIl9yZXYiOiIyLTRiMTlhMWYyODUyZGZjNzg3OTVlOTQyYTA0YjMyY2Y5IiwibmFtZSI6ImhheS1kYXktdW5saW1pdGVkLWNvaW5zIiwidGltZSI6eyJtb2RpZmllZCI6IjIwMTgtMDMtMTZUMjM6MzY6MjUuMjcyWiIsImNyZWF0ZWQiOiIyMDE4LTAxLTI4VDAxOjQzOjU5LjI1MVoiLCIxLjAuMCI6IjIwMTgtMDEtMjhUMDE6NDM6NTkuMjUxWiIsInVucHVibGlzaGVkIjp7InRpbWUiOiIyMDE4LTAzLTE2VDIzOjM2OjI1LjI3MloiLCJ2ZXJzaW9ucyI6WyIxLjAuMCJdfX0sIl9hdHRhY2htZW50cyI6e319",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "REVALIDATED",
+    "cf-ray": "a2b330264e896718-AMS",
+    "connection": "close",
+    "content-length": "318",
+    "content-type": "application/octet-stream",
+    "date": "Fri, 14 Aug 2026 21:52:42 GMT",
+    "etag": "\"3b2da1fddf30c661ab873e23acc4faa0\"",
+    "last-modified": "Tue, 24 May 2022 12:04:31 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=u5tEIyILCw8Z1j6uX0fAgMEqkmn7k1aVsS7XBkyRCH0-1786744361.9658523-1.0.1.1-coieiJKdwTtueoGIUWGHBG7k7I9Aums0rHZ.C4x2FTA; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/hay-day-unlimited-coins"
+}

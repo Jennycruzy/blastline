@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJhZXRoZXJpYWwtdnVlIiwiX3JldiI6IjItYmQ5NjA5ZjJhNjFlN2Q2N2JkYmEwOWJmZTBlMDM4ZGQiLCJuYW1lIjoiYWV0aGVyaWFsLXZ1ZSIsInRpbWUiOnsiY3JlYXRlZCI6IjIwMTgtMDMtMjlUMjM6MTI6MTMuMjE0WiIsIjAuMC4xIjoiMjAxOC0wMy0yOVQyMzoxMjoxMy4zNDVaIiwibW9kaWZpZWQiOiIyMDE4LTAzLTMwVDE2OjE0OjIyLjI0NVoiLCJ1bnB1Ymxpc2hlZCI6eyJ0aW1lIjoiMjAxOC0wMy0zMFQxNjoxNDoyMi4yNDVaIiwidmVyc2lvbnMiOlsiMC4wLjEiXX19LCJfYXR0YWNobWVudHMiOnt9fQ==",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "MISS",
+    "cf-ray": "a2b33880baab6e50-AMS",
+    "connection": "close",
+    "content-length": "298",
+    "content-type": "application/octet-stream",
+    "date": "Fri, 14 Aug 2026 21:58:24 GMT",
+    "etag": "\"df6dbdd5e17404781539b608caf8411c\"",
+    "last-modified": "Tue, 24 May 2022 11:36:16 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=pvnvAGg33gPpaHmHQjB8MXrUdBL7O87Z_msM4ZbsKUE-1786744704.112315-1.0.1.1-x8APULdn7HSBq.lwFiMCpgu0zeJFcCjf98MVHxrE05o; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/aetherial-vue"
+}

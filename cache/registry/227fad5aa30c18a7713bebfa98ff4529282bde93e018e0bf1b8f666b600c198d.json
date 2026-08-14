@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJjaXR5LW9mLWxvdmUtcGFyaXMtaGFja2luZy11bmxpbWl0ZWQtZW5lcmd5LWdlbmVyYXRvcjIwMTgiLCJfcmV2IjoiMi03ZmM3YzQ4ZGZhMDdkZWRmYmM3YTcwMzRmODRkMmI4YSIsIm5hbWUiOiJjaXR5LW9mLWxvdmUtcGFyaXMtaGFja2luZy11bmxpbWl0ZWQtZW5lcmd5LWdlbmVyYXRvcjIwMTgiLCJ0aW1lIjp7ImNyZWF0ZWQiOiIyMDE4LTAyLTI4VDE1OjU0OjIzLjc0N1oiLCIxMC4wLjAiOiIyMDE4LTAyLTI4VDE1OjU0OjIzLjgxMVoiLCJtb2RpZmllZCI6IjIwMTgtMDMtMTZUMjM6Mzc6MTEuMjk2WiIsInVucHVibGlzaGVkIjp7InRpbWUiOiIyMDE4LTAzLTE2VDIzOjM3OjExLjI5NloiLCJ2ZXJzaW9ucyI6WyIxMC4wLjAiXX19LCJfYXR0YWNobWVudHMiOnt9fQ==",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "REVALIDATED",
+    "cf-ray": "a2b33899fee75925-AMS",
+    "connection": "close",
+    "content-length": "388",
+    "content-type": "application/octet-stream",
+    "date": "Fri, 14 Aug 2026 21:58:28 GMT",
+    "etag": "\"5a98dbd4ad0caef76a4b3fbbea57ba8f\"",
+    "last-modified": "Tue, 24 May 2022 11:38:47 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=9PAcLxsYK_XK4mx2VzDvhxw9zBfne9DA4.YJSSThpPI-1786744708.1537256-1.0.1.1-4MoIp.BtaAdRwLc8PlZ.jHGTsnFXyA3pWNDYydvzdGk; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/city-of-love-paris-hacking-unlimited-energy-generator2018"
+}

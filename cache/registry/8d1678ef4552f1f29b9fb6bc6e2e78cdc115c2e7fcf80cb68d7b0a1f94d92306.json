@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJmb3J0bml0ZS1ob3ctdG8tZnJlZS12LWJ1Y2tzIiwiX3JldiI6IjItMzY3YWJkZDgyZmIxYWYxOTIwMzhjOTcxYzBjMzUzNjciLCJuYW1lIjoiZm9ydG5pdGUtaG93LXRvLWZyZWUtdi1idWNrcyIsInRpbWUiOnsiY3JlYXRlZCI6IjIwMTgtMDMtMTlUMjA6NTc6MTUuMjczWiIsIjEuNC40IjoiMjAxOC0wMy0xOVQyMDo1NzoxNS4zNzRaIiwibW9kaWZpZWQiOiIyMDE4LTAzLTE5VDIxOjE2OjQ0LjUyNloiLCJ1bnB1Ymxpc2hlZCI6eyJ0aW1lIjoiMjAxOC0wMy0xOVQyMToxNjo0NC41MjZaIiwidmVyc2lvbnMiOlsiMS40LjQiXX19LCJfYXR0YWNobWVudHMiOnt9fQ==",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "HIT",
+    "cf-ray": "a2b32a7c7db58459-AMS",
+    "connection": "close",
+    "content-length": "328",
+    "content-type": "application/octet-stream",
+    "date": "Fri, 14 Aug 2026 21:48:50 GMT",
+    "etag": "\"169df751bbd642a566f6aeb2e4c8ecd4\"",
+    "last-modified": "Tue, 24 May 2022 11:39:33 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=B53URcwGdXFx2NtunPhtAVj7Ah5eO_X_D26XzsU1YtA-1786744129.9966726-1.0.1.1-FCHHSVYxlcLmvlNoQ0ggqvgGAYkK7wGaTkH_WSUeuvc; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/fortnite-how-to-free-v-bucks"
+}

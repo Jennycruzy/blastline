@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJpbnN0YWdyYW0tZGlyZWN0LW1lc3NhZ2UiLCJfcmV2IjoiNS1mZjMxOGQ2MTI0YTI5MmU1NzZhNGIyNjUyOWMxOWU2OSIsIm5hbWUiOiJpbnN0YWdyYW0tZGlyZWN0LW1lc3NhZ2UiLCJ0aW1lIjp7IjEuMC4wIjoiMjAxOC0wMy0wNlQyMTo0Mzo0Ny4zNzNaIiwiY3JlYXRlZCI6IjIwMTgtMDMtMDlUMDA6NDM6NTEuOTQyWiIsIjEuMC4xIjoiMjAxOC0wMy0wOVQwMDo0Mzo1MS45ODVaIiwibW9kaWZpZWQiOiIyMDE4LTAzLTE1VDIyOjEyOjI5LjEwMFoiLCIxLjAuMiI6IjIwMTgtMDMtMDlUMDA6NDU6NDMuNzIxWiIsInVucHVibGlzaGVkIjp7Im5hbWUiOiJucG0iLCJ0aW1lIjoiMjAxOC0wMy0xNVQyMjoxMjoyOS4xMDBaIiwidGFncyI6eyJsYXRlc3QiOiIxLjAuMiJ9LCJtYWludGFpbmVycyI6W3sibmFtZSI6InVzbWFucyIsImVtYWlsIjoidXNtYW5AZ2V0cGFzc3dvcmRyZWNvdmVyZWQuY29tIn1dLCJ2ZXJzaW9ucyI6WyIxLjAuMSIsIjEuMC4yIl19fSwiX2F0dGFjaG1lbnRzIjp7fX0=",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "REVALIDATED",
+    "cf-ray": "a2b32bfe8edcf64d-AMS",
+    "connection": "close",
+    "content-length": "512",
+    "content-type": "application/json; charset=UTF-8",
+    "date": "Fri, 14 Aug 2026 21:49:51 GMT",
+    "etag": "\"b5117a100693b6be3c6080c113f18e4c\"",
+    "last-modified": "Sun, 27 May 2018 04:44:27 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=ChIsiVPxovCyZkIicueicEGUFbrLM5FFjPOu1HjssGg-1786744191.7708325-1.0.1.1-r2xlYASm6bTNV9wW0K7gq_OdQzhkG9oKlovrQgwi2Pc; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/instagram-direct-message"
+}

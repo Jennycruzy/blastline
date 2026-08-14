@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJnYXJtaW4tc3BvcnRzLWNvbW1vbiIsIl9yZXYiOiI0LTJlYjVhZGFjYjQ0NDgzMjhiODg1NmFkMjE1MzJhZjk4IiwibmFtZSI6Imdhcm1pbi1zcG9ydHMtY29tbW9uIiwidGltZSI6eyJjcmVhdGVkIjoiMjAxOC0wMy0yMVQxNzoxNjozNS44NDZaIiwiMC4wLjEiOiIyMDE4LTAzLTIxVDE3OjE2OjM1LjkzNFoiLCJtb2RpZmllZCI6IjIwMTgtMDMtMjJUMDQ6MDY6NTguMTE1WiIsIjAuMC4yIjoiMjAxOC0wMy0yMVQxNzo0Mjo0OS42ODhaIiwidW5wdWJsaXNoZWQiOnsidGltZSI6IjIwMTgtMDMtMjJUMDQ6MDY6NTguMTE0WiIsInZlcnNpb25zIjpbIjAuMC4xIl19fSwiX2F0dGFjaG1lbnRzIjp7fX0=",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "REVALIDATED",
+    "cf-ray": "a2b32f384cd97c14-AMS",
+    "connection": "close",
+    "content-length": "347",
+    "content-type": "application/octet-stream",
+    "date": "Fri, 14 Aug 2026 21:52:04 GMT",
+    "etag": "\"877ef7d63e5c3772e5c0661cb16ed90f\"",
+    "last-modified": "Tue, 24 May 2022 11:58:08 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=e8guPMYmPtlnNWO0yN7KCJuHc4Ve.AvdAKCEyBcm8lo-1786744323.8833487-1.0.1.1-WH6MqJpx7WDb6gFrd0U23fIBbJicv83PXzBogqaqQ8g; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/garmin-sports-common"
+}

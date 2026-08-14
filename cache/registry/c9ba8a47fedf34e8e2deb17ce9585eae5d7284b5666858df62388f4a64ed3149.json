@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJyb2Jsb3gtZ2lmdC1jYXJkLWNvZGVzLW5vLXN1cnZleS0yMDE4IiwiX3JldiI6IjItNDZiYTczZTcxYTlhYmE5NmFjZjgzYzNjZDgzYjc0MmUiLCJuYW1lIjoicm9ibG94LWdpZnQtY2FyZC1jb2Rlcy1uby1zdXJ2ZXktMjAxOCIsInRpbWUiOnsibW9kaWZpZWQiOiIyMDE4LTAzLTE5VDIyOjIxOjExLjE0NVoiLCJjcmVhdGVkIjoiMjAxOC0wMS0xMlQyMjo0ODozOS4zMTJaIiwiMS4wLjAiOiIyMDE4LTAxLTEyVDIyOjQ4OjM5LjMxMloiLCJ1bnB1Ymxpc2hlZCI6eyJ0aW1lIjoiMjAxOC0wMy0xOVQyMjoyMToxMS4xNDVaIiwidmVyc2lvbnMiOlsiMS4wLjAiXX19LCJfYXR0YWNobWVudHMiOnt9fQ==",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "REVALIDATED",
+    "cf-ray": "a2b32f1ffb48c200-AMS",
+    "connection": "close",
+    "content-length": "346",
+    "content-type": "application/octet-stream",
+    "date": "Fri, 14 Aug 2026 21:52:00 GMT",
+    "etag": "\"9b6db6422b4b969d1e626ebd85ea6c71\"",
+    "last-modified": "Tue, 24 May 2022 11:57:13 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=F3n4RZ81xBFdwj1WcF5e.S18NNNoy21L5smO6fvtrE4-1786744319.9923675-1.0.1.1-jkxgbFrTPhGErD8TMHH9pwTkjheixc9u.ByBQ2OiCIs; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/roblox-gift-card-codes-no-survey-2018"
+}

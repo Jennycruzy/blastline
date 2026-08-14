@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJjYXJhLWNoZWF0LXN1YndheS1zdXJmIiwiX3JldiI6IjItMTc5ZDJmMGJhNGU2MjZkNzQ1Y2E0MGRlZTMzNjViZWEiLCJuYW1lIjoiY2FyYS1jaGVhdC1zdWJ3YXktc3VyZiIsInRpbWUiOnsibW9kaWZpZWQiOiIyMDE4LTAzLTE2VDIzOjM0OjU5LjA0MFoiLCJjcmVhdGVkIjoiMjAxOC0wMS0xM1QwNzo0OTowNy45MjVaIiwiMS4zLjUiOiIyMDE4LTAxLTEzVDA3OjQ5OjA3LjkyNVoiLCJ1bnB1Ymxpc2hlZCI6eyJ0aW1lIjoiMjAxOC0wMy0xNlQyMzozNDo1OS4wNDBaIiwidmVyc2lvbnMiOlsiMS4zLjUiXX19LCJfYXR0YWNobWVudHMiOnt9fQ==",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "REVALIDATED",
+    "cf-ray": "a2b330006c460b85-AMS",
+    "connection": "close",
+    "content-length": "316",
+    "content-type": "application/octet-stream",
+    "date": "Fri, 14 Aug 2026 21:52:36 GMT",
+    "etag": "\"a7311f412d69e2f49eeee4ce1a30419c\"",
+    "last-modified": "Tue, 24 May 2022 12:04:17 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=0EE0c_ANuyHMFDnHWbPD198fpOAPYDfNLlXIeJZr_Ms-1786744355.902329-1.0.1.1-eRvjJNHzqQUa4JUNW9.WRuXRsQqxqeQMk73.8UqKCuQ; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/cara-cheat-subway-surf"
+}

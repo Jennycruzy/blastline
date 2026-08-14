@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJnZW1zLWdlbmVyYXRvci1vbmxpbmUtMjAxOCIsIl9yZXYiOiIyLTI2YWMzYTZhMDUzMGJlYzhjZGU3NjZmZmFiODkzMjVkIiwibmFtZSI6ImdlbXMtZ2VuZXJhdG9yLW9ubGluZS0yMDE4IiwidGltZSI6eyJtb2RpZmllZCI6IjIwMTgtMDMtMTVUMjI6MTM6NTMuMTMzWiIsImNyZWF0ZWQiOiIyMDE4LTAxLTIwVDE1OjEzOjQ2LjU5OFoiLCIxLjAuMCI6IjIwMTgtMDEtMjBUMTU6MTM6NDYuNTk4WiIsInVucHVibGlzaGVkIjp7Im5hbWUiOiJucG0iLCJ0aW1lIjoiMjAxOC0wMy0xNVQyMjoxMzo1My4xMzNaIiwidGFncyI6eyJsYXRlc3QiOiIxLjAuMCJ9LCJtYWludGFpbmVycyI6W3sibmFtZSI6ImxvdWlyb2JpdSIsImVtYWlsIjoibG91aXJvYml1QGdtYWlsLmNvbSJ9XSwidmVyc2lvbnMiOlsiMS4wLjAiXX19LCJfYXR0YWNobWVudHMiOnt9fQ==",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "REVALIDATED",
+    "cf-ray": "a2b32bf78b4e1afa-AMS",
+    "connection": "close",
+    "content-length": "430",
+    "content-type": "application/json; charset=UTF-8",
+    "date": "Fri, 14 Aug 2026 21:49:50 GMT",
+    "etag": "\"94cc1363feb1c393e825e384f7d82d25\"",
+    "last-modified": "Sun, 27 May 2018 01:37:16 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=.NqUVWoyq6TKjupUdcSb0cULsDbC1UFekeTDRgJr9RA-1786744190.6436281-1.0.1.1-z37gUnuHb6kPIeIA9oUg21hXhhDT5HIjgV.s4KYTwWY; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/gems-generator-online-2018"
+}

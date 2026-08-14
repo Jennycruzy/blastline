@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJhbmdyeS1iaXJkcy1hY3Rpb24taGFja3MtbW9kLWFwayIsIl9yZXYiOiIyLTcyNjFkZjlkY2RlOTE5NDVhZjk3MjkwMjY2YWEzZjVlIiwibmFtZSI6ImFuZ3J5LWJpcmRzLWFjdGlvbi1oYWNrcy1tb2QtYXBrIiwidGltZSI6eyJtb2RpZmllZCI6IjIwMTgtMDMtMTlUMjI6MjM6MDEuNjA4WiIsImNyZWF0ZWQiOiIyMDE4LTAxLTIyVDE5OjA0OjQxLjExNVoiLCIxLjAuMSI6IjIwMTgtMDEtMjJUMTk6MDQ6NDEuMTE1WiIsInVucHVibGlzaGVkIjp7InRpbWUiOiIyMDE4LTAzLTE5VDIyOjIzOjAxLjYwOFoiLCJ2ZXJzaW9ucyI6WyIxLjAuMSJdfX0sIl9hdHRhY2htZW50cyI6e319",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "REVALIDATED",
+    "cf-ray": "a2b338609e25434e-AMS",
+    "connection": "close",
+    "content-length": "336",
+    "content-type": "application/octet-stream",
+    "date": "Fri, 14 Aug 2026 21:58:19 GMT",
+    "etag": "\"e343820407bbe4452cde70593ff585d9\"",
+    "last-modified": "Tue, 24 May 2022 11:33:00 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=C6oTt11_AgadcpICxyqaI7qT0FzT5RRSqNwR8CktVZ0-1786744698.974549-1.0.1.1-FdZSVvoEM_YwFJaCBfqrPS6sDE2iR9UQDVpkgz3MJDo; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/angry-birds-action-hacks-mod-apk"
+}

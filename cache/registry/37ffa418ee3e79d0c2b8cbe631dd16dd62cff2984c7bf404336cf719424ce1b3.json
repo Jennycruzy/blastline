@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJucmVpbmEtd2ViLXV0aWxzIiwiX3JldiI6IjYtYzhkZDdkYzc5MzI4Y2YwYmY1Mjc3MjEyZWNjYTdlZWYiLCJuYW1lIjoibnJlaW5hLXdlYi11dGlscyIsInRpbWUiOnsiY3JlYXRlZCI6IjIwMTgtMDMtMjBUMjA6MTI6MDMuNjYwWiIsIjAuMC4xIjoiMjAxOC0wMy0yMFQyMDoxMjowNC4yNDRaIiwibW9kaWZpZWQiOiIyMDE4LTAzLTIwVDIwOjU4OjIzLjg1N1oiLCIwLjAuMiI6IjIwMTgtMDMtMjBUMjA6MTc6MjYuOTg2WiIsIjAuMC4zIjoiMjAxOC0wMy0yMFQyMDoyMTozMy42NTRaIiwiMC4wLjQiOiIyMDE4LTAzLTIwVDIwOjQ5OjQ0LjU3MVoiLCIwLjAuNSI6IjIwMTgtMDMtMjBUMjA6NTM6MTcuMDU4WiIsInVucHVibGlzaGVkIjp7Im5hbWUiOiJuZWxyZWluYSIsInRpbWUiOiIyMDE4LTAzLTIwVDIwOjU4OjIzLjg1NloiLCJ0YWdzIjp7ImxhdGVzdCI6IjAuMC41In0sInZlcnNpb25zIjpbIjAuMC4xIiwiMC4wLjIiLCIwLjAuMyIsIjAuMC40IiwiMC4wLjUiXSwibWFpbnRhaW5lcnMiOlt7Im5hbWUiOiJuZWxyZWluYSIsImVtYWlsIjoibmVscmVpbmFAZ21haWwuY29tIn1dfX0sIl9hdHRhY2htZW50cyI6e319",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "REVALIDATED",
+    "cf-ray": "a2b32ba6da8ab890-AMS",
+    "connection": "close",
+    "content-length": "585",
+    "content-type": "application/json; charset=UTF-8",
+    "date": "Fri, 14 Aug 2026 21:49:37 GMT",
+    "etag": "\"977cd8c73e98c2230b56b362ad3b7bbc\"",
+    "last-modified": "Sun, 27 May 2018 10:47:10 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=G6hIutfm7Ip6RxzYfEfyuhWONfYEb8kFhNBX0vJdoMY-1786744177.7403643-1.0.1.1-xdPvNcN06ZEHIAuU2tB2AiMSnPvN3HyEK1zGC0tENmc; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/nreina-web-utils"
+}

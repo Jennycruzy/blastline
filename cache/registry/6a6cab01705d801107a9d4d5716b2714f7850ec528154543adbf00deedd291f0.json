@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiIxMDgwdm9kbG9ja2VyLXdhdGNoZnVsbGZyZWUtYmxhY2twYW50aGVyIiwiX3JldiI6IjMtZjFlZTA1MjhhZWEwZDAwODVjNGM4ZTJjYjA0OGZlN2UiLCJuYW1lIjoiMTA4MHZvZGxvY2tlci13YXRjaGZ1bGxmcmVlLWJsYWNrcGFudGhlciIsInRpbWUiOnsiY3JlYXRlZCI6IjIwMTgtMDMtMTZUMDQ6NTQ6MzUuNjMzWiIsIjEuMC4xMiI6IjIwMTgtMDMtMTZUMDQ6NTQ6MzUuNzEzWiIsIm1vZGlmaWVkIjoiMjAxOC0wMy0xNlQwNDo1NTozMy41MjNaIiwidW5wdWJsaXNoZWQiOnsidGltZSI6IjIwMTgtMDMtMTZUMDQ6NTU6MzMuNTIzWiIsInZlcnNpb25zIjpbIjEuMC4xMiJdfX0sIl9hdHRhY2htZW50cyI6e319",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "REVALIDATED",
+    "cf-ray": "a2b32ff2688e14bd-AMS",
+    "connection": "close",
+    "content-length": "354",
+    "content-type": "application/octet-stream",
+    "date": "Fri, 14 Aug 2026 21:52:33 GMT",
+    "etag": "\"9e1f9ca2a66db97dc28fadbdc2763c12\"",
+    "last-modified": "Tue, 24 May 2022 12:02:49 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=Jc7I5mtzxww8WddaD4rLw8J1rKy09sZ8h8_t24bHrTg-1786744353.669127-1.0.1.1-obbu5F8J0FX.iJ8keRGUdG4zywpAhKA7AIzea38d3qA; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/1080vodlocker-watchfullfree-blackpanther"
+}

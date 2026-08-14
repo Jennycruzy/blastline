@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJoYWNrZWQtbXktdGFtYWdvdGNoaS1mb3JldmVyLXVubGltaXRlZC1kaWFtb25kcyIsIl9yZXYiOiI2LWUyMzhkMDQzZjg0YzlmOTc3YWE2MDgyNTUzYmMzNDg3IiwibmFtZSI6ImhhY2tlZC1teS10YW1hZ290Y2hpLWZvcmV2ZXItdW5saW1pdGVkLWRpYW1vbmRzIiwidGltZSI6eyIxLjAuMSI6IjIwMTgtMDMtMjBUMTg6Mjc6MTcuNzQwWiIsImNyZWF0ZWQiOiIyMDE4LTAzLTIxVDIyOjQ0OjAwLjkxOVoiLCIxLjAuMiI6IjIwMTgtMDMtMjFUMjI6NDQ6MDAuOTcwWiIsIm1vZGlmaWVkIjoiMjAxOC0wMy0yN1QwMDowNDowMi42NzVaIiwidW5wdWJsaXNoZWQiOnsidGltZSI6IjIwMTgtMDMtMjdUMDA6MDQ6MDIuNjc1WiIsInZlcnNpb25zIjpbIjEuMC4yIl19fSwiX2F0dGFjaG1lbnRzIjp7fX0=",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "REVALIDATED",
+    "cf-ray": "a2b32e050e4c6648-AMS",
+    "connection": "close",
+    "content-length": "401",
+    "content-type": "application/octet-stream",
+    "date": "Fri, 14 Aug 2026 21:51:14 GMT",
+    "etag": "\"6e131925882bce21ef0edf322a8fdea7\"",
+    "last-modified": "Tue, 24 May 2022 11:49:19 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=_EZwENQXiI3z4nwkRIpPwwoFSRX2XTWgiYAjHXWdLVM-1786744274.7271562-1.0.1.1-qkx5oRXe9mCZw4yG_9eQSad2NfcQO9wC46ILFl51hFU; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/hacked-my-tamagotchi-forever-unlimited-diamonds"
+}

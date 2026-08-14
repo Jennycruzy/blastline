@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJncmF0dWl0LXJvYmxveC1yb2J1eC1nZW5lcmF0b3IiLCJfcmV2IjoiNC0zYTliYWQwMzgzMGVkNjVhOWJjZTMxZjY2OGRlMjFiZSIsIm5hbWUiOiJncmF0dWl0LXJvYmxveC1yb2J1eC1nZW5lcmF0b3IiLCJ0aW1lIjp7Im1vZGlmaWVkIjoiMjAxOC0wMy0xNlQyMzozMzoyMS41NzZaIiwiY3JlYXRlZCI6IjIwMTgtMDEtMjJUMTM6MjQ6MjAuNDg5WiIsIjEuMC4wIjoiMjAxOC0wMS0yMlQxMzoyNDoyMC40ODlaIiwiMS4wLjEiOiIyMDE4LTAxLTIyVDEzOjQ0OjEyLjMyNFoiLCIxLjAuMiI6IjIwMTgtMDEtMjJUMTM6NDc6NDAuMjE2WiIsInVucHVibGlzaGVkIjp7InRpbWUiOiIyMDE4LTAzLTE2VDIzOjMzOjIxLjU3NloiLCJ2ZXJzaW9ucyI6WyIxLjAuMCIsIjEuMC4xIiwiMS4wLjIiXX19LCJfYXR0YWNobWVudHMiOnt9fQ==",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "REVALIDATED",
+    "cf-ray": "a2b32df7abb1224e-AMS",
+    "connection": "close",
+    "content-length": "418",
+    "content-type": "application/octet-stream",
+    "date": "Fri, 14 Aug 2026 21:51:12 GMT",
+    "etag": "\"19643de7e210ddaac3a2ff89e67a39ea\"",
+    "last-modified": "Tue, 24 May 2022 11:49:13 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=.jrk8JRXODSOe1TYWGFQvu7S_HjWmu07qAmoMwBhxyE-1786744272.5825312-1.0.1.1-2aKov3v1mV4L1CvwshSB9KGYewVW24y9jYSOYRl8Ci0; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/gratuit-roblox-robux-generator"
+}

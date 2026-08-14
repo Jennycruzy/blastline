@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJlbXBpcmUtZm91ci1raW5nZG9tcy1oYWNrIiwiX3JldiI6IjItMTQ2ODllODAzOGQ4ZDRhOTU0ZWIwNWE0ZjUzNGZiNTUiLCJuYW1lIjoiZW1waXJlLWZvdXIta2luZ2RvbXMtaGFjayIsInRpbWUiOnsibW9kaWZpZWQiOiIyMDE4LTAzLTE2VDIzOjI5OjU2Ljc2OVoiLCJjcmVhdGVkIjoiMjAxNy0xMi0xOFQwMzo0NjoxOC42NDZaIiwiMS4wLjAiOiIyMDE3LTEyLTE4VDAzOjQ2OjE4LjY0NloiLCJ1bnB1Ymxpc2hlZCI6eyJ0aW1lIjoiMjAxOC0wMy0xNlQyMzoyOTo1Ni43NjlaIiwidmVyc2lvbnMiOlsiMS4wLjAiXX19LCJfYXR0YWNobWVudHMiOnt9fQ==",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "HIT",
+    "cf-ray": "a2b32aaa5b846602-AMS",
+    "connection": "close",
+    "content-length": "322",
+    "content-type": "application/octet-stream",
+    "date": "Fri, 14 Aug 2026 21:48:57 GMT",
+    "etag": "\"47f8aa50529ee4a1c103d5a8e8087d5e\"",
+    "last-modified": "Tue, 24 May 2022 11:40:20 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=F4zmjYHnWE0t5kuPznYTiLmYaTZvMpnusDb247Slm5A-1786744137.3336544-1.0.1.1-T6eiAKBx0zDjGJJYKihlNQzUlvpR5s9Owfj31T1zvTw; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/empire-four-kingdoms-hack"
+}

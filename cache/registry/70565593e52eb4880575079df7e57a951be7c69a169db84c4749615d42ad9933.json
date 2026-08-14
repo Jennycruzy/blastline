@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJmaXNoZG9tLWhhY2t6LWFuZC1jaGVhdHoiLCJfcmV2IjoiMi04NmMyN2VhYTY2OWQ0OWIzZDEwNTU2OTZiYTg1YmFkOSIsIm5hbWUiOiJmaXNoZG9tLWhhY2t6LWFuZC1jaGVhdHoiLCJ0aW1lIjp7Im1vZGlmaWVkIjoiMjAxOC0wMy0xNlQyMzoyOTowMS41NjhaIiwiY3JlYXRlZCI6IjIwMTgtMDEtMjlUMjA6NTY6MTkuNDYxWiIsIjEuOC4wIjoiMjAxOC0wMS0yOVQyMDo1NjoxOS40NjFaIiwidW5wdWJsaXNoZWQiOnsidGltZSI6IjIwMTgtMDMtMTZUMjM6Mjk6MDEuNTY4WiIsInZlcnNpb25zIjpbIjEuOC4wIl19fSwiX2F0dGFjaG1lbnRzIjp7fX0=",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "HIT",
+    "cf-ray": "a2b32a2bf8b8fff1-AMS",
+    "connection": "close",
+    "content-length": "320",
+    "content-type": "application/octet-stream",
+    "date": "Fri, 14 Aug 2026 21:48:37 GMT",
+    "etag": "\"01f4bfd3b022a6b8aeb225d6b8d9f2b7\"",
+    "last-modified": "Tue, 24 May 2022 11:37:02 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=XQ9EUff9tTcfAINsANMD1Z8s3yh0KOgrEybs1cS2wNI-1786744117.1120396-1.0.1.1-dNbjKV.GTaNRzA3B7ZOu3oABitcrc6aHid9yVE836pk; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/fishdom-hackz-and-cheatz"
+}

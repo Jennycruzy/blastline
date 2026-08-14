@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJoYWNrZWQtZ3JhbmQtc3VtbW9uZXJzLXVubGltaXRlZC1jb2lucyIsIl9yZXYiOiI0LTk0YmZjM2Q1Y2M0N2UzNGJlNDVkMDhlMzA2MjA1YzM1IiwibmFtZSI6ImhhY2tlZC1ncmFuZC1zdW1tb25lcnMtdW5saW1pdGVkLWNvaW5zIiwidGltZSI6eyIxLjAuMCI6IjIwMTgtMDItMTlUMTg6NDg6MzAuMTA4WiIsImNyZWF0ZWQiOiIyMDE4LTAyLTIyVDE1OjAxOjE5LjcwNloiLCIxLjAuMSI6IjIwMTgtMDItMjJUMTU6MDE6MTkuODA3WiIsIm1vZGlmaWVkIjoiMjAxOC0wMy0yN1QwMDowODoxMi44MjJaIiwidW5wdWJsaXNoZWQiOnsidGltZSI6IjIwMTgtMDMtMjdUMDA6MDg6MTIuODIyWiIsInZlcnNpb25zIjpbIjEuMC4xIl19fSwiX2F0dGFjaG1lbnRzIjp7fX0=",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "REVALIDATED",
+    "cf-ray": "a2b32e7ade489d56-AMS",
+    "connection": "close",
+    "content-length": "383",
+    "content-type": "application/octet-stream",
+    "date": "Fri, 14 Aug 2026 21:51:33 GMT",
+    "etag": "\"cdeacfa9adc2ec8de5478013033a3e4a\"",
+    "last-modified": "Tue, 24 May 2022 11:54:29 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=f6arq6le3xmCj7Fdrz9Q_uaqJEwcDfOIj0soFsJj8JU-1786744293.5750067-1.0.1.1-FnPp0FjfPaKLwrNJwMzmP7eRGN3JECtaye2zedzGsAc; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/hacked-grand-summoners-unlimited-coins"
+}

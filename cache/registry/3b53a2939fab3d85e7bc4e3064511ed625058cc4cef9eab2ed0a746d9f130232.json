@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJmcmVlLWNvaW5zLWZvci1oZWFydC1vZi12ZWdhcyIsIl9yZXYiOiIyLWYyN2M2OGIxYTJmYzA1MTcxMGI1ODcxZjQ5Zjk4OTAxIiwibmFtZSI6ImZyZWUtY29pbnMtZm9yLWhlYXJ0LW9mLXZlZ2FzIiwidGltZSI6eyJtb2RpZmllZCI6IjIwMTgtMDMtMTZUMjM6MjI6MzQuNDY4WiIsImNyZWF0ZWQiOiIyMDE4LTAxLTExVDA5OjM4OjE0LjE3NFoiLCIzLjQuOSI6IjIwMTgtMDEtMTFUMDk6Mzg6MTQuMTc0WiIsInVucHVibGlzaGVkIjp7Im5hbWUiOiJucG0iLCJ0aW1lIjoiMjAxOC0wMy0xNlQyMzoyMjozNC40NjhaIiwidGFncyI6eyJsYXRlc3QiOiIzLjQuOSJ9LCJtYWludGFpbmVycyI6W3sibmFtZSI6Imd3ZW5nb2RveSIsImVtYWlsIjoiZ3dlbmdvZG95QG91dGxvb2suY29tIn1dLCJ2ZXJzaW9ucyI6WyIzLjQuOSJdfX0sIl9hdHRhY2htZW50cyI6e319",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "REVALIDATED",
+    "cf-ray": "a2b32be51dbfed05-AMS",
+    "connection": "close",
+    "content-length": "438",
+    "content-type": "application/json; charset=UTF-8",
+    "date": "Fri, 14 Aug 2026 21:49:47 GMT",
+    "etag": "\"7f47bf2f7f77b99ecc32cbc3576496e2\"",
+    "last-modified": "Sun, 27 May 2018 01:13:21 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=te_vchLsX9JTsFgJDatK4QtcUzOUGyw2Az0AXok3Bw0-1786744187.6919599-1.0.1.1-QQxQ5bCXuepwJwKnT0urBMpo.wPTJrrUCsuqJS09ECw; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/free-coins-for-heart-of-vegas"
+}

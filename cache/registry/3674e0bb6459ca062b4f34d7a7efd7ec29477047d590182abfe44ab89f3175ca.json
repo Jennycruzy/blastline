@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJoZW1waXJlLWNoZWF0LWRpYW1vbmQiLCJfcmV2IjoiMy0zMDk4MGExMTA3ZTllNDhlMGQwNDI3ZDBmM2NmN2E5ZSIsIm5hbWUiOiJoZW1waXJlLWNoZWF0LWRpYW1vbmQiLCJ0aW1lIjp7Im1vZGlmaWVkIjoiMjAxOC0wMy0xNlQxOTozNTo1OC40NjZaIiwiY3JlYXRlZCI6IjIwMTgtMDEtMjNUMDY6NDI6MzMuNzY3WiIsIjEuMC4wIjoiMjAxOC0wMS0yM1QwNjo0MjozMy43NjdaIiwiMS4wLjEiOiIyMDE4LTAxLTIzVDA2OjQzOjI1LjkxN1oiLCJ1bnB1Ymxpc2hlZCI6eyJ0aW1lIjoiMjAxOC0wMy0xNlQxOTozNTo1OC40NjZaIiwidmVyc2lvbnMiOlsiMS4wLjAiLCIxLjAuMSJdfX0sIl9hdHRhY2htZW50cyI6e319",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "HIT",
+    "cf-ray": "a2b32a8d0c131add-AMS",
+    "connection": "close",
+    "content-length": "357",
+    "content-type": "application/octet-stream",
+    "date": "Fri, 14 Aug 2026 21:48:52 GMT",
+    "etag": "\"874192b5917625ce40acc104897872fb\"",
+    "last-modified": "Tue, 24 May 2022 11:40:25 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=FQ8I2ddGutRTsnt7bXM_bGlk642eBuDOY7joP9nCCoI-1786744132.643039-1.0.1.1-.ytlxNK9P2qxbrJMYX87PtH2yl.DQJ.XvcZ9_a8Eg4I; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/hempire-cheat-diamond"
+}

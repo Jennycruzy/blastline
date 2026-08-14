@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJoamR0bC1uZXdzLXRlc3QiLCJfcmV2IjoiMTYtMjQ5NTc1NzU4YmY1ODMyNDdkNjUzNzQ1NGJjNjM2NDMiLCJuYW1lIjoiaGpkdGwtbmV3cy10ZXN0IiwidGltZSI6eyJjcmVhdGVkIjoiMjAxOC0wMy0yN1QwOToyNjo0MS4zMDVaIiwiMS4wLjAiOiIyMDE4LTAzLTI3VDA5OjI2OjQxLjQzMloiLCJtb2RpZmllZCI6IjIwMTgtMDMtMjhUMDg6MzM6MzQuNjEyWiIsIjEuMC4xIjoiMjAxOC0wMy0yN1QxMDoyNToxMS41ODNaIiwiMS4wLjIiOiIyMDE4LTAzLTI3VDEwOjI4OjM5LjExNVoiLCIxLjAuMyI6IjIwMTgtMDMtMjdUMTA6MzQ6MTUuNjUyWiIsIjEuMC40IjoiMjAxOC0wMy0yOFQwMTowNzozMC45MzhaIiwiMS4wLjUiOiIyMDE4LTAzLTI4VDAxOjM2OjUzLjU2NFoiLCIxLjAuNiI6IjIwMTgtMDMtMjhUMDE6NDQ6NTcuNDAzWiIsIjEuMC43IjoiMjAxOC0wMy0yOFQwMTo1MDoyNy45MjhaIiwiMS4wLjgiOiIyMDE4LTAzLTI4VDAxOjU4OjAyLjUzNVoiLCIxLjAuOSI6IjIwMTgtMDMtMjhUMDI6MDE6MzcuMzU1WiIsIjEuMC4xMCI6IjIwMTgtMDMtMjhUMDI6MDk6MDcuNTQ5WiIsIjEuMC4xMSI6IjIwMTgtMDMtMjhUMDI6MTE6MDMuMTAyWiIsIjEuMS4wIjoiMjAxOC0wMy0yOFQwMjoxNDoxMS4wMzlaIiwiMS4xLjEiOiIyMDE4LTAzLTI4VDAyOjIyOjM4LjU1MFoiLCJ1bnB1Ymxpc2hlZCI6eyJ0aW1lIjoiMjAxOC0wMy0yOFQwODozMzozNC42MTJaIiwidmVyc2lvbnMiOlsiMS4wLjAiLCIxLjAuMSIsIjEuMC4xMCIsIjEuMC4xMSIsIjEuMC4yIiwiMS4wLjMiLCIxLjAuNCIsIjEuMC41IiwiMS4wLjYiLCIxLjAuNyIsIjEuMC44IiwiMS4wLjkiLCIxLjEuMCIsIjEuMS4xIl19fSwiX2F0dGFjaG1lbnRzIjp7fX0=",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "REVALIDATED",
+    "cf-ray": "a2b3305ccd11b438-AMS",
+    "connection": "close",
+    "content-length": "866",
+    "content-type": "application/octet-stream",
+    "date": "Fri, 14 Aug 2026 21:52:50 GMT",
+    "etag": "\"dbf8f7fcb9e478f65948084051b9d6f8\"",
+    "last-modified": "Tue, 24 May 2022 12:05:13 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=zcx9wNLtfQWM_jqULl48YvMJ8MmSoyC83TbU8vaQboc-1786744370.6808894-1.0.1.1-mG26W6btYHK_khyiokP7X0ra.MO3Q3sdPCzEe4WBYYc; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/hjdtl-news-test"
+}

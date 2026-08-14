@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJoZGNvbXBsZXQtbGVzLXR1Y2hlLTMtc3RyZWFtaW5nLWhkdmYtZmlsbSIsIl9yZXYiOiIyLTIzMjE4OTEyNzJjM2E1ODBiNzQ2YTU1YjgxNjkwZGExIiwibmFtZSI6ImhkY29tcGxldC1sZXMtdHVjaGUtMy1zdHJlYW1pbmctaGR2Zi1maWxtIiwidGltZSI6eyJjcmVhdGVkIjoiMjAxOC0wMy0xOVQyMDozMDoxNC44NzdaIiwiMS4wLjAiOiIyMDE4LTAzLTE5VDIwOjMwOjE0Ljk2N1oiLCJtb2RpZmllZCI6IjIwMTgtMDMtMTlUMjE6MTY6NDEuODE5WiIsInVucHVibGlzaGVkIjp7Im5hbWUiOiJucG0iLCJ0aW1lIjoiMjAxOC0wMy0xOVQyMToxNjo0MS44MTlaIiwidGFncyI6eyJsYXRlc3QiOiIxLjAuMCJ9LCJtYWludGFpbmVycyI6W3sibmFtZSI6ImhkY29tcGxldC1sZXMtdHVjaGUtMy1zdHJlYW1pbmctaGR2Zi1maWxtIiwiZW1haWwiOiJmaGRqaGpnODNAY2FyYnRjLm5ldCJ9XSwidmVyc2lvbnMiOlsiMS4wLjAiXX19LCJfYXR0YWNobWVudHMiOnt9fQ==",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "HIT",
+    "cf-ray": "a2b32b10b9ba8477-AMS",
+    "connection": "close",
+    "content-length": "493",
+    "content-type": "application/json; charset=UTF-8",
+    "date": "Fri, 14 Aug 2026 21:49:13 GMT",
+    "etag": "\"3772c8c54d0a6c387b66c7f901f23e67\"",
+    "last-modified": "Sun, 27 May 2018 03:37:30 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=yUawaUJ8IFBk4MlI4pUa2lDm8I0NXeNw5JHBtTrH2zc-1786744153.7187061-1.0.1.1-EchXoDi5PVeIoYHFYTwasvmVKA_7_Jixim16L7s0tGw; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/hdcomplet-les-tuche-3-streaming-hdvf-film"
+}

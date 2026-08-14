@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJyZWR1eC1zYWdhLXdyYXBvIiwiX3JldiI6IjItYTA0NzEzNTkwY2ExMmJkZjU1NWI1YjUxNWMwZjNiZDUiLCJuYW1lIjoicmVkdXgtc2FnYS13cmFwbyIsInRpbWUiOnsiY3JlYXRlZCI6IjIwMTgtMDMtMjdUMDM6NDQ6NDIuMjQ2WiIsIjEuMC4wIjoiMjAxOC0wMy0yN1QwMzo0NDo0Mi4zMThaIiwibW9kaWZpZWQiOiIyMDE4LTAzLTI3VDA0OjAxOjE5LjU3OFoiLCJ1bnB1Ymxpc2hlZCI6eyJ0aW1lIjoiMjAxOC0wMy0yN1QwNDowMToxOS41NzhaIiwidmVyc2lvbnMiOlsiMS4wLjAiXX19LCJfYXR0YWNobWVudHMiOnt9fQ==",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "REVALIDATED",
+    "cf-ray": "a2b3389178eb6722-AMS",
+    "connection": "close",
+    "content-length": "304",
+    "content-type": "application/octet-stream",
+    "date": "Fri, 14 Aug 2026 21:58:26 GMT",
+    "etag": "\"9c38b58bf2e903a9347a5e28e7e26f1a\"",
+    "last-modified": "Tue, 24 May 2022 11:38:36 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=1J9S79vD.MoSlJ5RygA7yrg0OQp7aZo8E6H_WJOPbUc-1786744706.7941527-1.0.1.1-JrG1fh2SJJNCn84gK7qx5KhLSYg8tTHaLRifdVo9Tcs; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/redux-saga-wrapo"
+}

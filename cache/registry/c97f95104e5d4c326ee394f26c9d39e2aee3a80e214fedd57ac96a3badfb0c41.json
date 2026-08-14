@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJwaW5wb3AtdmVnYXMtaGFja3MtbW9kLWFwayIsIl9yZXYiOiIyLWNlODY0ZmY3ZWQ0YzAxMmRhZWRhYmM4YzM3MDBiZGYyIiwibmFtZSI6InBpbnBvcC12ZWdhcy1oYWNrcy1tb2QtYXBrIiwidGltZSI6eyJtb2RpZmllZCI6IjIwMTgtMDMtMTlUMjM6MTE6MzcuNDg2WiIsImNyZWF0ZWQiOiIyMDE4LTAxLTIyVDE2OjM3OjE2LjM1MVoiLCIxLjAuMSI6IjIwMTgtMDEtMjJUMTY6Mzc6MTYuMzUxWiIsInVucHVibGlzaGVkIjp7Im5hbWUiOiJucG0iLCJ0aW1lIjoiMjAxOC0wMy0xOVQyMzoxMTozNy40ODZaIiwidGFncyI6eyJsYXRlc3QiOiIxLjAuMSJ9LCJtYWludGFpbmVycyI6W3sibmFtZSI6ImpzdW5oMzkiLCJlbWFpbCI6Imtlbm5ldGgucm8uZC5yLmkuZ3UuZS41LjNAZ21haWwuY29tIn1dLCJ2ZXJzaW9ucyI6WyIxLjAuMSJdfX0sIl9hdHRhY2htZW50cyI6e319",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "REVALIDATED",
+    "cf-ray": "a2b32c4c6a101c1a-AMS",
+    "connection": "close",
+    "content-length": "444",
+    "content-type": "application/json; charset=UTF-8",
+    "date": "Fri, 14 Aug 2026 21:50:04 GMT",
+    "etag": "\"f36cfdf053378b94d1e23591e90b7f89\"",
+    "last-modified": "Sun, 27 May 2018 12:18:27 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=0N9O6lNWtk63GRzhlW6H4df3EoGzdPRTEie3SrwUGxs-1786744204.227251-1.0.1.1-9a3Zde2F6dV2gUc9vZq2_M6eghLaBNaF9ylR9UESmcU; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/pinpop-vegas-hacks-mod-apk"
+}

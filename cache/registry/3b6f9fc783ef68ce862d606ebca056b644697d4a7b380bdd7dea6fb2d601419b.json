@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJ0YWRhLWNhcm91c2VsLmpzIiwiX3JldiI6IjItNWViZWZjZjJiNWRiODNkYmRhZGU2OTJhMzM2ZjllN2UiLCJuYW1lIjoidGFkYS1jYXJvdXNlbC5qcyIsInRpbWUiOnsiY3JlYXRlZCI6IjIwMTgtMDMtMTdUMTE6NTY6NDUuNTcwWiIsIjAuMC4xIjoiMjAxOC0wMy0xN1QxMTo1Njo0NS42NzZaIiwibW9kaWZpZWQiOiIyMDE4LTAzLTE3VDEzOjM4OjU3LjEzOFoiLCJ1bnB1Ymxpc2hlZCI6eyJ0aW1lIjoiMjAxOC0wMy0xN1QxMzozODo1Ny4xMzhaIiwidmVyc2lvbnMiOlsiMC4wLjEiXX19LCJfYXR0YWNobWVudHMiOnt9fQ==",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "REVALIDATED",
+    "cf-ray": "a2b32dd9889f5c3d-AMS",
+    "connection": "close",
+    "content-length": "304",
+    "content-type": "application/octet-stream",
+    "date": "Fri, 14 Aug 2026 21:51:07 GMT",
+    "etag": "\"e2256a521dcaa123d4e9ab0744af98db\"",
+    "last-modified": "Tue, 24 May 2022 11:48:26 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=Nz5pvM6bHc9Jbjb0aMTf4lsLXuGyHQy8d3Tu.pfOuMQ-1786744267.7654483-1.0.1.1-oG6dGu1Q2aQ34uJ5VXrkDWB_VZDmPKtdmHLl7f2GlHY; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/tada-carousel.js"
+}

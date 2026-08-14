@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJjYXJhLWNoZWF0LXpvbWJpZS10c3VuYW1pIiwiX3JldiI6IjItMzJjYTM5OWMwNzIxMjNhZWQ3MDU1ZjA4N2VlYjRiMzEiLCJuYW1lIjoiY2FyYS1jaGVhdC16b21iaWUtdHN1bmFtaSIsInRpbWUiOnsibW9kaWZpZWQiOiIyMDE4LTAzLTE2VDIzOjM1OjMwLjM0OVoiLCJjcmVhdGVkIjoiMjAxOC0wMS0xM1QwNzo1NjoyOC44NTBaIiwiMi40LjYiOiIyMDE4LTAxLTEzVDA3OjU2OjI4Ljg1MFoiLCJ1bnB1Ymxpc2hlZCI6eyJ0aW1lIjoiMjAxOC0wMy0xNlQyMzozNTozMC4zNDlaIiwidmVyc2lvbnMiOlsiMi40LjYiXX19LCJfYXR0YWNobWVudHMiOnt9fQ==",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "REVALIDATED",
+    "cf-ray": "a2b33007ace57742-AMS",
+    "connection": "close",
+    "content-length": "322",
+    "content-type": "application/octet-stream",
+    "date": "Fri, 14 Aug 2026 21:52:37 GMT",
+    "etag": "\"35b505f4476fd7f041fb0e561179356d\"",
+    "last-modified": "Tue, 24 May 2022 12:04:20 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=IczhsOdJDbG9QfjVxBudPEcj0feiQdCgaSeBbcoHfCs-1786744357.0647154-1.0.1.1-9a5FQUsxDoeVnxMNW_0tnP8ppXotL01HxQUzyngK104; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/cara-cheat-zombie-tsunami"
+}

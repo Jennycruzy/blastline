@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJoaWxsLWNsaW1iLXJhY2luZy1oYWNraW5nLXVubGltaXRlZC1jb2lucy1hbmQtZ2Vtcy1nZW5lcmF0b3IyMDE4IiwiX3JldiI6IjItNjE1MTExZWVjNDdmOGQyNDZhMmMyYzJmYjVkMWZhYjEiLCJuYW1lIjoiaGlsbC1jbGltYi1yYWNpbmctaGFja2luZy11bmxpbWl0ZWQtY29pbnMtYW5kLWdlbXMtZ2VuZXJhdG9yMjAxOCIsInRpbWUiOnsiY3JlYXRlZCI6IjIwMTgtMDItMjhUMjE6MjA6MzUuOTAwWiIsIjEwLjAuMCI6IjIwMTgtMDItMjhUMjE6MjA6MzYuNzQyWiIsIm1vZGlmaWVkIjoiMjAxOC0wMy0xNlQyMzozMTowMS44NjhaIiwidW5wdWJsaXNoZWQiOnsidGltZSI6IjIwMTgtMDMtMTZUMjM6MzE6MDEuODY4WiIsInZlcnNpb25zIjpbIjEwLjAuMCJdfX0sIl9hdHRhY2htZW50cyI6e319",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "HIT",
+    "cf-ray": "a2b32acdafb4320a-AMS",
+    "connection": "close",
+    "content-length": "402",
+    "content-type": "application/octet-stream",
+    "date": "Fri, 14 Aug 2026 21:49:03 GMT",
+    "etag": "\"02eae050979a0cdf5a6b462aee18dc64\"",
+    "last-modified": "Tue, 24 May 2022 11:42:54 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=SBIA8PJ1fm411iq3rgz9qNIqDZjZicIhE4YWUF1Mi0Q-1786744142.9861908-1.0.1.1-NCYfW6qCPQCw5zZ9pazp3fvUVl6b87tK6yazFSg7x30; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/hill-climb-racing-hacking-unlimited-coins-and-gems-generator2018"
+}

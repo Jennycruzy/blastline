@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJsdWl0emVfbWF0aF9leGFtcGxlIiwiX3JldiI6IjItNDIwNjE2MGE1ZmE0NTVjOGZhMjczMGJlZmMyMDliYWIiLCJuYW1lIjoibHVpdHplX21hdGhfZXhhbXBsZSIsInRpbWUiOnsiY3JlYXRlZCI6IjIwMTgtMDMtMTNUMDQ6MzA6MDQuNjE5WiIsIjAuMC4wIjoiMjAxOC0wMy0xM1QwNDozMDowNC42OTBaIiwibW9kaWZpZWQiOiIyMDE4LTAzLTEzVDA1OjA4OjI2LjQzMVoiLCJ1bnB1Ymxpc2hlZCI6eyJ0aW1lIjoiMjAxOC0wMy0xM1QwNTowODoyNi40MzFaIiwidmVyc2lvbnMiOlsiMC4wLjAiXX19LCJfYXR0YWNobWVudHMiOnt9fQ==",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "REVALIDATED",
+    "cf-ray": "a2b3387b6e113379-AMS",
+    "connection": "close",
+    "content-length": "310",
+    "content-type": "application/octet-stream",
+    "date": "Fri, 14 Aug 2026 21:58:23 GMT",
+    "etag": "\"77e3b6a085461abb706953a8fedf2879\"",
+    "last-modified": "Tue, 24 May 2022 11:35:55 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=xY2CuKPdmt.H90fQvwv4WNkWfwe8s38qAy9wZg6z6g0-1786744703.2696736-1.0.1.1-pLwECmjwsgg2vv54NoY12wS9beNTHkBfCCJGTKrrVqg; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/luitze_math_example"
+}

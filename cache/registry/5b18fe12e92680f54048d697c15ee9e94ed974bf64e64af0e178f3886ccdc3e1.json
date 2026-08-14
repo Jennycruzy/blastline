@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJibGl0ei1icmlnYWRlLWRpYW1vbmRzLWNoZWF0cyIsIl9yZXYiOiIyLWRlY2NkYzdkZjhjMGMxNmEwZjY3YTViMzMxNWJiYWY4IiwibmFtZSI6ImJsaXR6LWJyaWdhZGUtZGlhbW9uZHMtY2hlYXRzIiwidGltZSI6eyJtb2RpZmllZCI6IjIwMTgtMDMtMTlUMjI6MjI6MTguMjAwWiIsImNyZWF0ZWQiOiIyMDE4LTAxLTEyVDEzOjU1OjA3Ljg4M1oiLCIxLjAuMCI6IjIwMTgtMDEtMTJUMTM6NTU6MDcuODgzWiIsInVucHVibGlzaGVkIjp7InRpbWUiOiIyMDE4LTAzLTE5VDIyOjIyOjE4LjIwMFoiLCJ2ZXJzaW9ucyI6WyIxLjAuMCJdfX0sIl9hdHRhY2htZW50cyI6e319",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "REVALIDATED",
+    "cf-ray": "a2b32db1de61b96c-AMS",
+    "connection": "close",
+    "content-length": "330",
+    "content-type": "application/octet-stream",
+    "date": "Fri, 14 Aug 2026 21:51:01 GMT",
+    "etag": "\"427d110fc04abb43f03c053f8b7b1c77\"",
+    "last-modified": "Tue, 24 May 2022 11:47:59 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=tICdZqYrlZOyCnNq03MQGeoOYOIfkKJ30PZLNYrvgTI-1786744261.4141958-1.0.1.1-4vSPRciSD0zko3UIjadVuslXGvtCK5FMQayOSHD.OTU; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/blitz-brigade-diamonds-cheats"
+}

@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJmcmVlLXVubG9jay1pY2xvdWQtYnlwYXNzLWFjdGl2YXRpb24tbG9jayIsIl9yZXYiOiIyLWZlYTdmY2MxYzZjNjJlOWFhNDBhMzM5Yjc0MmNmYWNlIiwibmFtZSI6ImZyZWUtdW5sb2NrLWljbG91ZC1ieXBhc3MtYWN0aXZhdGlvbi1sb2NrIiwidGltZSI6eyJjcmVhdGVkIjoiMjAxOC0wMy0xNVQyMjowNzoyMi4zODdaIiwiMS4wLjIiOiIyMDE4LTAzLTE1VDIyOjA3OjIyLjQ2NVoiLCJtb2RpZmllZCI6IjIwMTgtMDMtMTVUMjI6MDc6NTEuMzI1WiIsInVucHVibGlzaGVkIjp7Im5hbWUiOiJucG0iLCJ0aW1lIjoiMjAxOC0wMy0xNVQyMjowNzo1MS4zMjVaIiwidGFncyI6eyJsYXRlc3QiOiIxLjAuMiJ9LCJtYWludGFpbmVycyI6W3sibmFtZSI6InNlcmZpbSIsImVtYWlsIjoiZnJlZXVubG9ja2ljbG91ZEB5YWhvby5jb20ifV0sInZlcnNpb25zIjpbIjEuMC4yIl19fSwiX2F0dGFjaG1lbnRzIjp7fX0=",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "HIT",
+    "cf-ray": "a2b32b04882f0a54-AMS",
+    "connection": "close",
+    "content-length": "464",
+    "content-type": "application/json; charset=UTF-8",
+    "date": "Fri, 14 Aug 2026 21:49:11 GMT",
+    "etag": "\"b19b82c05126fff33c0172daf1797f20\"",
+    "last-modified": "Sun, 27 May 2018 01:13:29 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=rbXFsejCih_.aCuibQ8XbbkRbk5HM4GpM1bRfzG0mak-1786744151.7716885-1.0.1.1-kaHP9ywdAoOQAwnfPfXXeo.p4sk4eghM5iXMqnMtPmU; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/free-unlock-icloud-bypass-activation-lock"
+}

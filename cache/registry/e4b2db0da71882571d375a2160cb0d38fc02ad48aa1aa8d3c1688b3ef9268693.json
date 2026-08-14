@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJzYW1wbGUta2ludG9uZS11aS1jb21wb25lbnQiLCJfcmV2IjoiNC1iM2Q5NDJkYjMyM2RlY2E0ZTlkMTkxNDQ5ZDM1YzE3ZCIsIm5hbWUiOiJzYW1wbGUta2ludG9uZS11aS1jb21wb25lbnQiLCJ0aW1lIjp7ImNyZWF0ZWQiOiIyMDE4LTAzLTIwVDAyOjM2OjI5LjgwOVoiLCIwLjAuMCI6IjIwMTgtMDMtMjBUMDI6MzY6MzAuMDA3WiIsIm1vZGlmaWVkIjoiMjAxOC0wMy0yMFQwMzowNjoyOC45NzhaIiwiMC4wLjEiOiIyMDE4LTAzLTIwVDAyOjQ5OjQ2Ljk4OFoiLCJ1bnB1Ymxpc2hlZCI6eyJ0aW1lIjoiMjAxOC0wMy0yMFQwMzowNjoyOC45NzhaIiwidmVyc2lvbnMiOlsiMC4wLjAiXX19LCJfYXR0YWNobWVudHMiOnt9fQ==",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "REVALIDATED",
+    "cf-ray": "a2b338a21d15ddee-AMS",
+    "connection": "close",
+    "content-length": "361",
+    "content-type": "application/octet-stream",
+    "date": "Fri, 14 Aug 2026 21:58:29 GMT",
+    "etag": "\"52b4dae4aaab8f59103f6a9899fb8291\"",
+    "last-modified": "Tue, 24 May 2022 11:39:06 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=XreT_afg0xEB.jma9PXcCpk0b4cuodIQoqaJxl5SGXU-1786744709.4529228-1.0.1.1-Jkm_h3OGVINcdVxpcOeKX72EQPqlszocX2wPSFiJJKI; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/sample-kintone-ui-component"
+}

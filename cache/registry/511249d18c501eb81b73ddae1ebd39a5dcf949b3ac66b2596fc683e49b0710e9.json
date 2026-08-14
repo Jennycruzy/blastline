@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJzY2hvb2wtb2YtZHJhZ29ucy1oYWNrcy1tb2QtYXBrIiwiX3JldiI6IjItY2RlMmE5NTdlN2E2MWEyMmM3MjEwMzVlYWM4YzAyN2QiLCJuYW1lIjoic2Nob29sLW9mLWRyYWdvbnMtaGFja3MtbW9kLWFwayIsInRpbWUiOnsibW9kaWZpZWQiOiIyMDE4LTAzLTE5VDIyOjIzOjAxLjk2MVoiLCJjcmVhdGVkIjoiMjAxOC0wMS0yMlQxOTowNDoyNy4yMDVaIiwiMS4wLjEiOiIyMDE4LTAxLTIyVDE5OjA0OjI3LjIwNVoiLCJ1bnB1Ymxpc2hlZCI6eyJ0aW1lIjoiMjAxOC0wMy0xOVQyMjoyMzowMS45NjFaIiwidmVyc2lvbnMiOlsiMS4wLjEiXX19LCJfYXR0YWNobWVudHMiOnt9fQ==",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "REVALIDATED",
+    "cf-ray": "a2b338a62b4ffe97-AMS",
+    "connection": "close",
+    "content-length": "334",
+    "content-type": "application/octet-stream",
+    "date": "Fri, 14 Aug 2026 21:58:30 GMT",
+    "etag": "\"94e55d2b742d8ae1f083bd4eb34d654f\"",
+    "last-modified": "Tue, 24 May 2022 11:41:42 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=s_fX3o8VtMEetAtgkdc2YFCRUgkTOwEwFlckrGuDpQk-1786744710.10837-1.0.1.1-1Fzs6sFA_7YNfoOfsMgE2DiCbd3YBactPS7e5bPz_xk; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/school-of-dragons-hacks-mod-apk"
+}

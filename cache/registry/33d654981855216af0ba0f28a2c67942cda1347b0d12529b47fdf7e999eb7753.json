@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJ0aGUtc2ltcHNvbnMtdGFwcGVkLW91dC1oYWNrLWNoZWF0cyIsIl9yZXYiOiIzLWE3NzMyNjk0MzYzZTRkYTlmMTViYWY2ZTIzZGEwYzM4IiwibmFtZSI6InRoZS1zaW1wc29ucy10YXBwZWQtb3V0LWhhY2stY2hlYXRzIiwidGltZSI6eyJtb2RpZmllZCI6IjIwMTgtMDMtMTZUMTk6Mzg6MTkuNzM4WiIsImNyZWF0ZWQiOiIyMDE3LTEyLTE4VDExOjMwOjM4LjIyMloiLCIxLjAuMCI6IjIwMTctMTItMThUMTE6MzA6MzguMjIyWiIsInVucHVibGlzaGVkIjp7InRpbWUiOiIyMDE4LTAzLTE2VDE5OjM4OjE5LjczOFoiLCJ2ZXJzaW9ucyI6WyIxLjAuMCJdfX0sIl9hdHRhY2htZW50cyI6e319",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "HIT",
+    "cf-ray": "a2b32ac1cec3f5ba-AMS",
+    "connection": "close",
+    "content-length": "342",
+    "content-type": "application/octet-stream",
+    "date": "Fri, 14 Aug 2026 21:49:01 GMT",
+    "etag": "\"c110da8be4a7621e41d235e5d92ef647\"",
+    "last-modified": "Tue, 24 May 2022 11:40:36 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=tLkrMcjCgD0bx7Fe7CzuXsbcBs8pqaHGjllwLx8RXwU-1786744141.0900388-1.0.1.1-DyXGJCvXH_wYtrgPUkPiSMOc_zvOSSyKBh0IvcjxO5o; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/the-simpsons-tapped-out-hack-cheats"
+}

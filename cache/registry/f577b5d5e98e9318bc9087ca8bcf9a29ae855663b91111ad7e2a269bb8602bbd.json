@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJkb2xwaGluLXZ1ZS1jbGktdGVzdCIsIl9yZXYiOiIzLTEyYjIxZTViNjcyNDUxMjM2ZjEyZDlhMGE4MWNmZjI0IiwibmFtZSI6ImRvbHBoaW4tdnVlLWNsaS10ZXN0IiwidGltZSI6eyJjcmVhdGVkIjoiMjAxOC0wMy0xM1QwMzozNzoyNC42NjFaIiwiMC4wLjEiOiIyMDE4LTAzLTEzVDAzOjM3OjI0Ljg1MVoiLCJtb2RpZmllZCI6IjIwMTgtMDMtMTNUMDQ6NTE6MjIuNjM4WiIsIjAuMC4yIjoiMjAxOC0wMy0xM1QwMzo0MzowOS41MDRaIiwidW5wdWJsaXNoZWQiOnsidGltZSI6IjIwMTgtMDMtMTNUMDQ6NTE6MjIuNjM4WiIsInZlcnNpb25zIjpbIjAuMC4xIiwiMC4wLjIiXX19LCJfYXR0YWNobWVudHMiOnt9fQ==",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "REVALIDATED",
+    "cf-ray": "a2b3386f19a71c98-AMS",
+    "connection": "close",
+    "content-length": "355",
+    "content-type": "application/octet-stream",
+    "date": "Fri, 14 Aug 2026 21:58:21 GMT",
+    "etag": "\"ea9a16f106426b03e7a71e25a459eb48\"",
+    "last-modified": "Tue, 24 May 2022 11:33:38 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=BLnsgR187J6xIhPA5nzN1LsooZw2TGoCyjcQuCmPQrU-1786744701.2976887-1.0.1.1-QjYO6A.0ns.vb_8owAkXs1vWXxL8w9qe8r3.3CddyJQ; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/dolphin-vue-cli-test"
+}

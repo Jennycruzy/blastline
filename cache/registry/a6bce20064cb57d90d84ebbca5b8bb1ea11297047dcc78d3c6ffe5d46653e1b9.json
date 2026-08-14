@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJ6b29jcmFmdC1jaGVhdC1jb2lucyIsIl9yZXYiOiIzLTEyNjUyNWQxODhhOWJiN2JhNDc2NjZkMzI4ZjI3NTczIiwibmFtZSI6Inpvb2NyYWZ0LWNoZWF0LWNvaW5zIiwidGltZSI6eyJtb2RpZmllZCI6IjIwMTgtMDMtMTZUMTk6MzM6MDUuMzQ4WiIsImNyZWF0ZWQiOiIyMDE4LTAxLTI0VDA3OjM1OjE1LjU0MVoiLCIxLjAuMCI6IjIwMTgtMDEtMjRUMDc6MzU6MTUuNTQxWiIsIjEuMC4xIjoiMjAxOC0wMS0yNFQwNzozNTo1Mi45ODRaIiwidW5wdWJsaXNoZWQiOnsidGltZSI6IjIwMTgtMDMtMTZUMTk6MzM6MDUuMzQ4WiIsInZlcnNpb25zIjpbIjEuMC4wIiwiMS4wLjEiXX19LCJfYXR0YWNobWVudHMiOnt9fQ==",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "HIT",
+    "cf-ray": "a2b32a441d0cd5a7-AMS",
+    "connection": "close",
+    "content-length": "355",
+    "content-type": "application/octet-stream",
+    "date": "Fri, 14 Aug 2026 21:48:41 GMT",
+    "etag": "\"edf02cc5dc44584c86b8f411729975ef\"",
+    "last-modified": "Tue, 24 May 2022 11:37:07 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=pCzcGWdir_R0EYj760Ukq0xYLSQeM59bq86IfdIJa48-1786744120.971092-1.0.1.1-iB2Kf2rP_ESXEuQEY5KGUhY9oSFGm1ePGT2uK15ivow; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/zoocraft-cheat-coins"
+}

@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJteS10YWxraW5nLWhhbmstaGFjay1tb2QtYXBrIiwiX3JldiI6IjItMDJmMTU1ZDgxYTM1NzNkYzkxMjFkY2YzYWRhZjJlOWYiLCJuYW1lIjoibXktdGFsa2luZy1oYW5rLWhhY2stbW9kLWFwayIsInRpbWUiOnsibW9kaWZpZWQiOiIyMDE4LTAzLTE5VDIyOjIzOjI1Ljc0MVoiLCJjcmVhdGVkIjoiMjAxOC0wMS0yMFQxNDoyNjo0Mi41NThaIiwiMS4wLjEiOiIyMDE4LTAxLTIwVDE0OjI2OjQyLjU1OFoiLCJ1bnB1Ymxpc2hlZCI6eyJ0aW1lIjoiMjAxOC0wMy0xOVQyMjoyMzoyNS43NDFaIiwidmVyc2lvbnMiOlsiMS4wLjEiXX19LCJfYXR0YWNobWVudHMiOnt9fQ==",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "REVALIDATED",
+    "cf-ray": "a2b3389be9f15c39-AMS",
+    "connection": "close",
+    "content-length": "328",
+    "content-type": "application/octet-stream",
+    "date": "Fri, 14 Aug 2026 21:58:28 GMT",
+    "etag": "\"f919725b7ee4410553db2ae157980f00\"",
+    "last-modified": "Tue, 24 May 2022 11:38:55 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=LeQj97hzD6Ijsh9ppMZDdSqMaRyv3F3I8tEr1wfAUFc-1786744708.463509-1.0.1.1-SAUeCAZtg5HCEya1tjy8Qb6j6Wj.8xnb4hbONLx71aM; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/my-talking-hank-hack-mod-apk"
+}

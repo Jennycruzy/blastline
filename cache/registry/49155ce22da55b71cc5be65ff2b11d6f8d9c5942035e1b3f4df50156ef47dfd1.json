@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJmcm9nZ3VzLXNlbnNvciIsIl9yZXYiOiIyLTZhMzBkN2JkZGZjZTZiYWU2ODY5MzgwZDI5NDk1ZTBiIiwibmFtZSI6ImZyb2dndXMtc2Vuc29yIiwidGltZSI6eyJjcmVhdGVkIjoiMjAxOC0wMy0yN1QwMzoxNToxMi40MzhaIiwiMC4wLjEiOiIyMDE4LTAzLTI3VDAzOjE1OjEyLjUwMVoiLCJtb2RpZmllZCI6IjIwMTgtMDMtMjdUMDM6MTc6MjUuODgxWiIsInVucHVibGlzaGVkIjp7InRpbWUiOiIyMDE4LTAzLTI3VDAzOjE3OjI1Ljg4MVoiLCJ2ZXJzaW9ucyI6WyIwLjAuMSJdfX0sIl9hdHRhY2htZW50cyI6e319",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "REVALIDATED",
+    "cf-ray": "a2b338829b49323f-AMS",
+    "connection": "close",
+    "content-length": "300",
+    "content-type": "application/octet-stream",
+    "date": "Fri, 14 Aug 2026 21:58:24 GMT",
+    "etag": "\"2444f82ffb6ecaa0af8c309fbdb1dea8\"",
+    "last-modified": "Tue, 24 May 2022 11:36:21 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=aH5zu6QYsXsdD0VL3WBZ1ASCMNMDXedzG.oJKJtJYHo-1786744704.4120123-1.0.1.1-5Oy0WQzLg4_ErdH.EhMdhGhOCeRGp7i90KCiATeRzvw; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/froggus-sensor"
+}

@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJmcmVlLXhib3gtb25lLWdhbWUtY29kZXMtMjAxOCIsIl9yZXYiOiIyLWUzNWZmNzE3ZTM1MzJiZTcwNTU0MDU4NTE1ODdkNDBmIiwibmFtZSI6ImZyZWUteGJveC1vbmUtZ2FtZS1jb2Rlcy0yMDE4IiwidGltZSI6eyJtb2RpZmllZCI6IjIwMTgtMDMtMTlUMjM6MTM6MDYuMDkyWiIsImNyZWF0ZWQiOiIyMDE4LTAxLTA5VDA0OjM1OjEwLjg2NVoiLCIxLjAuMCI6IjIwMTgtMDEtMDlUMDQ6MzU6MTAuODY1WiIsInVucHVibGlzaGVkIjp7Im5hbWUiOiJucG0iLCJ0aW1lIjoiMjAxOC0wMy0xOVQyMzoxMzowNi4wOTJaIiwidGFncyI6eyJsYXRlc3QiOiIxLjAuMCJ9LCJtYWludGFpbmVycyI6W3sibmFtZSI6InZlcmxhdm9zcyIsImVtYWlsIjoiZGV2ZWxvcGVyMUBnZXRmcmVlcHNuY29kZXMueHl6In1dLCJ2ZXJzaW9ucyI6WyIxLjAuMCJdfX0sIl9hdHRhY2htZW50cyI6e319",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "REVALIDATED",
+    "cf-ray": "a2b32c3f7bbeb98c-AMS",
+    "connection": "close",
+    "content-length": "447",
+    "content-type": "application/json; charset=UTF-8",
+    "date": "Fri, 14 Aug 2026 21:50:02 GMT",
+    "etag": "\"a001a696da8ed4400a32129fd67a2537\"",
+    "last-modified": "Sun, 27 May 2018 01:13:29 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=O9Rrbvu014uCtfasIRLC9veqGhANFeHBpOBanoFcZAY-1786744202.154451-1.0.1.1-guDHNkUwVIWUv.ROr3c_u70leI0pOACGlCLgF4KVVsc; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/free-xbox-one-game-codes-2018"
+}

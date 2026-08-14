@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJoYWNrZWQtdG9reW8tZ2hvdWwtZGFyay13YXItdW5saW1pdGVkLWNvaW5zIiwiX3JldiI6IjYtYmQ2MjYwZDMyOWEyZDVjMmUwY2I1NmVkYjFjODgxZTciLCJuYW1lIjoiaGFja2VkLXRva3lvLWdob3VsLWRhcmstd2FyLXVubGltaXRlZC1jb2lucyIsInRpbWUiOnsiMS4wLjEiOiIyMDE4LTAzLTAyVDE3OjQzOjI5LjIzMFoiLCJjcmVhdGVkIjoiMjAxOC0wMy0wM1QyMTo1MjowMC43OTJaIiwiMS4wLjIiOiIyMDE4LTAzLTAzVDIxOjUyOjAwLjg4MVoiLCJtb2RpZmllZCI6IjIwMTgtMDMtMjdUMDA6MDc6MTIuMzIwWiIsInVucHVibGlzaGVkIjp7InRpbWUiOiIyMDE4LTAzLTI3VDAwOjA3OjEyLjMyMFoiLCJ2ZXJzaW9ucyI6WyIxLjAuMiJdfX0sIl9hdHRhY2htZW50cyI6e319",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "REVALIDATED",
+    "cf-ray": "a2b32d467dd466ea-AMS",
+    "connection": "close",
+    "content-length": "393",
+    "content-type": "application/octet-stream",
+    "date": "Fri, 14 Aug 2026 21:50:44 GMT",
+    "etag": "\"3747a307fd1c76893c9520262308712a\"",
+    "last-modified": "Tue, 24 May 2022 11:45:07 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=94QJaD0gfSMvpTWgW.GJn8tlsv0SNMQKa1gSglhjbio-1786744244.2330506-1.0.1.1-PTuwzz5Pp25YwHS7e2nIsdHLQ6ARFne18bDFEgkh21o; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/hacked-tokyo-ghoul-dark-war-unlimited-coins"
+}

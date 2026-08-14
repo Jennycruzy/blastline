@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJhcm15LW1lbi1zdHJpa2UtY2hlYXQtMjAxOCIsIl9yZXYiOiIyLWNmODY4NTZlOGI1NjU3NmRjMGQ0ZjRlNjdiNmI3ODE5IiwibmFtZSI6ImFybXktbWVuLXN0cmlrZS1jaGVhdC0yMDE4IiwidGltZSI6eyJtb2RpZmllZCI6IjIwMTgtMDMtMTlUMjI6MjA6MzEuOTY5WiIsImNyZWF0ZWQiOiIyMDE4LTAxLTIwVDA3OjUyOjE0Ljk3M1oiLCIxLjAuMSI6IjIwMTgtMDEtMjBUMDc6NTI6MTQuOTczWiIsInVucHVibGlzaGVkIjp7Im5hbWUiOiJucG0iLCJ0aW1lIjoiMjAxOC0wMy0xOVQyMjoyMDozMS45NjlaIiwidGFncyI6eyJsYXRlc3QiOiIxLjAuMSJ9LCJtYWludGFpbmVycyI6W3sibmFtZSI6Inl1dW1xNTEiLCJlbWFpbCI6Imtlbm5ldGgucm9kcmkuZy51LmUuNTNAZ21haWwuY29tIn1dLCJ2ZXJzaW9ucyI6WyIxLjAuMSJdfX0sIl9hdHRhY2htZW50cyI6e319",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "REVALIDATED",
+    "cf-ray": "a2b32c6e7ab670c7-AMS",
+    "connection": "close",
+    "content-length": "441",
+    "content-type": "application/json; charset=UTF-8",
+    "date": "Fri, 14 Aug 2026 21:50:09 GMT",
+    "etag": "\"f17e7b8779e9fb9f7e330ab3114c2daa\"",
+    "last-modified": "Sat, 26 May 2018 17:21:28 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=XRuK9rQJ3CPON3tnOR67RFsfa.kHuOG8CSDqrMxWROc-1786744209.6736336-1.0.1.1-ouxgfZx3ms.bO6HVQkIiJcx542NO5HrxKCVZcckZhAo; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/army-men-strike-cheat-2018"
+}

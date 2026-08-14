@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJqb2huYmFubmVyIiwiX3JldiI6IjItNTAwNGVhMmZmYmYyMzBjZTBmOTgwOTU0NTg5MTVlN2EiLCJuYW1lIjoiam9obmJhbm5lciIsInRpbWUiOnsiY3JlYXRlZCI6IjIwMTgtMDMtMTZUMDM6MDU6MDkuMDg1WiIsIjEuMC4wIjoiMjAxOC0wMy0xNlQwMzowNTowOS4xMzJaIiwibW9kaWZpZWQiOiIyMDE4LTAzLTE2VDAzOjQ0OjMwLjQxOVoiLCJ1bnB1Ymxpc2hlZCI6eyJ0aW1lIjoiMjAxOC0wMy0xNlQwMzo0NDozMC40MTlaIiwidmVyc2lvbnMiOlsiMS4wLjAiXX19LCJfYXR0YWNobWVudHMiOnt9fQ==",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "REVALIDATED",
+    "cf-ray": "a2b32f197df60d28-AMS",
+    "connection": "close",
+    "content-length": "292",
+    "content-type": "application/octet-stream",
+    "date": "Fri, 14 Aug 2026 21:51:59 GMT",
+    "etag": "\"664abd9038f3f50b775d96fcfe0e0b0e\"",
+    "last-modified": "Tue, 24 May 2022 11:58:13 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=DTL7QQg88MdOh3BRIC_cQKR4nwsD1z1qQBxuJnCE8bs-1786744318.9607282-1.0.1.1-2RCRyHVaCUywdwXB4wvg9neT.f6koabPW_pTfg_9zYE; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/johnbanner"
+}

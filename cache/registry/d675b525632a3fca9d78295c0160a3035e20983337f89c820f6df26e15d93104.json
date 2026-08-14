@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJob3VzZS1vZi1mdW4tdW5saW1pdGVkLWNvaW5zLTIwMTgiLCJfcmV2IjoiMi1lNDQ5ODc1YzNjYzVkYjAwYzNiZTE2OGFiNzBiODUzNiIsIm5hbWUiOiJob3VzZS1vZi1mdW4tdW5saW1pdGVkLWNvaW5zLTIwMTgiLCJ0aW1lIjp7Im1vZGlmaWVkIjoiMjAxOC0wMy0xNlQyMzoyMjoyNC4yMjJaIiwiY3JlYXRlZCI6IjIwMTgtMDEtMTFUMDk6MzM6NTQuNTI0WiIsIjEuMS42IjoiMjAxOC0wMS0xMVQwOTozMzo1NC41MjRaIiwidW5wdWJsaXNoZWQiOnsibmFtZSI6Im5wbSIsInRpbWUiOiIyMDE4LTAzLTE2VDIzOjIyOjI0LjIyMloiLCJ0YWdzIjp7ImxhdGVzdCI6IjEuMS42In0sIm1haW50YWluZXJzIjpbeyJuYW1lIjoia2l0a2xhd2l0dGVyIiwiZW1haWwiOiJraXRrbGF3aXR0ZXJAb3V0bG9vay5jb20ifV0sInZlcnNpb25zIjpbIjEuMS42Il19fSwiX2F0dGFjaG1lbnRzIjp7fX0=",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "HIT",
+    "cf-ray": "a2b32b214eae93bd-AMS",
+    "connection": "close",
+    "content-length": "452",
+    "content-type": "application/json; charset=UTF-8",
+    "date": "Fri, 14 Aug 2026 21:49:16 GMT",
+    "etag": "\"730944af215f3e4964bcfff784895e52\"",
+    "last-modified": "Sun, 27 May 2018 03:58:14 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=syOdzaKQVC2IGJ10kbs0f..zBWAQ7KkFMmOX0xw3yGo-1786744156.3638995-1.0.1.1-eG1Ty4Ev4HcTDYNzsyGMJsXsCXpWE_a_F9_9YPFUe_s; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/house-of-fun-unlimited-coins-2018"
+}

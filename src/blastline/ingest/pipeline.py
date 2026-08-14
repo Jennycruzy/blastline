@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import hashlib
 from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass
 from pathlib import Path
@@ -21,7 +22,16 @@ from .lockfiles import graphify_lockfile, parse_lockfile
 from .osv import OsvClient, OsvTarget, attach_advisories
 from .parsers import parse_npm, parse_pypi
 from .simple_index import parse_simple_index
-from .sources import NpmRegistry, PyPIRegistry, read_checkpoint, write_checkpoint
+from .sources import (
+    NpmRegistry,
+    PyPIRegistry,
+    read_checkpoint,
+    read_cursor_checkpoint,
+    read_index_checkpoint,
+    write_checkpoint,
+    write_cursor_checkpoint,
+    write_index_checkpoint,
+)
 
 
 @dataclass(slots=True)
@@ -35,6 +45,9 @@ class IngestReport:
     cached_requests: int = 0
     feed_results: int = 0
     feed_exhausted: bool = True
+    catalog_total: int | None = None
+    catalog_selected: int | None = None
+    catalog_completed: int | None = None
 
     def as_json(self) -> JsonObject:
         return {
@@ -47,6 +60,9 @@ class IngestReport:
             "cached_requests": self.cached_requests,
             "feed_results": self.feed_results,
             "feed_exhausted": self.feed_exhausted,
+            "catalog_total": self.catalog_total,
+            "catalog_selected": self.catalog_selected,
+            "catalog_completed": self.catalog_completed,
         }
 
 
@@ -211,23 +227,110 @@ class RegistryIngestor:
             raise ExternalCallError("npm changes feed did not advance its checkpoint")
         report.feed_results = len(changes.results)
         report.feed_exhausted = len(changes.results) < limit
-        for change in changes.results:
+        fetched_changes: list[tuple[JsonObject, HttpResponse | None, str | None]] = []
+        with ThreadPoolExecutor(max_workers=self._fetch_concurrency()) as executor:
+            futures = [executor.submit(self._fetch_change_package, change, refresh) for change in changes.results]
+            for future in futures:
+                fetched_changes.append(future.result())
+        transient_fetch_failures = False
+        for change, package_response, fetch_error in fetched_changes:
             deleted = change.get("deleted")
-            document = change.get("doc")
             identifier = str(change.get("id", "unknown"))
             if deleted is True:
                 self.ledger.record("npm", identifier, "registry reported deletion")
                 report.failures += 1
                 continue
-            if not isinstance(document, dict):
-                self.ledger.record("npm", identifier, "change has no embedded package document")
+            if fetch_error is not None:
+                if "failed with 404" in fetch_error:
+                    self.ledger.record("npm", identifier, "registry reported deletion")
+                else:
+                    self.ledger.record("npm", identifier, fetch_error)
+                    transient_fetch_failures = True
                 report.failures += 1
                 continue
-            self._add_package(json.dumps(document, sort_keys=True).encode(), "npm", report)
+            if package_response is None:
+                raise RuntimeError("npm change fetch returned neither response nor error")
+            if package_response.from_cache:
+                report.cached_requests += 1
+            self._add_package(package_response.body, "npm", report)
+        if transient_fetch_failures:
+            self.print_report(report)
+            raise ExternalCallError("npm changes checkpoint not advanced because package metadata fetches failed")
         write_checkpoint(checkpoint, "npm", changes.last_seq)
-        if changes.results and report.cached_requests == 0:
-            report.cached_requests = 0
         return report
+
+    def npm_catalog(self, limit: int, refresh: bool = False) -> None:
+        """Bootstrap npm from the supported paginated catalog endpoint.
+
+        The current npm replication API does not return packuments inline in
+        `_changes` and rejects a historical `since=0` bootstrap in practice.
+        `_all_docs` is the supported bulk catalog path; package documents are
+        fetched from the authoritative registry and each page is checkpointed
+        only after its non-deletion records have been handled.
+        """
+
+        if limit < 1:
+            raise BlastlineError("npm catalog page limit must be positive")
+        checkpoint = self.settings.root / "cache" / "checkpoints" / "npm-catalog.json"
+        startkey, startkey_docid, complete = read_cursor_checkpoint(checkpoint, "npm-catalog")
+        if complete:
+            print("npm-catalog: checkpoint is complete; no pages to ingest")
+            return
+        while True:
+            page = self.npm.all_docs(startkey, startkey_docid, limit, refresh=refresh)
+            rows = list(page.results)
+            if startkey_docid is not None and rows and rows[0].get("id") == startkey_docid:
+                rows = rows[1:]
+            if not rows:
+                write_cursor_checkpoint(checkpoint, "npm-catalog", startkey, startkey_docid, True)
+                print("npm-catalog: catalog exhausted; checkpoint complete")
+                return
+            report = IngestReport("npm-catalog", feed_results=len(rows), feed_exhausted=page.exhausted)
+            fetched: list[tuple[JsonObject, HttpResponse | None, str | None]] = []
+            with ThreadPoolExecutor(max_workers=self._fetch_concurrency()) as executor:
+                futures = [executor.submit(self._fetch_change_package, row, refresh) for row in rows]
+                for future in futures:
+                    fetched.append(future.result())
+            transient_fetch_failures = False
+            for row, package_response, fetch_error in fetched:
+                identifier = str(row.get("id", "unknown"))
+                if fetch_error is not None:
+                    if "failed with 404" in fetch_error:
+                        self.ledger.record("npm-catalog", identifier, "registry reported deletion")
+                    else:
+                        self.ledger.record("npm-catalog", identifier, fetch_error)
+                        transient_fetch_failures = True
+                    report.failures += 1
+                    continue
+                if package_response is None:
+                    raise RuntimeError("npm catalog fetch returned neither response nor error")
+                if package_response.from_cache:
+                    report.cached_requests += 1
+                self._add_package(package_response.body, "npm", report)
+            if transient_fetch_failures:
+                self.print_report(report)
+                raise ExternalCallError("npm catalog checkpoint not advanced because package metadata fetches failed")
+            write_cursor_checkpoint(checkpoint, "npm-catalog", page.next_key, page.next_docid, page.exhausted)
+            self.print_report(report)
+            if page.exhausted:
+                return
+            startkey, startkey_docid = page.next_key, page.next_docid
+
+    def _fetch_change_package(
+        self,
+        change: JsonObject,
+        refresh: bool,
+    ) -> tuple[JsonObject, HttpResponse | None, str | None]:
+        identifier = change.get("id")
+        if not isinstance(identifier, str):
+            raise ValueError("npm change has no string id")
+        document = change.get("doc")
+        if isinstance(document, dict):
+            return change, HttpResponse(identifier, 200, {}, json.dumps(document, sort_keys=True).encode(), True), None
+        try:
+            return change, self.npm.package(identifier, refresh=refresh), None
+        except ExternalCallError as exc:
+            return change, None, str(exc)
 
     def pypi_simple(self, limit: int | None, refresh: bool = False) -> IngestReport:
         response = self.pypi.simple_index(refresh=refresh)
@@ -235,7 +338,35 @@ class RegistryIngestor:
         selected = names if limit is None else names[:limit]
         if limit is not None and limit < 1:
             raise BlastlineError("PyPI simple index limit must be positive or omitted for the full index")
-        return self.pypi_packages(selected, refresh=refresh)
+        selected_fingerprint = hashlib.sha256("\n".join(selected).encode("utf-8")).hexdigest()
+        checkpoint = self.settings.root / "cache" / "checkpoints" / "pypi.json"
+        next_index = read_index_checkpoint(checkpoint, "pypi", selected_fingerprint, len(selected))
+        report = IngestReport(
+            "pypi-simple",
+            catalog_total=len(names),
+            catalog_selected=len(selected),
+            catalog_completed=next_index,
+        )
+        batch_size = self.settings.integer("hydra", "batch_size")
+        if batch_size < 1:
+            raise BlastlineError("configuration hydra.batch_size must be positive")
+        for start in range(next_index, len(selected), batch_size):
+            batch_report = self.pypi_packages(selected[start : start + batch_size], refresh=refresh)
+            self._merge_reports(report, batch_report)
+            report.catalog_completed = start + len(selected[start : start + batch_size])
+            write_index_checkpoint(checkpoint, "pypi", selected_fingerprint, report.catalog_completed)
+        return report
+
+    @staticmethod
+    def _merge_reports(target: IngestReport, source: IngestReport) -> None:
+        target.packages_seen += source.packages_seen
+        target.versions_seen += source.versions_seen
+        target.nodes_added += source.nodes_added
+        target.edges_added += source.edges_added
+        target.failures += source.failures
+        target.cached_requests += source.cached_requests
+        target.feed_results += source.feed_results
+        target.feed_exhausted = target.feed_exhausted and source.feed_exhausted
 
     def github_lockfile(
         self,
@@ -330,8 +461,13 @@ class RegistryIngestor:
 
     def print_report(self, report: IngestReport) -> None:
         feed_detail = ""
-        if report.source == "npm-changes":
-            feed_detail = f"; feed records {report.feed_results}; feed exhausted {report.feed_exhausted}"
+        if report.source in ("npm-changes", "npm-catalog"):
+            feed_detail = f"; feed/catalog records {report.feed_results}; exhausted {report.feed_exhausted}"
+        if report.catalog_total is not None:
+            feed_detail += (
+                f"; catalog coverage {report.catalog_completed or 0}/{report.catalog_selected or 0} selected"
+                f" of {report.catalog_total} published names"
+            )
         print(
             f"{report.source}: ingested {report.versions_seen} versions across "
             f"{report.packages_seen} packages, added {report.nodes_added} nodes and "

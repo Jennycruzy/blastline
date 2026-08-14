@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJnYW5nc3Rhci12ZWdhcy1jaGVhdC1kaWFtb25kIiwiX3JldiI6IjMtMjYwMjcyZTEzY2NhM2ZkNWZhZDQ1MDU4YmUxY2MyM2QiLCJuYW1lIjoiZ2FuZ3N0YXItdmVnYXMtY2hlYXQtZGlhbW9uZCIsInRpbWUiOnsibW9kaWZpZWQiOiIyMDE4LTAzLTE2VDE5OjM2OjM1LjUzOFoiLCJjcmVhdGVkIjoiMjAxOC0wMS0yNVQwNjozMDo1NC45NjNaIiwiMS4wLjAiOiIyMDE4LTAxLTI1VDA2OjMwOjU0Ljk2M1oiLCIxLjAuMSI6IjIwMTgtMDEtMjVUMDY6MzE6MjEuMTQyWiIsInVucHVibGlzaGVkIjp7InRpbWUiOiIyMDE4LTAzLTE2VDE5OjM2OjM1LjUzOFoiLCJ2ZXJzaW9ucyI6WyIxLjAuMCIsIjEuMC4xIl19fSwiX2F0dGFjaG1lbnRzIjp7fX0=",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "HIT",
+    "cf-ray": "a2b32a87ae83fe97-AMS",
+    "connection": "close",
+    "content-length": "371",
+    "content-type": "application/octet-stream",
+    "date": "Fri, 14 Aug 2026 21:48:51 GMT",
+    "etag": "\"75353dd6648d19987d9449a583290e61\"",
+    "last-modified": "Tue, 24 May 2022 11:39:39 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=d0KitjxJrKHlpiLUfk54R9Wf0b.J_u5.XJOHeH7DBlM-1786744131.7821043-1.0.1.1-z8PwRLbiUYQUATnEjTSaU51IPRKNGoKscWTGieOAvuc; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/gangstar-vegas-cheat-diamond"
+}

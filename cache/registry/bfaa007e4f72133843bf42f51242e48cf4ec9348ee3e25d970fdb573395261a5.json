@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiIxMDgwdm9kbG9ja2VyLWJsYWNrcGFudGhlciIsIl9yZXYiOiIzLTk1MDY2NDQ0OTA0YzNmYmY1ODc0MjkxZWVkYjE5Zjg3IiwibmFtZSI6IjEwODB2b2Rsb2NrZXItYmxhY2twYW50aGVyIiwidGltZSI6eyJjcmVhdGVkIjoiMjAxOC0wMy0xNlQwNDo1MTo0OC41MzNaIiwiMS4wLjEyIjoiMjAxOC0wMy0xNlQwNDo1MTo0OC41OTRaIiwibW9kaWZpZWQiOiIyMDE4LTAzLTE2VDA0OjU1OjMzLjYyOFoiLCJ1bnB1Ymxpc2hlZCI6eyJ0aW1lIjoiMjAxOC0wMy0xNlQwNDo1NTozMy42MjhaIiwidmVyc2lvbnMiOlsiMS4wLjEyIl19fSwiX2F0dGFjaG1lbnRzIjp7fX0=",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "REVALIDATED",
+    "cf-ray": "a2b3309128e0d595-AMS",
+    "connection": "close",
+    "content-length": "326",
+    "content-type": "application/octet-stream",
+    "date": "Fri, 14 Aug 2026 21:52:59 GMT",
+    "etag": "\"50564df212a82941fb3d3fe94f66baa4\"",
+    "last-modified": "Tue, 24 May 2022 11:26:03 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=Xx4ZS6Ei_dxDdrhlYz4pEGWEweWrSHvhD40A8ZYxVYU-1786744379.0633821-1.0.1.1-L40_07oYt3g102OR6EyRyYx9mtrwe0DxTz5w1BZtfRs; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/1080vodlocker-blackpanther"
+}

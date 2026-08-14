@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJjcnVzYWRlcnMtb2YtbGlnaHQtY2hlYXQtMjAxOCIsIl9yZXYiOiIyLThiNjc1ZjFjOTExZWJmYzlkMWU4ZTYzNDk5ZGY5NTM2IiwibmFtZSI6ImNydXNhZGVycy1vZi1saWdodC1jaGVhdC0yMDE4IiwidGltZSI6eyJtb2RpZmllZCI6IjIwMTgtMDMtMTlUMjI6MjA6MzEuODYwWiIsImNyZWF0ZWQiOiIyMDE4LTAxLTIwVDA3OjUyOjIxLjA1MFoiLCIxLjAuMSI6IjIwMTgtMDEtMjBUMDc6NTI6MjEuMDUwWiIsInVucHVibGlzaGVkIjp7InRpbWUiOiIyMDE4LTAzLTE5VDIyOjIwOjMxLjg2MFoiLCJ2ZXJzaW9ucyI6WyIxLjAuMSJdfX0sIl9hdHRhY2htZW50cyI6e319",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "REVALIDATED",
+    "cf-ray": "a2b32d6729ee0c13-AMS",
+    "connection": "close",
+    "content-length": "330",
+    "content-type": "application/octet-stream",
+    "date": "Fri, 14 Aug 2026 21:50:49 GMT",
+    "etag": "\"f37ce6509f2c925005ea8819fb942fa1\"",
+    "last-modified": "Tue, 24 May 2022 11:44:59 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=lqWt8UN8d8HSL5P6zaElIf26TZwFeZsaIkeH.qJxbFA-1786744249.466595-1.0.1.1-Ib9r1aQDC_ikG95qLFyuD82nJEz4tTJ0Xs0MuKrcyUs; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/crusaders-of-light-cheat-2018"
+}

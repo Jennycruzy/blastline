@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJ2YWNhbi1zY3NzIiwiX3JldiI6IjItYjY1NDlkOTUxNjFhYTE1OWE0NDg2NGU5MmE3MGZjYzYiLCJuYW1lIjoidmFjYW4tc2NzcyIsInRpbWUiOnsiY3JlYXRlZCI6IjIwMTgtMDMtMTZUMDM6MzA6NDYuODk2WiIsIjAuMS4wIjoiMjAxOC0wMy0xNlQwMzozMDo0Ni45NjVaIiwibW9kaWZpZWQiOiIyMDE4LTAzLTE2VDAzOjM3OjUwLjczN1oiLCJ1bnB1Ymxpc2hlZCI6eyJ0aW1lIjoiMjAxOC0wMy0xNlQwMzozNzo1MC43MzZaIiwidmVyc2lvbnMiOlsiMC4xLjAiXX19LCJfYXR0YWNobWVudHMiOnt9fQ==",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "REVALIDATED",
+    "cf-ray": "a2b32f5adc02b8b4-AMS",
+    "connection": "close",
+    "content-length": "292",
+    "content-type": "application/octet-stream",
+    "date": "Fri, 14 Aug 2026 21:52:09 GMT",
+    "etag": "\"9db125ae30507e2b465fdd0dba5f2c92\"",
+    "last-modified": "Tue, 24 May 2022 11:58:19 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=ofBg78rPBwaLOihOSbyPLBuYwfC74zHn2Zc5cccNDs0-1786744329.4126875-1.0.1.1-q1EgGvJqirHDPFeauiPZmOQMile_KyacIKhzZnXYsh8; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/vacan-scss"
+}

@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJnb2RkZXNzLXByaW1hbC1jaGFvcy1jaGVhdC0yMDE4IiwiX3JldiI6IjItMDBkZGNiOGQ4MjI5NTg0ZjA2NzY0NDMwNjc4MjIyNGUiLCJuYW1lIjoiZ29kZGVzcy1wcmltYWwtY2hhb3MtY2hlYXQtMjAxOCIsInRpbWUiOnsibW9kaWZpZWQiOiIyMDE4LTAzLTE5VDIyOjIwOjMyLjA5MloiLCJjcmVhdGVkIjoiMjAxOC0wMS0yMFQwNzo1MjoxMS45NjdaIiwiMS4wLjEiOiIyMDE4LTAxLTIwVDA3OjUyOjExLjk2N1oiLCJ1bnB1Ymxpc2hlZCI6eyJ0aW1lIjoiMjAxOC0wMy0xOVQyMjoyMDozMi4wOTJaIiwidmVyc2lvbnMiOlsiMS4wLjEiXX19LCJfYXR0YWNobWVudHMiOnt9fQ==",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "REVALIDATED",
+    "cf-ray": "a2b32d81297da009-AMS",
+    "connection": "close",
+    "content-length": "334",
+    "content-type": "application/octet-stream",
+    "date": "Fri, 14 Aug 2026 21:50:53 GMT",
+    "etag": "\"3ee3922823b83d746bb9ca3749333682\"",
+    "last-modified": "Tue, 24 May 2022 11:46:20 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=9z7aUK_C3Gtev4dahX4rutPVdp4U2IzOEBFZbcfkav0-1786744253.6289184-1.0.1.1-RV7I6nXjxkk6Wh1nQbx0V0uhsAoudaKnO8AB.V39Zog; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/goddess-primal-chaos-cheat-2018"
+}

@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJma2ZhbGNvbi1saWJyYXJ5IiwiX3JldiI6IjMtNDFmOGQxNWRjNGVkM2JiODIyNWU4YjllMGQ3NTY2MmMiLCJuYW1lIjoiZmtmYWxjb24tbGlicmFyeSIsInRpbWUiOnsiY3JlYXRlZCI6IjIwMTgtMDMtMTlUMTA6MzA6MzYuMDQ4WiIsIjAuMC4xIjoiMjAxOC0wMy0xOVQxMDozMDozNi4xNDJaIiwibW9kaWZpZWQiOiIyMDE4LTAzLTE5VDExOjA2OjE0LjYyOFoiLCIwLjAuMiI6IjIwMTgtMDMtMTlUMTA6NTk6NDYuOTU0WiIsInVucHVibGlzaGVkIjp7InRpbWUiOiIyMDE4LTAzLTE5VDExOjA2OjE0LjYyOFoiLCJ2ZXJzaW9ucyI6WyIwLjAuMSIsIjAuMC4yIl19fSwiX2F0dGFjaG1lbnRzIjp7fX0=",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "REVALIDATED",
+    "cf-ray": "a2b33881ace3fe97-AMS",
+    "connection": "close",
+    "content-length": "347",
+    "content-type": "application/octet-stream",
+    "date": "Fri, 14 Aug 2026 21:58:24 GMT",
+    "etag": "\"58f378d3ad6fa05ffa742458adf114ec\"",
+    "last-modified": "Tue, 24 May 2022 11:36:18 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=08kLmxIlaIAPb8cqKX8DmQx_o9YQ3Fjd0M5_XElsK7A-1786744704.2704453-1.0.1.1-0TSeKU3vByi52RpcJyQoVEIN8zp0rx457Dhoj7WnV8M; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/fkfalcon-library"
+}

@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJtb2JpbGUtbGVnZW5kcy1oYWNrcy1uby1zdXJ2ZXktZGlhbW9uZHMtYmF0dGxlLXBvaW50cyIsIl9yZXYiOiIyLTA0NTYyNDE5ZWY4Y2I5MTM1OWU5NTU0MjA1OTM3MGFiIiwibmFtZSI6Im1vYmlsZS1sZWdlbmRzLWhhY2tzLW5vLXN1cnZleS1kaWFtb25kcy1iYXR0bGUtcG9pbnRzIiwidGltZSI6eyJtb2RpZmllZCI6IjIwMTgtMDMtMTVUMjI6MTM6MTMuNzM0WiIsImNyZWF0ZWQiOiIyMDE4LTAxLTIyVDA4OjExOjUyLjY3NloiLCIxLjAuMCI6IjIwMTgtMDEtMjJUMDg6MTE6NTIuNjc2WiIsInVucHVibGlzaGVkIjp7Im5hbWUiOiJucG0iLCJ0aW1lIjoiMjAxOC0wMy0xNVQyMjoxMzoxMy43MzRaIiwidGFncyI6eyJsYXRlc3QiOiIxLjAuMCJ9LCJtYWludGFpbmVycyI6W3sibmFtZSI6ImFuZGV2aWxsYXM1OTkiLCJlbWFpbCI6IlNIQVJFR0FNRVRPT0xfQ0BvdXRsb29rLmNvbSJ9XSwidmVyc2lvbnMiOlsiMS4wLjAiXX19LCJfYXR0YWNobWVudHMiOnt9fQ==",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "REVALIDATED",
+    "cf-ray": "a2b32c19ef9b77ce-AMS",
+    "connection": "close",
+    "content-length": "496",
+    "content-type": "application/json; charset=UTF-8",
+    "date": "Fri, 14 Aug 2026 21:49:56 GMT",
+    "etag": "\"97a67e61c800dd78f01f9bfef5647d27\"",
+    "last-modified": "Sun, 27 May 2018 08:15:54 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=C3Oi0NsKjCenYuhM2M0EuB3Q3surcCYRXRxiXID3Q_E-1786744196.1436038-1.0.1.1-_74wgsAVftPrJNWMHDoHryuLJPYbcwFi0VhkytHS7pk; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/mobile-legends-hacks-no-survey-diamonds-battle-points"
+}

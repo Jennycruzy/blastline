@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJnYXJmaWVsZC1zbW9nYnVzdGVyLWhhY2tzLW1vZC1hcGsiLCJfcmV2IjoiMi0wOWQ0YTY2NjE1YTFhN2QxNTZjOTcyMDk1MzgyZjE5ZiIsIm5hbWUiOiJnYXJmaWVsZC1zbW9nYnVzdGVyLWhhY2tzLW1vZC1hcGsiLCJ0aW1lIjp7Im1vZGlmaWVkIjoiMjAxOC0wMy0xOVQyMzoxMTozNy41NzVaIiwiY3JlYXRlZCI6IjIwMTgtMDEtMjJUMTY6Mzc6MTIuOTkxWiIsIjEuMC4xIjoiMjAxOC0wMS0yMlQxNjozNzoxMi45OTFaIiwidW5wdWJsaXNoZWQiOnsibmFtZSI6Im5wbSIsInRpbWUiOiIyMDE4LTAzLTE5VDIzOjExOjM3LjU3NVoiLCJ0YWdzIjp7ImxhdGVzdCI6IjEuMC4xIn0sIm1haW50YWluZXJzIjpbeyJuYW1lIjoianN1bmgzOSIsImVtYWlsIjoia2VubmV0aC5yby5kLnIuaS5ndS5lLjUuM0BnbWFpbC5jb20ifV0sInZlcnNpb25zIjpbIjEuMC4xIl19fSwiX2F0dGFjaG1lbnRzIjp7fX0=",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "HIT",
+    "cf-ray": "a2b32b0a59eed204-AMS",
+    "connection": "close",
+    "content-length": "458",
+    "content-type": "application/json; charset=UTF-8",
+    "date": "Fri, 14 Aug 2026 21:49:12 GMT",
+    "etag": "\"69c53bec3fc207178de2ff57a83f02a0\"",
+    "last-modified": "Sun, 27 May 2018 01:29:08 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=QbGgbD2WFkJ8sxnQjHBLugJIzQqegAx.EyhWHj3cLI8-1786744152.6966786-1.0.1.1-NTyYBmYYNiMiYJKrqAsDQjgoBjmSjwKEoyVXb0tt.K8; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/garfield-smogbuster-hacks-mod-apk"
+}

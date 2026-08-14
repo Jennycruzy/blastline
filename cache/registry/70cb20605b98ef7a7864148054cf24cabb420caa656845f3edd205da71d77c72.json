@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJtb2Rlcm4tc3RyaWtlLWhhY2tzLW1vZC1hcGsiLCJfcmV2IjoiMi0yZWVjNTg3MjI1ZGMzOWI0MTYyOGRhOTNiZGJhMDBjYiIsIm5hbWUiOiJtb2Rlcm4tc3RyaWtlLWhhY2tzLW1vZC1hcGsiLCJ0aW1lIjp7Im1vZGlmaWVkIjoiMjAxOC0wMy0xOVQyMzoxMjo0MC43NzNaIiwiY3JlYXRlZCI6IjIwMTgtMDEtMjVUMTY6MzE6NTMuNjc2WiIsIjEuMC4xIjoiMjAxOC0wMS0yNVQxNjozMTo1My42NzZaIiwidW5wdWJsaXNoZWQiOnsibmFtZSI6Im5wbSIsInRpbWUiOiIyMDE4LTAzLTE5VDIzOjEyOjQwLjc3M1oiLCJ0YWdzIjp7ImxhdGVzdCI6IjEuMC4xIn0sIm1haW50YWluZXJzIjpbeyJuYW1lIjoib2luamQ0NSIsImVtYWlsIjoia2VubmV0aC5yLm9kci5pLmcudS5lNS4zQGdtYWlsLmNvbSJ9XSwidmVyc2lvbnMiOlsiMS4wLjEiXX19LCJfYXR0YWNobWVudHMiOnt9fQ==",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "HIT",
+    "cf-ray": "a2b32b2e8ac0eeda-AMS",
+    "connection": "close",
+    "content-length": "445",
+    "content-type": "application/json; charset=UTF-8",
+    "date": "Fri, 14 Aug 2026 21:49:18 GMT",
+    "etag": "\"f5a55005c0b322a9067d26f01d3b7839\"",
+    "last-modified": "Sun, 27 May 2018 08:21:45 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=YdrNW3tUrW53mwqcxPuAZaohohW9M57Jc5iO6qBHYoo-1786744158.4832277-1.0.1.1-cK1NciuIgDhHaH7JrFkKPk4ly0qx.4_Glz6XsnUOvWA; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/modern-strike-hacks-mod-apk"
+}

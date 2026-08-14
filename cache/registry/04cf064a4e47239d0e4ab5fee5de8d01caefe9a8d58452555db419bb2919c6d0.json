@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJmcmVlLWNvaW5zLWZvci1oaXQtaXQtcmljaCIsIl9yZXYiOiIyLTM5MTgwYzRmZTA3M2VhNzRmMjUxNWRmYjUyMWYzNTMzIiwibmFtZSI6ImZyZWUtY29pbnMtZm9yLWhpdC1pdC1yaWNoIiwidGltZSI6eyJtb2RpZmllZCI6IjIwMTgtMDMtMTZUMjM6MjI6NTAuNDY0WiIsImNyZWF0ZWQiOiIyMDE4LTAxLTExVDA5OjQ3OjUxLjA0NFoiLCIxLjMuMyI6IjIwMTgtMDEtMTFUMDk6NDc6NTEuMDQ0WiIsInVucHVibGlzaGVkIjp7Im5hbWUiOiJucG0iLCJ0aW1lIjoiMjAxOC0wMy0xNlQyMzoyMjo1MC40NjRaIiwidGFncyI6eyJsYXRlc3QiOiIxLjMuMyJ9LCJtYWludGFpbmVycyI6W3sibmFtZSI6ImxvdmVsbGFsZXN0ZXIiLCJlbWFpbCI6ImxvdmVsbGFsZXN0ZXJAb3V0bG9vay5jb20ifV0sInZlcnNpb25zIjpbIjEuMy4zIl19fSwiX2F0dGFjaG1lbnRzIjp7fX0=",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "HIT",
+    "cf-ray": "a2b32af1ec464389-AMS",
+    "connection": "close",
+    "content-length": "440",
+    "content-type": "application/json; charset=UTF-8",
+    "date": "Fri, 14 Aug 2026 21:49:08 GMT",
+    "etag": "\"5873fd9d1a5d483cdbdfb28665b12b07\"",
+    "last-modified": "Sun, 27 May 2018 01:13:21 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=Zf76f8_Bb9H0Rid.ZVxY9E2T.Mkf1l7u2Hz1X7MLNzU-1786744148.7857594-1.0.1.1-OgUxXepuT5nUT7pUPaE5RXSfbTKUxaZw.z5yAmX0O2s; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/free-coins-for-hit-it-rich"
+}

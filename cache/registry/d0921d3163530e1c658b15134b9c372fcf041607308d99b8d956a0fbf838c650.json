@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJpbmZpbml0ZS1oZWFydC1oYWNrcy1tb2QtYXBrIiwiX3JldiI6IjItOTYyZGJkNTJjNWJlMzgyMDg1MWQ4Nzc4ZTcxZWQ4Y2YiLCJuYW1lIjoiaW5maW5pdGUtaGVhcnQtaGFja3MtbW9kLWFwayIsInRpbWUiOnsibW9kaWZpZWQiOiIyMDE4LTAzLTE5VDIzOjExOjM3LjcyMFoiLCJjcmVhdGVkIjoiMjAxOC0wMS0yMlQxNjozNzowMy4zODBaIiwiMS4wLjEiOiIyMDE4LTAxLTIyVDE2OjM3OjAzLjM4MFoiLCJ1bnB1Ymxpc2hlZCI6eyJuYW1lIjoibnBtIiwidGltZSI6IjIwMTgtMDMtMTlUMjM6MTE6MzcuNzIwWiIsInRhZ3MiOnsibGF0ZXN0IjoiMS4wLjEifSwibWFpbnRhaW5lcnMiOlt7Im5hbWUiOiJqc3VuaDM5IiwiZW1haWwiOiJrZW5uZXRoLnJvLmQuci5pLmd1LmUuNS4zQGdtYWlsLmNvbSJ9XSwidmVyc2lvbnMiOlsiMS4wLjEiXX19LCJfYXR0YWNobWVudHMiOnt9fQ==",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "HIT",
+    "cf-ray": "a2b32b28abe4e1fe-AMS",
+    "connection": "close",
+    "content-length": "448",
+    "content-type": "application/json; charset=UTF-8",
+    "date": "Fri, 14 Aug 2026 21:49:17 GMT",
+    "etag": "\"36cec1ada21944a346d817d91a1b8205\"",
+    "last-modified": "Sun, 27 May 2018 04:38:58 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=GHrevHUSThJ0OhElM1A_i2brIAwwYGKX49LoyP76o9w-1786744157.5438848-1.0.1.1-o_I4z.m5DIpjgtdw.0IWX4USWKbLESwZPFvTV6THxSg; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/infinite-heart-hacks-mod-apk"
+}

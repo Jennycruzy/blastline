@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJjaG9pY2Vzc3Rvcmllc2hhY2siLCJfcmV2IjoiMi1mM2E2MjY3ZGY5ODc0OTc1NTY2Y2I2YjJkMjgwM2M1YiIsIm5hbWUiOiJjaG9pY2Vzc3Rvcmllc2hhY2siLCJ0aW1lIjp7Im1vZGlmaWVkIjoiMjAxOC0wMy0xNlQyMzozNDoxMy4zMjNaIiwiY3JlYXRlZCI6IjIwMTctMTEtMjVUMTY6MzA6NTIuMzgzWiIsIjEuMC4wIjoiMjAxNy0xMS0yNVQxNjozMDo1Mi4zODNaIiwidW5wdWJsaXNoZWQiOnsidGltZSI6IjIwMTgtMDMtMTZUMjM6MzQ6MTMuMzIzWiIsInZlcnNpb25zIjpbIjEuMC4wIl19fSwiX2F0dGFjaG1lbnRzIjp7fX0=",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "REVALIDATED",
+    "cf-ray": "a2b330110b478b7c-AMS",
+    "connection": "close",
+    "content-length": "308",
+    "content-type": "application/octet-stream",
+    "date": "Fri, 14 Aug 2026 21:52:38 GMT",
+    "etag": "\"06378200b06d83c7f697e9ebee68f161\"",
+    "last-modified": "Tue, 24 May 2022 12:04:23 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=b93jFVIBJWjiONFKeCeYngHtlbWSWhFjDAtNEkM7uzg-1786744358.5618954-1.0.1.1-1cCKh6nhwrWAH6XlgJh_yqoqM7IRF5hBLe1FuG.9C7Y; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/choicesstorieshack"
+}

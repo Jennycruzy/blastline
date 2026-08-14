@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJ0ZXN0YmFubmVyIiwiX3JldiI6IjgtMWM3MWIyZjJmYWU4OWExOGUxNjNkNGZjOGRkMDZjOWUiLCJuYW1lIjoidGVzdGJhbm5lciIsInRpbWUiOnsiY3JlYXRlZCI6IjIwMTgtMDMtMTZUMDM6NDc6MzEuNDM2WiIsIjAuMC4xIjoiMjAxOC0wMy0xNlQwMzo0NzozMS40OTJaIiwibW9kaWZpZWQiOiIyMDE4LTAzLTE2VDA1OjQ5OjExLjc0M1oiLCIwLjAuMiI6IjIwMTgtMDMtMTZUMDQ6NTk6NTguNDg4WiIsIjAuMC4zIjoiMjAxOC0wMy0xNlQwNToxMToxMi41MDNaIiwiMC4wLjQiOiIyMDE4LTAzLTE2VDA1OjIyOjI0Ljc4M1oiLCJ1bnB1Ymxpc2hlZCI6eyJ0aW1lIjoiMjAxOC0wMy0xNlQwNTo0OToxMS43NDNaIiwidmVyc2lvbnMiOlsiMC4wLjQiXX19LCJfYXR0YWNobWVudHMiOnt9fQ==",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "REVALIDATED",
+    "cf-ray": "a2b3385a0e68660e-AMS",
+    "connection": "close",
+    "content-length": "397",
+    "content-type": "application/octet-stream",
+    "date": "Fri, 14 Aug 2026 21:58:18 GMT",
+    "etag": "\"42ba4197b2b5d394b16a7fbfe0f14d95\"",
+    "last-modified": "Tue, 24 May 2022 11:30:46 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=I3Z41WfqERyvbVEdc.m4Pl2NMOdC0gzsh7OF5D5p9xg-1786744697.923708-1.0.1.1-Emx4e_SMSPLpWddYTgKVhrCSyzRwE8cAy9kt5MjD080; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/testbanner"
+}

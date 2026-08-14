@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJuYXJ1dG8teC1ib3J1dG8tbmluamEtdm9sdGFnZS1oYWNrLXVubGltaXRlZC1zaGlub2JpdGUiLCJfcmV2IjoiMi01YjhkZDE5ZWRiYjk0NDE2OGQwODc3YWE4YzdhYzhhZCIsIm5hbWUiOiJuYXJ1dG8teC1ib3J1dG8tbmluamEtdm9sdGFnZS1oYWNrLXVubGltaXRlZC1zaGlub2JpdGUiLCJ0aW1lIjp7Im1vZGlmaWVkIjoiMjAxOC0wMy0xNlQyMzozNDoyMy41NDZaIiwiY3JlYXRlZCI6IjIwMTgtMDEtMTlUMTA6NDI6MTAuNDIxWiIsIjEuMC4wIjoiMjAxOC0wMS0xOVQxMDo0MjoxMC40MjFaIiwidW5wdWJsaXNoZWQiOnsidGltZSI6IjIwMTgtMDMtMTZUMjM6MzQ6MjMuNTQ2WiIsInZlcnNpb25zIjpbIjEuMC4wIl19fSwiX2F0dGFjaG1lbnRzIjp7fX0=",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "REVALIDATED",
+    "cf-ray": "a2b33039b895b8d2-AMS",
+    "connection": "close",
+    "content-length": "380",
+    "content-type": "application/octet-stream",
+    "date": "Fri, 14 Aug 2026 21:52:45 GMT",
+    "etag": "\"05c80a8cf3678fdc7f0f592ea439123c\"",
+    "last-modified": "Tue, 24 May 2022 12:05:21 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=9Gy_vrrMJopwgWAd9UBBn08OYwyIePPirmG1wCCnR_U-1786744365.0801866-1.0.1.1-KA4Fu8VqX2qSBZN0L0ReWEdXBeGIFAcBuIlkt3dP4zo; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/naruto-x-boruto-ninja-voltage-hack-unlimited-shinobite"
+}

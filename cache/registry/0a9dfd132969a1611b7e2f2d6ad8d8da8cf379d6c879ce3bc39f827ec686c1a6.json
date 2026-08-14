@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJtYW1vZG9tLW1vbmdvZGItbWVtb3J5LXNlcnZlciIsIl9yZXYiOiI4LTkxYjdkNzQwY2YxYmYzOGY1ODI3MDM1OWQwNWIxNTVlIiwibmFtZSI6Im1hbW9kb20tbW9uZ29kYi1tZW1vcnktc2VydmVyIiwidGltZSI6eyJjcmVhdGVkIjoiMjAxOC0wMy0xM1QxNTozMzo0NC44NzRaIiwiMC4wLjAtZGV2ZWxvcG1lbnQiOiIyMDE4LTAzLTEzVDE1OjMzOjQ1LjAwMFoiLCJtb2RpZmllZCI6IjIwMTgtMDMtMTNUMTc6MjQ6MzguNzIyWiIsIjAuMC4xLWRldmVsb3BtZW50IjoiMjAxOC0wMy0xM1QxNjoyMzoxMy4zNjdaIiwiMC4wLjIiOiIyMDE4LTAzLTEzVDE2OjM3OjM0LjA0MFoiLCIwLjAuMyI6IjIwMTgtMDMtMTNUMTY6NDU6NTMuNjMyWiIsInVucHVibGlzaGVkIjp7Im5hbWUiOiJtYW1vZG9tIiwidGltZSI6IjIwMTgtMDMtMTNUMTc6MjQ6MzguNzIyWiIsInRhZ3MiOnsibGF0ZXN0IjoiMC4wLjAtZGV2ZWxvcG1lbnQifSwidmVyc2lvbnMiOlsiMC4wLjAtZGV2ZWxvcG1lbnQiXSwibWFpbnRhaW5lcnMiOlt7Im5hbWUiOiJtYW1vZG9tIiwiZW1haWwiOiJtYW1vZG9tQGdtYWlsLmNvbSJ9XX19LCJfYXR0YWNobWVudHMiOnt9fQ==",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "REVALIDATED",
+    "cf-ray": "a2b32ccccb308069-AMS",
+    "connection": "close",
+    "content-length": "589",
+    "content-type": "application/json; charset=UTF-8",
+    "date": "Fri, 14 Aug 2026 21:50:24 GMT",
+    "etag": "\"6a1b6985aab1a38b390e78e514b6f4f0\"",
+    "last-modified": "Sun, 27 May 2018 07:21:35 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=C25pIuUB3766UGAc8eBSKwsJGcuQBRkf3L6YIS.0Glg-1786744224.7609844-1.0.1.1-KtYWjSigi8qmaofaRFxEzxH.qY2o9okDl4b4zqV1zsk; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/mamodom-mongodb-memory-server"
+}

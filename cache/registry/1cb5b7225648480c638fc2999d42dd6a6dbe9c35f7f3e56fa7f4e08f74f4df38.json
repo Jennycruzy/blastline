@@ -1,0 +1,21 @@
+{
+  "body_base64": "eyJfaWQiOiJuYmEtMmsxOC1oYWNrLWNoZWF0cyIsIl9yZXYiOiIzLTQ2YjFiZDdkMDBkMTdhMzhiNTI4MzNmOGIxNGEyOTRjIiwibmFtZSI6Im5iYS0yazE4LWhhY2stY2hlYXRzIiwidGltZSI6eyJtb2RpZmllZCI6IjIwMTgtMDMtMTZUMTk6Mzk6MDYuODY5WiIsImNyZWF0ZWQiOiIyMDE3LTEyLTE5VDA0OjQwOjE3Ljg2N1oiLCIxLjAuMCI6IjIwMTctMTItMTlUMDQ6NDA6MTcuODY3WiIsIjIuMC4wIjoiMjAxNy0xMi0xOVQwNTowNzoxOC4yOThaIiwidW5wdWJsaXNoZWQiOnsidGltZSI6IjIwMTgtMDMtMTZUMTk6Mzk6MDYuODY5WiIsInZlcnNpb25zIjpbIjEuMC4wIiwiMi4wLjAiXX19LCJfYXR0YWNobWVudHMiOnt9fQ==",
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=300",
+    "cf-cache-status": "REVALIDATED",
+    "cf-ray": "a2b32ed599a590cc-AMS",
+    "connection": "close",
+    "content-length": "355",
+    "content-type": "application/octet-stream",
+    "date": "Fri, 14 Aug 2026 21:51:48 GMT",
+    "etag": "\"28dc4a049114efa6f481f39b26f15d4f\"",
+    "last-modified": "Tue, 24 May 2022 11:56:13 GMT",
+    "server": "cloudflare",
+    "set-cookie": "_cfuvid=REzcB0F7vVnEZIZifPOGIl22pIdADfCE1QwS4TKfGIM-1786744308.0961432-1.0.1.1-nqgNHx1wpwMn.D6ySB.6u7zpIVtALpxFtQyOkT9408A; HttpOnly; SameSite=None; Secure; Path=/; Domain=npmjs.org",
+    "vary": "accept-encoding, accept"
+  },
+  "status": 200,
+  "url": "https://registry.npmjs.org/nba-2k18-hack-cheats"
+}

@@ -38,8 +38,10 @@ class DiskHttpClient:
         self.user_agent = user_agent
         self.cache_directory.mkdir(parents=True, exist_ok=True)
 
-    def _key(self, method: str, url: str, body: bytes | None) -> str:
+    def _key(self, method: str, url: str, body: bytes | None, extra_headers: dict[str, str] | None = None) -> str:
         material = method.upper().encode() + b"\0" + url.encode() + b"\0" + (body if body is not None else b"")
+        if extra_headers:
+            material += b"\0" + json.dumps(extra_headers, sort_keys=True, separators=(",", ":")).encode()
         return hashlib.sha256(material).hexdigest()
 
     def _path(self, key: str) -> Path:
@@ -74,13 +76,16 @@ class DiskHttpClient:
         method: str = "GET",
         body: bytes | None = None,
         refresh: bool = False,
+        extra_headers: dict[str, str] | None = None,
     ) -> HttpResponse:
         normalized_method = method.upper()
-        cache_path = self._path(self._key(normalized_method, url, body))
+        cache_path = self._path(self._key(normalized_method, url, body, extra_headers))
         cached = self._read(cache_path) if cache_path.exists() else None
         if cached is not None and not refresh:
             return cached
         headers = {"Accept": "application/json, text/plain, */*", "User-Agent": self.user_agent}
+        if extra_headers is not None:
+            headers.update(extra_headers)
         if cached is not None:
             etag = cached.headers.get("etag")
             if etag is not None:
