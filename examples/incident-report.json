@@ -20,7 +20,7 @@
     "query": "Q8 abstention and coverage",
     "results": []
   },
-  "generated_at": "2026-08-13T23:54:15Z",
+  "generated_at": "2026-08-14T00:01:29Z",
   "graph": {
     "edge_count": 22951,
     "fingerprint": "83f4c7a43e11e81b69048beef53e3f55dd9f9fd32ac87eddfe5d5506ce38b7e9",
@@ -45,13 +45,23 @@
     "query": "Q3 window exposure npm:write-file-atomic@7.0.1",
     "results": [
       {
+        "edge_commit_at": "2026-07-08T18:17:43Z",
+        "lock_path": "node_modules/write-file-atomic",
+        "repository": "npm/cli",
+        "resolution": "resolution:739f154d92d98337ba47a04969b6b2fb935e396a4adcca9c18b8e3e71c9b3952",
+        "valid_overlap": {
+          "end": "2026-07-08T20:21:05Z",
+          "start": "2026-07-08T18:17:43Z"
+        }
+      },
+      {
         "edge_commit_at": "2026-07-08T20:21:05Z",
         "lock_path": "node_modules/write-file-atomic",
         "repository": "npm/cli",
         "resolution": "resolution:724ab8411a3b30168ade84ca1f0aa615f8249961a7b89981ef318f03c0b2dafd",
         "valid_overlap": {
-          "end": "2026-07-09T12:00:00Z",
-          "start": "2026-07-09T00:00:00Z"
+          "end": "2026-07-08T20:30:00Z",
+          "start": "2026-07-08T20:21:05Z"
         }
       }
     ]
@@ -61,8 +71,8 @@
     "registry": "npm",
     "version": "7.0.1",
     "window": {
-      "from": "2026-07-09T00:00:00Z",
-      "to": "2026-07-09T12:00:00Z"
+      "from": "2026-07-08T18:00:00Z",
+      "to": "2026-07-08T20:30:00Z"
     }
   },
   "present_exposure": {
@@ -102,8 +112,8 @@
           "repository": "npm/cli",
           "resolution": "resolution:724ab8411a3b30168ade84ca1f0aa615f8249961a7b89981ef318f03c0b2dafd",
           "valid_overlap": {
-            "end": "2026-07-09T12:00:00Z",
-            "start": "2026-07-09T00:00:00Z"
+            "end": "2026-07-08T20:30:00Z",
+            "start": "2026-07-08T20:21:05Z"
           }
         },
         "repository": "npm/cli",
@@ -112,10 +122,10 @@
     ]
   },
   "timeline_configuration": {
-    "demo_from": "2026-07-09T00:00:00Z",
+    "demo_from": "2026-07-08T18:00:00Z",
     "demo_package": "write-file-atomic",
     "demo_registry": "npm",
-    "demo_to": "2026-07-09T12:00:00Z",
+    "demo_to": "2026-07-08T20:30:00Z",
     "demo_version": "7.0.1",
     "frame_count": 12,
     "frame_duration_seconds": 30
@@ -483,7 +493,7 @@
         ]
       }
     ],
-    "commit_sha": "76bf63aecead810970da2ab4acf43e6cb7e16aa2",
+    "commit_sha": "e5d9ac3756da5ed113100d8dfd2ad72358160b20",
     "false_negatives": 0,
     "false_positives": 0,
     "gradable_cases": 15,
