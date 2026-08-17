@@ -64,6 +64,24 @@ class HydraEvidenceParserTest(unittest.TestCase):
         metadata = parse_typed_edge_metadata(body)
         self.assertEqual(metadata["blastline:edge:resolved"]["target_id"], "version:npm:lodash@4.17.21")
 
+    def test_validates_node_chunks_alongside_edge_chunks(self) -> None:
+        metadata = parse_typed_edge_metadata(
+            {
+                "chunks": [
+                    {
+                        "source_id": "blastline:repository:github:example/service",
+                        "additional_metadata": {
+                            "blastline_record_type": "node",
+                            "blastline_node_id": "repository:github:example/service",
+                            "blastline_node_type": "Repository",
+                            "graph_fingerprint": "fingerprint",
+                        },
+                    }
+                ]
+            }
+        )
+        self.assertEqual(metadata["blastline:repository:github:example/service"]["blastline_node_type"], "Repository")
+
     def test_parses_structured_relation_endpoint(self) -> None:
         relations = parse_relations(
             {

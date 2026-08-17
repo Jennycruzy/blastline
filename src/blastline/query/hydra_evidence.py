@@ -177,7 +177,13 @@ def response_source_ids(body: JsonObject) -> tuple[str, ...]:
 
 
 def parse_typed_edge_metadata(body: JsonObject) -> dict[str, JsonObject]:
-    """Require the temporal identity fields on returned Blastline edge chunks."""
+    """Require typed identity on returned Blastline chunks.
+
+    The function name is retained because temporal edge metadata is the
+    security-critical branch. Node chunks are validated too, so a graph path
+    containing Repository or Resolution records is not rejected merely for
+    being a node record.
+    """
 
     raw_chunks = body.get("chunks")
     if not isinstance(raw_chunks, list):
@@ -188,14 +194,18 @@ def parse_typed_edge_metadata(body: JsonObject) -> dict[str, JsonObject]:
         source_id = require_string(chunk.get("source_id"), f"Hydra chunks[{index}].source_id")
         metadata_value = chunk.get("additional_metadata", chunk.get("metadata"))
         metadata = require_object(metadata_value, f"Hydra chunks[{index}].additional_metadata")
-        record_type = metadata.get("blastline_record_type")
-        if record_type != "edge":
-            continue
-        for field in ("edge_id", "source_id", "target_id", "valid_start", "commit_at", "graph_fingerprint"):
-            require_string(metadata.get(field), f"Hydra chunks[{index}].additional_metadata.{field}")
-        valid_end = metadata.get("valid_end")
-        if valid_end is not None:
-            require_string(valid_end, f"Hydra chunks[{index}].additional_metadata.valid_end")
+        record_type = require_string(metadata.get("blastline_record_type"), f"Hydra chunks[{index}].additional_metadata.blastline_record_type")
+        if record_type == "edge":
+            for field in ("edge_id", "source_id", "target_id", "valid_start", "commit_at", "graph_fingerprint"):
+                require_string(metadata.get(field), f"Hydra chunks[{index}].additional_metadata.{field}")
+            valid_end = metadata.get("valid_end")
+            if valid_end is not None:
+                require_string(valid_end, f"Hydra chunks[{index}].additional_metadata.valid_end")
+        elif record_type == "node":
+            for field in ("blastline_node_id", "blastline_node_type", "graph_fingerprint"):
+                require_string(metadata.get(field), f"Hydra chunks[{index}].additional_metadata.{field}")
+        else:
+            raise ValueError(f"Hydra chunks[{index}].additional_metadata.blastline_record_type is unsupported: {record_type}")
         result[source_id] = metadata
     return result
 
