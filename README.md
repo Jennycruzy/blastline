@@ -38,6 +38,7 @@ make window REGISTRY=npm PKG=write-file-atomic VERSION=7.0.1 \
   FROM=2026-07-08T18:00:00Z TO=2026-07-08T20:30:00Z
 make hydra-window REGISTRY=npm PKG=write-file-atomic VERSION=7.0.1 \
   FROM=2026-07-08T18:00:00Z TO=2026-07-08T20:30:00Z
+make publish-graph
 make verify
 make hydra-verify
 make measure-coverage

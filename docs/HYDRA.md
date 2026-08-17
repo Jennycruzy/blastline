@@ -10,6 +10,8 @@ Blastline uses HydraDB as the graph/context substrate for the same typed records
 4. The documented `POST /recall/full_recall` endpoint is used in `hydra-window` with `graph_context=true` and thinking mode to discover candidate multi-hop paths. For each returned source ID, the documented `GET /list/graph_relations_by_id` endpoint is then used to inspect structured relation triplets. These are candidate evidence, not an unverified security answer.
 5. The documented list endpoint is used by the M0 read-back check to prove that a write was accepted and can be retrieved by its stable source ID.
 
+`make publish-graph` explicitly re-upserts the current local graph using the current metadata schema. This is required after changing the evidence schema; `hydra-window` never assumes that an older hosted record has the fields needed for temporal verification.
+
 The adapter is in [`src/blastline/hydra.py`](../src/blastline/hydra.py). Live failures raise loudly. When a key is absent, the CLI says `ABSTAINED`; it does not pretend the hosted graph was written.
 
 ## Where HydraDB does work
