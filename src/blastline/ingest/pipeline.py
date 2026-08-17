@@ -216,6 +216,16 @@ class RegistryIngestor:
             if success_count != len(records[start : start + batch_size]) or failed_count != 0:
                 raise ExternalCallError("HydraDB graph batch did not report complete success")
 
+    def publish_existing_graph(self) -> tuple[int, int, str]:
+        """Upsert the current local graph with the current typed metadata schema."""
+
+        if not self.hydra.live_enabled:
+            raise BlastlineError("publish-graph requires HYDRA_DB_API_KEY")
+        nodes = self.store.nodes()
+        edges = self.store.edges()
+        self._publish_graph_records(nodes, edges)
+        return len(nodes), len(edges), self.store.fingerprint()
+
     def npm_packages(self, names: tuple[str, ...], refresh: bool = False) -> IngestReport:
         report = IngestReport("npm")
         for batch in self._batches(names):

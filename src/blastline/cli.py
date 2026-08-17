@@ -161,6 +161,12 @@ def measure_coverage(settings: Settings, refresh: bool) -> int:
     return coverage_report(settings, False)
 
 
+def publish_graph(settings: Settings) -> int:
+    nodes, edges, fingerprint = RegistryIngestor(settings).publish_existing_graph()
+    print(f"HydraDB graph upserted: {nodes} nodes, {edges} edges; graph fingerprint {fingerprint}")
+    return 0
+
+
 def query_engine(settings: Settings) -> QueryEngine:
     return QueryEngine(build_store(settings), settings)
 
@@ -381,6 +387,7 @@ def parser() -> argparse.ArgumentParser:
     ingest_parser.add_argument("--refresh", action="store_true")
     measure_coverage_parser = subparsers.add_parser("measure-coverage")
     measure_coverage_parser.add_argument("--refresh", action="store_true")
+    subparsers.add_parser("publish-graph")
     blast_parser = subparsers.add_parser("blast")
     add_package_options(blast_parser)
     blast_parser.add_argument("--valid-at")
@@ -445,6 +452,8 @@ def main(argv: list[str] | None = None) -> int:
         return ingest(settings, args)
     if args.command == "measure-coverage":
         return measure_coverage(settings, args.refresh)
+    if args.command == "publish-graph":
+        return publish_graph(settings)
     if args.command == "verify":
         return verify(settings, args.json)
     if args.command == "hydra-verify":
