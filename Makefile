@@ -2,7 +2,7 @@ PYTHON ?= python3
 RUN = PYTHONPATH=src $(PYTHON) -m blastline.cli
 REGISTRY ?= npm
 
-.PHONY: hello test ingest ingest-full ingest-pypi-full demo demo-timetravel blast window hydra-window first-affected verify hydra-verify maintainer-risk shared-infra still-dirty typosquats coverage timeline report check-lockfile
+.PHONY: hello test ingest ingest-full ingest-pypi-full measure-coverage demo demo-timetravel blast window hydra-window first-affected verify hydra-verify maintainer-risk shared-infra still-dirty typosquats coverage coverage-report timeline report check-lockfile
 
 hello:
 	$(RUN) hello
@@ -18,6 +18,9 @@ ingest-full:
 
 ingest-pypi-full:
 	$(RUN) ingest --pypi-full
+
+measure-coverage:
+	$(RUN) measure-coverage
 
 demo:
 	$(RUN) ingest --npm-package lodash --pypi-package requests
@@ -59,6 +62,9 @@ typosquats:
 
 coverage:
 	$(RUN) coverage
+
+coverage-report:
+	$(RUN) coverage-report
 
 timeline:
 	PYTHONPATH=src $(PYTHON) -m ui.server

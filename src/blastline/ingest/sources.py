@@ -25,6 +25,7 @@ class NpmCatalogPage:
     next_key: str | None
     next_docid: str | None
     exhausted: bool
+    total_rows: int | None
 
 
 class NpmRegistry:
@@ -52,6 +53,10 @@ class NpmRegistry:
             extra_headers={"npm-replication-opt-in": "true"},
         )
         document = parse_json_object(response.body, "npm catalog response")
+        total_rows_value = document.get("total_rows")
+        if total_rows_value is not None and (isinstance(total_rows_value, bool) or not isinstance(total_rows_value, int)):
+            raise ValueError("npm catalog response total_rows must be an integer when present")
+        total_rows = total_rows_value if isinstance(total_rows_value, int) else None
         rows_value = document.get("rows")
         if not isinstance(rows_value, list):
             raise ValueError("npm catalog response rows must be an array")
@@ -63,7 +68,7 @@ class NpmRegistry:
                 raise ValueError(f"npm catalog row {index}.id must be a string")
             rows.append(row)
         if not rows:
-            return NpmCatalogPage((), None, None, True)
+            return NpmCatalogPage((), None, None, True, total_rows)
         last = rows[-1]
         last_id = last.get("id")
         last_key = last.get("key")
@@ -71,7 +76,7 @@ class NpmRegistry:
             raise ValueError("npm catalog last row id must be a string")
         if not isinstance(last_key, str):
             last_key = last_id
-        return NpmCatalogPage(tuple(rows), last_key, last_id, len(rows) < limit)
+        return NpmCatalogPage(tuple(rows), last_key, last_id, len(rows) < limit, total_rows)
 
     def changes(self, since: str, limit: int, refresh: bool = False) -> NpmChanges:
         query = urlencode({"since": since, "limit": str(limit)})

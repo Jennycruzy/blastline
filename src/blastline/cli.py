@@ -9,6 +9,7 @@ from datetime import datetime
 from pathlib import Path
 
 from .config import Settings
+from .coverage_report import generate_coverage_report
 from .errors import BlastlineError, ConfigurationError
 from .hydra import HydraClient, load_hydra_config, response_success
 from .ingest.pipeline import RegistryIngestor
@@ -152,6 +153,12 @@ def ingest(settings: Settings, args: argparse.Namespace) -> int:
     if not ran:
         raise ConfigurationError("ingest requires a registry source selection")
     return 0
+
+
+def measure_coverage(settings: Settings, refresh: bool) -> int:
+    RegistryIngestor(settings).measure_registry_denominators(refresh=refresh)
+    print("authoritative registry denominators recorded")
+    return coverage_report(settings, False)
 
 
 def query_engine(settings: Settings) -> QueryEngine:
@@ -317,6 +324,26 @@ def report(settings: Settings, as_json: bool) -> int:
     return 0
 
 
+def coverage_report(settings: Settings, as_json: bool) -> int:
+    artifact, payload = generate_coverage_report(settings)
+    if as_json:
+        print(json.dumps(payload, sort_keys=True, indent=2))
+    else:
+        print(f"coverage artifact: {artifact.relative_to(settings.root)}")
+        for registry, value in payload["registries"].items():
+            if not isinstance(value, dict):
+                raise BlastlineError(f"coverage report registry {registry} is invalid")
+            coverage_value = value.get("package_name_coverage_percent")
+            coverage_text = coverage_value if coverage_value is not None else "not-measured"
+            print(
+                f"{registry}: observed {value.get('packages')} packages, "
+                f"{value.get('versions')} versions, "
+                f"coverage {coverage_text}"
+            )
+        print(f"failures: {payload['failures']['total']}")
+    return 0
+
+
 def add_output_options(command_parser: argparse.ArgumentParser) -> None:
     command_parser.add_argument("--json", action="store_true", help="print machine-readable JSON")
 
@@ -352,6 +379,8 @@ def parser() -> argparse.ArgumentParser:
     ingest_parser.add_argument("--osv-registry", default="npm")
     ingest_parser.add_argument("--osv-version", action="append", default=[])
     ingest_parser.add_argument("--refresh", action="store_true")
+    measure_coverage_parser = subparsers.add_parser("measure-coverage")
+    measure_coverage_parser.add_argument("--refresh", action="store_true")
     blast_parser = subparsers.add_parser("blast")
     add_package_options(blast_parser)
     blast_parser.add_argument("--valid-at")
@@ -394,6 +423,8 @@ def parser() -> argparse.ArgumentParser:
     add_output_options(typo_parser)
     coverage_parser = subparsers.add_parser("coverage")
     add_output_options(coverage_parser)
+    coverage_report_parser = subparsers.add_parser("coverage-report")
+    add_output_options(coverage_report_parser)
     verify_parser = subparsers.add_parser("verify")
     add_output_options(verify_parser)
     hydra_verify_parser = subparsers.add_parser("hydra-verify")
@@ -412,12 +443,16 @@ def main(argv: list[str] | None = None) -> int:
         return demo_timetravel(settings)
     if args.command == "ingest":
         return ingest(settings, args)
+    if args.command == "measure-coverage":
+        return measure_coverage(settings, args.refresh)
     if args.command == "verify":
         return verify(settings, args.json)
     if args.command == "hydra-verify":
         return hydra_verify(settings, args.json)
     if args.command == "report":
         return report(settings, args.json)
+    if args.command == "coverage-report":
+        return coverage_report(settings, args.json)
     if args.command in {
         "blast",
         "window",

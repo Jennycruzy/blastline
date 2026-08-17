@@ -25,6 +25,16 @@ precision=1.0000  recall=1.0000
 
 This is evidence about the recorded corpus, not a claim that a 15-case sample proves ecosystem-wide correctness. The run is intentionally accompanied by the raw failure ledger: three real PyPI releases had no file records in the public response, and 80 real lockfile records had no resolved version. Those are misses in coverage, not fabricated “safe” outcomes.
 
+## Hydra-backed agreement
+
+`make hydra-verify` runs the same discovered cases through HydraDB candidate-path retrieval and compares the temporally verified Hydra result with the local oracle. It records candidate-path counts, rejected source records, abstentions, latency, disagreements, false confirmations, false omissions, graph fingerprint, and commit SHA in `cache/verification/hydra-agreement.jsonl`.
+
+The command requires `HYDRA_DB_API_KEY`. When the key is absent, it exits with an explicit abstention and records no invented score. A Hydra agreement score is not inferred from the local 15-case score.
+
+## Measured ingestion coverage
+
+`make measure-coverage` records package-name denominators from the authoritative npm replication catalog and PyPI Simple index. `make coverage-report` then writes [`examples/coverage-report.json`](../examples/coverage-report.json) with observed packages, versions, maintainers, graph counts, denominator sources, measured percentages, and failure-ledger counts. If a source does not publish an authoritative denominator, coverage is reported as `not-measured` rather than estimated.
+
 ## Confusion matrix definition
 
 The unit is a `(verification case, repository)` pair.

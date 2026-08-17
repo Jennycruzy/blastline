@@ -91,6 +91,49 @@ class RegistryIngestor:
         self.store = GraphStore(settings.path("graph", "directory"))
         self.ledger = FailureLedger(settings.root / "cache" / "ingest-failures.jsonl")
         self.hydra = HydraClient(load_hydra_config(settings.root, settings.values))
+        self.coverage_path = settings.root / "cache" / "coverage" / "registry-denominators.json"
+
+    def _record_registry_denominator(self, registry: str, entity: str, denominator: int, source: str) -> None:
+        if denominator < 0:
+            raise BlastlineError("registry denominator cannot be negative")
+        existing: JsonObject = {}
+        if self.coverage_path.exists():
+            try:
+                parsed = json.loads(self.coverage_path.read_text(encoding="utf-8"))
+                if not isinstance(parsed, dict):
+                    raise ValueError("coverage denominator file must be an object")
+                existing = parsed
+            except (OSError, json.JSONDecodeError, ValueError) as exc:
+                raise ExternalCallError(f"registry denominator file cannot be read: {self.coverage_path}") from exc
+        existing[f"{registry}:{entity}"] = {
+            "registry": registry,
+            "entity": entity,
+            "denominator": denominator,
+            "source": source,
+        }
+        self.coverage_path.parent.mkdir(parents=True, exist_ok=True)
+        self.coverage_path.write_text(json.dumps(existing, sort_keys=True, indent=2) + "\n", encoding="utf-8")
+
+    def measure_registry_denominators(self, refresh: bool = False) -> None:
+        """Record denominators from authoritative catalog responses only."""
+
+        npm_page = self.npm.all_docs(None, None, 1, refresh=refresh)
+        if npm_page.total_rows is None:
+            raise ExternalCallError("npm catalog did not publish total_rows; denominator is not measurable")
+        self._record_registry_denominator(
+            "npm",
+            "package_names",
+            npm_page.total_rows,
+            "npm replication _all_docs.total_rows",
+        )
+        pypi_response = self.pypi.simple_index(refresh=refresh)
+        pypi_names = parse_simple_index(pypi_response.body)
+        self._record_registry_denominator(
+            "pypi",
+            "package_names",
+            len(pypi_names),
+            "PyPI Simple index entries",
+        )
 
     @staticmethod
     def _string(section: JsonObject, key: str) -> str:
@@ -294,6 +337,8 @@ class RegistryIngestor:
             return
         while True:
             page = self.npm.all_docs(startkey, startkey_docid, limit, refresh=refresh)
+            if page.total_rows is not None:
+                self._record_registry_denominator("npm", "package_names", page.total_rows, "npm replication _all_docs.total_rows")
             rows = list(page.results)
             if startkey_docid is not None and rows and rows[0].get("id") == startkey_docid:
                 rows = rows[1:]
@@ -351,6 +396,7 @@ class RegistryIngestor:
     def pypi_simple(self, limit: int | None, refresh: bool = False) -> IngestReport:
         response = self.pypi.simple_index(refresh=refresh)
         names = parse_simple_index(response.body)
+        self._record_registry_denominator("pypi", "package_names", len(names), "PyPI Simple index entries")
         selected = names if limit is None else names[:limit]
         if limit is not None and limit < 1:
             raise BlastlineError("PyPI simple index limit must be positive or omitted for the full index")

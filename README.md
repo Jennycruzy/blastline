@@ -8,6 +8,19 @@ The enabling primitive is a bitemporal dependency graph. `t_valid` is when a res
 
 The committed scorecard is generated from real OSV advisory records and real public GitHub lockfile history. The latest recorded run covers 15 gradable cases: TP=15, FP=0, FN=0, precision 1.0000, recall 1.0000. This is a small measured corpus, not an ecosystem-wide accuracy claim. Every run records its graph fingerprint, commit SHA, denominator, abstentions, and misses in [`cache/verification/runs.jsonl`](cache/verification/runs.jsonl). Current-source failures remain itemized in [`cache/ingest-failures.jsonl`](cache/ingest-failures.jsonl).
 
+## Current measured snapshot
+
+```text
+historical exposure: npm/cli during the recorded incident window
+current exposure: none
+local verification: 15 gradable cases; precision 1.0000; recall 1.0000
+Hydra/local agreement: ABSTAINED offline until HYDRA_DB_API_KEY is configured
+measured package coverage: npm 0.020299%; PyPI 0.000804%
+graph fingerprint: 812899da3f19920100bfd0855a2cb2279e3389fd4db83b8dd6fc2a6ea0275535
+```
+
+The package coverage percentages are measured against the authoritative npm `_all_docs.total_rows` and PyPI Simple index counts captured by `make measure-coverage`. They describe the submitted graph, not ecosystem-wide completeness.
+
 ## Run it
 
 The repository has no third-party runtime dependency. The first smoke check is local and offline:
@@ -23,11 +36,15 @@ Rebuild the committed offline demo graph from recorded real registry responses:
 make demo
 make window REGISTRY=npm PKG=write-file-atomic VERSION=7.0.1 \
   FROM=2026-07-08T18:00:00Z TO=2026-07-08T20:30:00Z
+make hydra-window REGISTRY=npm PKG=write-file-atomic VERSION=7.0.1 \
+  FROM=2026-07-08T18:00:00Z TO=2026-07-08T20:30:00Z
 make verify
+make hydra-verify
+make measure-coverage
 make report
 ```
 
-The window command prints the live temporal query, its paths and latency-independent evidence, then compares the historical set with the present-day set. In the committed demo, the historical set contains `npm/cli` and the present-day set is empty. The timeline starts before the real `npm/cli` resolution commit, so its exposed set grows from zero to one as the scrubber crosses that commit.
+The offline `window` command runs the exact local temporal oracle. `hydra-window` uses HydraDB graph-context recall and source-level relation inspection to obtain candidate paths, then validates their typed temporal evidence locally before accepting them. Without a key, it abstains rather than presenting local output as Hydra-backed. In the committed demo, the historical set contains `npm/cli` and the present-day set is empty. The timeline starts before the real `npm/cli` resolution commit, so its exposed set grows from zero to one as the scrubber crosses that commit.
 
 `make ingest` advances the cached incremental feeds. `make ingest-full` bootstraps npm from the supported paginated replication catalog, then enumerates the complete PyPI Simple index; both paths checkpoint progress and report every failed record. `make ingest-pypi-full` runs only the PyPI catalog path. Full ecosystem ingestion is network- and disk-bound, so the checked-in demo remains deliberately labeled as a measured partial corpus rather than a completeness claim.
 
@@ -45,6 +62,7 @@ Live HydraDB calls require `HYDRA_DB_API_KEY`; tenant and sub-tenant defaults ar
 - Q6 explainable name-plus-topology proximity scoring.
 - Q7 still-dirty candidates after the current resolution changes.
 - Q8 explicit abstention and `M` of `N` repository coverage on every query.
+- Hydra-backed candidate-path retrieval with typed temporal evidence validation and a measured local/Hydra agreement scorecard.
 - Cached, resumable npm/PyPI/OSV/GitHub ingestion with idempotent graph writes and content-addressed fingerprints.
 - Strict parsers for npm `package-lock.json`, Yarn, pnpm, Poetry, and pinned requirements files.
 
@@ -54,7 +72,7 @@ The `Resolution` node is deliberately first-class. A manifest range is not expos
 
 The current local graph contains 878 packages, 1,641 versions, 8 maintainers, 2 publish-infrastructure records, 1 repository, 5,887 resolutions, 10 advisories, and 30,607 edges. It includes the real-response demo slice—one npm package (`lodash`), one PyPI package (`requests`), and five real lockfile snapshots from `npm/cli`—plus a partial real npm feed expansion. Eighty lockfile records lacked a resolved version and were reported as unknown; three PyPI releases had no file records. This is still a measured partial corpus, not an ecosystem-wide completeness claim; the resumable catalog paths are the route to broader coverage.
 
-The generated incident artifact is [`examples/incident-report.json`](examples/incident-report.json). It includes the historical/current comparison, still-dirty candidates, coverage, graph fingerprint, and verification scorecard.
+The generated incident artifact is [`examples/incident-report.json`](examples/incident-report.json). It includes the historical/current comparison, still-dirty candidates, coverage, graph fingerprint, local verification scorecard, and Hydra status or agreement scorecard. The measured graph report is [`examples/coverage-report.json`](examples/coverage-report.json).
 
 ## Documentation
 

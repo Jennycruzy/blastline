@@ -1,0 +1,14 @@
+{
+  "npm:package_names": {
+    "denominator": 4290928,
+    "entity": "package_names",
+    "registry": "npm",
+    "source": "npm replication _all_docs.total_rows"
+  },
+  "pypi:package_names": {
+    "denominator": 870264,
+    "entity": "package_names",
+    "registry": "pypi",
+    "source": "PyPI Simple index entries"
+  }
+}
