@@ -11,7 +11,7 @@ from pathlib import Path
 from ..config import Settings
 from ..errors import BlastlineError, ExternalCallError
 from ..json_types import JsonObject
-from ..model import Edge, Node, NodeType, repository_id
+from ..model import Edge, EdgeType, Node, NodeType, repository_id, version_id
 from ..hydra import HydraClient, load_hydra_config, response_success
 from ..store import GraphStore
 from .failures import FailureLedger
@@ -168,9 +168,9 @@ class RegistryIngestor:
             self.ledger.record(source, package.source_identifier, f"graphification failed: {exc}", package_body)
             report.failures += 1
 
-    def _publish_graph_records(self, nodes: list[Node], edges: list[Edge]) -> None:
+    def _publish_graph_records(self, nodes: list[Node], edges: list[Edge]) -> tuple[str, ...]:
         if not self.hydra.live_enabled:
-            return
+            return ()
         batch_size = self.settings.integer("hydra", "batch_size")
         if batch_size < 1:
             raise BlastlineError("configuration hydra.batch_size must be positive")
@@ -180,33 +180,51 @@ class RegistryIngestor:
             records.append(
                 (
                     f"blastline:{node.node_id}",
-                    json.dumps(node.as_json(), sort_keys=True),
+                    (
+                        f"Blastline graph node: id={node.node_id}; type={node.node_type.value}; "
+                        f"attributes={json.dumps(node.attributes, sort_keys=True, separators=(',', ':'))}"
+                    ),
                     {
                         "blastline_record_type": "node",
                         "blastline_node_type": node.node_type.value,
                         "blastline_node_id": node.node_id,
-                        "graph_fingerprint": graph_fingerprint,
+                        "blastline_evidence": {
+                            "blastline_record_type": "node",
+                            "blastline_node_type": node.node_type.value,
+                            "blastline_node_id": node.node_id,
+                            "graph_fingerprint": graph_fingerprint,
+                        },
                     },
                 )
             )
         for edge in edges:
+            valid = edge.valid.as_json()
             records.append(
                 (
                     f"blastline:{edge.edge_id}",
-                    json.dumps(edge.as_json(), sort_keys=True),
+                    (
+                        f"Blastline temporal dependency edge: source={edge.source_id}; "
+                        f"relation={edge.edge_type.value}; target={edge.target_id}; "
+                        f"valid_start={valid['start']}; valid_end={valid.get('end', 'open')}; "
+                        f"commit_at={edge.commit_at.isoformat().replace('+00:00', 'Z')}; "
+                        f"edge_id={edge.edge_id}"
+                    ),
                     {
-                        "blastline_record_type": "edge",
-                        "blastline_edge_type": edge.edge_type.value,
-                        "edge_id": edge.edge_id,
-                        "source_id": edge.source_id,
-                        "target_id": edge.target_id,
-                        "valid_start": edge.valid.as_json()["start"],
-                        "valid_end": edge.valid.as_json().get("end"),
-                        "commit_at": edge.commit_at.isoformat().replace("+00:00", "Z"),
-                        "graph_fingerprint": graph_fingerprint,
+                        "blastline_evidence": {
+                            "blastline_record_type": "edge",
+                            "blastline_edge_type": edge.edge_type.value,
+                            "blastline_edge_id": edge.edge_id,
+                            "blastline_source_id": edge.source_id,
+                            "blastline_target_id": edge.target_id,
+                            "blastline_valid_start": edge.valid.as_json()["start"],
+                            "blastline_valid_end": edge.valid.as_json().get("end"),
+                            "blastline_commit_at": edge.commit_at.isoformat().replace("+00:00", "Z"),
+                            "blastline_graph_fingerprint": graph_fingerprint,
+                        },
                     },
                 )
             )
+        published_ids: list[str] = []
         for start in range(0, len(records), batch_size):
             response = self.hydra.add_memories(tuple(records[start : start + batch_size]))
             if not response_success(response):
@@ -215,6 +233,8 @@ class RegistryIngestor:
             failed_count = response.body.get("failed_count")
             if success_count != len(records[start : start + batch_size]) or failed_count != 0:
                 raise ExternalCallError("HydraDB graph batch did not report complete success")
+            published_ids.extend(record[0] for record in records[start : start + batch_size])
+        return tuple(published_ids)
 
     def publish_existing_graph(self) -> tuple[int, int, str]:
         """Upsert the current local graph with the current typed metadata schema."""
@@ -225,6 +245,90 @@ class RegistryIngestor:
         edges = self.store.edges()
         self._publish_graph_records(nodes, edges)
         return len(nodes), len(edges), self.store.fingerprint()
+
+    def publish_flagship_graph(self) -> tuple[int, int, str]:
+        """Publish the real connected evidence subgraph used by the live demo.
+
+        This is deliberately derived from the configured timeline target. It is
+        useful when a full ecosystem upload cannot finish before a demo: the
+        command never invents records or changes the local graph fingerprint.
+        """
+
+        if not self.hydra.live_enabled:
+            raise BlastlineError("publish-flagship requires HYDRA_DB_API_KEY")
+        registry = self.settings.string("timeline", "demo_registry")
+        package = self.settings.string("timeline", "demo_package")
+        version = self.settings.string("timeline", "demo_version")
+        target_id = version_id(registry, package, version)
+        edges = self.store.edges()
+        selected_edges: list[Edge] = []
+        selected_ids: set[str] = {target_id}
+        for edge in edges:
+            if edge.edge_type is EdgeType.RESOLVED_TO and edge.target_id == target_id:
+                selected_edges.append(edge)
+                selected_ids.add(edge.source_id)
+            elif edge.edge_type is EdgeType.AFFECTS and edge.target_id == target_id:
+                selected_edges.append(edge)
+                selected_ids.add(edge.source_id)
+            elif edge.edge_type is EdgeType.DEPENDS_ON and edge.source_id == target_id:
+                selected_edges.append(edge)
+                selected_ids.add(edge.target_id)
+        resolution_ids = {edge.source_id for edge in selected_edges if edge.edge_type is EdgeType.RESOLVED_TO}
+        for edge in edges:
+            if edge.edge_type is EdgeType.DECLARES and edge.target_id in resolution_ids:
+                selected_edges.append(edge)
+                selected_ids.add(edge.source_id)
+        unique_edges = {edge.edge_id: edge for edge in selected_edges}
+        nodes = [node for node in self.store.nodes() if node.node_id in selected_ids]
+        selected = list(unique_edges.values())
+        if not nodes or not selected:
+            raise BlastlineError(f"flagship graph target is absent from the local graph: {target_id}")
+        source_ids = self._publish_graph_records(nodes, selected)
+        self.hydra.wait_for_sources(
+            source_ids,
+            self.settings.integer("hydra", "ingestion_ready_attempts"),
+            self.settings.number("hydra", "ingestion_poll_seconds"),
+        )
+        return len(nodes), len(selected), self.store.fingerprint()
+
+    def publish_verification_graph(self) -> tuple[int, int, str]:
+        """Publish the real OSV-backed cases used by ``make hydra-verify``."""
+
+        if not self.hydra.live_enabled:
+            raise BlastlineError("publish-verification requires HYDRA_DB_API_KEY")
+        from ..verify.grader import Verifier
+
+        cases = Verifier(self.store, self.settings).discover_cases()
+        if not cases:
+            raise BlastlineError("no real OSV-backed verification cases are available to publish")
+        target_ids = {
+            version_id(case.registry, case.package, case.version)
+            for case in cases
+        }
+        edges = self.store.edges()
+        selected_edges: list[Edge] = []
+        selected_ids = set(target_ids)
+        for edge in edges:
+            if edge.target_id in target_ids and edge.edge_type in {EdgeType.RESOLVED_TO, EdgeType.AFFECTS}:
+                selected_edges.append(edge)
+                selected_ids.add(edge.source_id)
+        resolution_ids = {edge.source_id for edge in selected_edges if edge.edge_type is EdgeType.RESOLVED_TO}
+        for edge in edges:
+            if edge.edge_type is EdgeType.DECLARES and edge.target_id in resolution_ids:
+                selected_edges.append(edge)
+                selected_ids.add(edge.source_id)
+        unique_edges = {edge.edge_id: edge for edge in selected_edges}
+        nodes = [node for node in self.store.nodes() if node.node_id in selected_ids]
+        selected = list(unique_edges.values())
+        if not nodes or not selected:
+            raise BlastlineError("verification cases did not resolve to a publishable graph subgraph")
+        source_ids = self._publish_graph_records(nodes, selected)
+        self.hydra.wait_for_sources(
+            source_ids,
+            self.settings.integer("hydra", "ingestion_ready_attempts"),
+            self.settings.number("hydra", "ingestion_poll_seconds"),
+        )
+        return len(nodes), len(selected), self.store.fingerprint()
 
     def npm_packages(self, names: tuple[str, ...], refresh: bool = False) -> IngestReport:
         report = IngestReport("npm")

@@ -257,7 +257,13 @@ class QueryEngine:
                     }
                 )
         if not results:
-            abstentions.append(AbstentionNotice(f"{registry}:{package}@{version}", "no observed Resolution interval intersects the requested window"))
+            if not self.store.incoming(version_node.node_id, EdgeType.RESOLVED_TO, commit_at=known_at):
+                abstentions.append(
+                    AbstentionNotice(
+                        f"{registry}:{package}@{version}",
+                        "no observed Resolution record is available for the requested window",
+                    )
+                )
         return self._response(f"Q3 window exposure {registry}:{package}@{version}", dedupe_objects(results), abstentions)
 
     def current_exposure(self, registry: str, package: str, version: str, as_of: datetime | None = None) -> QueryResponse:

@@ -1,0 +1,722 @@
+{
+  "data": {
+    "failed_count": 0,
+    "message": "Knowledge uploaded successfully. Ingestion is asynchronous: this 202 means the sources were accepted and queued, not indexed. Poll GET /context/status?database=<database>&id=<source_id> until each source's indexing_status reaches a terminal state (completed or errored) before querying. See https://docs.hydradb.com/api-reference/v2/endpoint/source-status for usage details. ",
+    "results": [
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:npm:lodash@4.17.17",
+        "id": "blastline:version:npm:lodash@4.17.17",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:npm:lodash@4.17.18",
+        "id": "blastline:version:npm:lodash@4.17.18",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:npm:lodash@4.17.19",
+        "id": "blastline:version:npm:lodash@4.17.19",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:npm:lodash@4.17.2",
+        "id": "blastline:version:npm:lodash@4.17.2",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:npm:lodash@4.17.20",
+        "id": "blastline:version:npm:lodash@4.17.20",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:npm:lodash@4.17.21",
+        "id": "blastline:version:npm:lodash@4.17.21",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:npm:lodash@4.17.23",
+        "id": "blastline:version:npm:lodash@4.17.23",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:npm:lodash@4.17.3",
+        "id": "blastline:version:npm:lodash@4.17.3",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:npm:lodash@4.17.4",
+        "id": "blastline:version:npm:lodash@4.17.4",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:npm:lodash@4.17.5",
+        "id": "blastline:version:npm:lodash@4.17.5",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:npm:lodash@4.17.9",
+        "id": "blastline:version:npm:lodash@4.17.9",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:npm:lodash@4.18.0",
+        "id": "blastline:version:npm:lodash@4.18.0",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:npm:lodash@4.18.1",
+        "id": "blastline:version:npm:lodash@4.18.1",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:npm:lodash@4.2.0",
+        "id": "blastline:version:npm:lodash@4.2.0",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:npm:lodash@4.2.1",
+        "id": "blastline:version:npm:lodash@4.2.1",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:npm:lodash@4.3.0",
+        "id": "blastline:version:npm:lodash@4.3.0",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:npm:lodash@4.4.0",
+        "id": "blastline:version:npm:lodash@4.4.0",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:npm:lodash@4.5.0",
+        "id": "blastline:version:npm:lodash@4.5.0",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:npm:lodash@4.5.1",
+        "id": "blastline:version:npm:lodash@4.5.1",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:npm:lodash@4.6.0",
+        "id": "blastline:version:npm:lodash@4.6.0",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:npm:lodash@4.6.1",
+        "id": "blastline:version:npm:lodash@4.6.1",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:npm:lodash@4.7.0",
+        "id": "blastline:version:npm:lodash@4.7.0",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:npm:lodash@4.8.0",
+        "id": "blastline:version:npm:lodash@4.8.0",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:npm:lodash@4.8.1",
+        "id": "blastline:version:npm:lodash@4.8.1",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:npm:lodash@4.8.2",
+        "id": "blastline:version:npm:lodash@4.8.2",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:npm:lodash@4.9.0",
+        "id": "blastline:version:npm:lodash@4.9.0",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:pypi:PySocks",
+        "id": "blastline:package:pypi:PySocks",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:pypi:certifi",
+        "id": "blastline:package:pypi:certifi",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:pypi:chardet",
+        "id": "blastline:package:pypi:chardet",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:pypi:charset_normalizer",
+        "id": "blastline:package:pypi:charset_normalizer",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:pypi:idna",
+        "id": "blastline:package:pypi:idna",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:pypi:requests",
+        "id": "blastline:package:pypi:requests",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:pypi:urllib3",
+        "id": "blastline:package:pypi:urllib3",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:publish-infra:pypi",
+        "id": "blastline:publish-infra:pypi",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:pypi:requests@0.10.0",
+        "id": "blastline:version:pypi:requests@0.10.0",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:pypi:requests@0.10.1",
+        "id": "blastline:version:pypi:requests@0.10.1",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:pypi:requests@0.10.2",
+        "id": "blastline:version:pypi:requests@0.10.2",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:pypi:requests@0.10.3",
+        "id": "blastline:version:pypi:requests@0.10.3",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:pypi:requests@0.10.4",
+        "id": "blastline:version:pypi:requests@0.10.4",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:pypi:requests@0.10.6",
+        "id": "blastline:version:pypi:requests@0.10.6",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:pypi:requests@0.10.7",
+        "id": "blastline:version:pypi:requests@0.10.7",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:pypi:requests@0.10.8",
+        "id": "blastline:version:pypi:requests@0.10.8",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:pypi:requests@0.11.1",
+        "id": "blastline:version:pypi:requests@0.11.1",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:pypi:requests@0.11.2",
+        "id": "blastline:version:pypi:requests@0.11.2",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:pypi:requests@0.12.0",
+        "id": "blastline:version:pypi:requests@0.12.0",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:pypi:requests@0.12.1",
+        "id": "blastline:version:pypi:requests@0.12.1",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:pypi:requests@0.13.0",
+        "id": "blastline:version:pypi:requests@0.13.0",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:pypi:requests@0.13.1",
+        "id": "blastline:version:pypi:requests@0.13.1",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:pypi:requests@0.13.2",
+        "id": "blastline:version:pypi:requests@0.13.2",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:pypi:requests@0.13.3",
+        "id": "blastline:version:pypi:requests@0.13.3",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:pypi:requests@0.13.4",
+        "id": "blastline:version:pypi:requests@0.13.4",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:pypi:requests@0.13.5",
+        "id": "blastline:version:pypi:requests@0.13.5",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:pypi:requests@0.13.6",
+        "id": "blastline:version:pypi:requests@0.13.6",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:pypi:requests@0.13.7",
+        "id": "blastline:version:pypi:requests@0.13.7",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:pypi:requests@0.13.8",
+        "id": "blastline:version:pypi:requests@0.13.8",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:pypi:requests@0.13.9",
+        "id": "blastline:version:pypi:requests@0.13.9",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:pypi:requests@0.14.0",
+        "id": "blastline:version:pypi:requests@0.14.0",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:pypi:requests@0.14.1",
+        "id": "blastline:version:pypi:requests@0.14.1",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:pypi:requests@0.14.2",
+        "id": "blastline:version:pypi:requests@0.14.2",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:pypi:requests@0.2.0",
+        "id": "blastline:version:pypi:requests@0.2.0",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:pypi:requests@0.2.1",
+        "id": "blastline:version:pypi:requests@0.2.1",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:pypi:requests@0.2.2",
+        "id": "blastline:version:pypi:requests@0.2.2",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:pypi:requests@0.2.3",
+        "id": "blastline:version:pypi:requests@0.2.3",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:pypi:requests@0.2.4",
+        "id": "blastline:version:pypi:requests@0.2.4",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:pypi:requests@0.3.0",
+        "id": "blastline:version:pypi:requests@0.3.0",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:pypi:requests@0.3.1",
+        "id": "blastline:version:pypi:requests@0.3.1",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:pypi:requests@0.3.2",
+        "id": "blastline:version:pypi:requests@0.3.2",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:pypi:requests@0.3.3",
+        "id": "blastline:version:pypi:requests@0.3.3",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:pypi:requests@0.3.4",
+        "id": "blastline:version:pypi:requests@0.3.4",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:pypi:requests@0.4.0",
+        "id": "blastline:version:pypi:requests@0.4.0",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:pypi:requests@0.4.1",
+        "id": "blastline:version:pypi:requests@0.4.1",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:pypi:requests@0.5.0",
+        "id": "blastline:version:pypi:requests@0.5.0",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:pypi:requests@0.5.1",
+        "id": "blastline:version:pypi:requests@0.5.1",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:pypi:requests@0.6.0",
+        "id": "blastline:version:pypi:requests@0.6.0",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:pypi:requests@0.6.1",
+        "id": "blastline:version:pypi:requests@0.6.1",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:pypi:requests@0.6.2",
+        "id": "blastline:version:pypi:requests@0.6.2",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:pypi:requests@0.6.3",
+        "id": "blastline:version:pypi:requests@0.6.3",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:pypi:requests@0.6.4",
+        "id": "blastline:version:pypi:requests@0.6.4",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:pypi:requests@0.6.5",
+        "id": "blastline:version:pypi:requests@0.6.5",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:pypi:requests@0.6.6",
+        "id": "blastline:version:pypi:requests@0.6.6",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:pypi:requests@0.7.0",
+        "id": "blastline:version:pypi:requests@0.7.0",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:pypi:requests@0.7.1",
+        "id": "blastline:version:pypi:requests@0.7.1",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:pypi:requests@0.7.2",
+        "id": "blastline:version:pypi:requests@0.7.2",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:pypi:requests@0.7.3",
+        "id": "blastline:version:pypi:requests@0.7.3",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:pypi:requests@0.7.4",
+        "id": "blastline:version:pypi:requests@0.7.4",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:pypi:requests@0.7.5",
+        "id": "blastline:version:pypi:requests@0.7.5",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:pypi:requests@0.7.6",
+        "id": "blastline:version:pypi:requests@0.7.6",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:pypi:requests@0.8.0",
+        "id": "blastline:version:pypi:requests@0.8.0",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:pypi:requests@0.8.1",
+        "id": "blastline:version:pypi:requests@0.8.1",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:pypi:requests@0.8.2",
+        "id": "blastline:version:pypi:requests@0.8.2",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:pypi:requests@0.8.3",
+        "id": "blastline:version:pypi:requests@0.8.3",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:pypi:requests@0.8.4",
+        "id": "blastline:version:pypi:requests@0.8.4",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:pypi:requests@0.8.5",
+        "id": "blastline:version:pypi:requests@0.8.5",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:pypi:requests@0.8.6",
+        "id": "blastline:version:pypi:requests@0.8.6",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:pypi:requests@0.8.7",
+        "id": "blastline:version:pypi:requests@0.8.7",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:pypi:requests@0.8.8",
+        "id": "blastline:version:pypi:requests@0.8.8",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:pypi:requests@0.8.9",
+        "id": "blastline:version:pypi:requests@0.8.9",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:pypi:requests@0.9.0",
+        "id": "blastline:version:pypi:requests@0.9.0",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:pypi:requests@0.9.1",
+        "id": "blastline:version:pypi:requests@0.9.1",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:pypi:requests@0.9.2",
+        "id": "blastline:version:pypi:requests@0.9.2",
+        "status": "queued"
+      }
+    ],
+    "success": true,
+    "success_count": 100
+  },
+  "error": null,
+  "meta": {
+    "api_version": "2.0.1",
+    "collection": "supply-chain",
+    "database": "blastline",
+    "latency_ms": 849.7,
+    "request_id": "bc4b6362-1df6-4abb-a548-abc82b8997d6",
+    "source_type": "knowledge",
+    "sub_tenant_id": "supply-chain",
+    "tenant_id": "blastline"
+  },
+  "success": true
+}

@@ -1,0 +1,49 @@
+{
+  "data": {
+    "message": "Successfully fetched sources",
+    "pagination": {
+      "has_next": false,
+      "has_previous": false,
+      "page": 1,
+      "page_size": 1,
+      "total": 1,
+      "total_pages": 1
+    },
+    "sources": [
+      {
+        "additional_metadata": {
+          "name": "hello",
+          "source": "M0"
+        },
+        "app_external_id": null,
+        "app_kind": null,
+        "app_provider": null,
+        "collection": "supply-chain",
+        "database": "blastline",
+        "description": "",
+        "id": "hello:blastline",
+        "metadata": {},
+        "note": "",
+        "sub_tenant_id": "supply-chain",
+        "tenant_id": "blastline",
+        "timestamp": "2026-08-17T10:41:08.214687+00:00",
+        "title": "hello:blastline",
+        "type": "document"
+      }
+    ],
+    "success": true,
+    "total": 1
+  },
+  "error": null,
+  "meta": {
+    "api_version": "2.0.1",
+    "collection": "supply-chain",
+    "database": "blastline",
+    "latency_ms": 50.4,
+    "request_id": "f935e2e1-babf-48a5-9444-714ea92b3eec",
+    "source_type": "knowledge",
+    "sub_tenant_id": "supply-chain",
+    "tenant_id": "blastline"
+  },
+  "success": true
+}

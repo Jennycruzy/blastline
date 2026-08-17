@@ -94,7 +94,10 @@ def _optional_string(value: JsonValue | None, context: str) -> str | None:
 
 def _entity(value: JsonValue, context: str) -> HydraEntity:
     body = require_object(value, context)
-    entity_id = _optional_string(body.get("id", body.get("source_id")), f"{context}.id")
+    entity_id = _optional_string(
+        body.get("id", body.get("source_id", body.get("identifier", body.get("entity_id")))),
+        f"{context}.id",
+    )
     name_value = body.get("name", entity_id)
     if not isinstance(name_value, str):
         raise ValueError(f"{context}.name must be a string")
@@ -132,8 +135,10 @@ def parse_candidate_paths(body: JsonObject) -> tuple[HydraCandidatePath, ...]:
 
     graph_context = require_object(body.get("graph_context"), "Hydra response.graph_context")
     raw_paths = graph_context.get("query_paths")
+    if not isinstance(raw_paths, list) or not raw_paths:
+        raw_paths = graph_context.get("chunk_relations")
     if not isinstance(raw_paths, list):
-        raise ValueError("Hydra response.graph_context.query_paths must be an array")
+        raise ValueError("Hydra response.graph_context.query_paths or chunk_relations must be an array")
     paths: list[HydraCandidatePath] = []
     for index, raw_path in enumerate(raw_paths):
         path = require_object(raw_path, f"Hydra query_paths[{index}]")
@@ -160,7 +165,24 @@ def parse_relations(body: JsonObject) -> tuple[HydraRelation, ...]:
     raw_relations = body.get("relations")
     if not isinstance(raw_relations, list):
         raise ValueError("Hydra graph relation response.relations must be an array")
-    return tuple(_relation(item, f"Hydra relations[{index}]") for index, item in enumerate(raw_relations))
+    result: list[HydraRelation] = []
+    for index, raw_relation in enumerate(raw_relations):
+        item = require_object(raw_relation, f"Hydra relations[{index}]")
+        nested = item.get("relations")
+        if isinstance(nested, list):
+            source = item.get("source")
+            target = item.get("target")
+            for relation_index, raw_edge in enumerate(nested):
+                edge = require_object(raw_edge, f"Hydra relations[{index}].relations[{relation_index}]")
+                result.append(
+                    _relation(
+                        {"source": source, "target": target, "relation": edge},
+                        f"Hydra relations[{index}].relations[{relation_index}]",
+                    )
+                )
+        else:
+            result.append(_relation(item, f"Hydra relations[{index}]"))
+    return tuple(result)
 
 
 def response_source_ids(body: JsonObject) -> tuple[str, ...]:
@@ -170,7 +192,7 @@ def response_source_ids(body: JsonObject) -> tuple[str, ...]:
     source_ids: list[str] = []
     for index, raw_chunk in enumerate(raw_chunks):
         chunk = require_object(raw_chunk, f"Hydra chunks[{index}]")
-        source_id = chunk.get("source_id")
+        source_id = chunk.get("source_id", chunk.get("id"))
         if isinstance(source_id, str) and source_id not in source_ids:
             source_ids.append(source_id)
     return tuple(source_ids)
@@ -191,27 +213,54 @@ def parse_typed_edge_metadata(body: JsonObject) -> dict[str, JsonObject]:
     result: dict[str, JsonObject] = {}
     for index, raw_chunk in enumerate(raw_chunks):
         chunk = require_object(raw_chunk, f"Hydra chunks[{index}]")
-        source_id = require_string(chunk.get("source_id"), f"Hydra chunks[{index}].source_id")
+        source_id = require_string(chunk.get("source_id", chunk.get("id")), f"Hydra chunks[{index}].source_id")
         metadata_value = chunk.get("additional_metadata", chunk.get("metadata"))
         metadata = require_object(metadata_value, f"Hydra chunks[{index}].additional_metadata")
+        nested_evidence = metadata.get("blastline_evidence")
+        if isinstance(nested_evidence, dict):
+            metadata = nested_evidence
         record_type = require_string(metadata.get("blastline_record_type"), f"Hydra chunks[{index}].additional_metadata.blastline_record_type")
         if record_type == "edge":
-            for field in ("edge_id", "source_id", "target_id", "valid_start", "commit_at", "graph_fingerprint"):
-                require_string(metadata.get(field), f"Hydra chunks[{index}].additional_metadata.{field}")
-            valid_end = metadata.get("valid_end")
+            aliases = {
+                "edge_id": ("edge_id", "blastline_edge_id"),
+                "source_id": ("source_id", "blastline_source_id"),
+                "target_id": ("target_id", "blastline_target_id"),
+                "valid_start": ("valid_start", "blastline_valid_start"),
+                "commit_at": ("commit_at", "blastline_commit_at"),
+                "graph_fingerprint": ("graph_fingerprint", "blastline_graph_fingerprint"),
+            }
+            normalized: JsonObject = {"blastline_record_type": record_type}
+            for field, candidates in aliases.items():
+                value = next((metadata.get(candidate) for candidate in candidates if metadata.get(candidate) is not None), None)
+                normalized[field] = require_string(value, f"Hydra chunks[{index}].additional_metadata.{field}")
+            valid_end = next((metadata.get(candidate) for candidate in ("valid_end", "blastline_valid_end") if metadata.get(candidate) is not None), None)
             if valid_end is not None:
-                require_string(valid_end, f"Hydra chunks[{index}].additional_metadata.valid_end")
+                normalized["valid_end"] = require_string(valid_end, f"Hydra chunks[{index}].additional_metadata.valid_end")
+            result[source_id] = normalized
+            continue
         elif record_type == "node":
-            for field in ("blastline_node_id", "blastline_node_type", "graph_fingerprint"):
-                require_string(metadata.get(field), f"Hydra chunks[{index}].additional_metadata.{field}")
+            normalized = {
+                "blastline_record_type": record_type,
+                "blastline_node_id": require_string(metadata.get("blastline_node_id"), f"Hydra chunks[{index}].additional_metadata.blastline_node_id"),
+                "blastline_node_type": require_string(metadata.get("blastline_node_type"), f"Hydra chunks[{index}].additional_metadata.blastline_node_type"),
+                "graph_fingerprint": require_string(
+                    metadata.get("graph_fingerprint", metadata.get("blastline_graph_fingerprint")),
+                    f"Hydra chunks[{index}].additional_metadata.graph_fingerprint",
+                ),
+            }
         else:
             raise ValueError(f"Hydra chunks[{index}].additional_metadata.blastline_record_type is unsupported: {record_type}")
-        result[source_id] = metadata
+        result[source_id] = normalized
     return result
 
 
 def local_id(source_id: str) -> str:
     return source_id.removeprefix("blastline:")
+
+
+def source_id_from_chunk_id(chunk_id: str) -> str:
+    marker = "_chunk_"
+    return chunk_id.split(marker, 1)[0] if marker in chunk_id else chunk_id
 
 
 def hydra_query(
@@ -253,29 +302,59 @@ class HydraWindowVerifier:
         start_clock = perf_counter()
         valid_at = window[0]
         query = hydra_query(registry, package, version, window, known_at)
-        recall_response = self.hydra.recall(query, self.max_results)
+        recall_response = self.hydra.recall(query, self.max_results, cache=False)
         try:
             paths = parse_candidate_paths(recall_response.body)
-            source_ids = response_source_ids(recall_response.body)
+            recalled_source_ids = response_source_ids(recall_response.body)
             typed_metadata = parse_typed_edge_metadata(recall_response.body)
         except ValueError as exc:
             raise Abstention(f"HydraDB candidate response is not typed Blastline evidence: {exc}") from exc
         if not paths:
             raise Abstention("HydraDB returned no structured query_paths for the exposure query")
-        missing_metadata = [source_id for source_id in source_ids if source_id.startswith("blastline:") and source_id not in typed_metadata]
+        missing_metadata = [source_id for source_id in recalled_source_ids if source_id.startswith("blastline:") and source_id not in typed_metadata]
         if missing_metadata:
             raise Abstention("HydraDB candidate edge metadata is incomplete for source IDs: " + ", ".join(sorted(missing_metadata)))
 
+        path_source_ids = {
+            source_id_from_chunk_id(chunk_id)
+            for path in paths
+            for chunk_id in path.source_chunk_ids
+        }
+        source_ids = tuple(
+            source_id
+            for source_id in recalled_source_ids
+            if not path_source_ids or source_id in path_source_ids
+        )
+
         relations: list[HydraRelation] = []
         relation_cache_hits = 0
+        relation_response = self.hydra.graph_relations_by_source_id(cache=False)
+        if relation_response.from_cache:
+            relation_cache_hits += 1
+        try:
+            all_relations = parse_relations(relation_response.body)
+        except ValueError as exc:
+            raise Abstention(f"HydraDB collection relation response is not structured evidence: {exc}") from exc
+        evidence_node_ids: set[str] = set()
         for source_id in source_ids:
-            relation_response = self.hydra.graph_relations_by_source_id(source_id)
-            if relation_response.from_cache:
-                relation_cache_hits += 1
-            try:
-                relations.extend(parse_relations(relation_response.body))
-            except ValueError as exc:
-                raise Abstention(f"HydraDB relation response for {source_id} is not structured evidence: {exc}") from exc
+            metadata = typed_metadata.get(source_id)
+            if metadata is None:
+                continue
+            record_type = metadata.get("blastline_record_type")
+            if record_type == "edge":
+                for field in ("source_id", "target_id"):
+                    value = metadata.get(field)
+                    if isinstance(value, str):
+                        evidence_node_ids.add(value)
+            elif record_type == "node":
+                value = metadata.get("blastline_node_id")
+                if isinstance(value, str):
+                    evidence_node_ids.add(value)
+        relations.extend(
+            relation
+            for relation in all_relations
+            if relation.source.entity_id in evidence_node_ids or relation.target.entity_id in evidence_node_ids
+        )
 
         target_id = version_id(registry, package, version)
         evidence_ids = {local_id(item) for item in source_ids}

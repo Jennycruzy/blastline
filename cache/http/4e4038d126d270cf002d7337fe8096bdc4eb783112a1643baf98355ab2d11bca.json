@@ -1,0 +1,43 @@
+{
+  "data": {
+    "failed_count": 0,
+    "message": "Knowledge uploaded successfully. Ingestion is asynchronous: this 202 means the sources were accepted and queued, not indexed. Poll GET /context/status?database=<database>&id=<source_id> until each source's indexing_status reaches a terminal state (completed or errored) before querying. See https://docs.hydradb.com/api-reference/v2/endpoint/source-status for usage details. ",
+    "results": [
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:1289e5a4f4247d9eef57f860b4fee4945dca7b23a8a3e39321a3c9cc7cd0ff1a",
+        "id": "blastline:1289e5a4f4247d9eef57f860b4fee4945dca7b23a8a3e39321a3c9cc7cd0ff1a",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:98de8d5809b923ec5e42f251cf4088eb4f7731173032402a439c648a20138e58",
+        "id": "blastline:98de8d5809b923ec5e42f251cf4088eb4f7731173032402a439c648a20138e58",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:c8a0edb66b14624b157c5c613700066e3b0b4f704dbaf01c2a21d958b6fae9d7",
+        "id": "blastline:c8a0edb66b14624b157c5c613700066e3b0b4f704dbaf01c2a21d958b6fae9d7",
+        "status": "queued"
+      }
+    ],
+    "success": true,
+    "success_count": 3
+  },
+  "error": null,
+  "meta": {
+    "api_version": "2.0.1",
+    "collection": "supply-chain",
+    "database": "blastline",
+    "latency_ms": 168.5,
+    "request_id": "358789e9-9950-4d3e-94a9-4366660652fd",
+    "source_type": "knowledge",
+    "sub_tenant_id": "supply-chain",
+    "tenant_id": "blastline"
+  },
+  "success": true
+}

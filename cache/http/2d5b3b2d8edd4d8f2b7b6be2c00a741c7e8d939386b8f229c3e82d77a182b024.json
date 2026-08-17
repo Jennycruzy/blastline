@@ -1,0 +1,99 @@
+{
+  "data": {
+    "failed_count": 0,
+    "message": "Knowledge uploaded successfully. Ingestion is asynchronous: this 202 means the sources were accepted and queued, not indexed. Poll GET /context/status?database=<database>&id=<source_id> until each source's indexing_status reaches a terminal state (completed or errored) before querying. See https://docs.hydradb.com/api-reference/v2/endpoint/source-status for usage details. ",
+    "results": [
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:repository:github.com:npm/cli",
+        "id": "blastline:repository:github.com:npm/cli",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:signal-exit",
+        "id": "blastline:package:npm:signal-exit",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:resolution:739f154d92d98337ba47a04969b6b2fb935e396a4adcca9c18b8e3e71c9b3952",
+        "id": "blastline:resolution:739f154d92d98337ba47a04969b6b2fb935e396a4adcca9c18b8e3e71c9b3952",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:npm:write-file-atomic@7.0.1",
+        "id": "blastline:version:npm:write-file-atomic@7.0.1",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:resolution:724ab8411a3b30168ade84ca1f0aa615f8249961a7b89981ef318f03c0b2dafd",
+        "id": "blastline:resolution:724ab8411a3b30168ade84ca1f0aa615f8249961a7b89981ef318f03c0b2dafd",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:6f20bca2300e320f27befc4c62ee47174ef370f7981996c7841bcf16807b1f5e",
+        "id": "blastline:6f20bca2300e320f27befc4c62ee47174ef370f7981996c7841bcf16807b1f5e",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:cbc7c2213d3cd29bc411a21f196930fbfd6d2916b43ac9617cfbdf1c411f7b2f",
+        "id": "blastline:cbc7c2213d3cd29bc411a21f196930fbfd6d2916b43ac9617cfbdf1c411f7b2f",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:2236d1a2eea0e8bae2107db3a2a4ecebe97974778debb97e5ecf25cee6dfebbd",
+        "id": "blastline:2236d1a2eea0e8bae2107db3a2a4ecebe97974778debb97e5ecf25cee6dfebbd",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:3f64b1d01fbe68ec48008226a94c446836f155efc87e2b8293b593c25171a8c4",
+        "id": "blastline:3f64b1d01fbe68ec48008226a94c446836f155efc87e2b8293b593c25171a8c4",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:70f05af5e39b42c024568f19e67677d1f6479c579722e2a3c81017ac67ca01b1",
+        "id": "blastline:70f05af5e39b42c024568f19e67677d1f6479c579722e2a3c81017ac67ca01b1",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:e56d1f19448d82b6cb8010c6e69c2435a4c5f5f43b5dce5c24df87418693f9bb",
+        "id": "blastline:e56d1f19448d82b6cb8010c6e69c2435a4c5f5f43b5dce5c24df87418693f9bb",
+        "status": "queued"
+      }
+    ],
+    "success": true,
+    "success_count": 11
+  },
+  "error": null,
+  "meta": {
+    "api_version": "2.0.1",
+    "collection": "supply-chain",
+    "database": "blastline",
+    "latency_ms": 239,
+    "request_id": "e66a3f44-37bb-460a-a423-e26fd14696e0",
+    "source_type": "knowledge",
+    "sub_tenant_id": "supply-chain",
+    "tenant_id": "blastline"
+  },
+  "success": true
+}

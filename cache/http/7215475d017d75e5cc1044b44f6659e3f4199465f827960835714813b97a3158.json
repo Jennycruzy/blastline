@@ -1,0 +1,722 @@
+{
+  "data": {
+    "failed_count": 0,
+    "message": "Knowledge uploaded successfully. Ingestion is asynchronous: this 202 means the sources were accepted and queued, not indexed. Poll GET /context/status?database=<database>&id=<source_id> until each source's indexing_status reaches a terminal state (completed or errored) before querying. See https://docs.hydradb.com/api-reference/v2/endpoint/source-status for usage details. ",
+    "results": [
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:caching-transform",
+        "id": "blastline:package:npm:caching-transform",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:call-bind",
+        "id": "blastline:package:npm:call-bind",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:call-bind-apply-helpers",
+        "id": "blastline:package:npm:call-bind-apply-helpers",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:call-bound",
+        "id": "blastline:package:npm:call-bound",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:caller",
+        "id": "blastline:package:npm:caller",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:caller-callsite",
+        "id": "blastline:package:npm:caller-callsite",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:caller-path",
+        "id": "blastline:package:npm:caller-path",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:callsites",
+        "id": "blastline:package:npm:callsites",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:camelcase",
+        "id": "blastline:package:npm:camelcase",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:camelcase-keys",
+        "id": "blastline:package:npm:camelcase-keys",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:caniuse-lite",
+        "id": "blastline:package:npm:caniuse-lite",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:cardinal",
+        "id": "blastline:package:npm:cardinal",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:ccount",
+        "id": "blastline:package:npm:ccount",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:chalk",
+        "id": "blastline:package:npm:chalk",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:character-entities",
+        "id": "blastline:package:npm:character-entities",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:character-entities-html4",
+        "id": "blastline:package:npm:character-entities-html4",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:character-entities-legacy",
+        "id": "blastline:package:npm:character-entities-legacy",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:chokidar",
+        "id": "blastline:package:npm:chokidar",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:chownr",
+        "id": "blastline:package:npm:chownr",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:ci-info",
+        "id": "blastline:package:npm:ci-info",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:cidr-regex",
+        "id": "blastline:package:npm:cidr-regex",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:clean-stack",
+        "id": "blastline:package:npm:clean-stack",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:cli-boxes",
+        "id": "blastline:package:npm:cli-boxes",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:cli-cursor",
+        "id": "blastline:package:npm:cli-cursor",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:cli-table3",
+        "id": "blastline:package:npm:cli-table3",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:cli-truncate",
+        "id": "blastline:package:npm:cli-truncate",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:cliui",
+        "id": "blastline:package:npm:cliui",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:cmd-shim",
+        "id": "blastline:package:npm:cmd-shim",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:code-excerpt",
+        "id": "blastline:package:npm:code-excerpt",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:color-convert",
+        "id": "blastline:package:npm:color-convert",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:color-name",
+        "id": "blastline:package:npm:color-name",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:color-support",
+        "id": "blastline:package:npm:color-support",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:comma-separated-tokens",
+        "id": "blastline:package:npm:comma-separated-tokens",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:commander",
+        "id": "blastline:package:npm:commander",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:common-ancestor-path",
+        "id": "blastline:package:npm:common-ancestor-path",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:commondir",
+        "id": "blastline:package:npm:commondir",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:compare-func",
+        "id": "blastline:package:npm:compare-func",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:concat-map",
+        "id": "blastline:package:npm:concat-map",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:content-type",
+        "id": "blastline:package:npm:content-type",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:conventional-changelog-angular",
+        "id": "blastline:package:npm:conventional-changelog-angular",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:conventional-changelog-conventionalcommits",
+        "id": "blastline:package:npm:conventional-changelog-conventionalcommits",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:conventional-changelog-writer",
+        "id": "blastline:package:npm:conventional-changelog-writer",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:conventional-commits-filter",
+        "id": "blastline:package:npm:conventional-commits-filter",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:conventional-commits-parser",
+        "id": "blastline:package:npm:conventional-commits-parser",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:convert-source-map",
+        "id": "blastline:package:npm:convert-source-map",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:convert-to-spaces",
+        "id": "blastline:package:npm:convert-to-spaces",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:cosmiconfig",
+        "id": "blastline:package:npm:cosmiconfig",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:cosmiconfig-typescript-loader",
+        "id": "blastline:package:npm:cosmiconfig-typescript-loader",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:cross-spawn",
+        "id": "blastline:package:npm:cross-spawn",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:css-select",
+        "id": "blastline:package:npm:css-select",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:css-tree",
+        "id": "blastline:package:npm:css-tree",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:css-what",
+        "id": "blastline:package:npm:css-what",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:cssesc",
+        "id": "blastline:package:npm:cssesc",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:cssstyle",
+        "id": "blastline:package:npm:cssstyle",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:csstype",
+        "id": "blastline:package:npm:csstype",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:data-urls",
+        "id": "blastline:package:npm:data-urls",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:data-view-buffer",
+        "id": "blastline:package:npm:data-view-buffer",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:data-view-byte-length",
+        "id": "blastline:package:npm:data-view-byte-length",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:data-view-byte-offset",
+        "id": "blastline:package:npm:data-view-byte-offset",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:dateformat",
+        "id": "blastline:package:npm:dateformat",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:debug",
+        "id": "blastline:package:npm:debug",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:decamelize",
+        "id": "blastline:package:npm:decamelize",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:decamelize-keys",
+        "id": "blastline:package:npm:decamelize-keys",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:decimal.js",
+        "id": "blastline:package:npm:decimal.js",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:decode-named-character-reference",
+        "id": "blastline:package:npm:decode-named-character-reference",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:dedent",
+        "id": "blastline:package:npm:dedent",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:deep-is",
+        "id": "blastline:package:npm:deep-is",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:default-require-extensions",
+        "id": "blastline:package:npm:default-require-extensions",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:define-data-property",
+        "id": "blastline:package:npm:define-data-property",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:define-properties",
+        "id": "blastline:package:npm:define-properties",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:deprecation",
+        "id": "blastline:package:npm:deprecation",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:dequal",
+        "id": "blastline:package:npm:dequal",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:detect-indent",
+        "id": "blastline:package:npm:detect-indent",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:devlop",
+        "id": "blastline:package:npm:devlop",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:diff",
+        "id": "blastline:package:npm:diff",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:discontinuous-range",
+        "id": "blastline:package:npm:discontinuous-range",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:doctrine",
+        "id": "blastline:package:npm:doctrine",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:dom-serializer",
+        "id": "blastline:package:npm:dom-serializer",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:domelementtype",
+        "id": "blastline:package:npm:domelementtype",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:domhandler",
+        "id": "blastline:package:npm:domhandler",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:domutils",
+        "id": "blastline:package:npm:domutils",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:dot-prop",
+        "id": "blastline:package:npm:dot-prop",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:dunder-proto",
+        "id": "blastline:package:npm:dunder-proto",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:electron-to-chromium",
+        "id": "blastline:package:npm:electron-to-chromium",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:emoji-regex",
+        "id": "blastline:package:npm:emoji-regex",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:entities",
+        "id": "blastline:package:npm:entities",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:env-paths",
+        "id": "blastline:package:npm:env-paths",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:error-ex",
+        "id": "blastline:package:npm:error-ex",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:es-abstract",
+        "id": "blastline:package:npm:es-abstract",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:es-abstract-get",
+        "id": "blastline:package:npm:es-abstract-get",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:es-define-property",
+        "id": "blastline:package:npm:es-define-property",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:es-errors",
+        "id": "blastline:package:npm:es-errors",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:es-object-atoms",
+        "id": "blastline:package:npm:es-object-atoms",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:es-set-tostringtag",
+        "id": "blastline:package:npm:es-set-tostringtag",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:es-shim-unscopables",
+        "id": "blastline:package:npm:es-shim-unscopables",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:es-to-primitive",
+        "id": "blastline:package:npm:es-to-primitive",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:es-toolkit",
+        "id": "blastline:package:npm:es-toolkit",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:es6-error",
+        "id": "blastline:package:npm:es6-error",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:escalade",
+        "id": "blastline:package:npm:escalade",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:escape-string-regexp",
+        "id": "blastline:package:npm:escape-string-regexp",
+        "status": "queued"
+      }
+    ],
+    "success": true,
+    "success_count": 100
+  },
+  "error": null,
+  "meta": {
+    "api_version": "2.0.1",
+    "collection": "supply-chain",
+    "database": "blastline",
+    "latency_ms": 887.4,
+    "request_id": "bd5baca5-47f6-453e-b4ff-c025ae48562e",
+    "source_type": "knowledge",
+    "sub_tenant_id": "supply-chain",
+    "tenant_id": "blastline"
+  },
+  "success": true
+}

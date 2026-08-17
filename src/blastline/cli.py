@@ -5,12 +5,13 @@ from __future__ import annotations
 import argparse
 import json
 import sys
+import time
 from datetime import datetime
 from pathlib import Path
 
 from .config import Settings
 from .coverage_report import generate_coverage_report
-from .errors import BlastlineError, ConfigurationError
+from .errors import BlastlineError, ConfigurationError, ExternalCallError
 from .hydra import HydraClient, load_hydra_config, response_success
 from .ingest.pipeline import RegistryIngestor
 from .infer.typosquat import TyposquatScorer
@@ -23,6 +24,7 @@ from .verify.hydra_scorecard import HydraAgreementVerifier
 from .model import EdgeType, Node, NodeType, version_id
 from .store import GraphStore
 from .timeutil import format_time, now_utc, parse_time
+from .json_types import require_bool, require_object, require_string
 
 
 def root_directory() -> Path:
@@ -55,6 +57,36 @@ def hello(settings: Settings) -> int:
     read_back = hydra.list_source(node.node_id)
     print(f"live HydraDB: queued {node.node_id}; list response cached={read_back.from_cache}")
     return 0
+
+
+def hydra_init(settings: Settings) -> int:
+    hydra = build_hydra(settings)
+    if not hydra.live_enabled:
+        raise ConfigurationError("hydra-init requires HYDRA_DB_API_KEY")
+    try:
+        status = hydra.database_status()
+        print(f"HydraDB database exists: {hydra.config.tenant_id}")
+    except ExternalCallError as exc:
+        if "DATABASE_NOT_FOUND" not in str(exc):
+            raise
+        created = hydra.create_tenant([])
+        if not response_success(created):
+            raise BlastlineError("HydraDB did not accept database creation")
+        print(f"HydraDB database creation accepted: {hydra.config.tenant_id}")
+        status = None
+    attempts = settings.integer("hydra", "database_ready_attempts")
+    delay = settings.number("hydra", "database_poll_seconds")
+    for attempt in range(attempts):
+        if status is None or attempt > 0:
+            status = hydra.database_status()
+        infra = require_object(status.body.get("infra"), "Hydra database status.infra")
+        ready = require_bool(infra.get("ready_for_ingestion"), "Hydra database status.infra.ready_for_ingestion")
+        print(f"HydraDB readiness {attempt + 1}/{attempts}: {'ready' if ready else 'provisioning'}")
+        if ready:
+            return 0
+        if attempt + 1 < attempts:
+            time.sleep(delay)
+    raise BlastlineError("HydraDB database did not become ready before the configured wait limit")
 
 
 def demo_timetravel(settings: Settings) -> int:
@@ -164,6 +196,18 @@ def measure_coverage(settings: Settings, refresh: bool) -> int:
 def publish_graph(settings: Settings) -> int:
     nodes, edges, fingerprint = RegistryIngestor(settings).publish_existing_graph()
     print(f"HydraDB graph upserted: {nodes} nodes, {edges} edges; graph fingerprint {fingerprint}")
+    return 0
+
+
+def publish_flagship(settings: Settings) -> int:
+    nodes, edges, fingerprint = RegistryIngestor(settings).publish_flagship_graph()
+    print(f"HydraDB flagship evidence upserted: {nodes} nodes, {edges} edges; graph fingerprint {fingerprint}")
+    return 0
+
+
+def publish_verification(settings: Settings) -> int:
+    nodes, edges, fingerprint = RegistryIngestor(settings).publish_verification_graph()
+    print(f"HydraDB verification evidence upserted: {nodes} nodes, {edges} edges; graph fingerprint {fingerprint}")
     return 0
 
 
@@ -364,6 +408,7 @@ def parser() -> argparse.ArgumentParser:
     command_parser = argparse.ArgumentParser(prog="blastline")
     subparsers = command_parser.add_subparsers(dest="command", required=True)
     subparsers.add_parser("hello")
+    subparsers.add_parser("hydra-init")
     subparsers.add_parser("demo-timetravel")
     ingest_parser = subparsers.add_parser("ingest")
     ingest_parser.add_argument("--full", action="store_true", help="drain the npm feed and enumerate the full PyPI simple index")
@@ -388,6 +433,8 @@ def parser() -> argparse.ArgumentParser:
     measure_coverage_parser = subparsers.add_parser("measure-coverage")
     measure_coverage_parser.add_argument("--refresh", action="store_true")
     subparsers.add_parser("publish-graph")
+    subparsers.add_parser("publish-flagship")
+    subparsers.add_parser("publish-verification")
     blast_parser = subparsers.add_parser("blast")
     add_package_options(blast_parser)
     blast_parser.add_argument("--valid-at")
@@ -446,6 +493,8 @@ def main(argv: list[str] | None = None) -> int:
     settings = Settings.load(root_directory())
     if args.command == "hello":
         return hello(settings)
+    if args.command == "hydra-init":
+        return hydra_init(settings)
     if args.command == "demo-timetravel":
         return demo_timetravel(settings)
     if args.command == "ingest":
@@ -454,6 +503,10 @@ def main(argv: list[str] | None = None) -> int:
         return measure_coverage(settings, args.refresh)
     if args.command == "publish-graph":
         return publish_graph(settings)
+    if args.command == "publish-flagship":
+        return publish_flagship(settings)
+    if args.command == "publish-verification":
+        return publish_verification(settings)
     if args.command == "verify":
         return verify(settings, args.json)
     if args.command == "hydra-verify":

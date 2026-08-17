@@ -96,6 +96,24 @@ class HydraClient:
         ).encode()
         return hashlib.sha256(material).hexdigest()
 
+    @staticmethod
+    def _multipart_body(fields: dict[str, str]) -> tuple[str, bytes]:
+        boundary = "----blastline-hydra-" + hashlib.sha256(
+            json.dumps(fields, sort_keys=True, separators=(",", ":")).encode()
+        ).hexdigest()[:24]
+        chunks: list[bytes] = []
+        for name, value in fields.items():
+            chunks.extend(
+                (
+                    f"--{boundary}\r\n".encode(),
+                    f'Content-Disposition: form-data; name="{name}"\r\n\r\n'.encode(),
+                    value.encode(),
+                    b"\r\n",
+                )
+            )
+        chunks.append(f"--{boundary}--\r\n".encode())
+        return f"multipart/form-data; boundary={boundary}", b"".join(chunks)
+
     def _cache_paths(self, key: str) -> tuple[Path, Path]:
         return self.config.cache_directory / f"{key}.json", self.config.cache_directory / f"{key}.meta.json"
 
@@ -121,31 +139,38 @@ class HydraClient:
             meta["etag"] = response.etag
         meta_path.write_text(json.dumps(meta, sort_keys=True, indent=2) + "\n", encoding="utf-8")
 
-    def request(self, method: str, path: str, payload: JsonObject | None = None, cache: bool = True) -> HydraResponse:
+    def request(
+        self,
+        method: str,
+        path: str,
+        payload: JsonObject | None = None,
+        cache: bool = True,
+        raw_body: bytes | None = None,
+        content_type: str = "application/json",
+    ) -> HydraResponse:
         if not self.live_enabled:
             raise ConfigurationError("HYDRA_DB_API_KEY is required for live HydraDB calls")
         key = self._cache_key(method, path, payload)
         cached = self._load_cache(key) if cache else None
         if cached is not None and method.upper() != "GET":
             return cached
-        query: str = ""
-        body: bytes | None = None
-        if payload is not None:
+        body = raw_body
+        if body is None and payload is not None:
             body = json.dumps(payload, sort_keys=True, separators=(",", ":")).encode()
         url = f"{self.config.base_url}{path}"
-        if "?" in path:
-            url = f"{self.config.base_url}{path}"
         headers = {
             "Authorization": f"Bearer {self.token}",
-            "Content-Type": "application/json",
+            "API-Version": "2",
+            "Content-Type": content_type,
             "Accept": "application/json",
             "User-Agent": "blastline/0.1.0",
         }
         if cached is not None and cached.etag is not None:
             headers["If-None-Match"] = cached.etag
         last_error: Exception | None = None
+        last_detail: str | None = None
         for attempt in range(self.config.retry_attempts):
-            request = Request(url=f"{url}{query}", data=body, headers=headers, method=method.upper())
+            request = Request(url=url, data=body, headers=headers, method=method.upper())
             try:
                 with urlopen(request, timeout=self.config.timeout_seconds) as response:
                     raw = response.read()
@@ -161,16 +186,30 @@ class HydraClient:
                 if exc.code not in (429, 500, 502, 503, 504):
                     detail = exc.read().decode("utf-8", errors="replace")
                     raise ExternalCallError(f"HydraDB {method} {path} failed with HTTP {exc.code}: {detail}") from exc
+                last_detail = exc.read().decode("utf-8", errors="replace")
                 last_error = exc
             except (URLError, TimeoutError, OSError, json.JSONDecodeError, ValueError) as exc:
                 last_error = exc
             if attempt + 1 < self.config.retry_attempts:
                 time.sleep(self.config.retry_base_seconds * (2**attempt))
-        raise ExternalCallError(f"HydraDB {method} {path} failed after retries") from last_error
+        suffix = f": {last_detail}" if last_detail else ""
+        raise ExternalCallError(f"HydraDB {method} {path} failed after retries{suffix}") from last_error
+
+    @staticmethod
+    def _data_response(response: HydraResponse, context: str) -> HydraResponse:
+        data = response.body.get("data")
+        if not isinstance(data, dict):
+            raise ExternalCallError(f"HydraDB {context} response did not contain an object data payload")
+        return HydraResponse(status=response.status, body=data, from_cache=response.from_cache, etag=response.etag)
 
     def create_tenant(self, metadata_schema: list[JsonObject]) -> HydraResponse:
-        payload: JsonObject = {"tenant_id": self.config.tenant_id, "tenant_metadata_schema": metadata_schema}
-        return self.request("POST", "/tenants/create", payload)
+        payload: JsonObject = {"database": self.config.tenant_id, "database_metadata_schema": metadata_schema}
+        return self.request("POST", "/databases", payload)
+
+    def database_status(self) -> HydraResponse:
+        query = urlencode({"database": self.config.tenant_id})
+        response = self.request("GET", f"/databases/status?{query}", cache=False)
+        return self._data_response(response, "database status")
 
     def add_memory(self, source_id: str, text: str, metadata: JsonObject) -> HydraResponse:
         return self.add_memories(((source_id, text, metadata),))
@@ -178,40 +217,48 @@ class HydraClient:
     def add_memories(self, records: tuple[tuple[str, str, JsonObject], ...]) -> HydraResponse:
         if not records:
             raise ValueError("HydraDB memory batch cannot be empty")
-        memories: list[JsonObject] = []
+        app_knowledge: list[JsonObject] = []
         for source_id, text, metadata in records:
-            memories.append(
+            app_knowledge.append(
                 {
-                    "source_id": source_id,
-                    "text": text,
-                    "is_markdown": True,
-                    "infer": False,
+                    "id": source_id,
+                    "database": self.config.tenant_id,
+                    "collection": self.config.sub_tenant_id,
                     "title": source_id,
+                    "type": "blastline_graph_record",
+                    "content": {"text": text},
+                    "metadata": {},
                     "additional_metadata": metadata,
                 }
             )
-        payload: JsonObject = {
-            "tenant_id": self.config.tenant_id,
-            "sub_tenant_id": self.config.sub_tenant_id,
-            "memories": memories,
-            "upsert": True,
+        fields = {
+            "type": "knowledge",
+            "database": self.config.tenant_id,
+            "collection": self.config.sub_tenant_id,
+            "upsert": "true",
+            "app_knowledge": json.dumps(app_knowledge, sort_keys=True, separators=(",", ":")),
         }
-        return self.request("POST", "/memories/add_memory", payload)
+        cache_payload: JsonObject = {key: value for key, value in fields.items()}
+        content_type, body = self._multipart_body(fields)
+        response = self.request("POST", "/context/ingest", cache_payload, raw_body=body, content_type=content_type)
+        return self._data_response(response, "context ingest")
 
-    def recall(self, query: str, max_results: int) -> HydraResponse:
+    def recall(self, query: str, max_results: int, cache: bool = True) -> HydraResponse:
         payload: JsonObject = {
-            "tenant_id": self.config.tenant_id,
-            "sub_tenant_id": self.config.sub_tenant_id,
+            "database": self.config.tenant_id,
+            "collection": self.config.sub_tenant_id,
             "query": query,
+            "type": "knowledge",
+            "query_by": "hybrid",
             "max_results": max_results,
             "mode": "thinking",
-            "alpha": 0.0,
             "graph_context": True,
-            "search_forceful_relations": True,
+            "query_forceful_relations": True,
         }
-        return self.request("POST", "/recall/full_recall", payload)
+        response = self.request("POST", "/query", payload, cache=cache)
+        return self._data_response(response, "query")
 
-    def graph_relations_by_source_id(self, source_id: str) -> HydraResponse:
+    def graph_relations_by_source_id(self, source_id: str | None = None, cache: bool = True) -> HydraResponse:
         """Return HydraDB's structured relation triplets for one stored source.
 
         This endpoint is intentionally separate from recall. Recall discovers
@@ -221,22 +268,78 @@ class HydraClient:
         a security claim.
         """
 
-        query = urlencode({"tenant_id": self.config.tenant_id, "source_id": source_id})
-        return self.request("GET", f"/list/graph_relations_by_id?{query}")
+        params = {
+            "database": self.config.tenant_id,
+            "collection": self.config.sub_tenant_id,
+            "limit": "500",
+        }
+        if source_id is not None:
+            params["id"] = source_id
+        query = urlencode(params)
+        response = self.request("GET", f"/context/relations?{query}", cache=cache)
+        return self._data_response(response, "context relations")
+
+    def context_status(self, source_ids: tuple[str, ...]) -> HydraResponse:
+        if not source_ids:
+            raise ValueError("HydraDB context status requires at least one source ID")
+        query = urlencode(
+            {
+                "database": self.config.tenant_id,
+                "collection": self.config.sub_tenant_id,
+                "ids": ",".join(source_ids),
+            }
+        )
+        response = self.request("GET", f"/context/status?{query}", cache=False)
+        return self._data_response(response, "context status")
+
+    def wait_for_sources(self, source_ids: tuple[str, ...], attempts: int, delay_seconds: float) -> None:
+        if attempts < 1 or delay_seconds < 0:
+            raise ValueError("HydraDB context wait configuration is invalid")
+        terminal = {"completed"}
+        for attempt in range(attempts):
+            response = self.context_status(source_ids)
+            raw_statuses = response.body.get("statuses")
+            if not isinstance(raw_statuses, list):
+                raise ExternalCallError("HydraDB context status did not return statuses")
+            statuses: list[str] = []
+            for index, raw_status in enumerate(raw_statuses):
+                status = require_object(raw_status, f"Hydra context status[{index}]")
+                state = require_string(status.get("indexing_status"), f"Hydra context status[{index}].indexing_status")
+                statuses.append(state)
+                if state == "errored":
+                    error_code = status.get("error_code")
+                    error_message = status.get("error_message")
+                    raise ExternalCallError(
+                        f"HydraDB failed to process source {status.get('id')}: "
+                        f"{error_code if isinstance(error_code, str) else 'unknown'} "
+                        f"{error_message if isinstance(error_message, str) else ''}".strip()
+                    )
+            if len(statuses) != len(source_ids):
+                raise ExternalCallError("HydraDB context status omitted one or more submitted source IDs")
+            if all(state in terminal for state in statuses):
+                return
+            if attempt + 1 < attempts:
+                time.sleep(delay_seconds)
+        raise ExternalCallError("HydraDB context did not reach completed graph state before the configured wait limit")
 
     def list_source(self, source_id: str) -> HydraResponse:
         payload: JsonObject = {
-            "tenant_id": self.config.tenant_id,
-            "sub_tenant_id": self.config.sub_tenant_id,
-            "kind": "knowledge",
+            "database": self.config.tenant_id,
+            "collection": self.config.sub_tenant_id,
+            "type": "knowledge",
             "page": 1,
             "page_size": 1,
-            "source_ids": [source_id],
-            "include_fields": ["title", "content", "additional_metadata"],
+            "ids": [source_id],
         }
-        return self.request("POST", "/list/data", payload)
+        response = self.request("POST", "/context/list", payload)
+        return self._data_response(response, "context list")
 
 
 def response_success(response: HydraResponse) -> bool:
     value = response.body.get("success")
-    return require_bool(value, "Hydra response success")
+    if isinstance(value, bool):
+        return value
+    nested = response.body.get("data")
+    if isinstance(nested, dict) and isinstance(nested.get("success"), bool):
+        return require_bool(nested.get("success"), "Hydra response data.success")
+    raise ValueError("Hydra response success must be a boolean")

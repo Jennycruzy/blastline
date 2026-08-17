@@ -1,0 +1,15 @@
+{
+  "data": {
+    "database": "blastline",
+    "message": "Database creation started in the background. Use GET /databases/status?database=... to check progress.",
+    "status": "accepted",
+    "tenant_id": "blastline"
+  },
+  "error": null,
+  "meta": {
+    "api_version": "2.0.1",
+    "latency_ms": 62.3,
+    "request_id": "82e72c10-e71d-4ace-adbb-3815b9ced2c7"
+  },
+  "success": true
+}

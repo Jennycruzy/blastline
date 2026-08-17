@@ -1,0 +1,162 @@
+{
+  "data": {
+    "failed_count": 0,
+    "message": "Knowledge uploaded successfully. Ingestion is asynchronous: this 202 means the sources were accepted and queued, not indexed. Poll GET /context/status?database=<database>&id=<source_id> until each source's indexing_status reaches a terminal state (completed or errored) before querying. See https://docs.hydradb.com/api-reference/v2/endpoint/source-status for usage details. ",
+    "results": [
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:maintainer:npm:bnjmnt4n",
+        "id": "blastline:maintainer:npm:bnjmnt4n",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:maintainer:npm:d10",
+        "id": "blastline:maintainer:npm:d10",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:maintainer:npm:jdalton",
+        "id": "blastline:maintainer:npm:jdalton",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:maintainer:npm:jridgewell",
+        "id": "blastline:maintainer:npm:jridgewell",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:maintainer:npm:kitcambridge",
+        "id": "blastline:maintainer:npm:kitcambridge",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:maintainer:npm:mathias",
+        "id": "blastline:maintainer:npm:mathias",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:maintainer:npm:phated",
+        "id": "blastline:maintainer:npm:phated",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:package:npm:lodash",
+        "id": "blastline:package:npm:lodash",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:publish-infra:npm",
+        "id": "blastline:publish-infra:npm",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:npm:lodash@0.1.0",
+        "id": "blastline:version:npm:lodash@0.1.0",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:npm:lodash@0.10.0",
+        "id": "blastline:version:npm:lodash@0.10.0",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:npm:lodash@0.2.0",
+        "id": "blastline:version:npm:lodash@0.2.0",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:npm:lodash@0.2.1",
+        "id": "blastline:version:npm:lodash@0.2.1",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:npm:lodash@0.2.2",
+        "id": "blastline:version:npm:lodash@0.2.2",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:npm:lodash@0.3.0",
+        "id": "blastline:version:npm:lodash@0.3.0",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:npm:lodash@0.3.1",
+        "id": "blastline:version:npm:lodash@0.3.1",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:npm:lodash@0.3.2",
+        "id": "blastline:version:npm:lodash@0.3.2",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:npm:lodash@0.4.0",
+        "id": "blastline:version:npm:lodash@0.4.0",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:npm:lodash@0.4.1",
+        "id": "blastline:version:npm:lodash@0.4.1",
+        "status": "queued"
+      },
+      {
+        "error": null,
+        "error_code": null,
+        "filename": "blastline:version:npm:lodash@0.4.2",
+        "id": "blastline:version:npm:lodash@0.4.2",
+        "status": "queued"
+      }
+    ],
+    "success": true,
+    "success_count": 20
+  },
+  "error": null,
+  "meta": {
+    "api_version": "2.0.1",
+    "collection": "supply-chain",
+    "database": "blastline",
+    "latency_ms": 267.6,
+    "request_id": "f41a3688-fd4c-493a-8cbc-05d8ef2af200",
+    "source_type": "knowledge",
+    "sub_tenant_id": "supply-chain",
+    "tenant_id": "blastline"
+  },
+  "success": true
+}

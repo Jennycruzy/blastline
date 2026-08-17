@@ -4,13 +4,15 @@ Blastline uses HydraDB as the graph/context substrate for the same typed records
 
 ## Primitives used
 
-1. A dedicated HydraDB tenant and sub-tenant scope the Blastline graph. The values are configured in `config/default.json` and can be overridden by `HYDRA_DB_TENANT_ID` and `HYDRA_DB_SUB_TENANT_ID`.
-2. The documented `POST /memories/add_memory` endpoint receives deterministic, idempotent `source_id`s for canonical node and edge records. Blastline sends them in configured batches with `upsert=true`, preserving node/edge identity across reruns.
-3. Each record carries typed metadata (`blastline_record_type`, node/edge type) so HydraDB’s context graph can connect the same package, version, repository, resolution, advisory, and infrastructure vocabulary.
-4. The documented `POST /recall/full_recall` endpoint is used in `hydra-window` with `graph_context=true` and thinking mode to discover candidate multi-hop paths. For each returned source ID, the documented `GET /list/graph_relations_by_id` endpoint is then used to inspect structured relation triplets. These are candidate evidence, not an unverified security answer.
-5. The documented list endpoint is used by the M0 read-back check to prove that a write was accepted and can be retrieved by its stable source ID.
+1. A dedicated HydraDB database and collection scope the Blastline graph. The values are configured in `config/default.json` and can be overridden by `HYDRA_DB_TENANT_ID` and `HYDRA_DB_SUB_TENANT_ID`.
+2. The v2 `POST /context/ingest` endpoint receives deterministic `app_knowledge` source IDs for canonical node and edge records. Blastline sends them in configured batches with `upsert=true`, preserving node/edge identity across reruns.
+3. Each record carries typed metadata under `additional_metadata.blastline_evidence`. HydraDB reserves fields such as `source_id`, so the edge fields are safely namespaced as `blastline_source_id` and normalized back to the Blastline schema only after receipt. No temporal field is inferred from prose.
+4. The v2 `POST /query` endpoint is used in `hydra-window` with `graph_context=true`, thinking mode, and `query_forceful_relations=true` to discover candidate multi-hop paths. Blastline accepts both documented `query_paths` and `chunk_relations` graph-context paths. The v2 `GET /context/relations` endpoint then supplies structured relation triplets for the collection. These are candidate evidence, not an unverified security answer.
+5. The v2 `POST /context/list` endpoint is used by the M0 read-back check to prove that a write was accepted and can be retrieved by its stable source ID. Database creation and readiness use `POST /databases` and `GET /databases/status` through `make hydra-init`.
 
-`make publish-graph` explicitly re-upserts the current local graph using the current metadata schema. This is required after changing the evidence schema; `hydra-window` never assumes that an older hosted record has the fields needed for temporal verification.
+`make publish-graph` explicitly re-upserts the current local graph using the current metadata schema. `make publish-flagship` publishes the real connected subgraph for the configured demo target when a full ecosystem upload is too slow for a live demo. This is required after changing the evidence schema; `hydra-window` never assumes that an older hosted record has the fields needed for temporal verification.
+
+`make publish-verification` similarly publishes only the real OSV-backed lockfile cases used by `make hydra-verify`, so the Hydra/local scorecard has a declared, reproducible denominator even while the submitted ecosystem graph remains partial.
 
 The adapter is in [`src/blastline/hydra.py`](../src/blastline/hydra.py). Live failures raise loudly. When a key is absent, the CLI says `ABSTAINED`; it does not pretend the hosted graph was written.
 
@@ -28,4 +30,4 @@ HydraDB’s graph context can expose relationships between the canonical records
 
 ## Attribution
 
-The adapter follows the public [HydraDB API reference](https://docs.hydradb.com/api-reference), [memory ingestion contract](https://docs.hydradb.com/api-reference/endpoint/add-memory), and [graph-context recall contract](https://docs.hydradb.com/api-reference/endpoint/full-recall). The project records request payloads through the same disk-cache rule used for the public registries.
+The adapter follows the public [HydraDB API reference](https://docs.hydradb.com/api-reference), [v2 SDK/API mapping](https://docs.hydradb.com/api-reference/v2/sdks), [v2 context-ingest contract](https://docs.hydradb.com/api-reference/v2/endpoint/ingest-context), [v2 query contract](https://docs.hydradb.com/api-reference/v2/endpoint/query), and [v2 relation-inspection contract](https://docs.hydradb.com/api-reference/v2/endpoint/source-relations). The project records request payloads through the same disk-cache rule used for the public registries.

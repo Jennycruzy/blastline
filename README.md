@@ -14,7 +14,7 @@ The committed scorecard is generated from real OSV advisory records and real pub
 historical exposure: npm/cli during the recorded incident window
 current exposure: none
 local verification: 15 gradable cases; precision 1.0000; recall 1.0000
-Hydra/local agreement: ABSTAINED offline until HYDRA_DB_API_KEY is configured
+Hydra/local agreement: 15/15 PASS; false confirmations 0; false omissions 0; abstentions 0
 measured package coverage: npm 0.020299%; PyPI 0.000804%
 graph fingerprint: 812899da3f19920100bfd0855a2cb2279e3389fd4db83b8dd6fc2a6ea0275535
 ```
@@ -30,13 +30,21 @@ make hello
 make test
 ```
 
+For the live HydraDB path, set `HYDRA_DB_API_KEY` only in the shell that runs the command, then provision the configured database and publish the real flagship evidence subgraph:
+
+```sh
+make hydra-init
+make publish-flagship
+make publish-verification
+make hydra-window REGISTRY=npm PKG=write-file-atomic VERSION=7.0.1 \
+  FROM=2026-07-08T18:00:00Z TO=2026-07-08T20:30:00Z
+```
+
 Rebuild the committed offline demo graph from recorded real registry responses:
 
 ```sh
 make demo
 make window REGISTRY=npm PKG=write-file-atomic VERSION=7.0.1 \
-  FROM=2026-07-08T18:00:00Z TO=2026-07-08T20:30:00Z
-make hydra-window REGISTRY=npm PKG=write-file-atomic VERSION=7.0.1 \
   FROM=2026-07-08T18:00:00Z TO=2026-07-08T20:30:00Z
 make publish-graph
 make verify
