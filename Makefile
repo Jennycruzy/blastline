@@ -2,7 +2,7 @@ PYTHON ?= python3
 RUN = PYTHONPATH=src $(PYTHON) -m blastline.cli
 REGISTRY ?= npm
 
-.PHONY: hello test ingest ingest-full ingest-pypi-full demo demo-timetravel blast window first-affected verify maintainer-risk shared-infra still-dirty typosquats coverage timeline report check-lockfile
+.PHONY: hello test ingest ingest-full ingest-pypi-full demo demo-timetravel blast window hydra-window first-affected verify maintainer-risk shared-infra still-dirty typosquats coverage timeline report check-lockfile
 
 hello:
 	$(RUN) hello
@@ -32,6 +32,9 @@ blast:
 
 window:
 	$(RUN) window --registry "$(REGISTRY)" --package "$(PKG)" --version "$(VERSION)" --from "$(FROM)" --to "$(TO)"
+
+hydra-window:
+	$(RUN) hydra-window --registry "$(REGISTRY)" --package "$(PKG)" --version "$(VERSION)" --from "$(FROM)" --to "$(TO)"
 
 first-affected:
 	$(RUN) first-affected --registry "$(REGISTRY)" --package "$(PKG)" --version "$(VERSION)"

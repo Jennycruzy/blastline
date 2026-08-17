@@ -14,6 +14,7 @@ from .hydra import HydraClient, load_hydra_config, response_success
 from .ingest.pipeline import RegistryIngestor
 from .infer.typosquat import TyposquatScorer
 from .query.engine import QueryEngine
+from .query.hydra_evidence import HydraWindowVerifier
 from .query.types import QueryResponse
 from .report import generate_incident_report
 from .verify.grader import Verifier
@@ -211,6 +212,41 @@ def run_query(settings: Settings, args: argparse.Namespace) -> int:
                 for notice in current.abstentions:
                     print(f"  {notice.scope}: {notice.reason}")
         return 0
+    elif args.command == "hydra-window":
+        start = parse_time(args.from_time, "hydra-window from")
+        end = parse_time(args.to_time, "hydra-window to")
+        known_at = parse_optional_time(args.known_at, "hydra-window known_at")
+        hydra_result = HydraWindowVerifier(
+            build_hydra(settings),
+            build_store(settings),
+            engine,
+            settings.integer("hydra", "candidate_result_limit"),
+        ).run(registry, args.package, args.version, (start, end), known_at)
+        if args.json:
+            print(json.dumps(hydra_result.as_json(), sort_keys=True, indent=2))
+        else:
+            print("BLASTLINE HYDRA WINDOW QUERY")
+            print(f"target: {hydra_result.target}")
+            print(f"valid_at: {format_time(hydra_result.valid_at)}")
+            print(f"window_end: {format_time(hydra_result.window_end)}")
+            print(f"known_at: {format_time(hydra_result.known_at) if hydra_result.known_at is not None else 'latest-known'}")
+            print(f"HydraDB candidate paths: {len(hydra_result.candidate_paths)}")
+            print(f"HydraDB relations inspected: {len(hydra_result.inspected_relations)}")
+            print(f"temporal paths accepted: {len(hydra_result.accepted_results)}")
+            print(f"candidate sources rejected: {len(hydra_result.rejected_source_ids)}")
+            print(f"abstentions: {len(hydra_result.abstentions)}")
+            for item in hydra_result.accepted_results:
+                repository = item.get("repository", "unknown")
+                path = item.get("resolution", "unknown")
+                print(f"EXPOSED: {repository} via {path}")
+                print("  path: Repository → Resolution → Version")
+            if hydra_result.abstentions:
+                for reason in hydra_result.abstentions:
+                    print(f"  ABSTAINED: {reason}")
+            agreement = hydra_result.local_hydra_agreement
+            print(f"LOCAL/HYDRA AGREEMENT: {'PASS' if agreement is True else 'FAIL' if agreement is False else 'ABSTAINED'}")
+            print(f"latency_ms: {hydra_result.latency_ms:.3f}")
+        return 0
     elif args.command == "first-affected":
         response = engine.first_affected_version(registry, args.package, args.version, parse_optional_time(args.known_at, "first-affected known_at"))
     elif args.command == "maintainer-risk":
@@ -308,6 +344,12 @@ def parser() -> argparse.ArgumentParser:
     window_parser.add_argument("--to", dest="to_time", required=True)
     window_parser.add_argument("--known-at")
     add_output_options(window_parser)
+    hydra_window_parser = subparsers.add_parser("hydra-window")
+    add_package_options(hydra_window_parser)
+    hydra_window_parser.add_argument("--from", dest="from_time", required=True)
+    hydra_window_parser.add_argument("--to", dest="to_time", required=True)
+    hydra_window_parser.add_argument("--known-at")
+    add_output_options(hydra_window_parser)
     first_parser = subparsers.add_parser("first-affected")
     add_package_options(first_parser)
     first_parser.add_argument("--known-at")
@@ -356,6 +398,7 @@ def main(argv: list[str] | None = None) -> int:
     if args.command in {
         "blast",
         "window",
+        "hydra-window",
         "first-affected",
         "maintainer-risk",
         "shared-infra",

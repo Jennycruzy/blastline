@@ -204,12 +204,25 @@ class HydraClient:
             "sub_tenant_id": self.config.sub_tenant_id,
             "query": query,
             "max_results": max_results,
-            "mode": "fast",
+            "mode": "thinking",
             "alpha": 0.0,
             "graph_context": True,
             "search_forceful_relations": True,
         }
         return self.request("POST", "/recall/full_recall", payload)
+
+    def graph_relations_by_source_id(self, source_id: str) -> HydraResponse:
+        """Return HydraDB's structured relation triplets for one stored source.
+
+        This endpoint is intentionally separate from recall. Recall discovers
+        candidate context; this call inspects the hosted graph relation data
+        attached to a concrete source ID. Callers must still validate the
+        returned records against Blastline's typed temporal graph before making
+        a security claim.
+        """
+
+        query = urlencode({"tenant_id": self.config.tenant_id, "source_id": source_id})
+        return self.request("GET", f"/list/graph_relations_by_id?{query}")
 
     def list_source(self, source_id: str) -> HydraResponse:
         payload: JsonObject = {

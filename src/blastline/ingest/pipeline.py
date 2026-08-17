@@ -131,13 +131,19 @@ class RegistryIngestor:
         batch_size = self.settings.integer("hydra", "batch_size")
         if batch_size < 1:
             raise BlastlineError("configuration hydra.batch_size must be positive")
+        graph_fingerprint = self.store.fingerprint()
         records: list[tuple[str, str, JsonObject]] = []
         for node in nodes:
             records.append(
                 (
                     f"blastline:{node.node_id}",
                     json.dumps(node.as_json(), sort_keys=True),
-                    {"blastline_record_type": "node", "blastline_node_type": node.node_type.value},
+                    {
+                        "blastline_record_type": "node",
+                        "blastline_node_type": node.node_type.value,
+                        "blastline_node_id": node.node_id,
+                        "graph_fingerprint": graph_fingerprint,
+                    },
                 )
             )
         for edge in edges:
@@ -145,7 +151,17 @@ class RegistryIngestor:
                 (
                     f"blastline:{edge.edge_id}",
                     json.dumps(edge.as_json(), sort_keys=True),
-                    {"blastline_record_type": "edge", "blastline_edge_type": edge.edge_type.value},
+                    {
+                        "blastline_record_type": "edge",
+                        "blastline_edge_type": edge.edge_type.value,
+                        "edge_id": edge.edge_id,
+                        "source_id": edge.source_id,
+                        "target_id": edge.target_id,
+                        "valid_start": edge.valid.as_json()["start"],
+                        "valid_end": edge.valid.as_json().get("end"),
+                        "commit_at": edge.commit_at.isoformat().replace("+00:00", "Z"),
+                        "graph_fingerprint": graph_fingerprint,
+                    },
                 )
             )
         for start in range(0, len(records), batch_size):
