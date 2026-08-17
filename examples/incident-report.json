@@ -20,7 +20,7 @@
     "query": "Q8 abstention and coverage",
     "results": []
   },
-  "generated_at": "2026-08-17T10:19:22Z",
+  "generated_at": "2026-08-17T11:14:18Z",
   "graph": {
     "edge_count": 30607,
     "fingerprint": "812899da3f19920100bfd0855a2cb2279e3389fd4db83b8dd6fc2a6ea0275535",
@@ -67,12 +67,499 @@
     ]
   },
   "hydra_agreement": {
-    "reason": "HYDRA_DB_API_KEY is not set",
-    "status": "ABSTAINED"
+    "agreement_cases": 15,
+    "cases": [
+      {
+        "agreement": true,
+        "case": {
+          "case_id": "lodash@4.17.21:2026-07-08T18:17:43Z:resolution:300cd453a47811505cd074e47b8c91b23e34d88353aedc534a30d81b9c4feb27",
+          "known_at": "2026-07-08T18:17:43Z",
+          "observed_repositories": [
+            "npm/cli"
+          ],
+          "package": "lodash",
+          "registry": "npm",
+          "version": "4.17.21",
+          "window_end": "2026-07-08T20:21:05Z",
+          "window_start": "2026-07-08T18:17:43Z"
+        },
+        "false_confirmations": [],
+        "false_omissions": [],
+        "hydra_abstained": false,
+        "hydra_abstentions": [],
+        "hydra_candidate_paths": 15,
+        "hydra_verified_result": [
+          "npm/cli"
+        ],
+        "latency_ms": 13964.130563999788,
+        "local_result": [
+          "npm/cli"
+        ],
+        "rejected_source_count": 13
+      },
+      {
+        "agreement": true,
+        "case": {
+          "case_id": "lodash@4.17.21:2026-07-08T20:21:05Z:resolution:415ed424486a2447bd5a58e2086814e450de2a2fb62f5fa69a361062b5546ccf",
+          "known_at": "2026-07-08T20:21:05Z",
+          "observed_repositories": [
+            "npm/cli"
+          ],
+          "package": "lodash",
+          "registry": "npm",
+          "version": "4.17.21",
+          "window_end": "2026-07-09T20:21:05Z",
+          "window_start": "2026-07-08T20:21:05Z"
+        },
+        "false_confirmations": [],
+        "false_omissions": [],
+        "hydra_abstained": false,
+        "hydra_abstentions": [],
+        "hydra_candidate_paths": 15,
+        "hydra_verified_result": [
+          "npm/cli"
+        ],
+        "latency_ms": 15894.237320000684,
+        "local_result": [
+          "npm/cli"
+        ],
+        "rejected_source_count": 14
+      },
+      {
+        "agreement": true,
+        "case": {
+          "case_id": "lodash@4.17.21:2026-07-10T14:58:00Z:resolution:ce927df25e6baad9e1233ccd25a27b118b1ccde70790f3fefee1f51510853331",
+          "known_at": "2026-07-10T14:58:00Z",
+          "observed_repositories": [
+            "npm/cli"
+          ],
+          "package": "lodash",
+          "registry": "npm",
+          "version": "4.17.21",
+          "window_end": "2026-07-10T15:45:05Z",
+          "window_start": "2026-07-10T14:58:00Z"
+        },
+        "false_confirmations": [],
+        "false_omissions": [],
+        "hydra_abstained": false,
+        "hydra_abstentions": [],
+        "hydra_candidate_paths": 15,
+        "hydra_verified_result": [
+          "npm/cli"
+        ],
+        "latency_ms": 15344.21828700033,
+        "local_result": [
+          "npm/cli"
+        ],
+        "rejected_source_count": 13
+      },
+      {
+        "agreement": true,
+        "case": {
+          "case_id": "lodash@4.17.21:2026-07-10T15:45:05Z:resolution:5b57e402710e8944df4fddf623e94abd688b462c782c7082fc3e349915e9effc",
+          "known_at": "2026-07-10T15:45:05Z",
+          "observed_repositories": [
+            "npm/cli"
+          ],
+          "package": "lodash",
+          "registry": "npm",
+          "version": "4.17.21",
+          "window_end": "2026-07-11T15:45:05Z",
+          "window_start": "2026-07-10T15:45:05Z"
+        },
+        "false_confirmations": [],
+        "false_omissions": [],
+        "hydra_abstained": false,
+        "hydra_abstentions": [],
+        "hydra_candidate_paths": 15,
+        "hydra_verified_result": [
+          "npm/cli"
+        ],
+        "latency_ms": 15828.153839999686,
+        "local_result": [
+          "npm/cli"
+        ],
+        "rejected_source_count": 13
+      },
+      {
+        "agreement": true,
+        "case": {
+          "case_id": "lodash@4.17.21:2026-07-27T23:11:54Z:resolution:728ae11bd1a86c6e9f13c9c2685ad2b5d3d17c76152576dfe1ca4aa799fc7853",
+          "known_at": "2026-07-27T23:11:54Z",
+          "observed_repositories": [
+            "npm/cli"
+          ],
+          "package": "lodash",
+          "registry": "npm",
+          "version": "4.17.21",
+          "window_end": "2026-07-28T23:11:54Z",
+          "window_start": "2026-07-27T23:11:54Z"
+        },
+        "false_confirmations": [],
+        "false_omissions": [],
+        "hydra_abstained": false,
+        "hydra_abstentions": [],
+        "hydra_candidate_paths": 15,
+        "hydra_verified_result": [
+          "npm/cli"
+        ],
+        "latency_ms": 16388.01628500005,
+        "local_result": [
+          "npm/cli"
+        ],
+        "rejected_source_count": 13
+      },
+      {
+        "agreement": true,
+        "case": {
+          "case_id": "lodash@4.17.21:2026-07-08T18:17:43Z:resolution:300cd453a47811505cd074e47b8c91b23e34d88353aedc534a30d81b9c4feb27",
+          "known_at": "2026-07-08T18:17:43Z",
+          "observed_repositories": [
+            "npm/cli"
+          ],
+          "package": "lodash",
+          "registry": "npm",
+          "version": "4.17.21",
+          "window_end": "2026-07-08T20:21:05Z",
+          "window_start": "2026-07-08T18:17:43Z"
+        },
+        "false_confirmations": [],
+        "false_omissions": [],
+        "hydra_abstained": false,
+        "hydra_abstentions": [],
+        "hydra_candidate_paths": 15,
+        "hydra_verified_result": [
+          "npm/cli"
+        ],
+        "latency_ms": 15346.81729500062,
+        "local_result": [
+          "npm/cli"
+        ],
+        "rejected_source_count": 13
+      },
+      {
+        "agreement": true,
+        "case": {
+          "case_id": "lodash@4.17.21:2026-07-08T20:21:05Z:resolution:415ed424486a2447bd5a58e2086814e450de2a2fb62f5fa69a361062b5546ccf",
+          "known_at": "2026-07-08T20:21:05Z",
+          "observed_repositories": [
+            "npm/cli"
+          ],
+          "package": "lodash",
+          "registry": "npm",
+          "version": "4.17.21",
+          "window_end": "2026-07-09T20:21:05Z",
+          "window_start": "2026-07-08T20:21:05Z"
+        },
+        "false_confirmations": [],
+        "false_omissions": [],
+        "hydra_abstained": false,
+        "hydra_abstentions": [],
+        "hydra_candidate_paths": 15,
+        "hydra_verified_result": [
+          "npm/cli"
+        ],
+        "latency_ms": 15100.077179000436,
+        "local_result": [
+          "npm/cli"
+        ],
+        "rejected_source_count": 14
+      },
+      {
+        "agreement": true,
+        "case": {
+          "case_id": "lodash@4.17.21:2026-07-10T14:58:00Z:resolution:ce927df25e6baad9e1233ccd25a27b118b1ccde70790f3fefee1f51510853331",
+          "known_at": "2026-07-10T14:58:00Z",
+          "observed_repositories": [
+            "npm/cli"
+          ],
+          "package": "lodash",
+          "registry": "npm",
+          "version": "4.17.21",
+          "window_end": "2026-07-10T15:45:05Z",
+          "window_start": "2026-07-10T14:58:00Z"
+        },
+        "false_confirmations": [],
+        "false_omissions": [],
+        "hydra_abstained": false,
+        "hydra_abstentions": [],
+        "hydra_candidate_paths": 15,
+        "hydra_verified_result": [
+          "npm/cli"
+        ],
+        "latency_ms": 15354.335205000098,
+        "local_result": [
+          "npm/cli"
+        ],
+        "rejected_source_count": 13
+      },
+      {
+        "agreement": true,
+        "case": {
+          "case_id": "lodash@4.17.21:2026-07-10T15:45:05Z:resolution:5b57e402710e8944df4fddf623e94abd688b462c782c7082fc3e349915e9effc",
+          "known_at": "2026-07-10T15:45:05Z",
+          "observed_repositories": [
+            "npm/cli"
+          ],
+          "package": "lodash",
+          "registry": "npm",
+          "version": "4.17.21",
+          "window_end": "2026-07-11T15:45:05Z",
+          "window_start": "2026-07-10T15:45:05Z"
+        },
+        "false_confirmations": [],
+        "false_omissions": [],
+        "hydra_abstained": false,
+        "hydra_abstentions": [],
+        "hydra_candidate_paths": 15,
+        "hydra_verified_result": [
+          "npm/cli"
+        ],
+        "latency_ms": 14386.73427499998,
+        "local_result": [
+          "npm/cli"
+        ],
+        "rejected_source_count": 13
+      },
+      {
+        "agreement": true,
+        "case": {
+          "case_id": "lodash@4.17.21:2026-07-27T23:11:54Z:resolution:728ae11bd1a86c6e9f13c9c2685ad2b5d3d17c76152576dfe1ca4aa799fc7853",
+          "known_at": "2026-07-27T23:11:54Z",
+          "observed_repositories": [
+            "npm/cli"
+          ],
+          "package": "lodash",
+          "registry": "npm",
+          "version": "4.17.21",
+          "window_end": "2026-07-28T23:11:54Z",
+          "window_start": "2026-07-27T23:11:54Z"
+        },
+        "false_confirmations": [],
+        "false_omissions": [],
+        "hydra_abstained": false,
+        "hydra_abstentions": [],
+        "hydra_candidate_paths": 15,
+        "hydra_verified_result": [
+          "npm/cli"
+        ],
+        "latency_ms": 15919.600407999496,
+        "local_result": [
+          "npm/cli"
+        ],
+        "rejected_source_count": 13
+      },
+      {
+        "agreement": true,
+        "case": {
+          "case_id": "lodash@4.17.21:2026-07-08T18:17:43Z:resolution:300cd453a47811505cd074e47b8c91b23e34d88353aedc534a30d81b9c4feb27",
+          "known_at": "2026-07-08T18:17:43Z",
+          "observed_repositories": [
+            "npm/cli"
+          ],
+          "package": "lodash",
+          "registry": "npm",
+          "version": "4.17.21",
+          "window_end": "2026-07-08T20:21:05Z",
+          "window_start": "2026-07-08T18:17:43Z"
+        },
+        "false_confirmations": [],
+        "false_omissions": [],
+        "hydra_abstained": false,
+        "hydra_abstentions": [],
+        "hydra_candidate_paths": 15,
+        "hydra_verified_result": [
+          "npm/cli"
+        ],
+        "latency_ms": 15333.626942000592,
+        "local_result": [
+          "npm/cli"
+        ],
+        "rejected_source_count": 13
+      },
+      {
+        "agreement": true,
+        "case": {
+          "case_id": "lodash@4.17.21:2026-07-08T20:21:05Z:resolution:415ed424486a2447bd5a58e2086814e450de2a2fb62f5fa69a361062b5546ccf",
+          "known_at": "2026-07-08T20:21:05Z",
+          "observed_repositories": [
+            "npm/cli"
+          ],
+          "package": "lodash",
+          "registry": "npm",
+          "version": "4.17.21",
+          "window_end": "2026-07-09T20:21:05Z",
+          "window_start": "2026-07-08T20:21:05Z"
+        },
+        "false_confirmations": [],
+        "false_omissions": [],
+        "hydra_abstained": false,
+        "hydra_abstentions": [],
+        "hydra_candidate_paths": 15,
+        "hydra_verified_result": [
+          "npm/cli"
+        ],
+        "latency_ms": 15300.844878000134,
+        "local_result": [
+          "npm/cli"
+        ],
+        "rejected_source_count": 14
+      },
+      {
+        "agreement": true,
+        "case": {
+          "case_id": "lodash@4.17.21:2026-07-10T14:58:00Z:resolution:ce927df25e6baad9e1233ccd25a27b118b1ccde70790f3fefee1f51510853331",
+          "known_at": "2026-07-10T14:58:00Z",
+          "observed_repositories": [
+            "npm/cli"
+          ],
+          "package": "lodash",
+          "registry": "npm",
+          "version": "4.17.21",
+          "window_end": "2026-07-10T15:45:05Z",
+          "window_start": "2026-07-10T14:58:00Z"
+        },
+        "false_confirmations": [],
+        "false_omissions": [],
+        "hydra_abstained": false,
+        "hydra_abstentions": [],
+        "hydra_candidate_paths": 15,
+        "hydra_verified_result": [
+          "npm/cli"
+        ],
+        "latency_ms": 17312.946410000222,
+        "local_result": [
+          "npm/cli"
+        ],
+        "rejected_source_count": 13
+      },
+      {
+        "agreement": true,
+        "case": {
+          "case_id": "lodash@4.17.21:2026-07-10T15:45:05Z:resolution:5b57e402710e8944df4fddf623e94abd688b462c782c7082fc3e349915e9effc",
+          "known_at": "2026-07-10T15:45:05Z",
+          "observed_repositories": [
+            "npm/cli"
+          ],
+          "package": "lodash",
+          "registry": "npm",
+          "version": "4.17.21",
+          "window_end": "2026-07-11T15:45:05Z",
+          "window_start": "2026-07-10T15:45:05Z"
+        },
+        "false_confirmations": [],
+        "false_omissions": [],
+        "hydra_abstained": false,
+        "hydra_abstentions": [],
+        "hydra_candidate_paths": 15,
+        "hydra_verified_result": [
+          "npm/cli"
+        ],
+        "latency_ms": 16276.175350000813,
+        "local_result": [
+          "npm/cli"
+        ],
+        "rejected_source_count": 13
+      },
+      {
+        "agreement": true,
+        "case": {
+          "case_id": "lodash@4.17.21:2026-07-27T23:11:54Z:resolution:728ae11bd1a86c6e9f13c9c2685ad2b5d3d17c76152576dfe1ca4aa799fc7853",
+          "known_at": "2026-07-27T23:11:54Z",
+          "observed_repositories": [
+            "npm/cli"
+          ],
+          "package": "lodash",
+          "registry": "npm",
+          "version": "4.17.21",
+          "window_end": "2026-07-28T23:11:54Z",
+          "window_start": "2026-07-27T23:11:54Z"
+        },
+        "false_confirmations": [],
+        "false_omissions": [],
+        "hydra_abstained": false,
+        "hydra_abstentions": [],
+        "hydra_candidate_paths": 15,
+        "hydra_verified_result": [
+          "npm/cli"
+        ],
+        "latency_ms": 15716.75829600008,
+        "local_result": [
+          "npm/cli"
+        ],
+        "rejected_source_count": 13
+      }
+    ],
+    "commit_sha": "f7ba11f5aaf04c31f0f4c2aa8959451873321d92",
+    "disagreement_cases": 0,
+    "executed_cases": 15,
+    "false_confirmations": 0,
+    "false_omissions": 0,
+    "graph_fingerprint": "812899da3f19920100bfd0855a2cb2279e3389fd4db83b8dd6fc2a6ea0275535",
+    "hydra_abstentions": 0,
+    "record": "cache/verification/hydra-agreement.jsonl"
   },
   "hydra_window": {
-    "reason": "HYDRA_DB_API_KEY is not set",
-    "status": "ABSTAINED"
+    "abstentions": [],
+    "accepted_results": [
+      {
+        "edge_commit_at": "2026-07-08T20:21:05Z",
+        "lock_path": "node_modules/write-file-atomic",
+        "repository": "npm/cli",
+        "resolution": "resolution:724ab8411a3b30168ade84ca1f0aa615f8249961a7b89981ef318f03c0b2dafd",
+        "valid_overlap": {
+          "end": "2026-07-08T20:30:00Z",
+          "start": "2026-07-08T20:21:05Z"
+        }
+      }
+    ],
+    "candidate_path_count": 15,
+    "current_repositories": [],
+    "historical_differs_current": true,
+    "historical_repositories": [
+      "npm/cli"
+    ],
+    "inspected_relation_count": 51,
+    "inspected_source_ids": [
+      "blastline:2236d1a2eea0e8bae2107db3a2a4ecebe97974778debb97e5ecf25cee6dfebbd",
+      "blastline:cbc7c2213d3cd29bc411a21f196930fbfd6d2916b43ac9617cfbdf1c411f7b2f",
+      "blastline:3f64b1d01fbe68ec48008226a94c446836f155efc87e2b8293b593c25171a8c4",
+      "blastline:6f20bca2300e320f27befc4c62ee47174ef370f7981996c7841bcf16807b1f5e",
+      "blastline:e5def0d3fdbc741461d832c61ea37790062c7c79a011d820446a9f2fd46bee4d",
+      "blastline:e56d1f19448d82b6cb8010c6e69c2435a4c5f5f43b5dce5c24df87418693f9bb",
+      "blastline:70f05af5e39b42c024568f19e67677d1f6479c579722e2a3c81017ac67ca01b1",
+      "blastline:86adec73189bcc4c4a950249a8dbf410d79e9d05bbddf24356b3fd1c8c4923d7",
+      "blastline:f346fec28bc2ba3651044014c72a4502bcbd3b046268b905346e8e1011b43ff8",
+      "blastline:7d41147dcddee3c942347efa5255b0074d44b4ae4a23574da91e7ccfd30e1bba",
+      "blastline:1289e5a4f4247d9eef57f860b4fee4945dca7b23a8a3e39321a3c9cc7cd0ff1a",
+      "blastline:version:npm:write-file-atomic@7.0.1",
+      "blastline:74de1123f3ac5a2894fe6a9bb71a6912d502eb9b8b9124c575a00ec48e5bc02d",
+      "blastline:98de8d5809b923ec5e42f251cf4088eb4f7731173032402a439c648a20138e58",
+      "blastline:c8a0edb66b14624b157c5c613700066e3b0b4f704dbaf01c2a21d958b6fae9d7"
+    ],
+    "known_at": "2026-07-08T20:30:00Z",
+    "latency_ms": 15447.442,
+    "local_hydra_agreement": true,
+    "query": "Blastline supply-chain exposure graph path for npm/write-file-atomic@7.0.1; valid_window=[2026-07-08T18:00:00Z,2026-07-08T20:30:00Z); valid_at=2026-07-08T18:00:00Z; known_at=2026-07-08T20:30:00Z; required path Repository DECLARES Resolution RESOLVED_TO Version",
+    "recall_from_cache": false,
+    "rejected_source_ids": [
+      "1289e5a4f4247d9eef57f860b4fee4945dca7b23a8a3e39321a3c9cc7cd0ff1a",
+      "3f64b1d01fbe68ec48008226a94c446836f155efc87e2b8293b593c25171a8c4",
+      "6f20bca2300e320f27befc4c62ee47174ef370f7981996c7841bcf16807b1f5e",
+      "70f05af5e39b42c024568f19e67677d1f6479c579722e2a3c81017ac67ca01b1",
+      "74de1123f3ac5a2894fe6a9bb71a6912d502eb9b8b9124c575a00ec48e5bc02d",
+      "7d41147dcddee3c942347efa5255b0074d44b4ae4a23574da91e7ccfd30e1bba",
+      "86adec73189bcc4c4a950249a8dbf410d79e9d05bbddf24356b3fd1c8c4923d7",
+      "98de8d5809b923ec5e42f251cf4088eb4f7731173032402a439c648a20138e58",
+      "c8a0edb66b14624b157c5c613700066e3b0b4f704dbaf01c2a21d958b6fae9d7",
+      "e56d1f19448d82b6cb8010c6e69c2435a4c5f5f43b5dce5c24df87418693f9bb",
+      "e5def0d3fdbc741461d832c61ea37790062c7c79a011d820446a9f2fd46bee4d",
+      "f346fec28bc2ba3651044014c72a4502bcbd3b046268b905346e8e1011b43ff8"
+    ],
+    "relation_calls_from_cache": 0,
+    "target": "npm:write-file-atomic@7.0.1",
+    "valid_at": "2026-07-08T18:00:00Z",
+    "window_end": "2026-07-08T20:30:00Z"
   },
   "incident": {
     "package": "write-file-atomic",
@@ -84,12 +571,7 @@
     }
   },
   "present_exposure": {
-    "abstentions": [
-      {
-        "reason": "no observed Resolution interval intersects the requested window",
-        "scope": "npm:write-file-atomic@7.0.1"
-      }
-    ],
+    "abstentions": [],
     "coverage": {
       "resolvable_repositories": 1,
       "total_repositories": 1,
@@ -501,7 +983,7 @@
         ]
       }
     ],
-    "commit_sha": "1d841299f242c66e6c80ec0554599d6574394eb4",
+    "commit_sha": "f7ba11f5aaf04c31f0f4c2aa8959451873321d92",
     "false_negatives": 0,
     "false_positives": 0,
     "gradable_cases": 15,
