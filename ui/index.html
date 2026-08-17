@@ -44,7 +44,7 @@
     <div class="clock"><span id="from">—</span><span id="to">—</span></div>
     <div class="frame">
       <div class="metric"><h2>Exposed repositories</h2><div class="count" id="count">—</div><ul id="repos"></ul></div>
-      <div class="metric"><h2>Evidence</h2><pre id="evidence">Querying…</pre></div>
+      <div class="metric"><h2>HydraDB evidence</h2><pre id="evidence">Querying…</pre></div>
     </div>
   </section>
 </main>
@@ -65,7 +65,7 @@
     to.textContent = frame.to;
     count.textContent = frame.exposed_repositories.length;
     repos.replaceChildren(...frame.exposed_repositories.map(repo => { const item=document.createElement('li'); item.textContent=repo; return item; }));
-    evidence.textContent = `Q3 window query\n${frame.from} → ${frame.to}\nlatency ${frame.latency_ms} ms\n\n${JSON.stringify(frame.query, null, 2)}`;
+    evidence.textContent = `Q3 window query\n${frame.from} → ${frame.to}\nlatency ${frame.latency_ms} ms\nHydra candidate paths ${frame.hydra_candidate_paths}\nHydra accepted paths ${frame.hydra_accepted_paths}\nrejected sources ${frame.hydra_rejected_sources}\nhistorical differs from current ${frame.historical_differs_current}\n\n${JSON.stringify(frame.query, null, 2)}`;
   }
   async function load() {
     try {

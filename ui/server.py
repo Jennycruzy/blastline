@@ -11,8 +11,11 @@ from pathlib import Path
 from urllib.parse import parse_qs, urlparse
 
 from blastline.config import Settings
+from blastline.errors import Abstention
+from blastline.hydra import HydraClient, load_hydra_config
 from blastline.json_types import JsonObject
 from blastline.query.engine import QueryEngine
+from blastline.query.hydra_evidence import HydraWindowVerifier
 from blastline.timeutil import format_time, parse_time
 
 
@@ -33,30 +36,93 @@ def build_timeline_payload(settings: Settings, engine: QueryEngine, query: dict[
         raise ValueError("timeline.frame_count must be positive")
     duration = (end - start) / frame_count
     frames: list[JsonObject] = []
+    hydra = HydraClient(load_hydra_config(settings.root, settings.values))
+    hydra_enabled = hydra.live_enabled
+    hydra_runner = HydraWindowVerifier(
+        hydra,
+        engine.store,
+        engine,
+        settings.integer("hydra", "candidate_result_limit"),
+    ) if hydra_enabled else None
+    present_response = engine.current_exposure(registry, package, version)
+    present_repositories = sorted({
+        str(item["repository"])
+        for item in present_response.results
+        if isinstance(item.get("repository"), str)
+    })
     for index in range(frame_count):
         frame_end = end if index == frame_count - 1 else start + duration * (index + 1)
+        if hydra_runner is not None:
+            try:
+                hydra_result = hydra_runner.run(registry, package, version, (start, frame_end), frame_end)
+                exposed_repositories = sorted({
+                    str(item["repository"])
+                    for item in hydra_result.accepted_results
+                    if isinstance(item.get("repository"), str)
+                })
+                frames.append(
+                    {
+                        "frame": index,
+                        "from": format_time(start),
+                        "to": format_time(frame_end),
+                        "latency_ms": round(hydra_result.latency_ms, 3),
+                        "exposed_repositories": exposed_repositories,
+                        "hydra_candidate_paths": len(hydra_result.candidate_paths),
+                        "hydra_accepted_paths": len(hydra_result.accepted_results),
+                        "hydra_rejected_sources": len(hydra_result.rejected_source_ids),
+                        "abstentions": list(hydra_result.abstentions),
+                        "historical_differs_current": set(exposed_repositories) != set(present_repositories),
+                        "query": hydra_result.as_json(),
+                    }
+                )
+            except Abstention as exc:
+                frames.append(
+                    {
+                        "frame": index,
+                        "from": format_time(start),
+                        "to": format_time(frame_end),
+                        "latency_ms": 0.0,
+                        "exposed_repositories": [],
+                        "hydra_candidate_paths": 0,
+                        "hydra_accepted_paths": 0,
+                        "hydra_rejected_sources": 0,
+                        "abstentions": [str(exc)],
+                        "historical_differs_current": False,
+                        "query": {"abstained": True, "reason": str(exc)},
+                    }
+                )
+            continue
         began = time.perf_counter()
-        response = engine.window_exposure(registry, package, version, (start, frame_end))
+        response = engine.window_exposure(registry, package, version, (start, frame_end), frame_end)
         latency_ms = (time.perf_counter() - began) * 1000
+        exposed_repositories = sorted({
+            str(item["repository"])
+            for item in response.results
+            if isinstance(item.get("repository"), str)
+        })
         frames.append(
             {
                 "frame": index,
                 "from": format_time(start),
                 "to": format_time(frame_end),
                 "latency_ms": round(latency_ms, 3),
-                "exposed_repositories": sorted({
-                    str(item["repository"])
-                    for item in response.results
-                    if isinstance(item.get("repository"), str)
-                }),
+                "exposed_repositories": exposed_repositories,
+                "hydra_candidate_paths": 0,
+                "hydra_accepted_paths": 0,
+                "hydra_rejected_sources": 0,
+                "abstentions": [notice.reason for notice in response.abstentions],
+                "historical_differs_current": set(exposed_repositories) != set(present_repositories),
                 "query": response.as_json(),
             }
         )
     return {
-        "mode": "live-temporal-query",
+        "mode": "live-hydra-temporal-query" if hydra_enabled else "offline-local-temporal-query",
+        "hydra_enabled": hydra_enabled,
         "registry": registry,
         "package": package,
         "version": version,
+        "present_repositories": present_repositories,
+        "present_abstentions": [notice.reason for notice in present_response.abstentions],
         "frames": frames,
     }
 

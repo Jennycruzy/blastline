@@ -20,7 +20,7 @@
     "query": "Q8 abstention and coverage",
     "results": []
   },
-  "generated_at": "2026-08-14T21:59:54Z",
+  "generated_at": "2026-08-17T10:19:22Z",
   "graph": {
     "edge_count": 30607,
     "fingerprint": "812899da3f19920100bfd0855a2cb2279e3389fd4db83b8dd6fc2a6ea0275535",
@@ -65,6 +65,14 @@
         }
       }
     ]
+  },
+  "hydra_agreement": {
+    "reason": "HYDRA_DB_API_KEY is not set",
+    "status": "ABSTAINED"
+  },
+  "hydra_window": {
+    "reason": "HYDRA_DB_API_KEY is not set",
+    "status": "ABSTAINED"
   },
   "incident": {
     "package": "write-file-atomic",
@@ -493,7 +501,7 @@
         ]
       }
     ],
-    "commit_sha": "0ea9ef17c8d671b5e572eafd45e740ab7b1ac6c1",
+    "commit_sha": "1d841299f242c66e6c80ec0554599d6574394eb4",
     "false_negatives": 0,
     "false_positives": 0,
     "gradable_cases": 15,

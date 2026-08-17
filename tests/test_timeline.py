@@ -18,7 +18,7 @@ class TimelineEndpointTest(unittest.TestCase):
         engine = QueryEngine(GraphStore(settings.path("graph", "directory")), settings)
         body = build_timeline_payload(settings, engine)
 
-        self.assertEqual(body["mode"], "live-temporal-query")
+        self.assertIn(body["mode"], ("offline-local-temporal-query", "live-hydra-temporal-query"))
         self.assertEqual(len(body["frames"]), settings.integer("timeline", "frame_count"))
         exposed = [frame["exposed_repositories"] for frame in body["frames"]]
         self.assertEqual(exposed[0], [])

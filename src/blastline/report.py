@@ -6,12 +6,16 @@ import json
 from pathlib import Path
 
 from .config import Settings
+from .errors import Abstention
+from .hydra import HydraClient, load_hydra_config
 from .json_types import JsonObject
 from .model import NodeType
 from .query.engine import QueryEngine
+from .query.hydra_evidence import HydraWindowVerifier
 from .store import GraphStore
 from .timeutil import format_time, now_utc, parse_time
 from .verify.grader import Verifier
+from .verify.hydra_scorecard import HydraAgreementVerifier
 
 
 def generate_incident_report(settings: Settings) -> tuple[Path, JsonObject]:
@@ -34,6 +38,32 @@ def generate_incident_report(settings: Settings) -> tuple[Path, JsonObject]:
     verifier = Verifier(store, settings)
     scorecard = verifier.grade()
     verification_path = verifier.record(scorecard)
+
+    hydra_client = HydraClient(load_hydra_config(settings.root, settings.values))
+    hydra_window: JsonObject
+    hydra_agreement: JsonObject
+    if hydra_client.live_enabled:
+        try:
+            hydra_window_result = HydraWindowVerifier(
+                hydra_client,
+                store,
+                engine,
+                settings.integer("hydra", "candidate_result_limit"),
+            ).run(registry, package, version, (start, end), end)
+            hydra_window = hydra_window_result.as_json()
+        except Abstention as exc:
+            hydra_window = {"status": "ABSTAINED", "reason": str(exc)}
+        agreement_verifier = HydraAgreementVerifier(store, settings)
+        try:
+            agreement_scorecard = agreement_verifier.grade()
+            agreement_path = agreement_verifier.record(agreement_scorecard)
+            hydra_agreement = agreement_scorecard.as_json()
+            hydra_agreement["record"] = str(agreement_path.relative_to(settings.root))
+        except Abstention as exc:
+            hydra_agreement = {"status": "ABSTAINED", "reason": str(exc)}
+    else:
+        hydra_window = {"status": "ABSTAINED", "reason": "HYDRA_DB_API_KEY is not set"}
+        hydra_agreement = {"status": "ABSTAINED", "reason": "HYDRA_DB_API_KEY is not set"}
 
     historical_repositories = {
         item["repository"]
@@ -74,6 +104,8 @@ def generate_incident_report(settings: Settings) -> tuple[Path, JsonObject]:
         "coverage": coverage.as_json(),
         "verification": scorecard.as_json(),
         "verification_record": str(verification_path.relative_to(settings.root)),
+        "hydra_window": hydra_window,
+        "hydra_agreement": hydra_agreement,
         "timeline_configuration": timeline,
     }
 
