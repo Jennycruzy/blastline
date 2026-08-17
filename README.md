@@ -4,6 +4,10 @@ When a package is compromised at 09:00, Blastline answers which real services we
 
 The enabling primitive is a bitemporal dependency graph. `t_valid` is when a resolution or malicious version was true in the world. `t_commit` is when Blastline learned it. Keeping those axes separate makes “who installed it while nobody knew?” a traversal instead of a guess.
 
+## What makes Blastline different
+
+Blastline does not only ask what depends on a vulnerable package today. It reconstructs which repositories resolved the compromised version during the exposure window, follows the `Repository → Resolution → Version` path, and separates historical exposure from current state. HydraDB returns the candidate relationship path; Blastline accepts it only after checking the typed edge evidence and exact temporal predicates. When the path or its timestamps cannot be verified, Blastline abstains instead of reporting a clean result.
+
 ## Verification first
 
 The committed scorecard is generated from real OSV advisory records and real public GitHub lockfile history. The latest recorded run covers 15 gradable cases: TP=15, FP=0, FN=0, precision 1.0000, recall 1.0000. This is a small measured corpus, not an ecosystem-wide accuracy claim. Every run records its graph fingerprint, commit SHA, denominator, abstentions, and misses in [`cache/verification/runs.jsonl`](cache/verification/runs.jsonl). Current-source failures remain itemized in [`cache/ingest-failures.jsonl`](cache/ingest-failures.jsonl).

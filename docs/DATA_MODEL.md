@@ -34,6 +34,8 @@ Repository ─DECLARES→ Resolution ─RESOLVED_TO→ Version
 
 with `Resolution.valid = [T1,T2)`. Q3 intersects that interval with the incident window. A graph that stores only `Repository —DEPENDS_ON→ Package` has no value for `T1`, `T2`, or the concrete version and cannot write the query at all.
 
+This is why Blastline answers a different question from a current dependency dashboard. It reconstructs the repositories that resolved a compromised version during an exposure window, retains the path through `Repository → Resolution → Version`, and keeps that historical answer separate from the repository’s current resolution. The path is only accepted when its typed edge metadata and temporal bounds can be verified; otherwise the result is unknown.
+
 ## Bitemporal semantics
 
 Every edge is an append-only record:

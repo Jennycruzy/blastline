@@ -11,6 +11,8 @@ Blastline treats “these repositories are exposed” as a falsifiable claim.
 5. Compare predicted and observed repository sets. False negatives are printed before aggregate metrics.
 6. Append the scorecard, graph fingerprint, and Git commit SHA to `cache/verification/runs.jsonl`.
 
+The verification target is not merely “does this repository depend on the package today?” Blastline must reconstruct the repository’s historical resolution during the requested exposure window, preserve the `Repository → Resolution → Version` evidence path, and distinguish that result from the current state. A missing path, missing timestamp, or unresolved lockfile produces an explicit abstention rather than a clean verdict.
+
 The verifier does not tune thresholds to a perfect number. It reports the denominator and excludes ungradable cases from precision/recall. Its case-level `abstentions` field preserves the reason a case was not gradable.
 
 ## Current recorded run
