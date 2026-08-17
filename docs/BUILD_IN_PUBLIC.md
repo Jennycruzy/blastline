@@ -160,6 +160,20 @@ https://github.com/Jennycruzy/blastline
 
 #HackHydra #HydraDB
 
+## Latest differentiation update
+
+Blastline is not just a dependency dashboard asking what depends on a vulnerable package today.
+
+It reconstructs which repositories resolved the compromised version during the exposure window, follows the `Repository → Resolution → Version` path, and compares that historical result with the current state.
+
+HydraDB returns the candidate relationship path. Blastline checks the typed edge evidence and exact temporal predicates before accepting it. If the path or timestamps cannot be verified, Blastline abstains instead of calling the repository clean.
+
+That is the difference between a current dependency lookup and an auditable historical blast-radius query.
+
+https://github.com/Jennycruzy/blastline
+
+#HackHydra #HydraDB
+
 ## Posting guardrails
 
 - Keep the repository link in every post so the build is auditable.
