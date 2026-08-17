@@ -54,6 +54,8 @@ class HydraWindowResult:
     inspected_source_ids: tuple[str, ...]
     inspected_relations: tuple[HydraRelation, ...]
     accepted_results: tuple[JsonObject, ...]
+    current_repositories: tuple[str, ...]
+    historical_repositories: tuple[str, ...]
     rejected_source_ids: tuple[str, ...]
     abstentions: tuple[str, ...]
     latency_ms: float
@@ -72,6 +74,9 @@ class HydraWindowResult:
             "inspected_source_ids": list(self.inspected_source_ids),
             "inspected_relation_count": len(self.inspected_relations),
             "accepted_results": list(self.accepted_results),
+            "current_repositories": list(self.current_repositories),
+            "historical_repositories": list(self.historical_repositories),
+            "historical_differs_current": set(self.historical_repositories) != set(self.current_repositories),
             "rejected_source_ids": list(self.rejected_source_ids),
             "abstentions": list(self.abstentions),
             "latency_ms": round(self.latency_ms, 3),
@@ -239,9 +244,12 @@ class HydraWindowVerifier:
         valid_at = window[0]
         query = hydra_query(registry, package, version, window, known_at)
         recall_response = self.hydra.recall(query, self.max_results)
-        paths = parse_candidate_paths(recall_response.body)
-        source_ids = response_source_ids(recall_response.body)
-        typed_metadata = parse_typed_edge_metadata(recall_response.body)
+        try:
+            paths = parse_candidate_paths(recall_response.body)
+            source_ids = response_source_ids(recall_response.body)
+            typed_metadata = parse_typed_edge_metadata(recall_response.body)
+        except ValueError as exc:
+            raise Abstention(f"HydraDB candidate response is not typed Blastline evidence: {exc}") from exc
         if not paths:
             raise Abstention("HydraDB returned no structured query_paths for the exposure query")
         missing_metadata = [source_id for source_id in source_ids if source_id.startswith("blastline:") and source_id not in typed_metadata]
@@ -254,7 +262,10 @@ class HydraWindowVerifier:
             relation_response = self.hydra.graph_relations_by_source_id(source_id)
             if relation_response.from_cache:
                 relation_cache_hits += 1
-            relations.extend(parse_relations(relation_response.body))
+            try:
+                relations.extend(parse_relations(relation_response.body))
+            except ValueError as exc:
+                raise Abstention(f"HydraDB relation response for {source_id} is not structured evidence: {exc}") from exc
 
         target_id = version_id(registry, package, version)
         evidence_ids = {local_id(item) for item in source_ids}
@@ -281,6 +292,7 @@ class HydraWindowVerifier:
             )
 
         local_response = self.engine.window_exposure(registry, package, version, window, known_at)
+        current_response = self.engine.current_exposure(registry, package, version)
         local_by_repository = {
             item["repository"]: item
             for item in local_response.results
@@ -292,6 +304,13 @@ class HydraWindowVerifier:
         )
         accepted_repositories = {item.get("repository") for item in accepted}
         local_repositories = set(local_by_repository)
+        current_repositories = tuple(
+            sorted(
+                str(item["repository"])
+                for item in current_response.results
+                if isinstance(item.get("repository"), str)
+            )
+        )
         target_edge_ids = {edge.edge_id for edge in target_edges}
         mapped_edge_ids = {edge.edge_id for edge in evidence_edges}
         rejected = tuple(sorted(local_id(source_id) for source_id in source_ids if local_id(source_id) in mapped_edge_ids and local_id(source_id) not in target_edge_ids))
@@ -302,6 +321,8 @@ class HydraWindowVerifier:
             abstentions.append("HydraDB evidence did not contain a verifiable RESOLVED_TO edge for the requested version and window")
         if local_response.abstentions:
             abstentions.extend(f"local temporal verifier: {notice.reason}" for notice in local_response.abstentions)
+        if current_response.abstentions:
+            abstentions.extend(f"current-state comparison: {notice.reason}" for notice in current_response.abstentions)
         agreement: bool | None = None if abstentions else accepted_repositories == local_repositories
         return HydraWindowResult(
             target=f"{registry}:{package}@{version}",
@@ -313,6 +334,8 @@ class HydraWindowVerifier:
             inspected_source_ids=source_ids,
             inspected_relations=tuple(relations),
             accepted_results=accepted,
+            current_repositories=current_repositories,
+            historical_repositories=tuple(sorted(str(item) for item in local_repositories)),
             rejected_source_ids=rejected,
             abstentions=tuple(dict.fromkeys(abstentions)),
             latency_ms=(perf_counter() - start_clock) * 1000.0,

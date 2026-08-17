@@ -8,7 +8,8 @@
     "retry_base_seconds": 1.0,
     "cache_directory": "cache/http",
     "batch_size": 100,
-    "candidate_result_limit": 50
+    "candidate_result_limit": 50,
+    "agreement_case_limit": 50
   },
   "ingest": {
     "user_agent": "blastline/0.1.0 (Hack Hydra supply-chain research)",

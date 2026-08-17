@@ -18,6 +18,7 @@ from .query.hydra_evidence import HydraWindowVerifier
 from .query.types import QueryResponse
 from .report import generate_incident_report
 from .verify.grader import Verifier
+from .verify.hydra_scorecard import HydraAgreementVerifier
 from .model import EdgeType, Node, NodeType, version_id
 from .store import GraphStore
 from .timeutil import format_time, now_utc, parse_time
@@ -235,6 +236,12 @@ def run_query(settings: Settings, args: argparse.Namespace) -> int:
             print(f"temporal paths accepted: {len(hydra_result.accepted_results)}")
             print(f"candidate sources rejected: {len(hydra_result.rejected_source_ids)}")
             print(f"abstentions: {len(hydra_result.abstentions)}")
+            print(f"historical repositories: {len(hydra_result.historical_repositories)}")
+            print(f"current repositories: {len(hydra_result.current_repositories)}")
+            print(
+                "historical result differs from current result: "
+                + ("PASS" if set(hydra_result.historical_repositories) != set(hydra_result.current_repositories) else "FAIL")
+            )
             for item in hydra_result.accepted_results:
                 repository = item.get("repository", "unknown")
                 path = item.get("resolution", "unknown")
@@ -276,6 +283,18 @@ def verify(settings: Settings, as_json: bool) -> int:
     else:
         print(scorecard.human())
         print(f"append-only verification run: {path}")
+    return 0
+
+
+def hydra_verify(settings: Settings, as_json: bool) -> int:
+    verifier = HydraAgreementVerifier(build_store(settings), settings)
+    scorecard = verifier.grade()
+    path = verifier.record(scorecard)
+    if as_json:
+        print(json.dumps(scorecard.as_json(), sort_keys=True, indent=2))
+    else:
+        print(scorecard.human())
+        print(f"append-only Hydra agreement run: {path}")
     return 0
 
 
@@ -377,6 +396,8 @@ def parser() -> argparse.ArgumentParser:
     add_output_options(coverage_parser)
     verify_parser = subparsers.add_parser("verify")
     add_output_options(verify_parser)
+    hydra_verify_parser = subparsers.add_parser("hydra-verify")
+    add_output_options(hydra_verify_parser)
     report_parser = subparsers.add_parser("report")
     add_output_options(report_parser)
     return command_parser
@@ -393,6 +414,8 @@ def main(argv: list[str] | None = None) -> int:
         return ingest(settings, args)
     if args.command == "verify":
         return verify(settings, args.json)
+    if args.command == "hydra-verify":
+        return hydra_verify(settings, args.json)
     if args.command == "report":
         return report(settings, args.json)
     if args.command in {
