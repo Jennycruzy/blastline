@@ -14,8 +14,9 @@ from ..json_types import JsonObject
 from ..model import Edge, EdgeType, Node, NodeType, repository_id, version_id
 from ..hydra import HydraClient, load_hydra_config, response_success
 from ..store import GraphStore
+from .corpus import GitHubCorpusDiscoverer
 from .failures import FailureLedger
-from .github import GitHubLockfileSource
+from .github import GitHubCommit, GitHubLockfileSource
 from .graphify import graphify_package
 from .http import DiskHttpClient, HttpPolicy, HttpResponse
 from .lockfiles import graphify_lockfile, parse_lockfile
@@ -552,6 +553,10 @@ class RegistryIngestor:
         path: str,
         ref: str,
         ecosystem: str,
+        history_limit: int | None = None,
+        extra_headers: dict[str, str] | None = None,
+        commits_override: tuple[GitHubCommit, ...] | None = None,
+        refresh: bool = False,
     ) -> tuple[int, int, int, str]:
         parts = repository.split("/", 1)
         if len(parts) != 2 or not all(parts):
@@ -564,9 +569,69 @@ class RegistryIngestor:
             self.store,
             self.ledger,
             self.snapshot_ledger,
+            extra_headers,
         )
-        limit = self.settings.integer("ingest", "github_history_limit")
-        return source.ingest_history(parts[0], parts[1], path, ref, limit, ecosystem)
+        limit = history_limit if history_limit is not None else self.settings.integer("ingest", "github_history_limit")
+        return source.ingest_history(parts[0], parts[1], path, ref, limit, ecosystem, commits_override, refresh)
+
+    def discover_github_corpus(self, refresh: bool = False):
+        corpus = self.settings.section("corpus")
+        discoverer = GitHubCorpusDiscoverer(
+            self.store,
+            self.http,
+            self._string(self.settings.section("ingest"), "github_api_url"),
+            self.ledger,
+        )
+
+        def integer(key: str) -> int:
+            value = corpus.get(key)
+            if isinstance(value, bool) or not isinstance(value, int):
+                raise BlastlineError(f"configuration corpus.{key} must be an integer")
+            return value
+
+        return discoverer.discover(
+            self.settings,
+            self.settings.path("corpus", "manifest"),
+            integer("repository_limit"),
+            integer("candidate_limit_per_package"),
+            integer("minimum_history_commits"),
+            integer("maximum_per_owner"),
+            integer("search_page_size"),
+            integer("search_pages_per_query"),
+            integer("history_limit"),
+            refresh,
+        )
+
+    def github_corpus(self, refresh: bool = False) -> tuple[int, int, int, int, int, str]:
+        manifest = self.discover_github_corpus(refresh=refresh)
+        corpus = self.settings.section("corpus")
+        history_limit = corpus.get("history_limit")
+        if isinstance(history_limit, bool) or not isinstance(history_limit, int):
+            raise BlastlineError("configuration corpus.history_limit must be an integer")
+        snapshots = 0
+        resolutions = 0
+        failures = 0
+        failed_repositories = 0
+        for selected in manifest.selected:
+            try:
+                parsed, resolved, failed, _ = self.github_lockfile(
+                    selected.full_name,
+                    selected.path,
+                    selected.ref,
+                    selected.ecosystem,
+                    history_limit,
+                    commits_override=selected.history_commits,
+                    refresh=refresh,
+                )
+            except (ExternalCallError, TypeError, ValueError, BlastlineError) as exc:
+                self.ledger.record("github-corpus", selected.identifier, str(exc))
+                failures += 1
+                failed_repositories += 1
+                continue
+            snapshots += parsed
+            resolutions += resolved
+            failures += failed
+        return len(manifest.selected), snapshots, resolutions, failures, failed_repositories, self.store.fingerprint()
 
     def local_lockfile(
         self,

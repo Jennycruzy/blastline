@@ -33,6 +33,7 @@ class GitHubLockfileSource:
         store: GraphStore,
         ledger: FailureLedger,
         snapshots: SnapshotLedger,
+        extra_headers: dict[str, str] | None = None,
     ) -> None:
         self.http = http
         self.api_url = api_url.rstrip("/")
@@ -40,11 +41,12 @@ class GitHubLockfileSource:
         self.store = store
         self.ledger = ledger
         self.snapshots = snapshots
+        self.extra_headers = dict(extra_headers) if extra_headers is not None else None
 
     def commits(self, owner: str, repository: str, path: str, ref: str, limit: int) -> tuple[GitHubCommit, ...]:
         query = urlencode({"path": path, "sha": ref, "per_page": str(limit)})
         url = f"{self.api_url}/repos/{quote(owner)}/{quote(repository)}/commits?{query}"
-        response = self.http.fetch(url)
+        response = self.http.fetch(url, extra_headers=self.extra_headers)
         try:
             raw: JsonValue = json.loads(response.body)
         except json.JSONDecodeError as exc:
@@ -62,9 +64,9 @@ class GitHubLockfileSource:
         commits.sort(key=lambda item: (item.committed_at, item.sha))
         return tuple(commits)
 
-    def fetch_lockfile(self, owner: str, repository: str, path: str, sha: str) -> bytes:
+    def fetch_lockfile(self, owner: str, repository: str, path: str, sha: str, refresh: bool = False) -> bytes:
         url = self.raw_lockfile_url(owner, repository, path, sha)
-        return self.http.fetch(url).body
+        return self.http.fetch(url, refresh=refresh).body
 
     def raw_lockfile_url(self, owner: str, repository: str, path: str, sha: str) -> str:
         return f"{self.raw_url}/{quote(owner)}/{quote(repository)}/{quote(sha)}/{quote(path, safe='/')}"
@@ -77,8 +79,10 @@ class GitHubLockfileSource:
         ref: str,
         limit: int,
         ecosystem: str,
+        commits_override: tuple[GitHubCommit, ...] | None = None,
+        refresh: bool = False,
     ) -> tuple[int, int, int, str]:
-        commits = self.commits(owner, repository, path, ref, limit)
+        commits = commits_override if commits_override is not None else self.commits(owner, repository, path, ref, limit)
         if not commits:
             raise ValueError(f"GitHub returned no commits for {owner}/{repository}:{path}")
         repository_node_id = repository_id(repository_host(owner, repository), f"{owner}/{repository}")
@@ -99,7 +103,7 @@ class GitHubLockfileSource:
             identifier = f"{owner}/{repository}:{path}@{commit.sha}"
             try:
                 raw_url = self.raw_lockfile_url(owner, repository, path, commit.sha)
-                body = self.http.fetch(raw_url).body
+                body = self.http.fetch(raw_url, refresh=refresh).body
                 self.snapshots.record(
                     LockfileSnapshot.from_body(
                         f"{owner}/{repository}",

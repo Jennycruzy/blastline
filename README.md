@@ -61,6 +61,8 @@ The offline `window` command runs the exact local temporal oracle. `hydra-window
 
 `make ingest` advances the cached incremental feeds. `make ingest-full` bootstraps npm from the supported paginated replication catalog, then enumerates the complete PyPI Simple index; both paths checkpoint progress and report every failed record. `make ingest-pypi-full` runs only the PyPI catalog path. Full ecosystem ingestion is network- and disk-bound, so the checked-in demo remains deliberately labeled as a measured partial corpus rather than a completeness claim.
 
+`make discover-corpus` selects a reproducible corpus of real public GitHub lockfile histories from OSV-implicated package names. It requires an authenticated `GITHUB_TOKEN` or `GH_TOKEN`, enforces the configured minimum history and per-owner cap, documents the rule in [`docs/CORPUS.md`](docs/CORPUS.md), and records the selected repository list at the manifest path configured under `corpus`. `make ingest-corpus` then parses those real snapshots and reports distinct repositories, snapshots, resolutions, and failures together.
+
 Q8 can be exercised against an input that cannot be parsed: `make check-lockfile LOCKFILE=/path/to/bad/package-lock.json REPOSITORY=example/bad VALID_FROM=2026-08-13T00:00:00Z`. Blastline retains that real repository as unknown, records the failure, and prints the changed `M of N` coverage instead of treating it as clean.
 
 Live HydraDB calls require `HYDRA_DB_API_KEY`; tenant and sub-tenant defaults are in [`config/default.json`](config/default.json). Without credentials, the exact local projection remains runnable and the live call says `ABSTAINED`.

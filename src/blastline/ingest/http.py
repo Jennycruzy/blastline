@@ -41,7 +41,13 @@ class DiskHttpClient:
     def _key(self, method: str, url: str, body: bytes | None, extra_headers: dict[str, str] | None = None) -> str:
         material = method.upper().encode() + b"\0" + url.encode() + b"\0" + (body if body is not None else b"")
         if extra_headers:
-            material += b"\0" + json.dumps(extra_headers, sort_keys=True, separators=(",", ":")).encode()
+            cache_headers = {
+                key: value
+                for key, value in extra_headers.items()
+                if key.lower() != "authorization"
+            }
+            if cache_headers:
+                material += b"\0" + json.dumps(cache_headers, sort_keys=True, separators=(",", ":")).encode()
         return hashlib.sha256(material).hexdigest()
 
     def _path(self, key: str) -> Path:
@@ -107,7 +113,7 @@ class DiskHttpClient:
             except HTTPError as exc:
                 if exc.code == 304 and cached is not None:
                     return cached
-                if exc.code not in (429, 500, 502, 503, 504):
+                if exc.code not in (403, 429, 500, 502, 503, 504):
                     detail = exc.read().decode("utf-8", errors="replace")
                     raise ExternalCallError(f"HTTP {normalized_method} {url} failed with {exc.code}: {detail}") from exc
                 last_error = exc

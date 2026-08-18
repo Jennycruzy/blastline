@@ -30,6 +30,16 @@
     "github_raw_url": "https://raw.githubusercontent.com",
     "github_history_limit": 5
   },
+  "corpus": {
+    "manifest": "cache/corpus/github-lockfiles.json",
+    "repository_limit": 400,
+    "candidate_limit_per_package": 80,
+    "minimum_history_commits": 3,
+    "maximum_per_owner": 6,
+    "search_page_size": 100,
+    "search_pages_per_query": 2,
+    "history_limit": 8
+  },
   "osv": {
     "endpoint": "https://api.osv.dev/v1/querybatch",
     "vulnerability_endpoint": "https://api.osv.dev/v1/vulns",

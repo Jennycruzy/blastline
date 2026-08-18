@@ -121,6 +121,7 @@ def ingest(settings: Settings, args: argparse.Namespace) -> int:
         or args.pypi_simple
         or args.pypi_full
         or args.github_repository
+        or args.github_corpus
         or args.lockfile_path
         or args.osv_package
     )
@@ -149,11 +150,21 @@ def ingest(settings: Settings, args: argparse.Namespace) -> int:
             args.github_path,
             args.github_ref,
             args.github_ecosystem,
+            refresh=refresh,
         )
         print(
             f"github-lockfile: parsed {snapshots} real snapshots and {resolutions} resolutions; "
             f"failed {failures}; graph fingerprint {fingerprint}"
         )
+        ran = True
+    if args.github_corpus:
+        selected, snapshots, resolutions, failures, failed_repositories, fingerprint = ingestor.github_corpus(refresh=refresh)
+        print(
+            f"github-corpus: selected {selected} distinct repositories; parsed {snapshots} real snapshots; "
+            f"{resolutions} resolutions; failed records {failures}; failed repositories {failed_repositories}; "
+            f"graph fingerprint {fingerprint}"
+        )
+        print(f"distinct repositories in graph: {len(build_store(settings).nodes_of_type(NodeType.REPOSITORY))}")
         ran = True
     if args.lockfile_path is not None:
         if args.lockfile_repository is None:
@@ -191,6 +202,19 @@ def measure_coverage(settings: Settings, refresh: bool) -> int:
     RegistryIngestor(settings).measure_registry_denominators(refresh=refresh)
     print("authoritative registry denominators recorded")
     return coverage_report(settings, False)
+
+
+def discover_corpus(settings: Settings, refresh: bool) -> int:
+    manifest = RegistryIngestor(settings).discover_github_corpus(refresh=refresh)
+    print(
+        f"github-corpus discovery: {len(manifest.selected)} selected repositories, "
+        f"{len(manifest.rejected)} rejected candidates, "
+        f"{len(manifest.implicated_packages)} advisory-implicated packages"
+    )
+    print("manifest: " + str(settings.path("corpus", "manifest").relative_to(settings.root)))
+    for item in manifest.selected:
+        print(f"  SELECTED {item.full_name}:{item.path} ({len(item.history_shas)} historical commits)")
+    return 0
 
 
 def publish_graph(settings: Settings) -> int:
@@ -410,6 +434,8 @@ def parser() -> argparse.ArgumentParser:
     subparsers.add_parser("hello")
     subparsers.add_parser("hydra-init")
     subparsers.add_parser("demo-timetravel")
+    corpus_parser = subparsers.add_parser("discover-corpus")
+    corpus_parser.add_argument("--refresh", action="store_true")
     ingest_parser = subparsers.add_parser("ingest")
     ingest_parser.add_argument("--full", action="store_true", help="drain the npm feed and enumerate the full PyPI simple index")
     ingest_parser.add_argument("--npm-package", action="append", default=[])
@@ -418,6 +444,7 @@ def parser() -> argparse.ArgumentParser:
     ingest_parser.add_argument("--pypi-simple", action="store_true")
     ingest_parser.add_argument("--pypi-full", action="store_true", help="enumerate and resume the complete PyPI Simple index")
     ingest_parser.add_argument("--github-repository")
+    ingest_parser.add_argument("--github-corpus", action="store_true")
     ingest_parser.add_argument("--github-path")
     ingest_parser.add_argument("--github-ref", default="main")
     ingest_parser.add_argument("--github-ecosystem", default="npm")
@@ -499,6 +526,8 @@ def main(argv: list[str] | None = None) -> int:
         return demo_timetravel(settings)
     if args.command == "ingest":
         return ingest(settings, args)
+    if args.command == "discover-corpus":
+        return discover_corpus(settings, args.refresh)
     if args.command == "measure-coverage":
         return measure_coverage(settings, args.refresh)
     if args.command == "publish-graph":

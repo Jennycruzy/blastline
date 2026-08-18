@@ -2,7 +2,7 @@ PYTHON ?= python3
 RUN = PYTHONPATH=src $(PYTHON) -m blastline.cli
 REGISTRY ?= npm
 
-.PHONY: hello hydra-init test ingest ingest-full ingest-pypi-full publish-graph publish-flagship publish-verification measure-coverage demo demo-timetravel blast window hydra-window first-affected verify hydra-verify maintainer-risk shared-infra still-dirty typosquats coverage coverage-report timeline report check-lockfile
+.PHONY: hello hydra-init test ingest ingest-full ingest-pypi-full discover-corpus ingest-corpus publish-graph publish-flagship publish-verification measure-coverage demo demo-timetravel blast window hydra-window first-affected verify hydra-verify maintainer-risk shared-infra still-dirty typosquats coverage coverage-report timeline report check-lockfile
 
 hello:
 	$(RUN) hello
@@ -21,6 +21,12 @@ ingest-full:
 
 ingest-pypi-full:
 	$(RUN) ingest --pypi-full
+
+discover-corpus:
+	$(RUN) discover-corpus
+
+ingest-corpus:
+	$(RUN) ingest --github-corpus
 
 publish-graph:
 	$(RUN) publish-graph
