@@ -1,0 +1,2158 @@
+{
+  "generated_at": "2026-08-18T11:25:49Z",
+  "implicated_packages": [
+    {
+      "package": "lodash",
+      "registry": "npm"
+    }
+  ],
+  "rejected": [
+    {
+      "history_commits": 1,
+      "path": "pick/pnpm-lock.yaml",
+      "reason": "fewer than the configured minimum historical lockfile commits",
+      "repository": "ArthurKing01/jina-clip"
+    },
+    {
+      "history_commits": 1,
+      "path": "pnpm-lock.yaml",
+      "reason": "fewer than the configured minimum historical lockfile commits",
+      "repository": "EvolvingPrograms/deserialization"
+    },
+    {
+      "history_commits": 1,
+      "path": "packages/app-portal/pnpm-lock.yaml",
+      "reason": "fewer than the configured minimum historical lockfile commits",
+      "repository": "FuelLabs/fuel-explorer"
+    },
+    {
+      "history_commits": 1,
+      "path": "pick/pnpm-lock.yaml",
+      "reason": "fewer than the configured minimum historical lockfile commits",
+      "repository": "Ggy-king/E-platform-is-a-network-sharing-and-interactive-platform-based-on-intelligent-editing-technology"
+    },
+    {
+      "history_commits": 1,
+      "path": "pnpm-lock.yaml",
+      "reason": "fewer than the configured minimum historical lockfile commits",
+      "repository": "GouravSittam/Terraform-Task-4"
+    },
+    {
+      "history_commits": 1,
+      "path": "pnpm-lock.yaml",
+      "reason": "fewer than the configured minimum historical lockfile commits",
+      "repository": "JacobSamro/hash2.dev"
+    },
+    {
+      "history_commits": 1,
+      "path": "pnpm-lock.yaml",
+      "reason": "fewer than the configured minimum historical lockfile commits",
+      "repository": "PacifAIst/Proxyface"
+    },
+    {
+      "history_commits": 1,
+      "path": "pnpm-lock.yaml",
+      "reason": "fewer than the configured minimum historical lockfile commits",
+      "repository": "TCC-2026-ZELLO/ZELLO-TCC-Front"
+    },
+    {
+      "history_commits": 1,
+      "path": "pnpm-lock.yaml",
+      "reason": "fewer than the configured minimum historical lockfile commits",
+      "repository": "Thomasorus/Kaku"
+    },
+    {
+      "history_commits": 1,
+      "path": "pnpm-lock.yaml",
+      "reason": "fewer than the configured minimum historical lockfile commits",
+      "repository": "antfu/vite-unbundled"
+    },
+    {
+      "history_commits": 2,
+      "path": "pnpm-lock.yaml",
+      "reason": "fewer than the configured minimum historical lockfile commits",
+      "repository": "autodesk-platform-services/aps-forma-extension-shadow-study"
+    },
+    {
+      "history_commits": 1,
+      "path": "pnpm-lock.yaml",
+      "reason": "fewer than the configured minimum historical lockfile commits",
+      "repository": "bsmi021/mcp-file-context-server"
+    },
+    {
+      "history_commits": 2,
+      "path": "pnpm-lock.yaml",
+      "reason": "fewer than the configured minimum historical lockfile commits",
+      "repository": "caido-community/utilities"
+    },
+    {
+      "history_commits": 2,
+      "path": "pnpm-lock.yaml",
+      "reason": "fewer than the configured minimum historical lockfile commits",
+      "repository": "cyteon/the-watcher"
+    },
+    {
+      "history_commits": 1,
+      "path": "pnpm-lock.yaml",
+      "reason": "fewer than the configured minimum historical lockfile commits",
+      "repository": "dragan2234/worldcoin-scroll-bridge"
+    },
+    {
+      "history_commits": 1,
+      "path": "pnpm-lock.yaml",
+      "reason": "fewer than the configured minimum historical lockfile commits",
+      "repository": "givenloyiso/bedrijfsfitness-opdracht"
+    },
+    {
+      "history_commits": 1,
+      "path": "pnpm-lock.yaml",
+      "reason": "fewer than the configured minimum historical lockfile commits",
+      "repository": "jakobsitory/solidjs-playground"
+    },
+    {
+      "history_commits": 1,
+      "path": "pnpm-lock.yaml",
+      "reason": "fewer than the configured minimum historical lockfile commits",
+      "repository": "kazimkayhan/nextjs-shadcnui-turborepo"
+    },
+    {
+      "history_commits": 1,
+      "path": "pnpm-lock.yaml",
+      "reason": "fewer than the configured minimum historical lockfile commits",
+      "repository": "kosmixyt/mcpratp"
+    },
+    {
+      "history_commits": 1,
+      "path": "pnpm-lock.yaml",
+      "reason": "fewer than the configured minimum historical lockfile commits",
+      "repository": "naveen-annam/creativly.ai-brand-video-remotion"
+    },
+    {
+      "history_commits": 1,
+      "path": "pnpm-lock.yaml",
+      "reason": "fewer than the configured minimum historical lockfile commits",
+      "repository": "pequehq/di"
+    },
+    {
+      "history_commits": 2,
+      "path": "pnpm-lock.yaml",
+      "reason": "fewer than the configured minimum historical lockfile commits",
+      "repository": "siberiacancode/lodash-omitdeep"
+    },
+    {
+      "history_commits": 1,
+      "path": "frontend/pnpm-lock.yaml",
+      "reason": "fewer than the configured minimum historical lockfile commits",
+      "repository": "tinybirdco/real-time-inventory-management-system"
+    },
+    {
+      "history_commits": 1,
+      "path": "pnpm-lock.yaml",
+      "reason": "fewer than the configured minimum historical lockfile commits",
+      "repository": "wheatjs/unocss-directives"
+    },
+    {
+      "history_commits": 1,
+      "path": "pnpm-lock.yaml",
+      "reason": "fewer than the configured minimum historical lockfile commits",
+      "repository": "worldcoin/world-id-state-bridge"
+    },
+    {
+      "history_commits": 1,
+      "path": "pnpm-lock.yaml",
+      "reason": "fewer than the configured minimum historical lockfile commits",
+      "repository": "wunderwerkio/verdaccio-static-access-token-middleware-plugin"
+    },
+    {
+      "history_commits": 1,
+      "path": "pnpm-lock.yaml",
+      "reason": "fewer than the configured minimum historical lockfile commits",
+      "repository": "xuatz/git-branch-organiser"
+    }
+  ],
+  "schema_version": 1,
+  "search_queries": [
+    {
+      "filename": "package-lock.json",
+      "package": "lodash",
+      "page": 1,
+      "query": "\"lodash\" in:file filename:package-lock.json",
+      "registry": "npm",
+      "returned": 0,
+      "total_count": 7159808
+    },
+    {
+      "filename": "pnpm-lock.yaml",
+      "package": "lodash",
+      "page": 1,
+      "query": "\"lodash\" in:file filename:pnpm-lock.yaml",
+      "registry": "npm",
+      "returned": 50,
+      "total_count": 727040
+    },
+    {
+      "filename": "pnpm-lock.yaml",
+      "package": "lodash",
+      "page": 2,
+      "query": "\"lodash\" in:file filename:pnpm-lock.yaml",
+      "registry": "npm",
+      "returned": 99,
+      "total_count": 727040
+    },
+    {
+      "filename": "yarn.lock",
+      "package": "lodash",
+      "page": 1,
+      "query": "\"lodash\" in:file filename:yarn.lock",
+      "registry": "npm",
+      "returned": 0,
+      "total_count": 303
+    }
+  ],
+  "selected": [
+    {
+      "ecosystem": "npm",
+      "full_name": "CAPHTECH/kiri",
+      "history_commits": [
+        {
+          "committed_at": "2025-11-15T11:16:02Z",
+          "sha": "370eb92c89d9ca2f9efd56402747cf26cce31662"
+        },
+        {
+          "committed_at": "2025-11-23T13:57:54Z",
+          "sha": "5dda6c48405c0a1fc44381643b675fd4162547eb"
+        },
+        {
+          "committed_at": "2025-11-28T11:11:46Z",
+          "sha": "ee706a6ac392467d972f62e1bd03f21ede371620"
+        },
+        {
+          "committed_at": "2025-11-30T10:26:01Z",
+          "sha": "76e852581efe0619fb9c0ca9d7c99e74eca5acb2"
+        },
+        {
+          "committed_at": "2025-11-30T12:50:52Z",
+          "sha": "5d628ef1f44a139775905b7a7ca8166fd3d9a9af"
+        },
+        {
+          "committed_at": "2025-11-30T21:03:04Z",
+          "sha": "ebb11e7f558635912e85707e8d1e06afc394145b"
+        },
+        {
+          "committed_at": "2025-12-17T07:50:41Z",
+          "sha": "c2c9c179c5b3e1c4e89dc0f284f3535154e289f6"
+        },
+        {
+          "committed_at": "2025-12-17T10:19:41Z",
+          "sha": "98be01faa26d35f65bf7858dc1a5eaeb44d2c11c"
+        }
+      ],
+      "matched_packages": [
+        "lodash"
+      ],
+      "path": "pnpm-lock.yaml",
+      "ref": "main"
+    },
+    {
+      "ecosystem": "npm",
+      "full_name": "Codehagen/regnskapsloop-crm",
+      "history_commits": [
+        {
+          "committed_at": "2025-06-05T19:33:00Z",
+          "sha": "7bc634cb5a021c9d5274a5af695985f636693dee"
+        },
+        {
+          "committed_at": "2025-06-10T19:30:22Z",
+          "sha": "a40be08c490145bb7d4dfad00ee5de8017427366"
+        },
+        {
+          "committed_at": "2025-06-23T17:39:17Z",
+          "sha": "50c1983a42d8df9d070fd74c957499adf65dadeb"
+        },
+        {
+          "committed_at": "2025-08-01T17:12:18Z",
+          "sha": "09d142113eda8261709b2700bd60701eca2b7499"
+        },
+        {
+          "committed_at": "2025-08-01T18:22:42Z",
+          "sha": "e540419951dc8512389146152bd5a4a120cbfc65"
+        }
+      ],
+      "matched_packages": [
+        "lodash"
+      ],
+      "path": "pnpm-lock.yaml",
+      "ref": "main"
+    },
+    {
+      "ecosystem": "npm",
+      "full_name": "Eliav2/express-typed",
+      "history_commits": [
+        {
+          "committed_at": "2024-04-27T16:32:30Z",
+          "sha": "074202d081d99ad65a2e299997c9d427d43c9353"
+        },
+        {
+          "committed_at": "2024-04-28T10:31:07Z",
+          "sha": "4236b3cbd3ea70c2504d9e42255448cb77ae7939"
+        },
+        {
+          "committed_at": "2024-04-28T14:35:05Z",
+          "sha": "50d2a452309e492ab5f72be09f7d3108273c8431"
+        },
+        {
+          "committed_at": "2024-06-05T23:36:41Z",
+          "sha": "513af26092408123a9147a4c317eb4bc13b6a199"
+        },
+        {
+          "committed_at": "2024-06-08T16:42:57Z",
+          "sha": "0db442d22e4435038a38855c6798edff1a065334"
+        },
+        {
+          "committed_at": "2024-06-08T17:07:14Z",
+          "sha": "8b90108bcde6483d2251ae232b80f6e2a2bafd6d"
+        },
+        {
+          "committed_at": "2024-06-08T21:44:01Z",
+          "sha": "876c43e1189a7adc44e342c4bbab92b58d4e055f"
+        },
+        {
+          "committed_at": "2024-06-08T21:48:38Z",
+          "sha": "d29e791760363aca69b7184d735b5a9678357fe1"
+        }
+      ],
+      "matched_packages": [
+        "lodash"
+      ],
+      "path": "pnpm-lock.yaml",
+      "ref": "main"
+    },
+    {
+      "ecosystem": "npm",
+      "full_name": "FreeCodeCamp-Chengdu/IT-events",
+      "history_commits": [
+        {
+          "committed_at": "2023-03-28T17:13:12Z",
+          "sha": "78f17b937ae9a660a8cf08e6fa68a1839d400c9a"
+        },
+        {
+          "committed_at": "2023-03-28T22:47:26Z",
+          "sha": "81c100e7dc766ec6449942969352a8d382a4776e"
+        },
+        {
+          "committed_at": "2023-03-30T13:08:07Z",
+          "sha": "18ab48ac22baf838a99bb92738fe91ef648b32c8"
+        },
+        {
+          "committed_at": "2023-05-03T15:10:13Z",
+          "sha": "c4fe589fc66faeeb7eae83289231e9da43465cdf"
+        },
+        {
+          "committed_at": "2023-05-04T14:51:55Z",
+          "sha": "c34afa8db78943db2d1c551f0def959ef57c16d8"
+        }
+      ],
+      "matched_packages": [
+        "lodash"
+      ],
+      "path": "pnpm-lock.yaml",
+      "ref": "master"
+    },
+    {
+      "ecosystem": "npm",
+      "full_name": "HenryQW/Awesome-TTRSS",
+      "history_commits": [
+        {
+          "committed_at": "2026-04-16T15:12:50Z",
+          "sha": "2234f76c662de8d35267c7d0ae04bbade857e0be"
+        },
+        {
+          "committed_at": "2026-04-27T23:59:16Z",
+          "sha": "d0ae799ef34426981b55bdb1a70b3ef39583eb5a"
+        },
+        {
+          "committed_at": "2026-05-12T03:10:51Z",
+          "sha": "215b36b2dffb4168d23a8352f7b620a4fbcce8aa"
+        },
+        {
+          "committed_at": "2026-05-19T05:41:01Z",
+          "sha": "10f52c5905dc1b882161ccb72a9f25bd3254d7aa"
+        },
+        {
+          "committed_at": "2026-06-03T07:32:45Z",
+          "sha": "8e47a0530037103d0277d227590086f7feabebb4"
+        },
+        {
+          "committed_at": "2026-06-22T20:43:14Z",
+          "sha": "f666cc9579a41d14142480f22b12ef386375cc28"
+        },
+        {
+          "committed_at": "2026-07-06T20:44:04Z",
+          "sha": "84f948436ac64016a2245410ec6af5f164f68c39"
+        },
+        {
+          "committed_at": "2026-08-03T21:07:47Z",
+          "sha": "db2c277846d6e266b676b56f31562badcf2d628e"
+        }
+      ],
+      "matched_packages": [
+        "lodash"
+      ],
+      "path": "pnpm-lock.yaml",
+      "ref": "main"
+    },
+    {
+      "ecosystem": "npm",
+      "full_name": "Marinerer/unity-webgl",
+      "history_commits": [
+        {
+          "committed_at": "2024-12-12T11:51:25Z",
+          "sha": "52ac910dfab66498da50f6887963549d5b617858"
+        },
+        {
+          "committed_at": "2024-12-17T01:55:09Z",
+          "sha": "d18c359be86c8e68dbddad8eca922b564bf6018d"
+        },
+        {
+          "committed_at": "2024-12-20T08:51:06Z",
+          "sha": "af29c566462c47a543ef4ce779fa048d9945286f"
+        },
+        {
+          "committed_at": "2024-12-20T15:59:48Z",
+          "sha": "e27906f33d5985c31d7c197bfc5c83cd9ab13289"
+        }
+      ],
+      "matched_packages": [
+        "lodash"
+      ],
+      "path": "pnpm-lock.yaml",
+      "ref": "main"
+    },
+    {
+      "ecosystem": "npm",
+      "full_name": "OtterMind/fastexcel-doc",
+      "history_commits": [
+        {
+          "committed_at": "2024-11-22T06:14:26Z",
+          "sha": "54806c2aa8e849e65200e2cd91aa050a407ea00c"
+        },
+        {
+          "committed_at": "2024-11-25T09:14:51Z",
+          "sha": "49596746bfc294f051c60d6f003289bb82f4571d"
+        },
+        {
+          "committed_at": "2024-11-25T12:57:42Z",
+          "sha": "a69940744f46e1eb48fb9558ce7e00ced2dcf8e7"
+        },
+        {
+          "committed_at": "2024-12-02T13:59:40Z",
+          "sha": "36dd00e65c1a7c26d2a13bc84bd128003a9a04fa"
+        },
+        {
+          "committed_at": "2024-12-03T00:16:13Z",
+          "sha": "3e552cbd76ad411c5d40ae37e6b27fa630d8cb6c"
+        },
+        {
+          "committed_at": "2024-12-05T03:51:07Z",
+          "sha": "1737291f91179d99f6e696bd8099b3e0af51c382"
+        }
+      ],
+      "matched_packages": [
+        "lodash"
+      ],
+      "path": "pnpm-lock.yaml",
+      "ref": "main"
+    },
+    {
+      "ecosystem": "npm",
+      "full_name": "PlatformRelay/Kubernetes-Workshop",
+      "history_commits": [
+        {
+          "committed_at": "2026-08-03T22:10:02Z",
+          "sha": "1b70a773e493728289a6773e4d5b4594a66af788"
+        },
+        {
+          "committed_at": "2026-08-03T22:15:01Z",
+          "sha": "22a7000c842a3dbe4224506cc0e356e1b740658e"
+        },
+        {
+          "committed_at": "2026-08-04T16:19:24Z",
+          "sha": "7627611503c2de02edbe66d6c7f14788d4139274"
+        },
+        {
+          "committed_at": "2026-08-04T16:38:44Z",
+          "sha": "2d9df5fe9734838a1fb3b3ab077736b052f77f90"
+        },
+        {
+          "committed_at": "2026-08-04T17:09:46Z",
+          "sha": "7a4742dee729123029ccc533cc263e6e9c858b3b"
+        },
+        {
+          "committed_at": "2026-08-07T08:19:20Z",
+          "sha": "f374765506fb5261ca47170e2c5a0164a9fdd490"
+        },
+        {
+          "committed_at": "2026-08-08T22:45:50Z",
+          "sha": "3cf094fb8eabe5b43cf5567e7ff74ebbc937a41d"
+        },
+        {
+          "committed_at": "2026-08-09T09:47:52Z",
+          "sha": "4c98c9a189a1015c8b3e974c23928d085d76d34d"
+        }
+      ],
+      "matched_packages": [
+        "lodash"
+      ],
+      "path": "pnpm-lock.yaml",
+      "ref": "main"
+    },
+    {
+      "ecosystem": "npm",
+      "full_name": "Protagonistss/auxer",
+      "history_commits": [
+        {
+          "committed_at": "2022-03-04T08:38:10Z",
+          "sha": "e7831f2fbacb94c5323a37694847f7f225d2e02b"
+        },
+        {
+          "committed_at": "2022-03-09T01:43:33Z",
+          "sha": "005ccbeefcc82120e3483e54b3422e8ea2d753aa"
+        },
+        {
+          "committed_at": "2022-03-10T10:31:03Z",
+          "sha": "85872816ddd2e55e8ed06198a59301baeb27b640"
+        },
+        {
+          "committed_at": "2022-03-11T11:55:48Z",
+          "sha": "3b234cc006c894e11463c76c35e8caa145c26f21"
+        },
+        {
+          "committed_at": "2022-03-12T07:18:58Z",
+          "sha": "0f09396e754b31b502a35d7c45c229d8945d4d49"
+        },
+        {
+          "committed_at": "2022-03-12T07:28:08Z",
+          "sha": "0b32054e9b5c7727c3f8e98978a6a3c0a886b3b1"
+        },
+        {
+          "committed_at": "2022-03-12T08:32:00Z",
+          "sha": "e5ac277e14e0c7aefafcb3551020bc40a4f98de6"
+        },
+        {
+          "committed_at": "2022-03-12T08:35:12Z",
+          "sha": "ebeb65cf3ae2cf7b3e61661d20551521388907c7"
+        }
+      ],
+      "matched_packages": [
+        "lodash"
+      ],
+      "path": "pnpm-lock.yaml",
+      "ref": "main"
+    },
+    {
+      "ecosystem": "npm",
+      "full_name": "Teernage/AI-Mock",
+      "history_commits": [
+        {
+          "committed_at": "2025-11-20T14:45:36Z",
+          "sha": "28e2a26d27edc78176006d74edd27889c0ce5050"
+        },
+        {
+          "committed_at": "2025-11-30T03:23:50Z",
+          "sha": "6e4a4bd6f5a852b29d42e6087ea6505e4884512c"
+        },
+        {
+          "committed_at": "2025-11-30T03:27:41Z",
+          "sha": "582a98368cc123c9d8336cb3901c0ca2171d1228"
+        }
+      ],
+      "matched_packages": [
+        "lodash"
+      ],
+      "path": "pnpm-lock.yaml",
+      "ref": "main"
+    },
+    {
+      "ecosystem": "npm",
+      "full_name": "Thinker-ljn/vite-plugin-tampermonkey",
+      "history_commits": [
+        {
+          "committed_at": "2022-01-25T05:53:34Z",
+          "sha": "27a1917fc43d9cacdc58c571d926594422e58ce7"
+        },
+        {
+          "committed_at": "2022-04-20T10:34:50Z",
+          "sha": "d253f3b4deaff0dd740e8d2418b758e1e33eb40b"
+        },
+        {
+          "committed_at": "2022-05-01T06:08:24Z",
+          "sha": "c81075023343526745f6dcbb6a2cfae9960ad16b"
+        },
+        {
+          "committed_at": "2022-05-10T07:15:59Z",
+          "sha": "86aac320da663fe83ca5d7541dbf0c1cce04a782"
+        },
+        {
+          "committed_at": "2022-05-30T10:08:35Z",
+          "sha": "9b3745b2924e4bb2a23f2878a974e64012baf08f"
+        }
+      ],
+      "matched_packages": [
+        "lodash"
+      ],
+      "path": "pnpm-lock.yaml",
+      "ref": "master"
+    },
+    {
+      "ecosystem": "npm",
+      "full_name": "advaith1/slashtags",
+      "history_commits": [
+        {
+          "committed_at": "2020-12-24T02:19:54Z",
+          "sha": "6d1ba7721d2b844f13be5d7e7648c237e4891587"
+        },
+        {
+          "committed_at": "2021-02-20T12:33:23Z",
+          "sha": "77fcf53897479c75411776aa071b3ce2d2f30f58"
+        },
+        {
+          "committed_at": "2021-08-05T10:04:36Z",
+          "sha": "af1c1c75540c7d9d6a696542d6eeb3c7a7803962"
+        },
+        {
+          "committed_at": "2021-09-22T00:34:21Z",
+          "sha": "cd5120f4ebf360157a32a2953b0e609b25dd7c35"
+        }
+      ],
+      "matched_packages": [
+        "lodash"
+      ],
+      "path": "pnpm-lock.yaml",
+      "ref": "main"
+    },
+    {
+      "ecosystem": "npm",
+      "full_name": "alexdln/nimpl-i18n",
+      "history_commits": [
+        {
+          "committed_at": "2025-04-28T18:45:30Z",
+          "sha": "cddae86b630c8d30fbfdaca70946460c91033e84"
+        },
+        {
+          "committed_at": "2025-12-29T14:18:06Z",
+          "sha": "0bb6f7c0b3425b706e53f5fac97ab2bfaef0ffb8"
+        },
+        {
+          "committed_at": "2026-01-30T10:58:18Z",
+          "sha": "c014a5248dbfd185630ae1759957c974c5f9c467"
+        },
+        {
+          "committed_at": "2026-01-30T11:16:40Z",
+          "sha": "92e1745d1df20445f69c65e6e3a0e86d8312116e"
+        },
+        {
+          "committed_at": "2026-01-30T13:12:32Z",
+          "sha": "4f24d7ef308cdd75608ebdc03f759f71fd341c9e"
+        },
+        {
+          "committed_at": "2026-01-31T18:07:04Z",
+          "sha": "d2f34c2c4259b9f76b40033ba317174abed94dad"
+        },
+        {
+          "committed_at": "2026-01-31T19:56:23Z",
+          "sha": "ea00e88cc255c9d737ea9c7e90cb4cd1e140a4af"
+        },
+        {
+          "committed_at": "2026-01-31T22:08:02Z",
+          "sha": "3302f0dd329429cf0c41500b21537f3066ab9428"
+        }
+      ],
+      "matched_packages": [
+        "lodash"
+      ],
+      "path": "pnpm-lock.yaml",
+      "ref": "main"
+    },
+    {
+      "ecosystem": "npm",
+      "full_name": "apollo-server-integrations/apollo-server-integration-h3",
+      "history_commits": [
+        {
+          "committed_at": "2026-08-02T02:10:01Z",
+          "sha": "290affc83d3a7266dbcd0af60db202b1d9211f80"
+        },
+        {
+          "committed_at": "2026-08-02T05:48:16Z",
+          "sha": "39c4c0bfeec5b0cada58efa314888756a1122bac"
+        },
+        {
+          "committed_at": "2026-08-02T05:50:33Z",
+          "sha": "5cee397b0869a87eb48c802e1dfccedf32c6b3a0"
+        },
+        {
+          "committed_at": "2026-08-02T09:52:13Z",
+          "sha": "0c155f3bd5644340055abdd008417e96339b20b8"
+        },
+        {
+          "committed_at": "2026-08-02T14:51:32Z",
+          "sha": "6249cb86c6de00f323d6f2b09f64cbd8ad48aca9"
+        },
+        {
+          "committed_at": "2026-08-02T16:34:47Z",
+          "sha": "ae0fab3e830d9cee24d39d9e66d47f3578959f5c"
+        },
+        {
+          "committed_at": "2026-08-02T22:11:39Z",
+          "sha": "38561265d512ba0e501fab0fd2e9cdcdf8134f64"
+        },
+        {
+          "committed_at": "2026-08-03T01:11:19Z",
+          "sha": "c48e461efe9501e28a83be45289a8b0172d3a502"
+        }
+      ],
+      "matched_packages": [
+        "lodash"
+      ],
+      "path": "pnpm-lock.yaml",
+      "ref": "main"
+    },
+    {
+      "ecosystem": "npm",
+      "full_name": "bsoule/expost",
+      "history_commits": [
+        {
+          "committed_at": "2024-05-07T13:43:47Z",
+          "sha": "ca18176240995831e4c48421d7536f2cd985bb71"
+        },
+        {
+          "committed_at": "2024-05-07T14:23:34Z",
+          "sha": "e0890233925795a5ba7a883d2a5740a8252785ea"
+        },
+        {
+          "committed_at": "2024-06-05T19:22:47Z",
+          "sha": "68e08aa8743bf933a9a3ee8b98e6244450ad4039"
+        },
+        {
+          "committed_at": "2024-06-11T14:01:07Z",
+          "sha": "659113a178b3d53372dae277a2d2df02e973a9ac"
+        },
+        {
+          "committed_at": "2024-07-15T20:27:32Z",
+          "sha": "556f9b8ec0f98ec86554b5b337bcd5d3688a0b8b"
+        },
+        {
+          "committed_at": "2024-10-18T15:29:34Z",
+          "sha": "f81f6fe2d0f213636e2865001ca9e1a1daa34a1c"
+        },
+        {
+          "committed_at": "2024-10-24T20:18:16Z",
+          "sha": "1f3b97da74b7360256c4abcd8d571bd5156be9d7"
+        }
+      ],
+      "matched_packages": [
+        "lodash"
+      ],
+      "path": "pnpm-lock.yaml",
+      "ref": "master"
+    },
+    {
+      "ecosystem": "npm",
+      "full_name": "btreitz/nextjs-shopify-ecom-demo",
+      "history_commits": [
+        {
+          "committed_at": "2023-09-14T19:25:41Z",
+          "sha": "119f6a07d47ac299a64318a721b99b0fc6c46ccc"
+        },
+        {
+          "committed_at": "2023-09-16T18:27:30Z",
+          "sha": "9128527042cf11d9032c45aa5d20c89ad08e8709"
+        },
+        {
+          "committed_at": "2023-11-19T17:45:24Z",
+          "sha": "94a15eb8f63f6aad2f3bdf6de31f02831e96f71f"
+        },
+        {
+          "committed_at": "2024-03-27T16:26:36Z",
+          "sha": "259fb2ba94cfd3e083a86cf149a8fb0ca2fff0f5"
+        },
+        {
+          "committed_at": "2024-05-26T02:02:41Z",
+          "sha": "7a26dc369ea8fdc3ecfb9ed1cafb57b16ed16a24"
+        },
+        {
+          "committed_at": "2024-05-26T10:17:57Z",
+          "sha": "f3ed5eb9f3993f7db5ffaa19495d2b55118f2a60"
+        },
+        {
+          "committed_at": "2024-06-19T21:54:24Z",
+          "sha": "138e53f4013353bcc5553ff72aac226a40d8dcff"
+        },
+        {
+          "committed_at": "2024-06-19T22:23:43Z",
+          "sha": "9bc5ccce2305cf670df05fa5b1c9610937bb024d"
+        }
+      ],
+      "matched_packages": [
+        "lodash"
+      ],
+      "path": "pnpm-lock.yaml",
+      "ref": "main"
+    },
+    {
+      "ecosystem": "npm",
+      "full_name": "caiquecamargo/custom-parser",
+      "history_commits": [
+        {
+          "committed_at": "2024-03-26T20:39:07Z",
+          "sha": "436bd6da08cfdf04bbf2ad690abac84ed95185b6"
+        },
+        {
+          "committed_at": "2024-03-28T21:54:02Z",
+          "sha": "da9f107ac56635bce1920c8c797f3e65cfd17860"
+        },
+        {
+          "committed_at": "2024-03-31T22:01:39Z",
+          "sha": "ce64bfaccaa6068535997fbc86996d4f311fa9fd"
+        }
+      ],
+      "matched_packages": [
+        "lodash"
+      ],
+      "path": "pnpm-lock.yaml",
+      "ref": "main"
+    },
+    {
+      "ecosystem": "npm",
+      "full_name": "codyzu/use-orama",
+      "history_commits": [
+        {
+          "committed_at": "2023-03-14T09:36:58Z",
+          "sha": "8b343a833810a225e109a89be7ce4effa3de0684"
+        },
+        {
+          "committed_at": "2023-03-22T09:18:33Z",
+          "sha": "ff9c3411ec5df2d09d854431e9c25b15ec5134b0"
+        },
+        {
+          "committed_at": "2023-03-22T10:11:35Z",
+          "sha": "97d65eda5fadb271202c2ae4586c05751c48d1d2"
+        },
+        {
+          "committed_at": "2023-03-22T10:53:02Z",
+          "sha": "5a84ab68aeeb15f4105058f4e877b669ea801337"
+        },
+        {
+          "committed_at": "2023-03-23T12:27:02Z",
+          "sha": "63a6de8601fea08253b796db7a6960e43cdc20f2"
+        },
+        {
+          "committed_at": "2023-03-23T15:25:50Z",
+          "sha": "2c8381ceac674ae4a94def63587cd9ee1602aaf4"
+        },
+        {
+          "committed_at": "2023-03-31T12:43:34Z",
+          "sha": "a61ec2d4dc3bbcfdfd3d801b9640d2d069fb183c"
+        },
+        {
+          "committed_at": "2023-04-05T14:55:11Z",
+          "sha": "7c83986c8d5ade3a584d67d1221edc85b2a4c0cd"
+        }
+      ],
+      "matched_packages": [
+        "lodash"
+      ],
+      "path": "pnpm-lock.yaml",
+      "ref": "main"
+    },
+    {
+      "ecosystem": "npm",
+      "full_name": "decipad/safejs",
+      "history_commits": [
+        {
+          "committed_at": "2023-07-10T14:31:52Z",
+          "sha": "e49999456bc47c9c8be2ee974b92cc73cda50394"
+        },
+        {
+          "committed_at": "2023-08-14T12:25:32Z",
+          "sha": "c9838a6d560427101862c99225a2d454350ae769"
+        },
+        {
+          "committed_at": "2023-08-22T11:41:59Z",
+          "sha": "474925fae24214c709d2c5a3bcaeb662198a5bea"
+        },
+        {
+          "committed_at": "2023-10-07T20:01:31Z",
+          "sha": "0bc8fc09818b5644bfeac4c1cb3a35e739aa018b"
+        },
+        {
+          "committed_at": "2024-01-20T01:48:52Z",
+          "sha": "dc44970337f294e8dda8c15ef74d1acbb1b40107"
+        },
+        {
+          "committed_at": "2024-04-04T01:41:54Z",
+          "sha": "250edad695537e308c35b471714123843e875828"
+        },
+        {
+          "committed_at": "2024-06-21T20:55:30Z",
+          "sha": "a1eb8617c7fc275d3d2ad1e49b501819e281a25a"
+        },
+        {
+          "committed_at": "2024-07-17T17:08:00Z",
+          "sha": "499a7fa38fd751a48793ac5a9dbcac1d30c30a76"
+        }
+      ],
+      "matched_packages": [
+        "lodash"
+      ],
+      "path": "pnpm-lock.yaml",
+      "ref": "main"
+    },
+    {
+      "ecosystem": "npm",
+      "full_name": "delucis/astro-auto-import",
+      "history_commits": [
+        {
+          "committed_at": "2026-07-15T16:10:53Z",
+          "sha": "3ce7a3a54f834d0863dcab6ecf0b1ca5f2f64de9"
+        },
+        {
+          "committed_at": "2026-07-15T17:10:27Z",
+          "sha": "965278f416be1dfe63e1854c132030897d7c4a70"
+        },
+        {
+          "committed_at": "2026-07-15T17:14:16Z",
+          "sha": "e3c4b899ed547b148b3588bb239c0c4510cdead2"
+        },
+        {
+          "committed_at": "2026-07-16T09:11:35Z",
+          "sha": "e22781b315b7cda8c2ba76a33633c1e1538f0f04"
+        },
+        {
+          "committed_at": "2026-07-24T18:17:54Z",
+          "sha": "01996d30f23d7076f909055684f1fadc60563f0e"
+        },
+        {
+          "committed_at": "2026-08-02T17:25:36Z",
+          "sha": "93b0a394860f9acaacf47af9152ff8cf28da20c4"
+        },
+        {
+          "committed_at": "2026-08-02T17:50:48Z",
+          "sha": "d4fde616f78d0c2b21542352866c7c8f6246a824"
+        },
+        {
+          "committed_at": "2026-08-02T18:33:09Z",
+          "sha": "b944a43432d97652b8dffcc125718c4e06efff63"
+        }
+      ],
+      "matched_packages": [
+        "lodash"
+      ],
+      "path": "pnpm-lock.yaml",
+      "ref": "main"
+    },
+    {
+      "ecosystem": "npm",
+      "full_name": "dongitran/CDS-Debug",
+      "history_commits": [
+        {
+          "committed_at": "2026-05-21T11:29:56Z",
+          "sha": "ee903dd3af3b9724bd072c993a4037b5493e3d3b"
+        },
+        {
+          "committed_at": "2026-05-22T13:18:42Z",
+          "sha": "cdf3800751a7338614301303248409d1b19c9f87"
+        },
+        {
+          "committed_at": "2026-05-22T13:22:03Z",
+          "sha": "be21498f66f487d290db46a570a379258f3d475e"
+        },
+        {
+          "committed_at": "2026-05-22T13:23:35Z",
+          "sha": "18a13f0111db9389f3aa7499da56af166a923991"
+        },
+        {
+          "committed_at": "2026-05-22T13:23:44Z",
+          "sha": "1d784eb11783592357e70866c750f470ea0831c0"
+        },
+        {
+          "committed_at": "2026-05-22T13:25:05Z",
+          "sha": "05c80db1c0c839c9d7641211f8a5c93a0f08913f"
+        },
+        {
+          "committed_at": "2026-05-23T00:21:15Z",
+          "sha": "d54a0cfa9734c8ed57bb041b4b959fa7e0b049e3"
+        },
+        {
+          "committed_at": "2026-06-25T01:19:32Z",
+          "sha": "cca8592ef2380dd7e7c9e828ac3991badf092de2"
+        }
+      ],
+      "matched_packages": [
+        "lodash"
+      ],
+      "path": "pnpm-lock.yaml",
+      "ref": "master"
+    },
+    {
+      "ecosystem": "npm",
+      "full_name": "esafwan/dashboard-starter",
+      "history_commits": [
+        {
+          "committed_at": "2023-01-20T13:21:02Z",
+          "sha": "776017afbd6754e69eb97749f3b7576b080aabe7"
+        },
+        {
+          "committed_at": "2023-01-20T13:28:49Z",
+          "sha": "51d9c1ae4e00386fcd044a95ab74cf4079a08729"
+        },
+        {
+          "committed_at": "2023-01-22T20:48:23Z",
+          "sha": "2da78e426a6f4226b5039fcbd8b166e7e167a8a3"
+        }
+      ],
+      "matched_packages": [
+        "lodash"
+      ],
+      "path": "pnpm-lock.yaml",
+      "ref": "main"
+    },
+    {
+      "ecosystem": "npm",
+      "full_name": "gnoverse/gnops",
+      "history_commits": [
+        {
+          "committed_at": "2024-12-02T03:42:51Z",
+          "sha": "b50a2c463f94e15925552efe8393dc734438cc3b"
+        },
+        {
+          "committed_at": "2024-12-19T10:35:45Z",
+          "sha": "2c489a59b28bbb700b165a4234999ec64c43a668"
+        },
+        {
+          "committed_at": "2024-12-19T10:45:03Z",
+          "sha": "1df09f52a44968bc5bfde129567b1b5af45e78c8"
+        },
+        {
+          "committed_at": "2025-01-06T07:54:33Z",
+          "sha": "51de8c5ec149ba63e0aa3ff53774f05f7811ddf8"
+        },
+        {
+          "committed_at": "2025-03-10T11:11:30Z",
+          "sha": "3ce7629530f353814504ae42e5ab9bdb9b61daaa"
+        }
+      ],
+      "matched_packages": [
+        "lodash"
+      ],
+      "path": "pnpm-lock.yaml",
+      "ref": "main"
+    },
+    {
+      "ecosystem": "npm",
+      "full_name": "hackforla/lucky-parking",
+      "history_commits": [
+        {
+          "committed_at": "2024-02-17T04:24:21Z",
+          "sha": "93a743813290d7290ea465ecdfb01dbd050d14fd"
+        },
+        {
+          "committed_at": "2024-03-30T04:27:01Z",
+          "sha": "2ac60156a5dcccead18a18ba9011cadc7cdccebf"
+        },
+        {
+          "committed_at": "2025-06-12T15:08:50Z",
+          "sha": "52f4b00a4dca7c5d4e045d3fc7e94b87d11fdafc"
+        },
+        {
+          "committed_at": "2025-10-08T21:07:35Z",
+          "sha": "f937be3dcf15a1905c0e0b0003095c7c4cfaeb1c"
+        },
+        {
+          "committed_at": "2026-01-18T05:44:26Z",
+          "sha": "54b541a11d62adaff360373ebe154ca1adb22811"
+        },
+        {
+          "committed_at": "2026-03-02T23:28:53Z",
+          "sha": "b37b0cb5a0c082ac2d16250021a8cde9f7ef4066"
+        },
+        {
+          "committed_at": "2026-05-05T20:53:32Z",
+          "sha": "df87d120e908e45842aef02076b312c0b3696ed7"
+        },
+        {
+          "committed_at": "2026-05-20T23:51:05Z",
+          "sha": "9e9238751a3c5ef1cb3f52c6a6b0d6187570f7bd"
+        }
+      ],
+      "matched_packages": [
+        "lodash"
+      ],
+      "path": "pnpm-lock.yaml",
+      "ref": "main"
+    },
+    {
+      "ecosystem": "npm",
+      "full_name": "himself65/affine-minimum",
+      "history_commits": [
+        {
+          "committed_at": "2023-04-30T05:29:00Z",
+          "sha": "a9b3a194533d6694739e5c0f85d499edc6d26dd9"
+        },
+        {
+          "committed_at": "2023-04-30T22:07:19Z",
+          "sha": "c12ce712b0c0a2a6a2a636c80aca76386b566442"
+        },
+        {
+          "committed_at": "2023-05-02T02:45:44Z",
+          "sha": "986c588ed9afe711cb2e212f04154cdd1bc3bf06"
+        },
+        {
+          "committed_at": "2023-05-02T03:35:08Z",
+          "sha": "916653fc000db4eb87d00ddf7e58435c4f952614"
+        },
+        {
+          "committed_at": "2023-05-02T04:59:04Z",
+          "sha": "00bdce45da61405078aee155baa3bb68628db84e"
+        },
+        {
+          "committed_at": "2023-05-02T20:38:02Z",
+          "sha": "50990701966f7b7367f3c3ae8c1811d4cc4517c9"
+        },
+        {
+          "committed_at": "2023-05-08T15:09:22Z",
+          "sha": "a1da4727944f4f4d4c558260862b1ce132db5dcb"
+        },
+        {
+          "committed_at": "2023-07-23T05:10:41Z",
+          "sha": "08b580b98223061c850ac5d1526e75253df3cae5"
+        }
+      ],
+      "matched_packages": [
+        "lodash"
+      ],
+      "path": "pnpm-lock.yaml",
+      "ref": "stable"
+    },
+    {
+      "ecosystem": "npm",
+      "full_name": "hpbyte/h-codex",
+      "history_commits": [
+        {
+          "committed_at": "2025-06-21T06:56:29Z",
+          "sha": "dddd5b17de2c24d609e0c3a4626257c08bebdf6b"
+        },
+        {
+          "committed_at": "2025-08-06T02:21:03Z",
+          "sha": "d6181f020ede77a36bc00988d77596f0f0f7e0e2"
+        },
+        {
+          "committed_at": "2025-09-14T06:56:07Z",
+          "sha": "357e5d780efe590a86b704a67bebba06e2b74f68"
+        }
+      ],
+      "matched_packages": [
+        "lodash"
+      ],
+      "path": "pnpm-lock.yaml",
+      "ref": "main"
+    },
+    {
+      "ecosystem": "npm",
+      "full_name": "irobot/ipmi-mqtt",
+      "history_commits": [
+        {
+          "committed_at": "2024-05-30T20:24:37Z",
+          "sha": "4f94eba9b0df0845f5b350ca6add4ab993126abb"
+        },
+        {
+          "committed_at": "2024-06-04T05:52:03Z",
+          "sha": "71df9fe01532e12b996752616defeaebe96a2444"
+        },
+        {
+          "committed_at": "2024-06-17T03:01:57Z",
+          "sha": "ac0229e3e9dadd2c11f74f6a002805387ee593ba"
+        }
+      ],
+      "matched_packages": [
+        "lodash"
+      ],
+      "path": "pnpm-lock.yaml",
+      "ref": "main"
+    },
+    {
+      "ecosystem": "npm",
+      "full_name": "itsTPM/foxford-tools",
+      "history_commits": [
+        {
+          "committed_at": "2026-05-03T07:22:59Z",
+          "sha": "83a97ab4090a31c4c8ab59b16770c0ee93564a80"
+        },
+        {
+          "committed_at": "2026-05-03T07:27:23Z",
+          "sha": "3a3197fd4fd340a27c92973f5cd808f31245211d"
+        },
+        {
+          "committed_at": "2026-05-05T15:39:53Z",
+          "sha": "beca4ca29a6299ab7d99f0bf76f4b806628941cf"
+        },
+        {
+          "committed_at": "2026-05-10T16:42:01Z",
+          "sha": "544eb4c51b18bde454ddd8e0118a679206a4722e"
+        },
+        {
+          "committed_at": "2026-05-19T11:21:21Z",
+          "sha": "6db3ef4627e356cd41a35e2462a1680f6efb4d2a"
+        },
+        {
+          "committed_at": "2026-05-19T11:58:46Z",
+          "sha": "e3f8061729e4b9252466cff334185a3bde91b35a"
+        },
+        {
+          "committed_at": "2026-05-20T17:00:08Z",
+          "sha": "06fba9a6ece4c6f0455077d355b7da4173e77de7"
+        },
+        {
+          "committed_at": "2026-05-20T23:48:43Z",
+          "sha": "2504b497177069578d36192a47a6033b645ae132"
+        }
+      ],
+      "matched_packages": [
+        "lodash"
+      ],
+      "path": "pnpm-lock.yaml",
+      "ref": "main"
+    },
+    {
+      "ecosystem": "npm",
+      "full_name": "jbxamora/kronosdocs",
+      "history_commits": [
+        {
+          "committed_at": "2023-06-21T22:40:55Z",
+          "sha": "844a7b180c08521e4960020e28330b5e073946f0"
+        },
+        {
+          "committed_at": "2023-06-22T02:15:27Z",
+          "sha": "5433025596ef8ef9d9c86ec240c8d436d557dcb5"
+        },
+        {
+          "committed_at": "2023-06-22T04:50:41Z",
+          "sha": "d0a46fb54199051c1aa46fdf83706ac357718a51"
+        }
+      ],
+      "matched_packages": [
+        "lodash"
+      ],
+      "path": "pnpm-lock.yaml",
+      "ref": "main"
+    },
+    {
+      "ecosystem": "npm",
+      "full_name": "kafbat/kafka-ui",
+      "history_commits": [
+        {
+          "committed_at": "2025-12-11T20:25:40Z",
+          "sha": "2c4adde6d5e2d5d90302c9c1d52d8a768bd1a5ed"
+        },
+        {
+          "committed_at": "2025-12-22T18:34:20Z",
+          "sha": "3344f17db4999ae855e0f5f265043ac4fe83600d"
+        },
+        {
+          "committed_at": "2025-12-26T14:27:24Z",
+          "sha": "b7f083d5d3c7a44d0c484a44ea4837230349df05"
+        },
+        {
+          "committed_at": "2026-01-13T16:58:59Z",
+          "sha": "c9097014b49478132242f1a56920840d8b3a6f0c"
+        },
+        {
+          "committed_at": "2026-04-17T08:12:19Z",
+          "sha": "80bd8c4b63d8b0733934dc842f3c16c864b50d4e"
+        },
+        {
+          "committed_at": "2026-05-17T08:43:19Z",
+          "sha": "b1709cc8b33a40d523322fd545f3b286eb9ad8cc"
+        },
+        {
+          "committed_at": "2026-06-16T14:52:25Z",
+          "sha": "5cfe7642c9324e02571af25d9e9ad20678f3d714"
+        },
+        {
+          "committed_at": "2026-07-02T09:50:23Z",
+          "sha": "d0e3a7e1ef1d5dda124fef59de18aaafe2090f32"
+        }
+      ],
+      "matched_packages": [
+        "lodash"
+      ],
+      "path": "frontend/pnpm-lock.yaml",
+      "ref": "main"
+    },
+    {
+      "ecosystem": "npm",
+      "full_name": "keizerworks/invoicen",
+      "history_commits": [
+        {
+          "committed_at": "2025-02-11T13:47:07Z",
+          "sha": "b04fa6f05501c5c38fda880c31392270e499408b"
+        },
+        {
+          "committed_at": "2025-02-11T16:19:47Z",
+          "sha": "b6757e1f24dc74b47dcfbcc7c5c57f5601dd7e2c"
+        },
+        {
+          "committed_at": "2025-02-11T17:34:36Z",
+          "sha": "d8d77addf6b5b47fc9f4030eb72148438535dd28"
+        },
+        {
+          "committed_at": "2025-02-12T07:41:27Z",
+          "sha": "04f6bfd4819a5dedf7f493ed4e20a0a044621313"
+        },
+        {
+          "committed_at": "2025-02-12T11:15:13Z",
+          "sha": "f7a317e651280124f37c1781dff4be0267b9d073"
+        },
+        {
+          "committed_at": "2025-02-14T14:12:16Z",
+          "sha": "5910066ae197bd9d55ba77cd3d748a433f4b0b1a"
+        },
+        {
+          "committed_at": "2025-02-23T07:51:07Z",
+          "sha": "cc1728d6a8bbe5f6bc5488dc5e88df7ff9e83bc9"
+        },
+        {
+          "committed_at": "2025-02-26T16:32:28Z",
+          "sha": "826e1af21163aa3e9d028997395dedb3fee20156"
+        }
+      ],
+      "matched_packages": [
+        "lodash"
+      ],
+      "path": "pnpm-lock.yaml",
+      "ref": "v2"
+    },
+    {
+      "ecosystem": "npm",
+      "full_name": "laosb/ghos3",
+      "history_commits": [
+        {
+          "committed_at": "2025-01-03T16:51:39Z",
+          "sha": "06890b99cc833c37c83708aa7dcdf899ead6b8d9"
+        },
+        {
+          "committed_at": "2025-01-03T17:04:00Z",
+          "sha": "91a3a1423c20a37f6504e7d794ea1fc597811de6"
+        },
+        {
+          "committed_at": "2025-01-03T17:21:49Z",
+          "sha": "899c3b84973651f94510ffcead7b1201e9df5060"
+        }
+      ],
+      "matched_packages": [
+        "lodash"
+      ],
+      "path": "pnpm-lock.yaml",
+      "ref": "main"
+    },
+    {
+      "ecosystem": "npm",
+      "full_name": "lilingxi01/ams-date-picker",
+      "history_commits": [
+        {
+          "committed_at": "2022-08-14T06:25:27Z",
+          "sha": "11ab832a687d64327fde24e1ec9f83f92d52f97f"
+        },
+        {
+          "committed_at": "2022-08-14T14:40:56Z",
+          "sha": "3d1a92dcb40365270b2179692d1ebc9de282b7c5"
+        },
+        {
+          "committed_at": "2022-08-15T01:07:44Z",
+          "sha": "86a9abe907f3f777878634bacc9e509219a2b4da"
+        },
+        {
+          "committed_at": "2022-08-17T03:13:59Z",
+          "sha": "6bb818e66783b29ccffc40019683418929a88792"
+        },
+        {
+          "committed_at": "2022-08-17T03:59:39Z",
+          "sha": "6c0c2d2138635a013506e0969e2667fdd56f1e0f"
+        },
+        {
+          "committed_at": "2022-08-17T04:08:05Z",
+          "sha": "2c504771f43461138655a7813ce1be36f8a2570b"
+        },
+        {
+          "committed_at": "2022-08-17T04:16:28Z",
+          "sha": "c8bc0332e33684301ee27dfe9a4d03c0a7d3f7ef"
+        },
+        {
+          "committed_at": "2022-08-17T04:57:19Z",
+          "sha": "bbb72834d425bbbcd24212a8a653370e1853ea9f"
+        }
+      ],
+      "matched_packages": [
+        "lodash"
+      ],
+      "path": "pnpm-lock.yaml",
+      "ref": "main"
+    },
+    {
+      "ecosystem": "npm",
+      "full_name": "linbudu599/TypeScript-Tiny-Book",
+      "history_commits": [
+        {
+          "committed_at": "2022-06-18T03:05:16Z",
+          "sha": "6ea7b120cb1bf8f810c1560ae43c5ae2f54cd1d1"
+        },
+        {
+          "committed_at": "2022-06-18T03:13:34Z",
+          "sha": "dcece468dc97ea0424156d416e66d6d3044d0406"
+        },
+        {
+          "committed_at": "2022-06-19T06:40:51Z",
+          "sha": "6c4345e9bfe8c6b22f9d76c65872dd73228cdfe0"
+        },
+        {
+          "committed_at": "2022-07-12T09:52:20Z",
+          "sha": "bb9c3330908bdd3b6ec41b51742b16925d754ac6"
+        }
+      ],
+      "matched_packages": [
+        "lodash"
+      ],
+      "path": "pnpm-lock.yaml",
+      "ref": "main"
+    },
+    {
+      "ecosystem": "npm",
+      "full_name": "mag123c/nestjs-stdschema",
+      "history_commits": [
+        {
+          "committed_at": "2026-03-29T05:13:26Z",
+          "sha": "b36d182d8feaca900cc64550ebf9f4caa477d1f0"
+        },
+        {
+          "committed_at": "2026-03-29T05:14:19Z",
+          "sha": "335e0705c115d33a1d521d4a79f50a742628b545"
+        },
+        {
+          "committed_at": "2026-05-09T11:50:35Z",
+          "sha": "45dac3ab5b0f6800b90e45d5d99a307792927871"
+        },
+        {
+          "committed_at": "2026-05-12T03:25:21Z",
+          "sha": "ff788046516bdc59daacf87a8b4016f85b0d697d"
+        },
+        {
+          "committed_at": "2026-05-23T07:53:35Z",
+          "sha": "9315d16f56da40e59f623c421041f01466260243"
+        },
+        {
+          "committed_at": "2026-05-23T07:53:37Z",
+          "sha": "5bab32fb34e8959b32a9e3b6d49e33586e088dcc"
+        },
+        {
+          "committed_at": "2026-05-23T23:53:16Z",
+          "sha": "012920807d3f269c5db8323a705e802e82379e94"
+        },
+        {
+          "committed_at": "2026-05-23T23:59:51Z",
+          "sha": "2035222cab8fbcdbf963fbcdefee14478aae518b"
+        }
+      ],
+      "matched_packages": [
+        "lodash"
+      ],
+      "path": "pnpm-lock.yaml",
+      "ref": "main"
+    },
+    {
+      "ecosystem": "npm",
+      "full_name": "ojfbot/seh-study",
+      "history_commits": [
+        {
+          "committed_at": "2026-03-23T00:58:27Z",
+          "sha": "31d323ca16a0f4dffb6afd8b1d1eeca780a7ad82"
+        },
+        {
+          "committed_at": "2026-03-24T00:38:23Z",
+          "sha": "6ee4b60d8a53e70b9a3e8606792f8eec4cc9acc3"
+        },
+        {
+          "committed_at": "2026-03-24T01:12:03Z",
+          "sha": "2866b3df0d45e0805014e8c341ccdc1401493919"
+        },
+        {
+          "committed_at": "2026-03-31T07:09:35Z",
+          "sha": "e2c83eff329643bf794ff1be6d2cb689ae14eba3"
+        },
+        {
+          "committed_at": "2026-04-01T05:07:59Z",
+          "sha": "9fc21cd692cf2471b1a432047a3c7324c67df7ec"
+        },
+        {
+          "committed_at": "2026-04-09T22:37:33Z",
+          "sha": "399b11fb59a9c0bad7581e87405c48dab61f11fc"
+        },
+        {
+          "committed_at": "2026-04-10T14:34:10Z",
+          "sha": "3faf73b3b5ed9ac8722b2ec291bbf4864823dcf9"
+        }
+      ],
+      "matched_packages": [
+        "lodash"
+      ],
+      "path": "pnpm-lock.yaml",
+      "ref": "main"
+    },
+    {
+      "ecosystem": "npm",
+      "full_name": "ossjs/release",
+      "history_commits": [
+        {
+          "committed_at": "2022-11-14T12:51:56Z",
+          "sha": "905434b119b98d19865757cb03faeb9f04ba24b7"
+        },
+        {
+          "committed_at": "2022-12-07T16:09:11Z",
+          "sha": "76092809a60672dfa54a05e0862e9fcb4b70c9f0"
+        },
+        {
+          "committed_at": "2023-08-30T15:45:14Z",
+          "sha": "2525a77b6a1095e75175b471138136b2af9d93cf"
+        },
+        {
+          "committed_at": "2023-09-13T18:08:55Z",
+          "sha": "0caf7abf74ce195e4bc1990311976910f9d7e21a"
+        },
+        {
+          "committed_at": "2025-09-27T08:21:34Z",
+          "sha": "181709494c9c55fb614618b1d96b59de400579e2"
+        },
+        {
+          "committed_at": "2025-09-27T09:19:00Z",
+          "sha": "d5cbc76d8a6585a4e72814e06598756e65726a6e"
+        },
+        {
+          "committed_at": "2025-09-27T14:55:51Z",
+          "sha": "784cd208ac723c9933cd9836d4ac4aa8523b7460"
+        },
+        {
+          "committed_at": "2025-11-12T11:12:33Z",
+          "sha": "fbd54ff294123afb660af3569fdf595210de89c1"
+        }
+      ],
+      "matched_packages": [
+        "lodash"
+      ],
+      "path": "pnpm-lock.yaml",
+      "ref": "main"
+    },
+    {
+      "ecosystem": "npm",
+      "full_name": "paescuj/ctrlc-wrapper",
+      "history_commits": [
+        {
+          "committed_at": "2022-08-18T10:59:13Z",
+          "sha": "4cf765f14f4d714fda1059115db9ab9afab305ac"
+        },
+        {
+          "committed_at": "2022-08-18T11:05:10Z",
+          "sha": "29bc9a2cbf532fe17b150d76b9d54edb7ecda05f"
+        },
+        {
+          "committed_at": "2025-08-19T09:02:51Z",
+          "sha": "d95ece6109e3243142acf49c64d587a2357d0d45"
+        }
+      ],
+      "matched_packages": [
+        "lodash"
+      ],
+      "path": "pnpm-lock.yaml",
+      "ref": "main"
+    },
+    {
+      "ecosystem": "npm",
+      "full_name": "pdanpdan/vue-keyboard-trap",
+      "history_commits": [
+        {
+          "committed_at": "2023-12-16T08:18:49Z",
+          "sha": "f71d301d120baa54f5e033ba586b221bbfec202c"
+        },
+        {
+          "committed_at": "2024-09-17T12:15:10Z",
+          "sha": "ab37e3f9153193e97f9d8f7bc0c6c768cedfdf41"
+        },
+        {
+          "committed_at": "2024-09-18T19:57:55Z",
+          "sha": "f1607075ff5186418b5a2b11b0d3fe5d4f68bda0"
+        }
+      ],
+      "matched_packages": [
+        "lodash"
+      ],
+      "path": "pnpm-lock.yaml",
+      "ref": "main"
+    },
+    {
+      "ecosystem": "npm",
+      "full_name": "pearmini/name2tree",
+      "history_commits": [
+        {
+          "committed_at": "2025-05-10T19:42:38Z",
+          "sha": "a83291d81da400b9000e2728440997fce3689027"
+        },
+        {
+          "committed_at": "2025-07-15T15:30:26Z",
+          "sha": "10030f6abd3576056e38a5950464666e95035846"
+        },
+        {
+          "committed_at": "2025-07-16T17:30:35Z",
+          "sha": "b9961f2ba52e8713b2c4a3067b6adc5f12c95658"
+        },
+        {
+          "committed_at": "2025-07-24T21:49:53Z",
+          "sha": "c9e8794f3447543389f8263e328d70c0240b13b3"
+        },
+        {
+          "committed_at": "2025-10-11T16:44:20Z",
+          "sha": "0662a8dab3251da8f2dcfb652cc93a4339fdb816"
+        },
+        {
+          "committed_at": "2025-11-28T00:15:41Z",
+          "sha": "6ef71e680bc5698d4167169f489407e970a0406f"
+        },
+        {
+          "committed_at": "2026-06-04T22:59:30Z",
+          "sha": "b9a999a0d9851806bf3cdbec02f1dfd8c45a6f87"
+        },
+        {
+          "committed_at": "2026-06-05T00:29:51Z",
+          "sha": "9fe8c2ff28960751be606af1c98e93635e514480"
+        }
+      ],
+      "matched_packages": [
+        "lodash"
+      ],
+      "path": "pnpm-lock.yaml",
+      "ref": "main"
+    },
+    {
+      "ecosystem": "npm",
+      "full_name": "privatenumber/tsx",
+      "history_commits": [
+        {
+          "committed_at": "2026-05-14T14:03:39Z",
+          "sha": "b29f6ee4d6872fdef474eb0a89c6d4e982478a77"
+        },
+        {
+          "committed_at": "2026-05-18T13:57:54Z",
+          "sha": "ef807dba6832260fb4cafd78d81f5469a733966b"
+        },
+        {
+          "committed_at": "2026-06-18T07:57:16Z",
+          "sha": "ca501a9c0f6977b1b990f65840173d932e155ce4"
+        },
+        {
+          "committed_at": "2026-07-13T02:47:10Z",
+          "sha": "79fddde523d3bb7d0af66682ce1265f95113a073"
+        },
+        {
+          "committed_at": "2026-07-13T04:35:12Z",
+          "sha": "5828ffe328d4709e5d0d8164b87459efb305853f"
+        },
+        {
+          "committed_at": "2026-07-13T09:57:05Z",
+          "sha": "40380a43d646e56188d7f3e724d5b92f2e9b81ed"
+        },
+        {
+          "committed_at": "2026-07-13T09:58:04Z",
+          "sha": "3c1d051b9f880ec2ce25704e0c126b14fb6dcf15"
+        },
+        {
+          "committed_at": "2026-07-14T06:44:32Z",
+          "sha": "e368161bf36a4f3698fe3d4c2076e51c2ce7f302"
+        }
+      ],
+      "matched_packages": [
+        "lodash"
+      ],
+      "path": "pnpm-lock.yaml",
+      "ref": "master"
+    },
+    {
+      "ecosystem": "npm",
+      "full_name": "raflymln/zod-key-parser",
+      "history_commits": [
+        {
+          "committed_at": "2023-10-31T15:33:28Z",
+          "sha": "dad308fd3c8122bc1f7981963693f5831127ffe6"
+        },
+        {
+          "committed_at": "2023-11-07T20:53:49Z",
+          "sha": "b4e8a323b09b23902973bb7eeee3bb862b7b1a72"
+        },
+        {
+          "committed_at": "2023-11-13T15:33:08Z",
+          "sha": "17d2a51739f86fe6041ef92462bfdc51a5f73daa"
+        },
+        {
+          "committed_at": "2023-11-20T19:39:04Z",
+          "sha": "e2e6944baf49433ab411e13b08cb1501f5db51d6"
+        },
+        {
+          "committed_at": "2023-12-28T19:35:00Z",
+          "sha": "ee0cf944a3dad46dde8dfb458aec884919fdecb2"
+        },
+        {
+          "committed_at": "2024-01-16T09:29:05Z",
+          "sha": "92da39dd2170714d1bd753a6c8b5adf1c92ae9f4"
+        },
+        {
+          "committed_at": "2024-05-15T08:45:03Z",
+          "sha": "f457af3ffa6b635d46eb1ddc29ce7f6ea1a8c12f"
+        },
+        {
+          "committed_at": "2026-01-08T11:08:42Z",
+          "sha": "a59c827ca7659821c7d347d4099c3ac6985d2017"
+        }
+      ],
+      "matched_packages": [
+        "lodash"
+      ],
+      "path": "pnpm-lock.yaml",
+      "ref": "v2"
+    },
+    {
+      "ecosystem": "npm",
+      "full_name": "roberthgnz/nuxt-feature-flags",
+      "history_commits": [
+        {
+          "committed_at": "2025-02-22T22:37:31Z",
+          "sha": "a1364c4d351818d47be7611a4520dd75f059b585"
+        },
+        {
+          "committed_at": "2025-02-23T11:01:22Z",
+          "sha": "94655c2a76177ccacb3d08eb30b44a7b9d8ef08d"
+        },
+        {
+          "committed_at": "2025-02-23T11:04:50Z",
+          "sha": "abb0121887c413553f5418b25161471d6203fe23"
+        },
+        {
+          "committed_at": "2025-02-23T11:23:14Z",
+          "sha": "ae35e9ffa046a35d989182b188bdd2598828edf7"
+        },
+        {
+          "committed_at": "2025-02-23T11:34:49Z",
+          "sha": "996fee63051035a6a6851c1b864e491ff884287d"
+        },
+        {
+          "committed_at": "2025-07-07T15:44:27Z",
+          "sha": "0348780a03f0d1c292e2705b770729be7d14bb65"
+        },
+        {
+          "committed_at": "2025-07-07T17:18:07Z",
+          "sha": "de3b7c50650b35a0ef7546f7f1daedcd135a9867"
+        },
+        {
+          "committed_at": "2026-01-09T03:47:59Z",
+          "sha": "ac012308a83c8b2a6a3c1cd3301b73d09640cf4d"
+        }
+      ],
+      "matched_packages": [
+        "lodash"
+      ],
+      "path": "pnpm-lock.yaml",
+      "ref": "main"
+    },
+    {
+      "ecosystem": "npm",
+      "full_name": "shellular-org/packages",
+      "history_commits": [
+        {
+          "committed_at": "2026-06-30T20:58:07Z",
+          "sha": "6067397dbec86cfde0d9963d87354a5216a88de0"
+        },
+        {
+          "committed_at": "2026-07-08T00:29:06Z",
+          "sha": "0c27774f5e3d14a6587cd3a6a0a6923f1656c66a"
+        },
+        {
+          "committed_at": "2026-07-18T19:27:07Z",
+          "sha": "4d73ef71c62cce85807f7c5a6c92ff318fdaf42b"
+        },
+        {
+          "committed_at": "2026-07-18T23:53:53Z",
+          "sha": "712bb39af01ca9f17c762c43c1620941421c82ec"
+        },
+        {
+          "committed_at": "2026-07-30T23:50:35Z",
+          "sha": "b804aa1f5e9fad0561b774f20ed7c834a3ffee95"
+        },
+        {
+          "committed_at": "2026-08-12T18:45:12Z",
+          "sha": "ed046de1d7a0ab7378b333d76131c7c4682dbdb8"
+        },
+        {
+          "committed_at": "2026-08-14T22:24:40Z",
+          "sha": "f43e35a0f068162c9205be0d2963b68a341f3dcb"
+        },
+        {
+          "committed_at": "2026-08-17T21:46:53Z",
+          "sha": "9889445105b3545c8bd4e2eac62b40834d164b3d"
+        }
+      ],
+      "matched_packages": [
+        "lodash"
+      ],
+      "path": "pnpm-lock.yaml",
+      "ref": "main"
+    },
+    {
+      "ecosystem": "npm",
+      "full_name": "timolins/react-hot-toast",
+      "history_commits": [
+        {
+          "committed_at": "2022-07-12T20:12:10Z",
+          "sha": "31e2764921505d97299a8ccdf1cc9d0301a42e34"
+        },
+        {
+          "committed_at": "2022-07-15T21:25:12Z",
+          "sha": "e33b969917f97ff2dd4ae92df17403f24516ea8b"
+        },
+        {
+          "committed_at": "2023-01-24T13:39:59Z",
+          "sha": "ea0ae2a17250db934a662bee243e33ac486e2da8"
+        },
+        {
+          "committed_at": "2023-04-28T11:31:12Z",
+          "sha": "92aef531e3655dbdd5071bb13ec137626c856f94"
+        },
+        {
+          "committed_at": "2024-01-22T20:12:18Z",
+          "sha": "1f7005356bd419100541a7dcd38d79fad2a2314e"
+        },
+        {
+          "committed_at": "2024-12-21T09:11:06Z",
+          "sha": "c5987f8292e482656e253d711c934e4b9fbbfaa5"
+        },
+        {
+          "committed_at": "2024-12-23T18:20:16Z",
+          "sha": "f07948fad04a3df263364fe0cec23cf14b38c4c2"
+        },
+        {
+          "committed_at": "2025-08-15T09:49:57Z",
+          "sha": "fc13b471173d6623e15a1a14526342224c7d8e54"
+        }
+      ],
+      "matched_packages": [
+        "lodash"
+      ],
+      "path": "pnpm-lock.yaml",
+      "ref": "main"
+    },
+    {
+      "ecosystem": "npm",
+      "full_name": "trevorpfiz/BioxML-allergen-epitopes",
+      "history_commits": [
+        {
+          "committed_at": "2024-10-08T21:38:20Z",
+          "sha": "e0ab120bfbac7e7638b1cf6ccea4fff08af783f8"
+        },
+        {
+          "committed_at": "2024-10-08T23:13:21Z",
+          "sha": "2f243fe0afead5d8b0829caa398821bd1b8afb8a"
+        },
+        {
+          "committed_at": "2024-10-11T05:28:06Z",
+          "sha": "8c8878508899de66741cf1e6aff74b4576360306"
+        },
+        {
+          "committed_at": "2024-10-12T05:33:46Z",
+          "sha": "f5819710c7f8a5ecb18ac6f318d4071ed65a6cb3"
+        },
+        {
+          "committed_at": "2024-10-12T07:00:19Z",
+          "sha": "dc7956b5cb7e31832957f265ec6c8fe5bd48abe3"
+        },
+        {
+          "committed_at": "2024-10-14T21:15:20Z",
+          "sha": "690533a0e33aa9125289ea8dafe3494c011d2bce"
+        },
+        {
+          "committed_at": "2024-10-15T19:07:10Z",
+          "sha": "aeccb72c4efea5316c6e74b3275b3e7e2509ea5b"
+        },
+        {
+          "committed_at": "2024-10-17T22:15:32Z",
+          "sha": "d026c8f51875a6c623d15f2428686371f5f8f2ab"
+        }
+      ],
+      "matched_packages": [
+        "lodash"
+      ],
+      "path": "pnpm-lock.yaml",
+      "ref": "main"
+    },
+    {
+      "ecosystem": "npm",
+      "full_name": "u3u/console.img",
+      "history_commits": [
+        {
+          "committed_at": "2023-11-15T18:48:13Z",
+          "sha": "98930e1eb7200d0783659962145c8cc8b874f378"
+        },
+        {
+          "committed_at": "2023-11-17T18:04:25Z",
+          "sha": "4adc48da8c28fb62d6fc39d6b0e478926d64343b"
+        },
+        {
+          "committed_at": "2023-11-18T21:26:21Z",
+          "sha": "7d2aa2c072f9afc6b0d855c17cec8733610ca340"
+        },
+        {
+          "committed_at": "2023-11-20T18:38:27Z",
+          "sha": "9a3cb3bec2e23952a9dcc8d95cb9685bd587ead8"
+        },
+        {
+          "committed_at": "2023-11-24T18:26:04Z",
+          "sha": "a75dfeedbb17f41caee5afccb863f588b41d91c1"
+        },
+        {
+          "committed_at": "2023-12-02T18:37:14Z",
+          "sha": "17a2835487d7be40165298dd3c59670f04fa2bdd"
+        },
+        {
+          "committed_at": "2024-01-10T18:56:01Z",
+          "sha": "a460eeafa0c80786af200c8bc56dc1c32b4f23c0"
+        },
+        {
+          "committed_at": "2025-05-10T18:09:43Z",
+          "sha": "77dd8230306911fec696335a654f372c62834e3c"
+        }
+      ],
+      "matched_packages": [
+        "lodash"
+      ],
+      "path": "pnpm-lock.yaml",
+      "ref": "main"
+    },
+    {
+      "ecosystem": "npm",
+      "full_name": "unjs/uncrypto",
+      "history_commits": [
+        {
+          "committed_at": "2023-08-11T21:56:27Z",
+          "sha": "8a0b57316b080e6ca35d110f0a8602872cc6bc23"
+        },
+        {
+          "committed_at": "2023-08-18T19:11:50Z",
+          "sha": "21e3de7c0e14b24f028f4bf35da6ecd93071a8cf"
+        },
+        {
+          "committed_at": "2023-08-28T03:46:49Z",
+          "sha": "223855667413d593ef10eaca5aeaf5c65abe58f8"
+        },
+        {
+          "committed_at": "2023-09-06T01:14:04Z",
+          "sha": "d87357f7c82372eadeb99867f10243668f3d81b0"
+        },
+        {
+          "committed_at": "2023-09-12T02:19:25Z",
+          "sha": "c553860fc8174f3666cb4c6c90d087b25c944edf"
+        },
+        {
+          "committed_at": "2023-09-17T20:18:19Z",
+          "sha": "eec0ac6df1075535be00ead4c324ad3c037c985c"
+        },
+        {
+          "committed_at": "2023-09-27T22:04:01Z",
+          "sha": "64c469d9eec85665fbf441f3389c845a497cf189"
+        },
+        {
+          "committed_at": "2024-03-06T17:57:15Z",
+          "sha": "a99f620f03aaa4c24b4fed5f4396222e9b5b9fe4"
+        }
+      ],
+      "matched_packages": [
+        "lodash"
+      ],
+      "path": "pnpm-lock.yaml",
+      "ref": "main"
+    },
+    {
+      "ecosystem": "npm",
+      "full_name": "vkubilays/Get-Starknet",
+      "history_commits": [
+        {
+          "committed_at": "2022-11-30T23:14:35Z",
+          "sha": "3129ff319b0c83b654bd41f7d6ba778dc63d8d21"
+        },
+        {
+          "committed_at": "2023-04-18T13:12:57Z",
+          "sha": "b0f8ee7d3027b563c3e633a7136fa6a6ef253ae8"
+        },
+        {
+          "committed_at": "2023-06-19T13:48:29Z",
+          "sha": "abe5bf9960fac90698c10ae8980903da57339540"
+        },
+        {
+          "committed_at": "2023-06-19T14:02:42Z",
+          "sha": "3249993f7803fe08e8144bd18e17fb4f21ffa0d0"
+        },
+        {
+          "committed_at": "2023-06-20T13:41:32Z",
+          "sha": "90495670eee99f50739878e88f62c05205ca38df"
+        },
+        {
+          "committed_at": "2023-06-21T08:59:47Z",
+          "sha": "c6d3609804742ee8a2a22433267ca4a29938ecb3"
+        }
+      ],
+      "matched_packages": [
+        "lodash"
+      ],
+      "path": "pnpm-lock.yaml",
+      "ref": "master"
+    },
+    {
+      "ecosystem": "npm",
+      "full_name": "wangzmgit/leaf",
+      "history_commits": [
+        {
+          "committed_at": "2023-01-09T02:17:21Z",
+          "sha": "f15d61555ef0c42d4bb7091d0659bcf7a478dd74"
+        },
+        {
+          "committed_at": "2023-01-14T05:22:17Z",
+          "sha": "7fb65f9f7a7b8daafd6a1eb0aed3de25aff2d296"
+        },
+        {
+          "committed_at": "2023-01-14T08:27:59Z",
+          "sha": "fd773e49e6d365076dcf5c04f3210af6cd546a43"
+        },
+        {
+          "committed_at": "2023-01-19T09:52:12Z",
+          "sha": "27acce2e209b8d26532eee9691f1608002320a28"
+        },
+        {
+          "committed_at": "2023-01-25T02:54:39Z",
+          "sha": "25c9ce8c8d66b321168def902a739e648ec125f9"
+        },
+        {
+          "committed_at": "2023-01-25T12:23:32Z",
+          "sha": "edc8e13d04f712676b18a088a358e444d9aa2c46"
+        },
+        {
+          "committed_at": "2023-10-14T13:14:25Z",
+          "sha": "39cf393f479ab14eb2bf3a03411a943229f44b20"
+        },
+        {
+          "committed_at": "2023-10-15T09:50:37Z",
+          "sha": "c43e0a2cabd3dd3ffc194d1b7464b50c235db585"
+        }
+      ],
+      "matched_packages": [
+        "lodash"
+      ],
+      "path": "web/pnpm-lock.yaml",
+      "ref": "master"
+    },
+    {
+      "ecosystem": "npm",
+      "full_name": "webpro-nl/remove-unused-vars",
+      "history_commits": [
+        {
+          "committed_at": "2025-11-24T09:17:48Z",
+          "sha": "8b8f69af676b1abdcb7202de79c061a22e148d4c"
+        },
+        {
+          "committed_at": "2025-11-24T09:17:48Z",
+          "sha": "d536d743f17fd7eaa77e3fc6f69f816f8658f0e7"
+        },
+        {
+          "committed_at": "2026-06-16T09:29:50Z",
+          "sha": "da4bc68ea9fe02a8d8fc2c80f8498d6bfc31fc60"
+        }
+      ],
+      "matched_packages": [
+        "lodash"
+      ],
+      "path": "pnpm-lock.yaml",
+      "ref": "main"
+    },
+    {
+      "ecosystem": "npm",
+      "full_name": "wso2-open-operations/cs-tools",
+      "history_commits": [
+        {
+          "committed_at": "2026-05-27T14:38:06Z",
+          "sha": "5c15ce00ce1558a2bba8f299444f196d0cd6aa65"
+        },
+        {
+          "committed_at": "2026-05-27T16:03:20Z",
+          "sha": "ac1cc1b7c8d9ffdecbd472144c4de164a6454b0f"
+        },
+        {
+          "committed_at": "2026-06-09T06:29:36Z",
+          "sha": "58af2326abf45e70b74d8c3b6912407bdc9a574f"
+        },
+        {
+          "committed_at": "2026-07-02T07:18:59Z",
+          "sha": "9302d0890f226bbcb65b650248767cee8cf7f039"
+        },
+        {
+          "committed_at": "2026-07-26T17:52:23Z",
+          "sha": "91c16eda67ab82115f3600b53b01a8ec2763d6da"
+        }
+      ],
+      "matched_packages": [
+        "lodash"
+      ],
+      "path": "apps/csm-portal/webapp/pnpm-lock.yaml",
+      "ref": "main"
+    },
+    {
+      "ecosystem": "npm",
+      "full_name": "zjy365/gh-explorer",
+      "history_commits": [
+        {
+          "committed_at": "2025-05-09T14:05:57Z",
+          "sha": "aaa8f3ae20f06a6d530317dc6b58d11967629d36"
+        },
+        {
+          "committed_at": "2025-05-10T14:44:30Z",
+          "sha": "ae46e260d4c9585bc11a5276be3a53b4528c95c6"
+        },
+        {
+          "committed_at": "2025-05-27T13:26:40Z",
+          "sha": "09e02883a1c24550fd2b6d7f8f291afd41749d5b"
+        },
+        {
+          "committed_at": "2025-06-29T08:03:31Z",
+          "sha": "f9799433de569ce33944e905d33f2a791a99ef9a"
+        }
+      ],
+      "matched_packages": [
+        "lodash"
+      ],
+      "path": "pnpm-lock.yaml",
+      "ref": "main"
+    }
+  ],
+  "selection_rule": {
+    "candidate_limit_per_package": 80,
+    "history_limit": 8,
+    "include_repositories_without_the_affected_version": true,
+    "minimum_historical_lockfile_commits": 3,
+    "organization_cap": 6,
+    "repository_limit": 400,
+    "search": "GitHub code search for the package name inside a supported lockfile",
+    "search_page_size": 100,
+    "search_pages_per_query": 2,
+    "seed": "packages attached to real OSV AFFECTS edges in the current graph"
+  },
+  "source_graph_fingerprint": "812899da3f19920100bfd0855a2cb2279e3389fd4db83b8dd6fc2a6ea0275535"
+}
