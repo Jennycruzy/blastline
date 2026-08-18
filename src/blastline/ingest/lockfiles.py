@@ -260,9 +260,10 @@ def parse_pnpm_lock(body: bytes, ecosystem: str) -> LockfileResult:
             if ":" not in stripped:
                 continue
             name, requirement = stripped.split(":", 1)
+            name = name.strip().strip('"\'')
             requirement = requirement.strip().strip('"\'')
             if requirement:
-                current_dependencies.append(LockDependency(name.strip(), requirement))
+                current_dependencies.append(LockDependency(name, requirement))
     finish()
     if not resolutions and not issues:
         raise ValueError("pnpm-lock.yaml has no package snapshots")
@@ -271,12 +272,47 @@ def parse_pnpm_lock(body: bytes, ecosystem: str) -> LockfileResult:
 
 
 def pnpm_key_parts(key: str) -> tuple[str, str]:
-    candidate = key.lstrip("/")
-    at = candidate.rfind("@")
-    if at <= 0:
+    candidate = key.strip()
+    if len(candidate) >= 2 and candidate[0] == candidate[-1] and candidate[0] in "'\"":
+        candidate = candidate[1:-1]
+    candidate = candidate.lstrip("/")
+
+    if not candidate:
         raise ValueError(f"pnpm package key has no version: {key}")
-    package_name = candidate[:at]
-    version = candidate[at + 1 :].split("(", 1)[0]
+
+    # pnpm v7+ uses package@version, while older lockfiles use
+    # /package/version.  For scoped packages, the version separator is the
+    # @ after the scope/name slash, not the leading scope marker.
+    if candidate.startswith("@"):
+        scope_separator = candidate.find("/")
+        path_separator = candidate.find("/", scope_separator + 1)
+        package_separator = candidate.find("@", scope_separator + 1)
+        if package_separator <= scope_separator or (
+            path_separator >= 0 and package_separator > path_separator
+        ):
+            package_separator = -1
+    else:
+        path_separator = candidate.find("/")
+        package_separator = candidate.find("@")
+        if package_separator <= 0 or (path_separator >= 0 and package_separator > path_separator):
+            package_separator = -1
+    if package_separator > 0:
+        package_name = candidate[:package_separator]
+        version = candidate[package_separator + 1 :]
+    else:
+        if candidate.startswith("@"):
+            package_separator = candidate.find("/", candidate.find("/") + 1)
+        else:
+            package_separator = candidate.find("/")
+        if package_separator <= 0:
+            raise ValueError(f"pnpm package key has no version: {key}")
+        package_name = candidate[:package_separator]
+        version = candidate[package_separator + 1 :]
+
+    # Peer dependency context is part of the lockfile key, not the package's
+    # resolved version: foo@1.0.0(bar@2.0.0) and /foo/1.0.0_bar@2.0.0 both
+    # resolve foo at 1.0.0.
+    version = re.split(r"[_(]", version, maxsplit=1)[0]
     if not package_name or not version:
         raise ValueError(f"pnpm package key is incomplete: {key}")
     return package_name, version

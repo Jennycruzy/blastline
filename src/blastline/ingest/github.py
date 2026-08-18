@@ -81,6 +81,7 @@ class GitHubLockfileSource:
         ecosystem: str,
         commits_override: tuple[GitHubCommit, ...] | None = None,
         refresh: bool = False,
+        calculate_fingerprint: bool = True,
     ) -> tuple[int, int, int, str]:
         commits = commits_override if commits_override is not None else self.commits(owner, repository, path, ref, limit)
         if not commits:
@@ -128,7 +129,8 @@ class GitHubLockfileSource:
             except (ExternalCallError, UnicodeDecodeError, TypeError, ValueError) as exc:
                 self.ledger.record("github-lockfile", identifier, str(exc))
                 failures += 1
-        return parsed_snapshots, resolutions, failures, self.store.fingerprint()
+        fingerprint = self.store.fingerprint() if calculate_fingerprint else ""
+        return parsed_snapshots, resolutions, failures, fingerprint
 
 
 def repository_host(owner: str, repository: str) -> str:

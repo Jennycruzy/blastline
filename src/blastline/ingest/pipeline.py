@@ -557,6 +557,7 @@ class RegistryIngestor:
         extra_headers: dict[str, str] | None = None,
         commits_override: tuple[GitHubCommit, ...] | None = None,
         refresh: bool = False,
+        calculate_fingerprint: bool = True,
     ) -> tuple[int, int, int, str]:
         parts = repository.split("/", 1)
         if len(parts) != 2 or not all(parts):
@@ -572,7 +573,17 @@ class RegistryIngestor:
             extra_headers,
         )
         limit = history_limit if history_limit is not None else self.settings.integer("ingest", "github_history_limit")
-        return source.ingest_history(parts[0], parts[1], path, ref, limit, ecosystem, commits_override, refresh)
+        return source.ingest_history(
+            parts[0],
+            parts[1],
+            path,
+            ref,
+            limit,
+            ecosystem,
+            commits_override,
+            refresh,
+            calculate_fingerprint,
+        )
 
     def discover_github_corpus(self, refresh: bool = False):
         corpus = self.settings.section("corpus")
@@ -622,6 +633,7 @@ class RegistryIngestor:
                     history_limit,
                     commits_override=selected.history_commits,
                     refresh=refresh,
+                    calculate_fingerprint=False,
                 )
             except (ExternalCallError, TypeError, ValueError, BlastlineError) as exc:
                 self.ledger.record("github-corpus", selected.identifier, str(exc))
