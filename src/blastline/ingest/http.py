@@ -116,3 +116,18 @@ class DiskHttpClient:
             if attempt + 1 < self.policy.retry_attempts:
                 time.sleep(self.policy.retry_base_seconds * (2**attempt))
         raise ExternalCallError(f"HTTP {normalized_method} {url} failed after retries") from last_error
+
+    def read_cached(
+        self,
+        url: str,
+        method: str = "GET",
+        body: bytes | None = None,
+        extra_headers: dict[str, str] | None = None,
+    ) -> HttpResponse:
+        """Read a response from disk without permitting a network fallback."""
+
+        normalized_method = method.upper()
+        cache_path = self._path(self._key(normalized_method, url, body, extra_headers))
+        if not cache_path.exists():
+            raise ExternalCallError(f"HTTP cache miss for {normalized_method} {url}")
+        return self._read(cache_path)

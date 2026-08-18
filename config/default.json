@@ -44,7 +44,8 @@
   "verification": {
     "repository_limit": 50,
     "max_lockfile_bytes": 10000000,
-    "max_unresolved_dependencies": 0
+    "max_unresolved_dependencies": 0,
+    "lockfile_snapshot_ledger": "cache/verification/lockfile-snapshots.jsonl"
   },
   "inference": {
     "name_distance_weight": 0.45,

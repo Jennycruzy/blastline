@@ -15,6 +15,7 @@ from ..timeutil import parse_time
 from .failures import FailureLedger
 from .http import DiskHttpClient
 from .lockfiles import graphify_lockfile, parse_lockfile
+from .snapshots import LockfileSnapshot, SnapshotLedger
 
 
 @dataclass(frozen=True, slots=True)
@@ -31,12 +32,14 @@ class GitHubLockfileSource:
         raw_url: str,
         store: GraphStore,
         ledger: FailureLedger,
+        snapshots: SnapshotLedger,
     ) -> None:
         self.http = http
         self.api_url = api_url.rstrip("/")
         self.raw_url = raw_url.rstrip("/")
         self.store = store
         self.ledger = ledger
+        self.snapshots = snapshots
 
     def commits(self, owner: str, repository: str, path: str, ref: str, limit: int) -> tuple[GitHubCommit, ...]:
         query = urlencode({"path": path, "sha": ref, "per_page": str(limit)})
@@ -60,8 +63,11 @@ class GitHubLockfileSource:
         return tuple(commits)
 
     def fetch_lockfile(self, owner: str, repository: str, path: str, sha: str) -> bytes:
-        url = f"{self.raw_url}/{quote(owner)}/{quote(repository)}/{quote(sha)}/{quote(path, safe='/')}"
+        url = self.raw_lockfile_url(owner, repository, path, sha)
         return self.http.fetch(url).body
+
+    def raw_lockfile_url(self, owner: str, repository: str, path: str, sha: str) -> str:
+        return f"{self.raw_url}/{quote(owner)}/{quote(repository)}/{quote(sha)}/{quote(path, safe='/')}"
 
     def ingest_history(
         self,
@@ -92,7 +98,20 @@ class GitHubLockfileSource:
             valid_to = commits[index + 1].committed_at if index + 1 < len(commits) else None
             identifier = f"{owner}/{repository}:{path}@{commit.sha}"
             try:
-                body = self.fetch_lockfile(owner, repository, path, commit.sha)
+                raw_url = self.raw_lockfile_url(owner, repository, path, commit.sha)
+                body = self.http.fetch(raw_url).body
+                self.snapshots.record(
+                    LockfileSnapshot.from_body(
+                        f"{owner}/{repository}",
+                        path,
+                        commit.sha,
+                        ecosystem,
+                        commit.committed_at,
+                        valid_to,
+                        raw_url,
+                        body,
+                    )
+                )
                 result = parse_lockfile(path, body, ecosystem)
                 for issue in result.issues:
                     self.ledger.record("github-lockfile", f"{identifier}:{issue.identifier}", issue.reason, body)

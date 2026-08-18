@@ -21,6 +21,7 @@ from .http import DiskHttpClient, HttpPolicy, HttpResponse
 from .lockfiles import graphify_lockfile, parse_lockfile
 from .osv import OsvClient, OsvTarget, attach_advisories
 from .parsers import parse_npm, parse_pypi
+from .snapshots import SnapshotLedger
 from .simple_index import parse_simple_index
 from .sources import (
     NpmRegistry,
@@ -90,6 +91,7 @@ class RegistryIngestor:
         )
         self.store = GraphStore(settings.path("graph", "directory"))
         self.ledger = FailureLedger(settings.root / "cache" / "ingest-failures.jsonl")
+        self.snapshot_ledger = SnapshotLedger(settings.path("verification", "lockfile_snapshot_ledger"))
         self.hydra = HydraClient(load_hydra_config(settings.root, settings.values))
         self.coverage_path = settings.root / "cache" / "coverage" / "registry-denominators.json"
 
@@ -561,6 +563,7 @@ class RegistryIngestor:
             self._string(ingest_section, "github_raw_url"),
             self.store,
             self.ledger,
+            self.snapshot_ledger,
         )
         limit = self.settings.integer("ingest", "github_history_limit")
         return source.ingest_history(parts[0], parts[1], path, ref, limit, ecosystem)

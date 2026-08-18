@@ -10,7 +10,7 @@ Blastline does not only ask what depends on a vulnerable package today. It recon
 
 ## Verification first
 
-The committed scorecard is generated from real OSV advisory records and real public GitHub lockfile history. The latest recorded run covers 15 gradable cases: TP=15, FP=0, FN=0, precision 1.0000, recall 1.0000. This is a small measured corpus, not an ecosystem-wide accuracy claim. Every run records its graph fingerprint, commit SHA, denominator, abstentions, and misses in [`cache/verification/runs.jsonl`](cache/verification/runs.jsonl). Current-source failures remain itemized in [`cache/ingest-failures.jsonl`](cache/ingest-failures.jsonl).
+The committed scorecard is generated from real OSV advisory records and real public GitHub lockfile history. Verification reparses the cached raw lockfile snapshots through a graph-free observation oracle; it does not use graph `Resolution` edges as ground truth. The latest recorded run covers 15 gradable cases: TP=15, FP=0, FN=0, precision 1.0000, recall 1.0000. This is a small measured corpus, not an ecosystem-wide accuracy claim. Every run records its graph fingerprint, commit SHA, denominator, abstentions, and misses in [`cache/verification/runs.jsonl`](cache/verification/runs.jsonl). Current-source failures remain itemized in [`cache/ingest-failures.jsonl`](cache/ingest-failures.jsonl).
 
 ## Current measured snapshot
 

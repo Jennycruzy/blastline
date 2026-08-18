@@ -10,11 +10,14 @@ from pathlib import Path
 
 from ..config import Settings
 from ..json_types import JsonObject
+from ..ingest.http import DiskHttpClient, HttpPolicy
+from ..ingest.snapshots import SnapshotLedger
 from ..model import EdgeType, NodeType
 from ..query.engine import QueryEngine
 from ..query.types import QueryResponse
 from ..store import GraphStore
 from ..timeutil import format_time, now_utc
+from .lockfile_oracle import CachedLockfileOracle
 
 
 @dataclass(frozen=True, slots=True)
@@ -27,6 +30,7 @@ class VerificationCase:
     window_end: datetime
     known_at: datetime
     observed_repositories: tuple[str, ...]
+    observation_abstentions: tuple[str, ...]
 
     def as_json(self) -> JsonObject:
         return {
@@ -38,6 +42,7 @@ class VerificationCase:
             "window_end": format_time(self.window_end),
             "known_at": format_time(self.known_at),
             "observed_repositories": list(self.observed_repositories),
+            "observation_abstentions": list(self.observation_abstentions),
         }
 
 
@@ -116,6 +121,17 @@ class Verifier:
         self.store = store
         self.settings = settings
         self.engine = QueryEngine(store, settings)
+        cache_path = settings.path("hydra", "cache_directory").parent / "registry"
+        policy = HttpPolicy(
+            settings.integer("hydra", "request_timeout_seconds"),
+            settings.integer("hydra", "retry_attempts"),
+            settings.number("hydra", "retry_base_seconds"),
+        )
+        user_agent = settings.string("ingest", "user_agent")
+        self.oracle = CachedLockfileOracle(
+            SnapshotLedger(settings.path("verification", "lockfile_snapshot_ledger")),
+            DiskHttpClient(cache_path, policy, user_agent),
+        )
 
     def discover_cases(self) -> tuple[VerificationCase, ...]:
         cases: list[VerificationCase] = []
@@ -143,11 +159,15 @@ class Verifier:
                     window_end = min(resolution_edge.valid.end, window_start + timedelta(days=default_days))
                 if window_end <= window_start:
                     continue
-                repositories = self.repositories_for_resolution(resolution_edge.source_id, window_start, window_end)
-                if not repositories:
-                    continue
                 known_at = max(advisory_edge.commit_at, resolution_edge.commit_at)
                 case_id = f"{package}@{version}:{format_time(window_start)}:{resolution_edge.source_id}"
+                observation = self.oracle.observe(
+                    registry,
+                    package,
+                    version,
+                    (window_start, window_end),
+                    known_at,
+                )
                 cases.append(
                     VerificationCase(
                         case_id,
@@ -157,20 +177,13 @@ class Verifier:
                         window_start,
                         window_end,
                         known_at,
-                        tuple(sorted(repositories)),
+                        observation.repositories,
+                        observation.abstentions,
                     )
                 )
                 if len(cases) >= limit:
                     return tuple(cases)
         return tuple(cases)
-
-    def repositories_for_resolution(self, resolution_id: str, start: datetime, end: datetime) -> set[str]:
-        target_interval = self._interval(start, end)
-        repositories: set[str] = set()
-        for declaration in self.store.incoming(resolution_id, EdgeType.DECLARES):
-            if declaration.valid.intersects(target_interval):
-                repositories.add(self.repository_label(declaration.source_id))
-        return repositories
 
     def grade(self) -> Scorecard:
         cases = self.discover_cases()
@@ -197,7 +210,9 @@ class Verifier:
             observed = set(case.observed_repositories)
             misses = tuple(sorted(observed - predicted))
             extras = tuple(sorted(predicted - observed))
-            abstentions = tuple(f"{item.scope}: {item.reason}" for item in response.abstentions)
+            abstentions = tuple(case.observation_abstentions) + tuple(
+                f"{item.scope}: {item.reason}" for item in response.abstentions
+            )
             result = VerificationCaseResult(case, tuple(sorted(predicted)), tuple(sorted(observed)), misses, extras, abstentions)
             results.append(result)
             if abstentions:

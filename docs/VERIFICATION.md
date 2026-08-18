@@ -7,13 +7,19 @@ Blastline treats “these repositories are exposed” as a falsifiable claim.
 1. Select a real public advisory from OSV.dev and a real public repository with a committed lockfile.
 2. Ingest registry history, advisory disclosure data, and the repository’s lockfile commits. The GitHub adapter parses each committed snapshot instead of treating a manifest range as a resolved version.
 3. Predict exposure with Q1/Q3 from the graph.
-4. Resolve the same lockfile snapshots through the strict parser and use the resulting `Resolution` records as observed ground truth. Records that have no resolved version are retained in the failure ledger and are not silently counted as clean.
+4. Resolve the same raw lockfile snapshots through the strict parser again, using the graph-free cached-lockfile oracle. The verifier does not derive observed ground truth from graph `Resolution` edges. Records that have no resolved version are retained in the failure ledger and are not silently counted as clean.
 5. Compare predicted and observed repository sets. False negatives are printed before aggregate metrics.
 6. Append the scorecard, graph fingerprint, and Git commit SHA to `cache/verification/runs.jsonl`.
 
 The verification target is not merely “does this repository depend on the package today?” Blastline must reconstruct the repository’s historical resolution during the requested exposure window, preserve the `Repository → Resolution → Version` evidence path, and distinguish that result from the current state. A missing path, missing timestamp, or unresolved lockfile produces an explicit abstention rather than a clean verdict.
 
 The verifier does not tune thresholds to a perfect number. It reports the denominator and excludes ungradable cases from precision/recall. Its case-level `abstentions` field preserves the reason a case was not gradable.
+
+## Independent observation oracle
+
+GitHub ingestion records each fetched lockfile snapshot in [`cache/verification/lockfile-snapshots.jsonl`](../cache/verification/lockfile-snapshots.jsonl), including its repository, commit, validity interval, raw URL, and payload hash. Verification reads the corresponding raw response from the committed HTTP cache, validates the hash, and reparses the lockfile without consulting graph `Resolution`, `DECLARES`, or `RESOLVED_TO` edges for the observed set.
+
+This separates two failure classes: the graph query can disagree with the lockfile observation, and the lockfile observation can abstain when its raw evidence is missing, corrupt, or unparseable. The strict parser is shared with ingestion, but graph projection is not part of the observation path.
 
 ## Current recorded run
 
