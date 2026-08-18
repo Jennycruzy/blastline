@@ -34,7 +34,6 @@ class FakeGitHubHttp:
                             "path": "package-lock.json",
                             "repository": {
                                 "full_name": "example/service",
-                                "default_branch": "main",
                                 "private": False,
                             },
                         }
@@ -43,6 +42,8 @@ class FakeGitHubHttp:
             else:
                 body = {"total_count": 0, "items": []}
             return HttpResponse(url, 200, {}, json.dumps(body).encode("utf-8"), False)
+        if parsed.path == "/repos/example/service":
+            return HttpResponse(url, 200, {}, json.dumps({"default_branch": "main"}).encode("utf-8"), False)
         if "/commits" in parsed.path:
             body = [
                 {"sha": f"commit-{index}", "commit": {"author": {"date": f"2026-08-{13 + index:02d}T00:00:00Z"}}}

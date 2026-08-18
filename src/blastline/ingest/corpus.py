@@ -6,7 +6,7 @@ import json
 import os
 from dataclasses import dataclass
 from pathlib import Path
-from urllib.parse import urlencode
+from urllib.parse import quote, urlencode
 
 from ..config import Settings
 from ..errors import ConfigurationError, ExternalCallError
@@ -254,11 +254,27 @@ class GitHubCorpusDiscoverer:
             if private is True:
                 continue
             full_name = require_string(repository.get("full_name"), f"GitHub code search item {index}.repository.full_name")
-            ref = require_string(repository.get("default_branch"), f"GitHub code search item {index}.repository.default_branch")
             if full_name.count("/") != 1 or not all(full_name.split("/")):
                 raise ValueError(f"GitHub code search item {index} has invalid repository name: {full_name}")
+            default_branch = repository.get("default_branch")
+            ref = (
+                default_branch
+                if isinstance(default_branch, str)
+                else self.repository_default_branch(full_name, refresh, headers)
+            )
             hits.append(GithubSearchHit(full_name, path, ref, ecosystem))
         return tuple(hits), total_value if isinstance(total_value, int) else None
+
+    def repository_default_branch(self, full_name: str, refresh: bool, headers: dict[str, str]) -> str:
+        owner, repository = full_name.split("/", 1)
+        url = f"{self.api_url}/repos/{quote(owner)}/{quote(repository)}"
+        response = self.http.fetch(url, refresh=refresh, extra_headers=headers)
+        try:
+            value: JsonValue = json.loads(response.body)
+        except json.JSONDecodeError as exc:
+            raise ValueError(f"GitHub repository metadata for {full_name} is invalid JSON") from exc
+        document = require_object(value, f"GitHub repository metadata for {full_name}")
+        return require_string(document.get("default_branch"), f"GitHub repository metadata for {full_name}.default_branch")
 
     def discover(
         self,
