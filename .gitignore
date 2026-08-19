@@ -8,7 +8,7 @@ __pycache__/
 .env
 cache/registry/
 data/*
-!data/graph.tar.gz
+!data/graph.tar.zst
 !cache/registry.tar.gz
 dist/
 *.egg-info/

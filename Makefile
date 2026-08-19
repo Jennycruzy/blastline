@@ -37,9 +37,9 @@ prepare-graph:
 	fi; \
 	if test -f data/graph/.corpus-ready; then \
 		echo "offline graph projection already prepared"; \
-	elif test -f data/graph.tar.gz; then \
+	elif test -f data/graph.tar.zst; then \
 		echo "unpacking committed offline graph snapshot"; \
-		tar -xzf data/graph.tar.gz; \
+		tar --zstd -xf data/graph.tar.zst; \
 	else \
 		echo "preparing offline graph projection from committed recordings"; \
 		$(MAKE) --no-print-directory demo; \
