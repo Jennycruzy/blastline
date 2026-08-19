@@ -2,6 +2,8 @@
 
 Status: draft for upstream discussion
 
+Upstream discussion: [hydra-db/hydradb#111](https://github.com/hydra-db/hydradb/issues/111)
+
 ## Summary
 
 HydraDB graph-context retrieval can return candidate entity paths and source-level relations. Supply-chain incident response additionally needs deterministic predicates over when an edge was valid and when the system learned it. This RFC proposes optional temporal filters for graph relations so HydraDB can prune impossible paths before returning graph context.

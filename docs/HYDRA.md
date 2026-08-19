@@ -36,4 +36,4 @@ HydraDB’s graph context can expose relationships between the canonical records
 
 The adapter follows the public [HydraDB API reference](https://docs.hydradb.com/api-reference), [v2 SDK/API mapping](https://docs.hydradb.com/api-reference/v2/sdks), [v2 context-ingest contract](https://docs.hydradb.com/api-reference/v2/endpoint/ingest-context), [v2 query contract](https://docs.hydradb.com/api-reference/v2/endpoint/query), and [v2 relation-inspection contract](https://docs.hydradb.com/api-reference/v2/endpoint/source-relations). The project records request payloads through the same disk-cache rule used for the public registries.
 
-The temporal-predicate gap and a backward-compatible request proposal are documented in [`RFC_HYDRA_TEMPORAL_PREDICATES.md`](RFC_HYDRA_TEMPORAL_PREDICATES.md).
+The temporal-predicate gap and a backward-compatible request proposal are documented in [`RFC_HYDRA_TEMPORAL_PREDICATES.md`](RFC_HYDRA_TEMPORAL_PREDICATES.md) and filed upstream as [hydra-db/hydradb#111](https://github.com/hydra-db/hydradb/issues/111).
