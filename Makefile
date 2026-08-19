@@ -35,7 +35,7 @@ prepare-graph:
 		tar -xzf cache/registry.tar.gz; \
 		touch cache/registry/.archive-ready; \
 	fi; \
-	if test -f data/graph/.corpus-ready; then \
+	if test -s data/graph/nodes.jsonl && test -s data/graph/edges.jsonl; then \
 		echo "offline graph projection already prepared"; \
 	elif test -f data/graph.tar.zst; then \
 		echo "unpacking committed offline graph snapshot"; \
