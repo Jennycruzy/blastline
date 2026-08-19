@@ -82,7 +82,7 @@
     "query": "Q8 abstention and coverage",
     "results": []
   },
-  "generated_at": "2026-08-19T19:13:03Z",
+  "generated_at": "2026-08-19T19:32:29Z",
   "graph": {
     "edge_count": 814455,
     "fingerprint": "b5fa455a5d3eea7bb0cda7e6a882e1ecccdb1fa16631889e16e711126a346619",
@@ -2177,8 +2177,571 @@
     "recorded_at": "2026-08-19T18:21:31Z"
   },
   "hydra_window": {
-    "reason": "no recorded Hydra window run matches the current target and graph fingerprint",
-    "status": "ABSTAINED"
+    "abstentions": [],
+    "accepted_results": [
+      {
+        "edge_commit_at": "2026-07-27T23:11:54Z",
+        "lock_path": "node_modules/tap/node_modules/lodash",
+        "repository": "npm/cli",
+        "resolution": "resolution:728ae11bd1a86c6e9f13c9c2685ad2b5d3d17c76152576dfe1ca4aa799fc7853",
+        "valid_overlap": {
+          "end": "2026-08-01T00:00:00Z",
+          "start": "2026-07-27T23:11:54Z"
+        }
+      },
+      {
+        "edge_commit_at": "2025-08-01T18:22:42Z",
+        "lock_path": "/lodash@4.17.21",
+        "repository": "Codehagen/regnskapsloop-crm",
+        "resolution": "resolution:7345826cbbfa3b32efcf499a689008249495f3f4d58cba54d3feb4d8768e4956",
+        "valid_overlap": {
+          "end": "2026-08-01T00:00:00Z",
+          "start": "2025-08-01T18:22:42Z"
+        }
+      },
+      {
+        "edge_commit_at": "2024-06-08T21:48:38Z",
+        "lock_path": "lodash@4.17.21",
+        "repository": "Eliav2/express-typed",
+        "resolution": "resolution:e9777b8e5dff7643723c08d8c8f842ea6f390b5c87e9b88e6b5235dff80a706e",
+        "valid_overlap": {
+          "end": "2026-08-01T00:00:00Z",
+          "start": "2024-06-08T21:48:38Z"
+        }
+      },
+      {
+        "edge_commit_at": "2024-12-20T15:59:48Z",
+        "lock_path": "lodash@4.17.21",
+        "repository": "Marinerer/unity-webgl",
+        "resolution": "resolution:50d73f82bf3a5710a2ee404eb626e4dc13ea32434bbc81af2010a43d732affc4",
+        "valid_overlap": {
+          "end": "2026-08-01T00:00:00Z",
+          "start": "2024-12-20T15:59:48Z"
+        }
+      },
+      {
+        "edge_commit_at": "2025-11-30T03:27:41Z",
+        "lock_path": "lodash@4.17.21",
+        "repository": "Teernage/AI-Mock",
+        "resolution": "resolution:57595816c24f2a4720af9507252a8c4cfb6c6a150c7fdd7a19c7261c3ee11d1f",
+        "valid_overlap": {
+          "end": "2026-08-01T00:00:00Z",
+          "start": "2025-11-30T03:27:41Z"
+        }
+      },
+      {
+        "edge_commit_at": "2022-05-30T10:08:35Z",
+        "lock_path": "/lodash/4.17.21",
+        "repository": "Thinker-ljn/vite-plugin-tampermonkey",
+        "resolution": "resolution:0b4a0ee7063b8722dacc8a375bc4a604914cef049a196b9dd402de00cd018895",
+        "valid_overlap": {
+          "end": "2026-08-01T00:00:00Z",
+          "start": "2022-05-30T10:08:35Z"
+        }
+      },
+      {
+        "edge_commit_at": "2024-06-19T22:23:43Z",
+        "lock_path": "lodash@4.17.21",
+        "repository": "btreitz/nextjs-shopify-ecom-demo",
+        "resolution": "resolution:c1e719a21a5760aa266d193407b06e3915612f40da99833b7f13058cd42b24a4",
+        "valid_overlap": {
+          "end": "2026-08-01T00:00:00Z",
+          "start": "2024-06-19T22:23:43Z"
+        }
+      },
+      {
+        "edge_commit_at": "2024-03-31T22:01:39Z",
+        "lock_path": "/lodash@4.17.21",
+        "repository": "caiquecamargo/custom-parser",
+        "resolution": "resolution:21cc4d406a3557ec797e65627eaccf4bff447e371a7df158d04f3b7f4307c6a3",
+        "valid_overlap": {
+          "end": "2026-08-01T00:00:00Z",
+          "start": "2024-03-31T22:01:39Z"
+        }
+      },
+      {
+        "edge_commit_at": "2023-04-05T14:55:11Z",
+        "lock_path": "/lodash/4.17.21",
+        "repository": "codyzu/use-orama",
+        "resolution": "resolution:98f378fabdda9d345bbf4529dc77455f70fa88d2bcc72879ed16e1dd2ddfb32c",
+        "valid_overlap": {
+          "end": "2026-08-01T00:00:00Z",
+          "start": "2023-04-05T14:55:11Z"
+        }
+      },
+      {
+        "edge_commit_at": "2024-07-17T17:08:00Z",
+        "lock_path": "/lodash@4.17.21",
+        "repository": "decipad/safejs",
+        "resolution": "resolution:74bbad8543833f19c5f3617262f6be18c9370b7730cb39ea1a9ee111f230e5ad",
+        "valid_overlap": {
+          "end": "2026-08-01T00:00:00Z",
+          "start": "2024-07-17T17:08:00Z"
+        }
+      },
+      {
+        "edge_commit_at": "2023-01-22T20:48:23Z",
+        "lock_path": "/lodash/4.17.21",
+        "repository": "esafwan/dashboard-starter",
+        "resolution": "resolution:806ae58488c5c53ba2f43b283816374f8e37ac943b5cfce2a9b00e51665f72cd",
+        "valid_overlap": {
+          "end": "2026-08-01T00:00:00Z",
+          "start": "2023-01-22T20:48:23Z"
+        }
+      },
+      {
+        "edge_commit_at": "2026-05-20T23:51:05Z",
+        "lock_path": "lodash@4.17.21",
+        "repository": "hackforla/lucky-parking",
+        "resolution": "resolution:8358bc63d0d6636c9c81dc239dba58ce4bf58d64e2bbaef5fe91af3d987e5a24",
+        "valid_overlap": {
+          "end": "2026-08-01T00:00:00Z",
+          "start": "2026-05-20T23:51:05Z"
+        }
+      },
+      {
+        "edge_commit_at": "2023-07-23T05:10:41Z",
+        "lock_path": "/lodash@4.17.21",
+        "repository": "himself65/affine-minimum",
+        "resolution": "resolution:8a759588a704696af8ccd56c2101471b83911c5589badfce391c3a5ceab09646",
+        "valid_overlap": {
+          "end": "2026-08-01T00:00:00Z",
+          "start": "2023-07-23T05:10:41Z"
+        }
+      },
+      {
+        "edge_commit_at": "2023-06-22T04:50:41Z",
+        "lock_path": "/lodash@4.17.21",
+        "repository": "jbxamora/kronosdocs",
+        "resolution": "resolution:64d82e56e0c23eb483f3f19515ef43dd75f57a6f2b4527cefe07b1e3e955a21e",
+        "valid_overlap": {
+          "end": "2026-08-01T00:00:00Z",
+          "start": "2023-06-22T04:50:41Z"
+        }
+      },
+      {
+        "edge_commit_at": "2026-01-13T16:58:59Z",
+        "lock_path": "lodash@4.17.21",
+        "repository": "kafbat/kafka-ui",
+        "resolution": "resolution:2f56fcebd4f5769a855cb17aabeb8d95d5deed1ea4a72384eb4b1620a1186bda",
+        "valid_overlap": {
+          "end": "2026-04-17T08:12:19Z",
+          "start": "2026-01-13T16:58:59Z"
+        }
+      },
+      {
+        "edge_commit_at": "2022-08-17T04:57:19Z",
+        "lock_path": "/lodash/4.17.21",
+        "repository": "lilingxi01/ams-date-picker",
+        "resolution": "resolution:1a8405f34f6fbcad3695a3480d2b0c604a9ebe644ac2facc57b93910286559b7",
+        "valid_overlap": {
+          "end": "2026-08-01T00:00:00Z",
+          "start": "2022-08-17T04:57:19Z"
+        }
+      },
+      {
+        "edge_commit_at": "2022-07-12T09:52:20Z",
+        "lock_path": "/lodash/4.17.21",
+        "repository": "linbudu599/TypeScript-Tiny-Book",
+        "resolution": "resolution:a0de12bbc56450505f34ebaea05190886f790a68fa149d3388d069aa7a5f217d",
+        "valid_overlap": {
+          "end": "2026-08-01T00:00:00Z",
+          "start": "2022-07-12T09:52:20Z"
+        }
+      },
+      {
+        "edge_commit_at": "2026-05-23T23:59:51Z",
+        "lock_path": "lodash@4.17.21",
+        "repository": "mag123c/nestjs-stdschema",
+        "resolution": "resolution:62754cb096e960aadf30c05a1a9d3458aacda7f61e68de72f5d019c956dbad97",
+        "valid_overlap": {
+          "end": "2026-08-01T00:00:00Z",
+          "start": "2026-05-23T23:59:51Z"
+        }
+      },
+      {
+        "edge_commit_at": "2023-09-13T18:08:55Z",
+        "lock_path": "/lodash/4.17.21",
+        "repository": "ossjs/release",
+        "resolution": "resolution:b6da57f9e1032000fd22da6fc14342ba8a6fc8b7f889de68bbf3d7017a095c97",
+        "valid_overlap": {
+          "end": "2025-09-27T08:21:34Z",
+          "start": "2023-09-13T18:08:55Z"
+        }
+      },
+      {
+        "edge_commit_at": "2025-08-19T09:02:51Z",
+        "lock_path": "lodash@4.17.21",
+        "repository": "paescuj/ctrlc-wrapper",
+        "resolution": "resolution:65aac49f23d92401f297b8b432a0e06e328f985c3bbe3427ff21ac451368563d",
+        "valid_overlap": {
+          "end": "2026-08-01T00:00:00Z",
+          "start": "2025-08-19T09:02:51Z"
+        }
+      },
+      {
+        "edge_commit_at": "2024-09-18T19:57:55Z",
+        "lock_path": "lodash@4.17.21",
+        "repository": "pdanpdan/vue-keyboard-trap",
+        "resolution": "resolution:18f8ebfc5ab456def172ec87ca29b6a62af143af56d87c78571c7b848fa712b7",
+        "valid_overlap": {
+          "end": "2026-08-01T00:00:00Z",
+          "start": "2024-09-18T19:57:55Z"
+        }
+      },
+      {
+        "edge_commit_at": "2026-07-14T06:44:32Z",
+        "lock_path": "lodash@4.17.21",
+        "repository": "privatenumber/tsx",
+        "resolution": "resolution:36c1ee21369c661032fc2db486fe2675da9af0b6e11f1ad5176ed834c204a4bd",
+        "valid_overlap": {
+          "end": "2026-08-01T00:00:00Z",
+          "start": "2026-07-14T06:44:32Z"
+        }
+      },
+      {
+        "edge_commit_at": "2026-01-09T03:47:59Z",
+        "lock_path": "lodash@4.17.21",
+        "repository": "roberthgnz/nuxt-feature-flags",
+        "resolution": "resolution:9f83a90648f95ffa6dcbccf1f5bee26863847a3647a683e4ebe7c7d88a2622ba",
+        "valid_overlap": {
+          "end": "2026-08-01T00:00:00Z",
+          "start": "2026-01-09T03:47:59Z"
+        }
+      },
+      {
+        "edge_commit_at": "2025-08-15T09:49:57Z",
+        "lock_path": "lodash@4.17.21",
+        "repository": "timolins/react-hot-toast",
+        "resolution": "resolution:d2004955f8ce195edd91632bd55d02160b0959e227b36f24fa960d9653a72aff",
+        "valid_overlap": {
+          "end": "2026-08-01T00:00:00Z",
+          "start": "2025-08-15T09:49:57Z"
+        }
+      },
+      {
+        "edge_commit_at": "2024-10-17T22:15:32Z",
+        "lock_path": "lodash@4.17.21",
+        "repository": "trevorpfiz/BioxML-allergen-epitopes",
+        "resolution": "resolution:6b9034647cff14bdbf8703c171a349b0520ad42559a4bd429c0706a17914a125",
+        "valid_overlap": {
+          "end": "2026-08-01T00:00:00Z",
+          "start": "2024-10-17T22:15:32Z"
+        }
+      },
+      {
+        "edge_commit_at": "2025-05-10T18:09:43Z",
+        "lock_path": "/lodash@4.17.21",
+        "repository": "u3u/console.img",
+        "resolution": "resolution:8462068297e910a91968ac8912837b5ae38bfba209c5c21b8bba02caa4afc411",
+        "valid_overlap": {
+          "end": "2026-08-01T00:00:00Z",
+          "start": "2025-05-10T18:09:43Z"
+        }
+      },
+      {
+        "edge_commit_at": "2024-03-06T17:57:15Z",
+        "lock_path": "/lodash@4.17.21",
+        "repository": "unjs/uncrypto",
+        "resolution": "resolution:e3a8acdc512900be9833404b4820ec845cd254394a2df1b41ef1df0ede514098",
+        "valid_overlap": {
+          "end": "2026-08-01T00:00:00Z",
+          "start": "2024-03-06T17:57:15Z"
+        }
+      },
+      {
+        "edge_commit_at": "2023-06-21T08:59:47Z",
+        "lock_path": "/lodash@4.17.21",
+        "repository": "vkubilays/Get-Starknet",
+        "resolution": "resolution:7a7e99476822cb6b6bac4ddeb7abe117db22c1d15894c465421e8a4adc0c76b7",
+        "valid_overlap": {
+          "end": "2026-08-01T00:00:00Z",
+          "start": "2023-06-21T08:59:47Z"
+        }
+      },
+      {
+        "edge_commit_at": "2023-10-15T09:50:37Z",
+        "lock_path": "/lodash/4.17.21",
+        "repository": "wangzmgit/leaf",
+        "resolution": "resolution:098dafc3cad3dbe38d5cb919c75231012fa814b4517a4e588f74040e10a0c3a5",
+        "valid_overlap": {
+          "end": "2026-08-01T00:00:00Z",
+          "start": "2023-10-15T09:50:37Z"
+        }
+      },
+      {
+        "edge_commit_at": "2025-11-24T09:17:48Z",
+        "lock_path": "lodash@4.17.21",
+        "repository": "webpro-nl/remove-unused-vars",
+        "resolution": "resolution:68c48538239e2d155042a0eaa013d18280b9af3ea441c9071122a43a48f51f1d",
+        "valid_overlap": {
+          "end": "2026-06-16T09:29:50Z",
+          "start": "2025-11-24T09:17:48Z"
+        }
+      }
+    ],
+    "candidate_path_count": 0,
+    "current_repositories": [
+      "Codehagen/regnskapsloop-crm",
+      "Eliav2/express-typed",
+      "Marinerer/unity-webgl",
+      "Teernage/AI-Mock",
+      "Thinker-ljn/vite-plugin-tampermonkey",
+      "btreitz/nextjs-shopify-ecom-demo",
+      "caiquecamargo/custom-parser",
+      "codyzu/use-orama",
+      "decipad/safejs",
+      "esafwan/dashboard-starter",
+      "hackforla/lucky-parking",
+      "himself65/affine-minimum",
+      "jbxamora/kronosdocs",
+      "lilingxi01/ams-date-picker",
+      "linbudu599/TypeScript-Tiny-Book",
+      "mag123c/nestjs-stdschema",
+      "npm/cli",
+      "paescuj/ctrlc-wrapper",
+      "pdanpdan/vue-keyboard-trap",
+      "privatenumber/tsx",
+      "roberthgnz/nuxt-feature-flags",
+      "timolins/react-hot-toast",
+      "trevorpfiz/BioxML-allergen-epitopes",
+      "u3u/console.img",
+      "unjs/uncrypto",
+      "vkubilays/Get-Starknet",
+      "wangzmgit/leaf"
+    ],
+    "graph_fingerprint": "b5fa455a5d3eea7bb0cda7e6a882e1ecccdb1fa16631889e16e711126a346619",
+    "historical_differs_current": true,
+    "historical_repositories": [
+      "Codehagen/regnskapsloop-crm",
+      "Eliav2/express-typed",
+      "Marinerer/unity-webgl",
+      "Teernage/AI-Mock",
+      "Thinker-ljn/vite-plugin-tampermonkey",
+      "btreitz/nextjs-shopify-ecom-demo",
+      "caiquecamargo/custom-parser",
+      "codyzu/use-orama",
+      "decipad/safejs",
+      "esafwan/dashboard-starter",
+      "hackforla/lucky-parking",
+      "himself65/affine-minimum",
+      "jbxamora/kronosdocs",
+      "kafbat/kafka-ui",
+      "lilingxi01/ams-date-picker",
+      "linbudu599/TypeScript-Tiny-Book",
+      "mag123c/nestjs-stdschema",
+      "npm/cli",
+      "ossjs/release",
+      "paescuj/ctrlc-wrapper",
+      "pdanpdan/vue-keyboard-trap",
+      "privatenumber/tsx",
+      "roberthgnz/nuxt-feature-flags",
+      "timolins/react-hot-toast",
+      "trevorpfiz/BioxML-allergen-epitopes",
+      "u3u/console.img",
+      "unjs/uncrypto",
+      "vkubilays/Get-Starknet",
+      "wangzmgit/leaf",
+      "webpro-nl/remove-unused-vars"
+    ],
+    "inspected_relation_count": 0,
+    "inspected_source_ids": [
+      "blastline:01612b564726c23b24e2cf7b9849b89ed2d1c2e5cde713d1fc4872aeff289be3",
+      "blastline:4adc36b44e45094dc0bcbf4a0eb811a280cb07930c1043d9d074d7ecd80f1df4",
+      "blastline:cb9119b5ae95a8235ac0c914d0caec51054a101da1c3d8f828662aeb01199bd8",
+      "blastline:6d40c33aa3f64e7b0548852ef88a7d357580be8307d0ba1388db0203fce6f0e1",
+      "blastline:a37c4f3ba047d79e7ce68ac78be9eb4bb9d2e0a2399face95abee07d847dd49a",
+      "blastline:b7ba18cb6c5dadb9afd90ea9779509aea8bef5bcc5df2accef4c5eb7775c4466",
+      "blastline:b11576e32e12d79dd1760b45dd73d8b1123b510d68efd4a3b9d30895ef72534b",
+      "blastline:5959115ad8b3d0cdbaf658bc8bcec34576c15e0621df72f096671cd258f45ea5",
+      "blastline:c601ce45af02715114e948e5940cc66305495c8595f2fc100f3d7d3669b426ca",
+      "blastline:4bd1bc3e65b774e105f4edf4d22cee669f93d6481ccd2276fde2b625ec780baa",
+      "blastline:3614628a433f7f94f404d32301f52a36ee29f9e7208a9311087f7a6c5dca603c",
+      "blastline:293bf58692e5c88ad2286cf235ac5c2607e6d69ba4289682ad51a9ab394d552c",
+      "blastline:ecb7cda4252dfdeab7698b6599bca6ecd6bc88f23bd66da1062e3996226c209b",
+      "blastline:e035e3cfb3a7d518d092d958c0caf521dd04f89db55c8d534d6b8a89a7b0801f",
+      "blastline:1ea425ff54d4f1d76e7c26f03da67a5c45503b5f371c094edfc2ad2cfb7d60c8",
+      "blastline:23a1fd1938bac86cb506cc15637e89eabb57538a55f7c996179d0ccd95b65e92",
+      "blastline:5ae02c18093cefa13d2e82de61918365b6b397ab67814a012bca5ff3e54f4b01",
+      "blastline:1aed80be772c6571ef80a1cf0a94328df71dedb3f2309894f497496b98c435ea",
+      "blastline:41599cb9df5de331da8160a82ba3af7f7b2878d9c4fbf5277042e065ccf763d5",
+      "blastline:1d0f1bb81d028513756e11e3810f544eb8d363d65ed2171a31f02de584d00d45",
+      "blastline:8114de13e72183670ae194a78c82529c74638401c88793391b4977b06fdf0c67",
+      "blastline:62e8711729c51d09a3f6440ba69cf841c9882a15d5ff92c0983b8648781fd10e",
+      "blastline:a1f4991ce264599965aa542ad80c18ab54f78c8cc558b1c5a7583194c298490b",
+      "blastline:950e48f61ecae6c41fa5896ac305301e4d796d7e9ff1970f6df1863f2f11dd07",
+      "blastline:9942da6afe6a3dea03484b1e768fa536bcee49818517b4192aaf5105dd7001c5",
+      "blastline:6d2ac6c71cf265cf3d6df90987efd235c3fe1c1f8e1b5c472d20c62be67dbb31",
+      "blastline:cc9cdeb07b29fc8d3332fe63ec23c56edb085db43d557edfeb11de61b21e8170",
+      "blastline:75a467e8e37fdc852f4eb8b0e2f1795e63f5f056c6551bd7cabab096972ecef6",
+      "blastline:2a30f0790664dc0a2cf136cc99d6c4012a6e2a9198460df9499e0ccbda3619ff",
+      "blastline:51bb5b0819b1210fee53b5f0605298fa0359a1cebcc1e37ecee239753a8fd7a5",
+      "blastline:23cc85c9199113d3a94325e0d4129afc2a905d1171a33c6da433cd4f35bfb47b",
+      "blastline:bd7deb7ca737df5e2fb2674a4e53ff89704e76fa84802f26dc5619e366b71a23",
+      "blastline:07cfedb3c1cc8afa05ad45de96afd63b395268c1a9ef6be2c6ea6f7b50bade87",
+      "blastline:22ac1d2f4f433dbfea205ffbf4b826c0f676140e2dd72a203cfeb5c5828c3a5e",
+      "blastline:ce1d606b4ab1dfaf6e51ea2dc7addc3730ef2131da3b9223cd70c6c2e96df310",
+      "blastline:7a97094c63c3cf79b62776874788770d71693b68da821397d391d66e4479c9d7",
+      "blastline:7ec24b51e919e4f88145262e4d0d40eda5b9644bc288179436e01f34715ee9d2",
+      "blastline:20f059dbb39435854abd5029bd473cd3b45a2dd4147f94ddc55b6f569dc32f49",
+      "blastline:9322ff8d7e8422d83ae9503aa072ccd8a6fcb74f7578cea4f29352bd1bd13c12",
+      "blastline:c1fc417090344041b59aeb11fea94f32782efbb43f6e70d6fc74d5d9eabc239f",
+      "blastline:aa873450ddb7e9c7aad8ec8e30d142216a41c677bfc86496aa42eaea7dabe683",
+      "blastline:b3a86964e525cb9ba413eb4def367a9382d70e1181fb859c3812ec024ef7839e",
+      "blastline:fa4bc5a72ec329420a25716c96c286335c8f6fe68c71bbc894172d095a1e77a2",
+      "blastline:1faae2d0a0f574e4ab1ec94d898ab49306d49ee566eb14bcb44e69268ff85d2e",
+      "blastline:e11a7687d2b5b7895006be4b6e0740b6bb573f4c4608e7998d5b6c6067ec234f",
+      "blastline:b0facfc9519f3b5456117e6e9098b455bcc8d9abcdad59ab7cf540f9099c130a",
+      "blastline:a18232f2f3182e39be14e3d2c539fda791168bc5c087a4887c9c80b49d0ed83b",
+      "blastline:07eb7fb8caf14a0ca628a86405a06eb68dbdb75c66900073ce7e91f4165b9607",
+      "blastline:483f4a8ea850ca9ee7ddd2da29e2aa78d777e6903e1d060c8e656081a761c868",
+      "blastline:8142558fc5bcb2b9cc66cdbda459a9597496f0082cef2bd42f0bd96e9fc4e84d",
+      "blastline:bc1d3a52142477243e2ed52158c205cbcbfc5d5ef8e7e52c4dffcd5b46b33fd8",
+      "blastline:9adffda053888385813b0fb0665cf6393713eef09ab031a4654a0ed7645ebe5e",
+      "blastline:9d707f814dfd6a83c5e5697c9fabe7c4b040a729a2de7bf054fbcb168fd5198c",
+      "blastline:418d4b78c8982c491b71d8e129435768a8bebe448e806344413966cb8aeb280f",
+      "blastline:0797de57eed10f75683edc1c34937e5eb29566683f0aa3492bd0e8d62397566d",
+      "blastline:b1c747a5a936f214eeeebfcc4c7119daed3d525166b703e6549bdf6d4660a027",
+      "blastline:61f70eadd50ea7154875134b8d76f58f0a76df001297895778816bf641628c8f",
+      "blastline:83a3f179f7c11eb627059a00cf86edf86bbaf5eab2480604facfcdbecff501f5",
+      "blastline:5cc9c19446fa680d4880effdd1258b303eeae033d282db92e35aa80f7384dbc3",
+      "blastline:5d730d6044e92d43b33a5fb41d0ad6e5a21ebd976f8a4f8c7d03d02070ec60c8",
+      "blastline:eb0dba89db2cea75c1b0cdd245816901587bc715cefd0bbe6e3b9a36b553ce94",
+      "blastline:53d9a732d9bd2b226e8cd497e7a5b88919c24444e7b2d24679ad7a102f378d5e",
+      "blastline:6d3c209ed3bae5ba879040ffa473c1bf2d0b328e3f90aa21d12df5f8dc276214",
+      "blastline:69a953df9b9fa42fc17c3768bda0965c8e561d2c57a1556ad6eddf1b9d28e1c5",
+      "blastline:3ed60b30e7f335bb85a81e8255e937c23d23314b8e28077f92c9b42b3ca61192",
+      "blastline:4619b09da3f6d8dccf4773eee24c94722a936ee36c5890e613092012f29ba2ce",
+      "blastline:4aea9ef27d901515ce0e8d688a459d7e5deba779be948ec4086f87a1b3544e8d",
+      "blastline:46e4ce29f655994e4c94d579dbcebbadbd4d9ee841c91682cbad5b7d076b3310",
+      "blastline:9c6e34c64b1212e79080a9c0d0b914a1a77571fec30fd5678181b0ec02fc2de5",
+      "blastline:3c925be407108331b2aab1bdf0639998df374af8f67777d35ff55b5961d9b8dd",
+      "blastline:e7498bf61ee607d8d28b1bc10f743c9121c49d23e1553f51cbab7ce0598cca59",
+      "blastline:918bd06a7b1d0586505248dedf103a34a1ee708bc64eedae04d25137fabea711",
+      "blastline:5bfbce6db0fe5c6a4b7e356426216fe6bfc17d52208387b72daa502e3a4fc969",
+      "blastline:a27b4868ec8c43dcb87f2171648bd0051bce13cf959f91c248f58cb92ac64254",
+      "blastline:b8bb279f6e9288acce0f5a3c81c7f5dbad24073441127baad0cf5ef935022c0a",
+      "blastline:3d0b860d234bad3040161d7e479fed6f3b952507a2ef638265b932cdd00c76f7",
+      "blastline:c5126ce9ea415e1b173dd62a13faed77bbbd419c247e181ddb09a7907fb636fe",
+      "blastline:99a3793ad7f315f35376161e92bd35c2c553a4f5041c9cb14a94a06430d71ae7",
+      "blastline:155fafe2d0d2fe43ac600b8121c5b70a0d95c72dd756662110807368e9e3e4e7",
+      "blastline:273d51e2c1296a8fdc2a410842ecfb9da627e4edf471236d106c8b22bd47aac2",
+      "blastline:47796ca900f34cd4c166483f9eef9483783b7322ca2aee21ae43e7247359b0a0",
+      "blastline:be34bfcf25beb92ef32aedc9496978b315e881102cab447ff84ed6f89855bb89",
+      "blastline:9bb8f7ca93f5b23073274afa02c2978dc316a5a61bb20448d15ed1afa0d81158",
+      "blastline:c0f343aaef4fbfb86e6ff4fd56a3eb51e22683dbad5ec0c3642c11141ddf6e33",
+      "blastline:3f82a6fee357fcc7ed3df7814638bb57bf19670159490e54bf5269abbfd88f50",
+      "blastline:2fff7b75f7cbed320746be6f152be4e26f74b8a6be15d657bfa02442b092d3dd",
+      "blastline:d17ac3c62fefebb6135592d98b61c681370a00f98c19001098a970fc39282924",
+      "blastline:6d48a6ef7253d1d6957c32388bad77121cddded042258e0749bb256ecacdce5c",
+      "blastline:eb39e59c723699c6aa0e49620a6ca0d0e06a01a1e0bdeaf0ea9d33ccd3cd771a",
+      "blastline:59943b553d842805caf2401c53c11c65734cf6c9afad43ba565fb86f44902ead",
+      "blastline:e722ac6ad098f22360d1d094cfa5fa12c7250bfb608af2c6852e9cfbc0456fb4",
+      "blastline:5b1365f6c0fe5d3b5dc90fe991d6b8ef918bfb1ed4071b1bb87318d47467735c",
+      "blastline:f168d70bf3e5b0d7127df8cd5fc45c50bca95da78af1642873adc45a48d614d1",
+      "blastline:6e7f29c98aa735d4abefc4c4da796b5f5397fec71c6e737b4671e183a81ef646",
+      "blastline:02bad016babdc900badceab18795dd6aac238c32ae9f3232ef4f9ca085a14abb",
+      "blastline:6a6ea946a59615c90d66b0afea2b4f0ac7b3b3f086896f5d291b9ffd8371fc36",
+      "blastline:1130ea07714f972561ff327c8c8f8e642173017fddd3fd1f6a9cdba99afb8ed3",
+      "blastline:1445fc5a5e6e816de6db497b712afb7c4ef56dd0e3613e5f4e66327097f903de",
+      "blastline:cb4c152de18385fc9908e7290e0cf423d4cb93df1f1f01063a3bba99e27f5176",
+      "blastline:ca7aa945a98ac32ad82698f94e116fdaf357bc46aa9b8eb4f79e9ef532a25e1c",
+      "blastline:97f1171620e7bab7d191e65fa90077c6fabf406639e3ebff8215906168f61f72",
+      "blastline:17aaa7f3085b0acdd690fea1150b19b8a2d0f9731098da431dc9e2829df13fc8",
+      "blastline:c4d3900278d1759323486d6b29de2844c8fe81f71194c420c31cf3a767a79492",
+      "blastline:e24145e165ac14b5e6f322639578d8a9c3534d7c5189bb5a77b737c76097b704",
+      "blastline:afba4e8f2513276a07aa0911c27e3fd7947684de046f3f643db2dea95b0c415e",
+      "blastline:8f8e33af0a376e29ee187d0817c723ff9fc75c920c6d8336cf2c0b48f81498bd",
+      "blastline:f63d7c8947c1337d747d109ae006582b3a1e1501fb2a47ab2e3dcd1335706c92",
+      "blastline:04bb2cf52f26af0d2eef8417007a6f1970229c57146edab3937687611ce39bc9",
+      "blastline:b5326307db00400559c6e90e08cd398106ca8ccbc742043bef97638b572f27b1",
+      "blastline:bbd564e424358023263122faa924824ea90e2cbae89a29e2fe7d1addc7dffedf",
+      "blastline:b8796d0082505a7dd2f1d5d51ac4f8d962b4af80ba7c8559f5c8ef9804400071",
+      "blastline:1010c54620fca0401ef20290f1aa45a54bb921e1a1a612aee303de78b2318acd",
+      "blastline:0d1ad4c14cd1f9d9fac553f3752470dd2b03060c8883a1c387bd29b2201de91a",
+      "blastline:1d3a8ba0dcb7a95e4ef2be5fa257abadb19713a385164ff24a6e31242e7d61f2",
+      "blastline:3d669adfd3d340ff125b25f9d1fbe7df5a62994a96844c5bfec826b5013ddb6b",
+      "blastline:88cf9853ac002c734c779df03be25f9130455edf5e9b10df35f233936298d15b",
+      "blastline:0f19b5cab1963611dc7348ea73becf99c5ca331311f9dde22b6298bd62901e28",
+      "blastline:284c6fbd3ff8c2497659e4f931c79943d755f4f1c2a26876d93c0c78418e8e77",
+      "blastline:20c9ced688ec95ea30a9b3e714107ea3d42be1768416ccaf8a6194f85a3c06f2",
+      "blastline:b29ea8a2d8abd44fb68e8596c9af323c433d09de20fedd4cf3956f674d6fdc28",
+      "blastline:c4ad3d2327396e46406b83209434d07ea7c3298b3a375905a393ba1b25adc44c",
+      "blastline:eabcce161d8c01df8e1dead5e2e017bfa0d12b0a9da5567bdec29428f18c0ce5",
+      "blastline:7a39daa0b41d988eb937223b2d31b6ece11294217e582a2c696d4a181df39ee5",
+      "blastline:75300eaca3e4e285cd96b9a25723ad4cd8594574972a42abb76568680d4cc331",
+      "blastline:ca5bb574fbf5511e9458b2e915661fddf57aabb0b1b2cb72f71fe2c40dc04f9c",
+      "blastline:cbd26672bbb15ebc0c5b61256244b051d89ffe1cd62082d3e0ed9ebefba379c3",
+      "blastline:75af05860311d138eddd32e92200c7db00753281436d1b43854a1493a629b965",
+      "blastline:9d1087cb765f334b21a9cccd48ea8e271df4d86a6cf5426075d9b6e3f6b7b594",
+      "blastline:dc7347a4b54c118c2872837516309e465f92169403d9ee9c7600e8859866b689",
+      "blastline:00e31854082d0fb7849c70ac655e27fe5da0fbfa737418bd1588922ff4c253a3",
+      "blastline:23136506489a586251975c9e8be1e2a098605a572e85a944092bd0e17ff0645a",
+      "blastline:914a9e6d2ef11d331b86ee09da2295055e902bd56d29947455f7cbb362517759",
+      "blastline:3444afd4f583f5ce141e35052178fb1707096dbbbc91b9ae9a42320d88291bb9",
+      "blastline:44d55e108a9bfdb5a72297b0349942f3e430c28139632a09fbee1a8bc001f1cf",
+      "blastline:42e847633bd2ae2708d5d9cccc08c92e8dae46a9d9c13f60471736a1d5d2e8d9",
+      "blastline:0e04ab9eb0fd4d643b06d0b002f8cd1b943bb87da7ff80c66859ae293212d01a",
+      "blastline:c7a90291367a6c9dc424ec515f0eeff7a495b931234fac021dfac9cd0e1277f5",
+      "blastline:b846ce3b1f6ed13e14246561232cf263aa5513f21bc114fd92ccffc006438e28",
+      "blastline:ad0ee25afd37e1364e6488aeb5b9e4c0e4810ab5ef9fd6e6ebc8eee20a914c30",
+      "blastline:c527148b72b2540c6fcf53f66fb7b3282c9560443ab28af7f1c77d08dba65a7e",
+      "blastline:ddb4e65f1feb3599157d87aeccb95a15684d3ac07513528bcbc16d4d5b8bc69b",
+      "blastline:14cd3d2a201571dfb54c5626c2d7766fc7e7cf160afbd48b61b3a72ccab825ff",
+      "blastline:88fd06f071f3744572afd85d02d1b45f1a6cfc590d09c82eaba300f2d1eda456",
+      "blastline:6f171bd97e7e7aba911603229f2d36d5a986cff5478b4dbd8036f711baa38b7c",
+      "blastline:1c72f2d0d6883c461d35c0f733a72677fb503b65de53378c810482e02a967196",
+      "blastline:20aefc76bb2611b4602b15c42e9b09de4b7addd449979f836c339d338b84e484",
+      "blastline:963ceb705abf6b6a76db81b0dde12f61b1211893c1fd7836c8859ab5c6f78a00",
+      "blastline:b907397e23d1707966db17a58e53ef0ca3765aa9e4baaaaa97c4f1c54d04a47c",
+      "blastline:2d22029693c9058e496df0e587c04876e854bb22dc4f0dc1e99392d9316c48c1",
+      "blastline:93ac9cf7f72f646f59112754db658eb24980011c2a8d33cb0a2c460701f28c0e",
+      "blastline:822bd4ab2ef11ccaa29a8c59a63badbfa932778259655468bf612e955b5f95dd",
+      "blastline:a30d32421a15fe6da26bdfb39c816a48ff5df615936e42d105004e1d124db95d",
+      "blastline:2394b6a828e1031ad44eb2a28f1fe3eb40ce577df391b1aacf565f2dfdb35b5d",
+      "blastline:539b9c68db46b78938a7ad7e7e777092b8d3d35492f1400a307b92bf4a05bbce",
+      "blastline:b1133e70b4ac5efb728146f9de09d22ae0a93a8a24ef88b0e55b6c094a8a5766",
+      "blastline:70157afd9330f8f884a8fee043b5222b4f2f51d931b26e52fa348673266ec585",
+      "blastline:ba1886e88a60bfb36eb91e42ca1a222569aad1db32e3591764727386dfb31a4d",
+      "blastline:aa7aa173c92e8d11b1c8cb4f8643cdd633a3c996e9220ee8303f472325eee8ff",
+      "blastline:4d4cc1ed479d31fe44aca9da1297543ee6c20927599b104b85dbb68a587313a6",
+      "blastline:b621aba1c5328e446ed1db4b5d73e13f8fcb2978552a742400bcf9f748b54320",
+      "blastline:8935604f01515bbb0be17591c48405c7b2485156c1618711d2bc81a0a84d6670",
+      "blastline:7b9b824bfba1962ced8cbf9c3c75cc3be61a9bce53c9405c87f6e63baaa3b66c",
+      "blastline:925a9385e9bebf92da3d916ee18bd91b36941d2883c1e24556131262f0c008b3",
+      "blastline:a5c36f7bf5d0196202932d1380365051036bf00658206845cb4294f0d0d5a85f",
+      "blastline:cbd467f187c179a8de6ff25df0862ae95d6fc2cc8c67165539a08d3f157615c2",
+      "blastline:f71dea6265c8390ca3df63b87acf902b769c696ddc149e88789908dc1ad80556",
+      "blastline:7cf7711d5ec80d749860bf2e0727777da55b6a8e20eb66f7e375a12a1b37c006",
+      "blastline:17742f20222b02a7af6983bcfc4605f66e46f04b1d9b9d25a3b89de511a4e8d1",
+      "blastline:f318ce66c4f98fd5e01a7985f5b7c736bcbfc6d86cfa852bdd8082e6bcdc9f10",
+      "blastline:25d5bd2ee0942e5e987463a0a69aea401a086bc8231e01e989a62e6ff2cff439",
+      "blastline:74de1123f3ac5a2894fe6a9bb71a6912d502eb9b8b9124c575a00ec48e5bc02d",
+      "blastline:e342bfe81d46da5330d639d7434b269c8843244a7b5c95ff8cd7b26bc12c5746",
+      "blastline:7d41147dcddee3c942347efa5255b0074d44b4ae4a23574da91e7ccfd30e1bba",
+      "blastline:f346fec28bc2ba3651044014c72a4502bcbd3b046268b905346e8e1011b43ff8",
+      "blastline:30d1b9911f9648f9faaeaa232c5e11d3182c76ab24e43849c6b903a1c16093e0",
+      "blastline:1c2fc746b5ea892c8341d5f4f1a12cb98080feb7e3a8299796e21e4e8b9feb47"
+    ],
+    "known_at": null,
+    "latency_ms": 223609.551,
+    "local_hydra_agreement": true,
+    "query": "Blastline supply-chain exposure graph path for npm/lodash@4.17.21; valid_window=[2021-02-20T15:42:16Z,2026-08-01T00:00:00Z); valid_at=2021-02-20T15:42:16Z; known_at=latest-known; required path Repository DECLARES Resolution RESOLVED_TO Version",
+    "recall_from_cache": false,
+    "record": "cache/verification/hydra-window.jsonl",
+    "recorded_at": "2026-08-19T19:27:05Z",
+    "rejected_source_ids": [
+      "1c2fc746b5ea892c8341d5f4f1a12cb98080feb7e3a8299796e21e4e8b9feb47",
+      "25d5bd2ee0942e5e987463a0a69aea401a086bc8231e01e989a62e6ff2cff439",
+      "e342bfe81d46da5330d639d7434b269c8843244a7b5c95ff8cd7b26bc12c5746"
+    ],
+    "relation_calls_from_cache": 0,
+    "retrieval_warnings": [
+      "HydraDB graph-context recall unavailable; used exhaustive hosted collection retrieval: HydraDB POST /query failed after retries"
+    ],
+    "target": "npm:lodash@4.17.21",
+    "valid_at": "2021-02-20T15:42:16Z",
+    "window_end": "2026-08-01T00:00:00Z"
   },
   "incident": {
     "package": "lodash",
@@ -2253,8 +2816,8 @@
         "repository": "npm/cli",
         "resolution": "resolution:728ae11bd1a86c6e9f13c9c2685ad2b5d3d17c76152576dfe1ca4aa799fc7853",
         "valid_overlap": {
-          "end": "2026-08-19T19:11:26Z",
-          "start": "2026-08-19T19:11:26Z"
+          "end": "2026-08-19T19:30:20Z",
+          "start": "2026-08-19T19:30:20Z"
         }
       },
       {
@@ -2263,8 +2826,8 @@
         "repository": "Codehagen/regnskapsloop-crm",
         "resolution": "resolution:7345826cbbfa3b32efcf499a689008249495f3f4d58cba54d3feb4d8768e4956",
         "valid_overlap": {
-          "end": "2026-08-19T19:11:26Z",
-          "start": "2026-08-19T19:11:26Z"
+          "end": "2026-08-19T19:30:20Z",
+          "start": "2026-08-19T19:30:20Z"
         }
       },
       {
@@ -2273,8 +2836,8 @@
         "repository": "Eliav2/express-typed",
         "resolution": "resolution:e9777b8e5dff7643723c08d8c8f842ea6f390b5c87e9b88e6b5235dff80a706e",
         "valid_overlap": {
-          "end": "2026-08-19T19:11:26Z",
-          "start": "2026-08-19T19:11:26Z"
+          "end": "2026-08-19T19:30:20Z",
+          "start": "2026-08-19T19:30:20Z"
         }
       },
       {
@@ -2283,8 +2846,8 @@
         "repository": "Marinerer/unity-webgl",
         "resolution": "resolution:50d73f82bf3a5710a2ee404eb626e4dc13ea32434bbc81af2010a43d732affc4",
         "valid_overlap": {
-          "end": "2026-08-19T19:11:26Z",
-          "start": "2026-08-19T19:11:26Z"
+          "end": "2026-08-19T19:30:20Z",
+          "start": "2026-08-19T19:30:20Z"
         }
       },
       {
@@ -2293,8 +2856,8 @@
         "repository": "Teernage/AI-Mock",
         "resolution": "resolution:57595816c24f2a4720af9507252a8c4cfb6c6a150c7fdd7a19c7261c3ee11d1f",
         "valid_overlap": {
-          "end": "2026-08-19T19:11:26Z",
-          "start": "2026-08-19T19:11:26Z"
+          "end": "2026-08-19T19:30:20Z",
+          "start": "2026-08-19T19:30:20Z"
         }
       },
       {
@@ -2303,8 +2866,8 @@
         "repository": "Thinker-ljn/vite-plugin-tampermonkey",
         "resolution": "resolution:0b4a0ee7063b8722dacc8a375bc4a604914cef049a196b9dd402de00cd018895",
         "valid_overlap": {
-          "end": "2026-08-19T19:11:26Z",
-          "start": "2026-08-19T19:11:26Z"
+          "end": "2026-08-19T19:30:20Z",
+          "start": "2026-08-19T19:30:20Z"
         }
       },
       {
@@ -2313,8 +2876,8 @@
         "repository": "btreitz/nextjs-shopify-ecom-demo",
         "resolution": "resolution:c1e719a21a5760aa266d193407b06e3915612f40da99833b7f13058cd42b24a4",
         "valid_overlap": {
-          "end": "2026-08-19T19:11:26Z",
-          "start": "2026-08-19T19:11:26Z"
+          "end": "2026-08-19T19:30:20Z",
+          "start": "2026-08-19T19:30:20Z"
         }
       },
       {
@@ -2323,8 +2886,8 @@
         "repository": "caiquecamargo/custom-parser",
         "resolution": "resolution:21cc4d406a3557ec797e65627eaccf4bff447e371a7df158d04f3b7f4307c6a3",
         "valid_overlap": {
-          "end": "2026-08-19T19:11:26Z",
-          "start": "2026-08-19T19:11:26Z"
+          "end": "2026-08-19T19:30:20Z",
+          "start": "2026-08-19T19:30:20Z"
         }
       },
       {
@@ -2333,8 +2896,8 @@
         "repository": "codyzu/use-orama",
         "resolution": "resolution:98f378fabdda9d345bbf4529dc77455f70fa88d2bcc72879ed16e1dd2ddfb32c",
         "valid_overlap": {
-          "end": "2026-08-19T19:11:26Z",
-          "start": "2026-08-19T19:11:26Z"
+          "end": "2026-08-19T19:30:20Z",
+          "start": "2026-08-19T19:30:20Z"
         }
       },
       {
@@ -2343,8 +2906,8 @@
         "repository": "decipad/safejs",
         "resolution": "resolution:74bbad8543833f19c5f3617262f6be18c9370b7730cb39ea1a9ee111f230e5ad",
         "valid_overlap": {
-          "end": "2026-08-19T19:11:26Z",
-          "start": "2026-08-19T19:11:26Z"
+          "end": "2026-08-19T19:30:20Z",
+          "start": "2026-08-19T19:30:20Z"
         }
       },
       {
@@ -2353,8 +2916,8 @@
         "repository": "esafwan/dashboard-starter",
         "resolution": "resolution:806ae58488c5c53ba2f43b283816374f8e37ac943b5cfce2a9b00e51665f72cd",
         "valid_overlap": {
-          "end": "2026-08-19T19:11:26Z",
-          "start": "2026-08-19T19:11:26Z"
+          "end": "2026-08-19T19:30:20Z",
+          "start": "2026-08-19T19:30:20Z"
         }
       },
       {
@@ -2363,8 +2926,8 @@
         "repository": "hackforla/lucky-parking",
         "resolution": "resolution:8358bc63d0d6636c9c81dc239dba58ce4bf58d64e2bbaef5fe91af3d987e5a24",
         "valid_overlap": {
-          "end": "2026-08-19T19:11:26Z",
-          "start": "2026-08-19T19:11:26Z"
+          "end": "2026-08-19T19:30:20Z",
+          "start": "2026-08-19T19:30:20Z"
         }
       },
       {
@@ -2373,8 +2936,8 @@
         "repository": "himself65/affine-minimum",
         "resolution": "resolution:8a759588a704696af8ccd56c2101471b83911c5589badfce391c3a5ceab09646",
         "valid_overlap": {
-          "end": "2026-08-19T19:11:26Z",
-          "start": "2026-08-19T19:11:26Z"
+          "end": "2026-08-19T19:30:20Z",
+          "start": "2026-08-19T19:30:20Z"
         }
       },
       {
@@ -2383,8 +2946,8 @@
         "repository": "jbxamora/kronosdocs",
         "resolution": "resolution:64d82e56e0c23eb483f3f19515ef43dd75f57a6f2b4527cefe07b1e3e955a21e",
         "valid_overlap": {
-          "end": "2026-08-19T19:11:26Z",
-          "start": "2026-08-19T19:11:26Z"
+          "end": "2026-08-19T19:30:20Z",
+          "start": "2026-08-19T19:30:20Z"
         }
       },
       {
@@ -2393,8 +2956,8 @@
         "repository": "lilingxi01/ams-date-picker",
         "resolution": "resolution:1a8405f34f6fbcad3695a3480d2b0c604a9ebe644ac2facc57b93910286559b7",
         "valid_overlap": {
-          "end": "2026-08-19T19:11:26Z",
-          "start": "2026-08-19T19:11:26Z"
+          "end": "2026-08-19T19:30:20Z",
+          "start": "2026-08-19T19:30:20Z"
         }
       },
       {
@@ -2403,8 +2966,8 @@
         "repository": "linbudu599/TypeScript-Tiny-Book",
         "resolution": "resolution:a0de12bbc56450505f34ebaea05190886f790a68fa149d3388d069aa7a5f217d",
         "valid_overlap": {
-          "end": "2026-08-19T19:11:26Z",
-          "start": "2026-08-19T19:11:26Z"
+          "end": "2026-08-19T19:30:20Z",
+          "start": "2026-08-19T19:30:20Z"
         }
       },
       {
@@ -2413,8 +2976,8 @@
         "repository": "mag123c/nestjs-stdschema",
         "resolution": "resolution:62754cb096e960aadf30c05a1a9d3458aacda7f61e68de72f5d019c956dbad97",
         "valid_overlap": {
-          "end": "2026-08-19T19:11:26Z",
-          "start": "2026-08-19T19:11:26Z"
+          "end": "2026-08-19T19:30:20Z",
+          "start": "2026-08-19T19:30:20Z"
         }
       },
       {
@@ -2423,8 +2986,8 @@
         "repository": "paescuj/ctrlc-wrapper",
         "resolution": "resolution:65aac49f23d92401f297b8b432a0e06e328f985c3bbe3427ff21ac451368563d",
         "valid_overlap": {
-          "end": "2026-08-19T19:11:26Z",
-          "start": "2026-08-19T19:11:26Z"
+          "end": "2026-08-19T19:30:20Z",
+          "start": "2026-08-19T19:30:20Z"
         }
       },
       {
@@ -2433,8 +2996,8 @@
         "repository": "pdanpdan/vue-keyboard-trap",
         "resolution": "resolution:18f8ebfc5ab456def172ec87ca29b6a62af143af56d87c78571c7b848fa712b7",
         "valid_overlap": {
-          "end": "2026-08-19T19:11:26Z",
-          "start": "2026-08-19T19:11:26Z"
+          "end": "2026-08-19T19:30:20Z",
+          "start": "2026-08-19T19:30:20Z"
         }
       },
       {
@@ -2443,8 +3006,8 @@
         "repository": "privatenumber/tsx",
         "resolution": "resolution:36c1ee21369c661032fc2db486fe2675da9af0b6e11f1ad5176ed834c204a4bd",
         "valid_overlap": {
-          "end": "2026-08-19T19:11:26Z",
-          "start": "2026-08-19T19:11:26Z"
+          "end": "2026-08-19T19:30:20Z",
+          "start": "2026-08-19T19:30:20Z"
         }
       },
       {
@@ -2453,8 +3016,8 @@
         "repository": "roberthgnz/nuxt-feature-flags",
         "resolution": "resolution:9f83a90648f95ffa6dcbccf1f5bee26863847a3647a683e4ebe7c7d88a2622ba",
         "valid_overlap": {
-          "end": "2026-08-19T19:11:26Z",
-          "start": "2026-08-19T19:11:26Z"
+          "end": "2026-08-19T19:30:20Z",
+          "start": "2026-08-19T19:30:20Z"
         }
       },
       {
@@ -2463,8 +3026,8 @@
         "repository": "timolins/react-hot-toast",
         "resolution": "resolution:d2004955f8ce195edd91632bd55d02160b0959e227b36f24fa960d9653a72aff",
         "valid_overlap": {
-          "end": "2026-08-19T19:11:26Z",
-          "start": "2026-08-19T19:11:26Z"
+          "end": "2026-08-19T19:30:20Z",
+          "start": "2026-08-19T19:30:20Z"
         }
       },
       {
@@ -2473,8 +3036,8 @@
         "repository": "trevorpfiz/BioxML-allergen-epitopes",
         "resolution": "resolution:6b9034647cff14bdbf8703c171a349b0520ad42559a4bd429c0706a17914a125",
         "valid_overlap": {
-          "end": "2026-08-19T19:11:26Z",
-          "start": "2026-08-19T19:11:26Z"
+          "end": "2026-08-19T19:30:20Z",
+          "start": "2026-08-19T19:30:20Z"
         }
       },
       {
@@ -2483,8 +3046,8 @@
         "repository": "u3u/console.img",
         "resolution": "resolution:8462068297e910a91968ac8912837b5ae38bfba209c5c21b8bba02caa4afc411",
         "valid_overlap": {
-          "end": "2026-08-19T19:11:26Z",
-          "start": "2026-08-19T19:11:26Z"
+          "end": "2026-08-19T19:30:20Z",
+          "start": "2026-08-19T19:30:20Z"
         }
       },
       {
@@ -2493,8 +3056,8 @@
         "repository": "unjs/uncrypto",
         "resolution": "resolution:e3a8acdc512900be9833404b4820ec845cd254394a2df1b41ef1df0ede514098",
         "valid_overlap": {
-          "end": "2026-08-19T19:11:26Z",
-          "start": "2026-08-19T19:11:26Z"
+          "end": "2026-08-19T19:30:20Z",
+          "start": "2026-08-19T19:30:20Z"
         }
       },
       {
@@ -2503,8 +3066,8 @@
         "repository": "vkubilays/Get-Starknet",
         "resolution": "resolution:7a7e99476822cb6b6bac4ddeb7abe117db22c1d15894c465421e8a4adc0c76b7",
         "valid_overlap": {
-          "end": "2026-08-19T19:11:26Z",
-          "start": "2026-08-19T19:11:26Z"
+          "end": "2026-08-19T19:30:20Z",
+          "start": "2026-08-19T19:30:20Z"
         }
       },
       {
@@ -2513,8 +3076,8 @@
         "repository": "wangzmgit/leaf",
         "resolution": "resolution:098dafc3cad3dbe38d5cb919c75231012fa814b4517a4e588f74040e10a0c3a5",
         "valid_overlap": {
-          "end": "2026-08-19T19:11:26Z",
-          "start": "2026-08-19T19:11:26Z"
+          "end": "2026-08-19T19:30:20Z",
+          "start": "2026-08-19T19:30:20Z"
         }
       }
     ]
@@ -5458,7 +6021,7 @@
         ]
       }
     ],
-    "commit_sha": "af967a688f4745e2f23831f65f707ac7f5f7c140",
+    "commit_sha": "92d3bcbfd8eab2b88012afc21ff252085891a978",
     "false_negatives": 1,
     "false_positives": 103,
     "gradable_cases": 50,

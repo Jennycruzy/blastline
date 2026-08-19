@@ -21,6 +21,7 @@ historical only: 3 repositories now have a verified different resolution
 local verification: 50 gradable cases; TP=337; FP=103; FN=1; precision 0.7659; recall 0.9970
 manual parser holdout: 4 of 4 reviewed labels pass
 Hydra/local agreement: 10/10 cases; 0 false confirmations; 0 false omissions; 0 abstentions
+Hydra flagship retrieval: 30/30 temporal paths accepted; 0 abstentions; graph-context outage warning recorded
 measured package coverage: npm 0.132512%; PyPI 0.000804%
 graph fingerprint: b5fa455a5d3eea7bb0cda7e6a882e1ecccdb1fa16631889e16e711126a346619
 ```
