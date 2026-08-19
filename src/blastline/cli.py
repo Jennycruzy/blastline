@@ -392,7 +392,7 @@ def report(settings: Settings, as_json: bool) -> int:
             f"from {incident.get('window', {}).get('from')} to {incident.get('window', {}).get('to')}"
         )
         print(f"historical exposure: {len(payload['historical_exposure']['results'])} result(s)")
-        print(f"still dirty: {len(payload['still_dirty']['results'])} result(s)")
+        print(f"unresolved current risk: {len(payload['still_dirty']['results'])} result(s)")
         print(f"verification: {payload['verification']['precision']} precision, {payload['verification']['recall']} recall")
         print(f"generated artifact: {artifact.relative_to(settings.root)}")
     return 0

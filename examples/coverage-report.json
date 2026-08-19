@@ -1,33 +1,33 @@
 {
-  "edge_count": 30607,
+  "edge_count": 814455,
   "failures": {
     "by_source": {
-      "github-lockfile": 645,
+      "github-lockfile": 655,
       "npm": 300,
       "osv": 4,
       "pypi": 22
     },
-    "total": 971
+    "total": 981
   },
-  "graph_fingerprint": "812899da3f19920100bfd0855a2cb2279e3389fd4db83b8dd6fc2a6ea0275535",
+  "graph_fingerprint": "b5fa455a5d3eea7bb0cda7e6a882e1ecccdb1fa16631889e16e711126a346619",
   "node_counts": {
     "Advisory": 10,
     "Maintainer": 8,
-    "Package": 878,
+    "Package": 5693,
     "PublishInfra": 2,
-    "Repository": 1,
-    "Resolution": 5887,
-    "Version": 1641
+    "Repository": 54,
+    "Resolution": 204976,
+    "Version": 17007
   },
   "registries": {
     "npm": {
       "coverage_status": "measured",
       "maintainers": 8,
-      "package_name_coverage_percent": 0.020299,
+      "package_name_coverage_percent": 0.132512,
       "package_name_denominator": 4290928,
       "package_name_denominator_source": "npm replication _all_docs.total_rows",
-      "packages": 871,
-      "versions": 1481
+      "packages": 5686,
+      "versions": 16847
     },
     "pypi": {
       "coverage_status": "measured",
@@ -40,6 +40,6 @@
     }
   },
   "repositories": {
-    "total": 1
+    "total": 54
   }
 }

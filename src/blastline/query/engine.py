@@ -403,7 +403,7 @@ class QueryEngine:
                 # Historical query results use the repository's display label,
                 # so compare current state in the same identity space. Using
                 # the internal node id here makes every historical repository
-                # look dirty even when the compromised version is still
+                # look unresolved even when the compromised version is still
                 # currently resolved.
                 repository_label = self._node_label(declared.source_id)
                 current_repositories.setdefault(repository_label, set()).add(target_id)
@@ -421,12 +421,12 @@ class QueryEngine:
                         "repository": repository,
                         "historical_exposure": result,
                         "current_lockfile_versions": current_versions,
-                        "status": "still-dirty-candidate",
+                        "status": "historically-exposed-unresolved-risk",
                     }
                 )
         if not results and not abstentions:
-            abstentions.append(AbstentionNotice(f"{registry}:{package}@{version}", "no repository was both historically exposed and currently resolved clean"))
-        return self._response(f"Q7 still dirty {registry}:{package}@{version}", results, abstentions)
+            abstentions.append(AbstentionNotice(f"{registry}:{package}@{version}", "no repository was both historically exposed and currently verified with a safe resolution"))
+        return self._response(f"Q7 historical exposure with unresolved current risk {registry}:{package}@{version}", results, abstentions)
 
     def _current_versions_for_repository(
         self,

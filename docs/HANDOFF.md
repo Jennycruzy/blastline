@@ -2,32 +2,29 @@
 
 ## Current state
 
-Before this change, the latest committed project state was `940308d` (`Record real GitHub corpus selection`) and the branch was six commits ahead of `origin/main`. The committed corpus manifest selects 53 public GitHub repositories and is seeded by the npm `lodash` advisory graph; it does not yet provide a two-ecosystem corpus.
+The project baseline is `0b84f31` (`Fix pnpm lockfile parsing and corpus ingest performance`). The working tree contains the regenerated real GitHub corpus inputs, source fixes, refreshed reports, and compressed registry-cache/graph snapshots. The expanded loose `data/graph/` projection and `cache/registry/` cache are ignored because GitHub rejects the loose graph edge file and the cache would make the push unnecessarily large; `make prepare-graph` unpacks and verifies both archives.
 
-The working tree contains a pre-existing, uncommitted corpus-ingestion projection in `data/graph/`, `cache/verification/lockfile-snapshots.jsonl`, `cache/ingest-failures.jsonl`, and 328 untracked registry-cache responses. Those generated artifacts are intentionally not part of this code commit.
-
-## Completed in this change
+## Completed
 
 - Fixed pnpm parsing for legacy `/package/version`, hybrid `/package@version`, scoped, quoted, and peer-context keys.
 - Stripped quotes from pnpm dependency names before graphification.
 - Deferred GitHub corpus graph fingerprinting until the full `make ingest-corpus` pass completes.
-- Added focused parser coverage in `tests/test_lockfiles.py`.
+- Added snapshot interval validation so invalid `valid_to <= committed_at` records cannot enter the verification ledger.
+- Avoided repeated full graph-list copies during node and edge lookups, which keeps verification usable on the expanded corpus.
+- Added focused regression coverage for pnpm parsing and invalid snapshot intervals.
+- Rebuilt the corpus from a fresh committed baseline: 53 repositories selected, 327 real snapshots parsed, 199,089 resolutions, 10 failed records, and 0 failed repositories.
 
-Focused validation passes:
+## Validation
 
 ```text
-6 tests, OK
-all cached pnpm snapshots parsed without the original package-key failure
+22 tests, OK
+verification: 50 gradable cases; TP=877; FP=354; FN=0
+precision 0.7124; recall 1.0000
+graph fingerprint: b5fa455a5d3eea7bb0cda7e6a882e1ecccdb1fa16631889e16e711126a346619
 ```
 
-## Next step
+The rebuilt verification ledger contains 332 valid snapshots. No pnpm package-key errors or quoted package identities remain in the regenerated projection. Coverage and incident artifacts are refreshed in `examples/coverage-report.json` and `examples/incident-report.json`. Hydra-backed checks remain `ABSTAINED` because `HYDRA_DB_API_KEY` is not set.
 
-Rebuild the generated corpus from the committed baseline with the fixed parser:
+## Rebuild path
 
-```sh
-make ingest-corpus
-```
-
-Because the current generated graph contains pre-fix records, perform the rebuild from a clean baseline or fresh checkout before replacing the generated graph. An isolated pre-fix rebuild reached the full 328-snapshot pass, but it was not copied into the project; the later rebuild was stopped early after 38 snapshots while validating the quoted dependency-name fix.
-
-Validate the resulting failure ledger and ensure quoted package identities are gone before committing generated artifacts. The full unittest suite has not been completed against the expanded graph because graph loading is very slow; run it after the clean projection is available, or use focused tests first.
+From a fresh clone, run `make prepare-graph`. It unpacks and verifies the compressed cache and graph snapshots, or uses the committed recordings to restore the demo seed and cached `vs-deploy` baseline before ingesting the selected corpus when the snapshots are absent. The target is also a prerequisite of graph-consuming Make commands, including `make verify` and `make report`.

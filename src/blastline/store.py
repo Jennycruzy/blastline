@@ -117,7 +117,8 @@ class GraphStore:
         return hashlib.sha256(encoded).hexdigest()
 
     def node(self, node_id: str) -> Node | None:
-        self.nodes()
+        if self._nodes_cache is None:
+            self.nodes()
         if self._node_index is None:
             raise RuntimeError("node index was not initialized")
         return self._node_index.get(node_id)
@@ -149,7 +150,8 @@ class GraphStore:
         valid_at: datetime | None = None,
         commit_at: datetime | None = None,
     ) -> list[Edge]:
-        self.edges()
+        if self._edges_cache is None:
+            self.edges()
         if self._outgoing_index is None:
             raise RuntimeError("outgoing edge index was not initialized")
         return [
@@ -167,7 +169,8 @@ class GraphStore:
         valid_at: datetime | None = None,
         commit_at: datetime | None = None,
     ) -> list[Edge]:
-        self.edges()
+        if self._edges_cache is None:
+            self.edges()
         if self._incoming_index is None:
             raise RuntimeError("incoming edge index was not initialized")
         return [

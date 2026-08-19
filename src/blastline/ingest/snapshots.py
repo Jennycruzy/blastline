@@ -23,6 +23,10 @@ class LockfileSnapshot:
     raw_url: str
     payload_hash: str
 
+    def __post_init__(self) -> None:
+        if self.valid_to is not None and self.valid_to <= self.committed_at:
+            raise ValueError("time interval end must be after start")
+
     @property
     def snapshot_id(self) -> str:
         return f"{self.repository}:{self.path}@{self.sha}"

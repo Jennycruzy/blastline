@@ -32,7 +32,7 @@ def generate_incident_report(settings: Settings) -> tuple[Path, JsonObject]:
 
     historical = engine.window_exposure(registry, package, version, (start, end))
     present = engine.current_exposure(registry, package, version)
-    dirty = engine.still_dirty(registry, package, version, (start, end))
+    current_risk = engine.still_dirty(registry, package, version, (start, end))
     coverage = engine.coverage_report()
 
     verifier = Verifier(store, settings)
@@ -100,7 +100,7 @@ def generate_incident_report(settings: Settings) -> tuple[Path, JsonObject]:
             "historical_only": sorted(historical_repositories - present_repositories),
             "present_only": sorted(present_repositories - historical_repositories),
         },
-        "still_dirty": dirty.as_json(),
+        "still_dirty": current_risk.as_json(),
         "coverage": coverage.as_json(),
         "verification": scorecard.as_json(),
         "verification_record": str(verification_path.relative_to(settings.root)),

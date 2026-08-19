@@ -34,6 +34,20 @@ def lockfile_body(package: str, version: str) -> bytes:
 
 
 class LockfileOracleTest(unittest.TestCase):
+    def test_snapshot_rejects_invalid_interval(self) -> None:
+        start = datetime(2026, 8, 13, tzinfo=timezone.utc)
+        with self.assertRaisesRegex(ValueError, "time interval end must be after start"):
+            LockfileSnapshot.from_body(
+                "example/service",
+                "package-lock.json",
+                "commit",
+                "npm",
+                start,
+                start,
+                "https://raw.example/service/commit/package-lock.json",
+                lockfile_body("compromised", "1.0.0"),
+            )
+
     def test_oracle_reads_cached_raw_snapshot(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
