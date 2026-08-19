@@ -1,6 +1,6 @@
 # BLASTLINE
 
-When a package is compromised at 09:00, Blastline answers which real services were exposed by 09:06, which were exposed only during the incident window, and which have unresolved current risk after their latest lockfile state is examined.
+When a package version is found to be compromised or vulnerable, Blastline answers which real services were exposed during the affected interval, which moved to a verified different resolution, and which retain unresolved current risk.
 
 The enabling primitive is a bitemporal dependency graph. `t_valid` is when a resolution or malicious version was true in the world. `t_commit` is when Blastline learned it. Keeping those axes separate makes “who installed it while nobody knew?” a traversal instead of a guess.
 
@@ -10,15 +10,16 @@ Blastline does not only ask what depends on a vulnerable package today. It recon
 
 ## Verification first
 
-The scorecard is generated from real OSV advisory records and real public GitHub lockfile history. Verification reparses the cached raw lockfile snapshots through a graph-free observation oracle; it does not use graph `Resolution` edges as ground truth. The latest recorded run covers 50 gradable cases: TP=877, FP=354, FN=0, precision 0.7124, recall 1.0000. This is a small measured corpus, not an ecosystem-wide accuracy claim. Every run records its graph fingerprint, commit SHA, denominator, abstentions, and misses in [`cache/verification/runs.jsonl`](cache/verification/runs.jsonl). Current-source failures remain itemized in [`cache/ingest-failures.jsonl`](cache/ingest-failures.jsonl).
+The scorecard is generated from real OSV advisory records and real public GitHub lockfile history. Cases are selected by finding affected versions directly in the raw snapshot ledger, not by following graph `Resolution` edges. The graph-free observation oracle then reparses those immutable payloads. The current check covers 50 gradable temporal cases and 441 positive repository-pair decisions: TP=337, FP=103, FN=1, precision 0.7659, recall 0.9970. True negatives are not enumerated. A separate four-case manually reviewed parser holdout passes two positive and two negative labels. This is a small measured corpus, not an ecosystem-wide accuracy claim. Every recorded run preserves its graph fingerprint, commit SHA, denominator, abstentions, and misses in [`cache/verification/runs.jsonl`](cache/verification/runs.jsonl). Current-source failures remain itemized in [`cache/ingest-failures.jsonl`](cache/ingest-failures.jsonl).
 
 ## Current measured snapshot
 
 ```text
-historical exposure: npm/cli during the recorded incident window (2 temporal results)
-current exposure: none
-historically exposed with unresolved current risk: npm/cli
-local verification: 50 gradable cases; precision 0.7124; recall 1.0000
+historical exposure: 30 repositories resolved lodash@4.17.21 during the recorded vulnerability interval
+current exposure: 27 repositories still resolve lodash@4.17.21
+historical only: 3 repositories now have a verified different resolution
+local verification: 50 gradable cases; TP=337; FP=103; FN=1; precision 0.7659; recall 0.9970
+manual parser holdout: 4 of 4 reviewed labels pass
 Hydra/local agreement: ABSTAINED — HYDRA_DB_API_KEY is not set
 measured package coverage: npm 0.132512%; PyPI 0.000804%
 graph fingerprint: b5fa455a5d3eea7bb0cda7e6a882e1ecccdb1fa16631889e16e711126a346619
@@ -41,18 +42,19 @@ For the live HydraDB path, set `HYDRA_DB_API_KEY` only in the shell that runs th
 make hydra-init
 make publish-flagship
 make publish-verification
-make hydra-window REGISTRY=npm PKG=write-file-atomic VERSION=7.0.1 \
-  FROM=2026-07-08T18:00:00Z TO=2026-07-08T20:30:00Z
+make hydra-window REGISTRY=npm PKG=lodash VERSION=4.17.21 \
+  FROM=2021-02-20T15:42:16Z TO=2026-08-01T00:00:00Z
 ```
 
 Rebuild or unpack the offline demo graph from recorded real registry responses. The loose graph projection is ignored, while a compressed snapshot is committed below GitHub's file limit; the raw recordings, corpus manifest, snapshot ledger, and verification evidence remain committed:
 
 ```sh
 make prepare-graph
-make window REGISTRY=npm PKG=write-file-atomic VERSION=7.0.1 \
-  FROM=2026-07-08T18:00:00Z TO=2026-07-08T20:30:00Z
+make window REGISTRY=npm PKG=lodash VERSION=4.17.21 \
+  FROM=2021-02-20T15:42:16Z TO=2026-08-01T00:00:00Z
 make publish-graph
 make verify
+make verify-holdout
 make hydra-verify
 make measure-coverage
 make report
@@ -60,7 +62,7 @@ make report
 
 `make prepare-graph` is offline and deterministic with the committed recordings. It first unpacks the compressed registry cache and `data/graph.tar.zst` when available, verifies the graph fingerprint against the committed report, and otherwise restores the recorded seed (including the cached `vs-deploy` baseline required by the corpus manifest) and replays the corpus. The loose cache projection, `data/graph/` directory, and readiness markers are ignored. Graph-consuming Make targets invoke it automatically, so a fresh clone follows the same path before verification or a demo query.
 
-The offline `window` command runs the exact local temporal oracle. `hydra-window` uses HydraDB graph-context recall and source-level relation inspection to obtain candidate paths, then validates their typed temporal evidence locally before accepting them. Without a key, it abstains rather than presenting local output as Hydra-backed. In the committed demo, the historical set contains `npm/cli` and the present-day set is empty. The timeline starts before the real `npm/cli` resolution commit, so its exposed set grows from zero to one as the scrubber crosses that commit.
+The offline `window` command runs the exact local temporal oracle. `hydra-window` uses HydraDB graph-context recall and source-level relation inspection to obtain candidate paths, then validates their typed temporal evidence locally before accepting them. Without a key, it abstains rather than presenting local output as Hydra-backed. In the committed demo, the historical set contains 30 repositories, the latest recorded state contains 27, and three are historical-only. The timeline begins before the first recorded `lodash@4.17.21` resolution and grows from zero to the full historical set as the scrubber crosses real lockfile commits.
 
 `make ingest` advances the cached incremental feeds. `make ingest-full` bootstraps npm from the supported paginated replication catalog, then enumerates the complete PyPI Simple index; both paths checkpoint progress and report every failed record. `make ingest-pypi-full` runs only the PyPI catalog path. Full ecosystem ingestion is network- and disk-bound, so the checked-in demo remains deliberately labeled as a measured partial corpus rather than a completeness claim.
 
@@ -97,7 +99,10 @@ The generated incident artifact is [`examples/incident-report.json`](examples/in
 - [`docs/DATA_MODEL.md`](docs/DATA_MODEL.md) argues for the graph and the `Resolution` node.
 - [`docs/VERIFICATION.md`](docs/VERIFICATION.md) describes the ground-truth protocol and misses.
 - [`docs/HYDRA.md`](docs/HYDRA.md) identifies the HydraDB primitives used and what would be lost without them.
+- [`docs/RFC_HYDRA_TEMPORAL_PREDICATES.md`](docs/RFC_HYDRA_TEMPORAL_PREDICATES.md) proposes interval predicates for graph-context retrieval.
 
 ## Attribution
 
-Blastline uses the public [npm registry](https://github.com/npm/registry), the [npm replication changes feed](https://github.com/npm/replicate), the [PyPI JSON API](https://warehouse.pypa.io/api-reference/json.html), the [PyPI Simple API](https://packaging.python.org/en/latest/specifications/simple-repository-api/), [OSV.dev](https://google.github.io/osv.dev/), and the [GitHub REST and raw-content APIs](https://docs.github.com/en/rest). Graph/context storage and graph-enriched recall use [HydraDB](https://docs.hydradb.com/api-reference). The implementation uses Python 3.11 standard-library modules and is licensed under Apache 2.0.
+Blastline uses the public [npm registry](https://github.com/npm/registry), the [npm replication changes feed](https://github.com/npm/replicate), the [PyPI JSON API](https://warehouse.pypa.io/api-reference/json.html), the [PyPI Simple API](https://packaging.python.org/en/latest/specifications/simple-repository-api/), [OSV.dev](https://google.github.io/osv.dev/), and the [GitHub REST and raw-content APIs](https://docs.github.com/en/rest). Graph/context storage and graph-enriched recall use [HydraDB](https://docs.hydradb.com/api-reference), and the temporal edge model explicitly builds on its [graph-first architecture](https://docs.hydradb.com/essentials/architecture). The implementation uses Python 3.11 standard-library modules and is licensed under Apache 2.0.
+
+Development disclosure: Blastline was built with AI coding assistance. Its security claims are derived from committed source evidence and reproducible checks, not generated prose.

@@ -1,4 +1,4 @@
-"""Generate the judge-facing incident report from live graph queries."""
+"""Generate the incident report from live graph queries."""
 
 from __future__ import annotations
 
@@ -16,6 +16,7 @@ from .store import GraphStore
 from .timeutil import format_time, now_utc, parse_time
 from .verify.grader import Verifier
 from .verify.hydra_scorecard import HydraAgreementVerifier
+from .verify.manual_holdout import ManualHoldoutVerifier
 
 
 def generate_incident_report(settings: Settings) -> tuple[Path, JsonObject]:
@@ -38,6 +39,7 @@ def generate_incident_report(settings: Settings) -> tuple[Path, JsonObject]:
     verifier = Verifier(store, settings)
     scorecard = verifier.grade()
     verification_path = verifier.record(scorecard)
+    manual_holdout = ManualHoldoutVerifier(settings).grade()
 
     hydra_client = HydraClient(load_hydra_config(settings.root, settings.values))
     hydra_window: JsonObject
@@ -104,6 +106,7 @@ def generate_incident_report(settings: Settings) -> tuple[Path, JsonObject]:
         "coverage": coverage.as_json(),
         "verification": scorecard.as_json(),
         "verification_record": str(verification_path.relative_to(settings.root)),
+        "manual_parser_holdout": manual_holdout.as_json(),
         "hydra_window": hydra_window,
         "hydra_agreement": hydra_agreement,
         "timeline_configuration": timeline,

@@ -81,7 +81,7 @@ class LockfileOracleTest(unittest.TestCase):
             self.assertEqual(observation.repositories, ("example/service",))
             self.assertEqual(observation.abstentions, ())
 
-    def test_verifier_uses_raw_observation_instead_of_graph_resolution(self) -> None:
+    def test_verifier_discovers_case_from_raw_ledger_instead_of_graph_resolution(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
             start = datetime(2026, 8, 13, tzinfo=timezone.utc)
@@ -121,7 +121,7 @@ class LockfileOracleTest(unittest.TestCase):
                         version,
                         TimeInterval(start, end),
                         start,
-                        {"evidence": "parsed-lockfile"},
+                        {"evidence": "projection-under-test"},
                     ),
                     Edge.create(graph_only_repository, EdgeType.DECLARES, resolution, TimeInterval(start, end), start),
                 ]
@@ -149,12 +149,14 @@ class LockfileOracleTest(unittest.TestCase):
             self.assertEqual(len(cases), 1)
             self.assertEqual(cases[0].observed_repositories, (raw_repository,))
             self.assertEqual(cases[0].observation_abstentions, ())
+            self.assertEqual(cases[0].as_json()["selection_source"], "raw-snapshot-ledger")
 
             scorecard = verifier.grade()
             self.assertEqual(scorecard.gradable_cases, 1)
             self.assertEqual(scorecard.true_positives, 0)
             self.assertEqual(scorecard.false_positives, 1)
             self.assertEqual(scorecard.false_negatives, 1)
+            self.assertEqual(scorecard.as_json()["positive_pair_decisions"], 2)
 
 
 if __name__ == "__main__":

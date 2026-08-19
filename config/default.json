@@ -55,7 +55,8 @@
     "repository_limit": 50,
     "max_lockfile_bytes": 10000000,
     "max_unresolved_dependencies": 0,
-    "lockfile_snapshot_ledger": "cache/verification/lockfile-snapshots.jsonl"
+    "lockfile_snapshot_ledger": "cache/verification/lockfile-snapshots.jsonl",
+    "manual_holdout": "cache/verification/manual-lockfile-holdout.json"
   },
   "inference": {
     "name_distance_weight": 0.45,
@@ -72,10 +73,10 @@
     "frame_count": 12,
     "frame_duration_seconds": 30,
     "demo_registry": "npm",
-    "demo_package": "write-file-atomic",
-    "demo_version": "7.0.1",
-    "demo_from": "2026-07-08T18:00:00Z",
-    "demo_to": "2026-07-08T20:30:00Z"
+    "demo_package": "lodash",
+    "demo_version": "4.17.21",
+    "demo_from": "2021-02-20T15:42:16Z",
+    "demo_to": "2026-08-01T00:00:00Z"
   },
   "timetravel_demo": {
     "registry": "npm",

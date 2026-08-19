@@ -4,16 +4,17 @@ Blastline treats “these repositories are exposed” as a falsifiable claim.
 
 ## Protocol
 
-1. Select a real public advisory from OSV.dev and a real public repository with a committed lockfile.
-2. Ingest registry history, advisory disclosure data, and the repository’s lockfile commits. The GitHub adapter parses each committed snapshot instead of treating a manifest range as a resolved version.
-3. Predict exposure with Q1/Q3 from the graph.
-4. Resolve the same raw lockfile snapshots through the strict parser again, using the graph-free cached-lockfile oracle. The verifier does not derive observed ground truth from graph `Resolution` edges. Records that have no resolved version are retained in the failure ledger and are not silently counted as no exposure.
-5. Compare predicted and observed repository sets. False negatives are printed before aggregate metrics.
-6. Append the scorecard, graph fingerprint, and Git commit SHA to `cache/verification/runs.jsonl`.
+1. Select affected package versions from real public OSV.dev advisories.
+2. Discover positive cases by parsing the raw snapshot ledger directly; graph `RESOLVED_TO` edges are not used to choose cases.
+3. Ingest registry history, advisory disclosure data, and repository lockfile commits. The GitHub adapter parses each committed snapshot instead of treating a manifest range as a resolved version.
+4. Predict exposure with Q1/Q3 from the graph.
+5. Resolve the same raw lockfile snapshots through the strict parser again, using the graph-free cached-lockfile oracle. Records that have no resolved version are retained in the failure ledger and are not silently counted as no exposure.
+6. Compare predicted and observed repository sets. False negatives are printed before aggregate metrics.
+7. Append the scorecard, graph fingerprint, and Git commit SHA to `cache/verification/runs.jsonl` unless `--no-record` is used for CI.
 
 The verification target is not merely “does this repository depend on the package today?” Blastline must reconstruct the repository’s historical resolution during the requested exposure window, preserve the `Repository → Resolution → Version` evidence path, and distinguish that result from the current state. A missing path, missing timestamp, or unresolved lockfile produces an explicit abstention rather than an unsupported no-exposure verdict.
 
-The verifier does not tune thresholds to a perfect number. It reports the denominator and excludes ungradable cases from precision/recall. Its case-level `abstentions` field preserves the reason a case was not gradable.
+The verifier does not tune thresholds to a perfect number. It reports temporal cases separately from positive `(case, repository)` decisions and excludes ungradable cases from precision/recall. True negatives are not enumerated. Its case-level `abstentions` field preserves the reason a case was not gradable.
 
 ## Independent observation oracle
 
@@ -21,17 +22,22 @@ GitHub ingestion records each fetched lockfile snapshot in [`cache/verification/
 
 This separates two failure classes: the graph query can disagree with the lockfile observation, and the lockfile observation can abstain when its raw evidence is missing, corrupt, or unparseable. The strict parser is shared with ingestion, but graph projection is not part of the observation path.
 
-## Current recorded run
+## Current check
 
-The current recorded corpus contains 53 selected public GitHub repositories, 54 repositories in the graph, 332 valid raw lockfile snapshots, 10 advisories, and 50 gradable verification cases. The latest scorecard records:
+The current corpus contains 53 selected public GitHub repositories, 54 repositories in the graph, 332 valid raw lockfile snapshots, 10 advisories, and 50 gradable ledger-derived verification cases. The current check records:
 
 ```text
-TP=877  FP=354  FN=0
+TP=337  FP=103  FN=1
+441 positive repository-pair decisions; true negatives not enumerated
 50 gradable, 0 ungradable and excluded
-precision=0.7124  recall=1.0000
+precision=0.7659  recall=0.9970
 ```
 
-This is evidence about the recorded corpus, not a claim that a 50-case sample proves ecosystem-wide correctness. The run is intentionally accompanied by the append-only failure ledger; the latest corpus pass added 10 explicit failures and no failed repositories. Those are misses in coverage, not fabricated “safe” outcomes.
+This is evidence about the recorded corpus, not a claim that a 50-case sample proves ecosystem-wide correctness. The observed false negative is published rather than tuned away. The run is intentionally accompanied by the append-only failure ledger; the latest corpus pass added 10 explicit failures and no failed repositories. Those are misses in coverage, not fabricated “safe” outcomes.
+
+## Manually reviewed parser holdout
+
+`make verify-holdout` checks immutable raw payloads against four human-reviewable labels in [`cache/verification/manual-lockfile-holdout.json`](../cache/verification/manual-lockfile-holdout.json): package-lock and pnpm positives for `lodash@4.17.21`, a pnpm lockfile containing `lodash@4.18.1` instead, and a pnpm lockfile containing only a different `lodash.*` package. Each label includes the raw URL, payload hash, and the exact evidence that was reviewed before parser execution. This small holdout tests parser behavior independently of graph projection; it is intentionally not presented as broad parser accuracy.
 
 ## Hydra-backed agreement
 
@@ -64,6 +70,7 @@ An undefined denominator is printed as `not-defined`, never as zero. The same ru
 ```sh
 make prepare-graph
 make verify
+make verify-holdout
 ```
 
 `make prepare-graph` uses only committed material after the first capture. It unpacks the compressed registry cache and graph snapshot when available; if the snapshot is absent, it rebuilds the ignored graph projection from the recorded seed, including the cached `vs-deploy` baseline required by the corpus manifest, and then replays the manifest. It does not require GitHub credentials or live network access. The resulting fingerprint is checked into the coverage and incident artifacts, making an accidental or incomplete rebuild visible. To capture a fresh response, run `PYTHONPATH=src python3 scripts/record_real_responses.py ...`; the script uses public sources and writes the exact response bytes, never a synthetic fixture.

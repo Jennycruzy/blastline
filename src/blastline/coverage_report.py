@@ -1,4 +1,4 @@
-"""Measured graph and ingestion coverage for the judge-facing artifact."""
+"""Measured graph and ingestion coverage artifact."""
 
 from __future__ import annotations
 

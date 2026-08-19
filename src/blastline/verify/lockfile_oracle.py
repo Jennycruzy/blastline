@@ -19,6 +19,14 @@ class LockfileObservation:
     abstentions: tuple[str, ...]
 
 
+@dataclass(frozen=True, slots=True)
+class SnapshotTargetObservation:
+    snapshot: LockfileSnapshot
+    registry: str
+    package: str
+    version: str
+
+
 class CachedLockfileOracle:
     """Reparse raw cached snapshots without reading graph Resolution edges."""
 
@@ -27,6 +35,29 @@ class CachedLockfileOracle:
         self.http = http
         self._parsed: dict[str, LockfileResult] = {}
         self._parse_failures: dict[str, str] = {}
+
+    def discover_targets(
+        self,
+        targets: set[tuple[str, str, str]],
+    ) -> tuple[SnapshotTargetObservation, ...]:
+        """Find target versions directly in raw snapshots, without graph resolution edges."""
+
+        observations: list[SnapshotTargetObservation] = []
+        for snapshot in sorted(self.snapshots, key=lambda item: (item.committed_at, item.snapshot_id)):
+            parse_abstentions: list[str] = []
+            result = self._parse(snapshot, parse_abstentions)
+            if result is None:
+                continue
+            found = {
+                (resolution.ecosystem, resolution.package_name, resolution.version)
+                for resolution in result.resolutions
+                if (resolution.ecosystem, resolution.package_name, resolution.version) in targets
+            }
+            observations.extend(
+                SnapshotTargetObservation(snapshot, registry, package, version)
+                for registry, package, version in sorted(found)
+            )
+        return tuple(observations)
 
     def observe(
         self,

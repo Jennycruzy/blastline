@@ -22,7 +22,9 @@ class TimelineEndpointTest(unittest.TestCase):
         self.assertEqual(len(body["frames"]), settings.integer("timeline", "frame_count"))
         exposed = [frame["exposed_repositories"] for frame in body["frames"]]
         self.assertEqual(exposed[0], [])
-        self.assertEqual(exposed[-1], ["npm/cli"])
+        self.assertGreaterEqual(len(exposed[-1]), 15)
+        self.assertIn("npm/cli", exposed[-1])
+        self.assertTrue(body["frames"][-1]["historical_differs_current"])
         self.assertTrue(any(frame["latency_ms"] >= 0 for frame in body["frames"]))
 
 

@@ -21,6 +21,7 @@ from .query.types import QueryResponse
 from .report import generate_incident_report
 from .verify.grader import Verifier
 from .verify.hydra_scorecard import HydraAgreementVerifier
+from .verify.manual_holdout import ManualHoldoutVerifier
 from .model import EdgeType, Node, NodeType, version_id
 from .store import GraphStore
 from .timeutil import format_time, now_utc, parse_time
@@ -355,15 +356,17 @@ def run_query(settings: Settings, args: argparse.Namespace) -> int:
     return 0
 
 
-def verify(settings: Settings, as_json: bool) -> int:
+def verify(settings: Settings, as_json: bool, record: bool = True) -> int:
     verifier = Verifier(build_store(settings), settings)
     scorecard = verifier.grade()
-    path = verifier.record(scorecard)
     if as_json:
         print(json.dumps(scorecard.as_json(), sort_keys=True, indent=2))
     else:
         print(scorecard.human())
-        print(f"append-only verification run: {path}")
+    if record:
+        path = verifier.record(scorecard)
+        if not as_json:
+            print(f"append-only verification run: {path}")
     return 0
 
 
@@ -379,6 +382,15 @@ def hydra_verify(settings: Settings, as_json: bool) -> int:
     return 0
 
 
+def verify_holdout(settings: Settings, as_json: bool) -> int:
+    scorecard = ManualHoldoutVerifier(settings).grade()
+    if as_json:
+        print(json.dumps(scorecard.as_json(), sort_keys=True, indent=2))
+    else:
+        print(scorecard.human())
+    return 0
+
+
 def report(settings: Settings, as_json: bool) -> int:
     artifact, payload = generate_incident_report(settings)
     if as_json:
@@ -391,9 +403,16 @@ def report(settings: Settings, as_json: bool) -> int:
             f"incident report: {incident.get('package')}@{incident.get('version')} "
             f"from {incident.get('window', {}).get('from')} to {incident.get('window', {}).get('to')}"
         )
-        print(f"historical exposure: {len(payload['historical_exposure']['results'])} result(s)")
-        print(f"unresolved current risk: {len(payload['still_dirty']['results'])} result(s)")
+        comparison = payload["comparison"]
+        print(f"historical exposure: {len(comparison['historical_repositories'])} repository/repositories")
+        print(f"current exposure: {len(comparison['present_repositories'])} repository/repositories")
+        print(f"historical only: {len(comparison['historical_only'])} repository/repositories")
+        print(f"unresolved current risk: {len(payload['still_dirty']['results'])} repository/repositories")
         print(f"verification: {payload['verification']['precision']} precision, {payload['verification']['recall']} recall")
+        print(
+            "manual parser holdout: "
+            f"{payload['manual_parser_holdout']['passed']} of {payload['manual_parser_holdout']['cases']} passed"
+        )
         print(f"generated artifact: {artifact.relative_to(settings.root)}")
     return 0
 
@@ -507,7 +526,10 @@ def parser() -> argparse.ArgumentParser:
     coverage_report_parser = subparsers.add_parser("coverage-report")
     add_output_options(coverage_report_parser)
     verify_parser = subparsers.add_parser("verify")
+    verify_parser.add_argument("--no-record", action="store_true", help="check without appending a scorecard artifact")
     add_output_options(verify_parser)
+    holdout_parser = subparsers.add_parser("verify-holdout")
+    add_output_options(holdout_parser)
     hydra_verify_parser = subparsers.add_parser("hydra-verify")
     add_output_options(hydra_verify_parser)
     report_parser = subparsers.add_parser("report")
@@ -537,7 +559,9 @@ def main(argv: list[str] | None = None) -> int:
     if args.command == "publish-verification":
         return publish_verification(settings)
     if args.command == "verify":
-        return verify(settings, args.json)
+        return verify(settings, args.json, not args.no_record)
+    if args.command == "verify-holdout":
+        return verify_holdout(settings, args.json)
     if args.command == "hydra-verify":
         return hydra_verify(settings, args.json)
     if args.command == "report":

@@ -38,6 +38,8 @@ This is why Blastline answers a different question from a current dependency das
 
 ## Bitemporal semantics
 
+Blastline’s edge model is a supply-chain specialization of HydraDB’s published graph-first architecture: HydraDB supplies the context-graph, metadata, and graph-recall substrate, while Blastline makes the temporal edge evidence explicit as `e_k = (r_k, t_commit, t_valid, C_meta)`. In Blastline, `r_k` is a typed relationship, `t_valid` is a half-open world-time interval, `t_commit` is knowledge time, and `C_meta` contains source and parser provenance. See the [HydraDB architecture](https://docs.hydradb.com/essentials/architecture) and [metadata model](https://docs.hydradb.com/essentials/metadata).
+
 Every edge is an append-only record:
 
 ```text

@@ -13,7 +13,7 @@ from blastline.store import GraphStore
 
 
 class QueryEngineTest(unittest.TestCase):
-    def test_still_dirty_does_not_flag_repository_still_on_compromised_version(self) -> None:
+    def test_still_dirty_flags_repository_still_on_compromised_version(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             store = GraphStore(Path(directory))
             start = datetime(2026, 7, 1, tzinfo=timezone.utc)
@@ -38,8 +38,44 @@ class QueryEngineTest(unittest.TestCase):
             )
             engine = QueryEngine(store, Settings.load(Path(__file__).resolve().parents[1]))
             response = engine.still_dirty("npm", "compromised", "1.0.0", (start, end), as_of=datetime(2026, 7, 1, 12, tzinfo=timezone.utc))
-            self.assertEqual(response.results, ())
+            self.assertEqual(len(response.results), 1)
+            self.assertEqual(response.results[0]["repository"], "example/service")
+            self.assertEqual(response.results[0]["status"], "currently-exposed")
             self.assertEqual(response.coverage.resolvable_repositories, 1)
+
+    def test_still_dirty_excludes_verified_safe_current_resolution(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            store = GraphStore(Path(directory))
+            start = datetime(2026, 7, 1, tzinfo=timezone.utc)
+            patched = datetime(2026, 7, 2, tzinfo=timezone.utc)
+            as_of = datetime(2026, 7, 3, tzinfo=timezone.utc)
+            repository = repository_id("github.com", "example/service")
+            package = package_id("npm", "compromised")
+            bad_version = version_id("npm", "compromised", "1.0.0")
+            safe_version = version_id("npm", "compromised", "1.0.1")
+            bad_resolution = resolution_id(repository, package, "1.0.0", start, "node_modules/compromised")
+            safe_resolution = resolution_id(repository, package, "1.0.1", patched, "node_modules/compromised")
+            store.add_nodes(
+                [
+                    Node(repository, NodeType.REPOSITORY, {"full_name": "example/service"}),
+                    Node(package, NodeType.PACKAGE, {"registry": "npm", "name": "compromised"}),
+                    Node(bad_version, NodeType.VERSION, {"registry": "npm", "package": "compromised", "version": "1.0.0"}),
+                    Node(safe_version, NodeType.VERSION, {"registry": "npm", "package": "compromised", "version": "1.0.1"}),
+                    Node(bad_resolution, NodeType.RESOLUTION, {"lock_path": "node_modules/compromised"}),
+                    Node(safe_resolution, NodeType.RESOLUTION, {"lock_path": "node_modules/compromised"}),
+                ]
+            )
+            store.add_edges(
+                [
+                    Edge.create(bad_resolution, EdgeType.RESOLVED_TO, bad_version, TimeInterval(start, patched), start),
+                    Edge.create(repository, EdgeType.DECLARES, bad_resolution, TimeInterval(start, patched), start),
+                    Edge.create(safe_resolution, EdgeType.RESOLVED_TO, safe_version, TimeInterval(patched), patched),
+                    Edge.create(repository, EdgeType.DECLARES, safe_resolution, TimeInterval(patched), patched),
+                ]
+            )
+            engine = QueryEngine(store, Settings.load(Path(__file__).resolve().parents[1]))
+            response = engine.still_dirty("npm", "compromised", "1.0.0", (start, patched), as_of=as_of)
+            self.assertEqual(response.results, ())
 
     def test_coverage_itemizes_repository_without_resolution(self) -> None:
         with tempfile.TemporaryDirectory() as directory:

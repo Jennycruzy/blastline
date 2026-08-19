@@ -414,18 +414,32 @@ class QueryEngine:
                 historic[repository_value] = result
         results: list[JsonObject] = []
         for repository, result in sorted(historic.items()):
-            if repository not in current_repositories:
-                current_versions = self._current_versions_for_repository(repository, instant, registry, package)
+            current_versions = self._current_versions_for_repository(repository, instant, registry, package)
+            if repository in current_repositories:
                 results.append(
                     {
                         "repository": repository,
                         "historical_exposure": result,
                         "current_lockfile_versions": current_versions,
+                        "status": "currently-exposed",
+                    }
+                )
+            elif not current_versions:
+                results.append(
+                    {
+                        "repository": repository,
+                        "historical_exposure": result,
+                        "current_lockfile_versions": [],
                         "status": "historically-exposed-unresolved-risk",
                     }
                 )
         if not results and not abstentions:
-            abstentions.append(AbstentionNotice(f"{registry}:{package}@{version}", "no repository was both historically exposed and currently verified with a safe resolution"))
+            abstentions.append(
+                AbstentionNotice(
+                    f"{registry}:{package}@{version}",
+                    "no historically exposed repository is currently exposed or missing a current package resolution",
+                )
+            )
         return self._response(f"Q7 historical exposure with unresolved current risk {registry}:{package}@{version}", results, abstentions)
 
     def _current_versions_for_repository(

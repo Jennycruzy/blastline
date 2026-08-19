@@ -12,7 +12,7 @@ from ..config import Settings
 from ..json_types import JsonObject
 from ..ingest.http import DiskHttpClient, HttpPolicy
 from ..ingest.snapshots import SnapshotLedger
-from ..model import EdgeType, NodeType
+from ..model import Edge, EdgeType, NodeType
 from ..query.engine import QueryEngine
 from ..query.types import QueryResponse
 from ..store import GraphStore
@@ -43,6 +43,7 @@ class VerificationCase:
             "known_at": format_time(self.known_at),
             "observed_repositories": list(self.observed_repositories),
             "observation_abstentions": list(self.observation_abstentions),
+            "selection_source": "raw-snapshot-ledger",
         }
 
 
@@ -81,6 +82,7 @@ class Scorecard:
     recall: float | None
 
     def as_json(self) -> JsonObject:
+        positive_pair_decisions = self.true_positives + self.false_positives + self.false_negatives
         return {
             "graph_fingerprint": self.graph_fingerprint,
             "commit_sha": self.commit_sha,
@@ -90,6 +92,9 @@ class Scorecard:
             "true_positives": self.true_positives,
             "false_negatives": self.false_negatives,
             "false_positives": self.false_positives,
+            "positive_pair_decisions": positive_pair_decisions,
+            "observed_positive_pairs": self.true_positives + self.false_negatives,
+            "predicted_positive_pairs": self.true_positives + self.false_positives,
             "precision": self.precision,
             "recall": self.recall,
         }
@@ -106,6 +111,11 @@ class Scorecard:
         lines.extend(
             [
                 f"cases: {self.gradable_cases} gradable, {self.ungradable_cases} ungradable and excluded",
+                (
+                    "positive repository-pair decisions: "
+                    f"{self.true_positives + self.false_positives + self.false_negatives} "
+                    f"across {self.gradable_cases} temporal cases (true negatives not enumerated)"
+                ),
                 f"confusion counts: TP={self.true_positives} FP={self.false_positives} FN={self.false_negatives}",
                 f"precision: {format_metric(self.precision)}",
                 f"recall: {format_metric(self.recall)}",
@@ -137,8 +147,8 @@ class Verifier:
         cases: list[VerificationCase] = []
         default_days = self.settings.integer("graph", "default_window_days")
         limit = self.settings.integer("verification", "repository_limit")
-        advisory_edges = self.store.edges()
-        for advisory_edge in advisory_edges:
+        affected: dict[tuple[str, str, str], Edge] = {}
+        for advisory_edge in sorted(self.store.edges(), key=lambda item: item.edge_id):
             if advisory_edge.edge_type is not EdgeType.AFFECTS:
                 continue
             version_node = self.store.node(advisory_edge.target_id)
@@ -149,40 +159,54 @@ class Verifier:
             version = version_node.attributes.get("version")
             if not isinstance(registry, str) or not isinstance(package, str) or not isinstance(version, str):
                 continue
-            for resolution_edge in self.store.incoming(version_node.node_id, EdgeType.RESOLVED_TO):
-                if resolution_edge.metadata.get("evidence") != "parsed-lockfile":
-                    continue
-                window_start = max(advisory_edge.valid.start, resolution_edge.valid.start)
-                if resolution_edge.valid.end is None:
-                    window_end = window_start + timedelta(days=default_days)
-                else:
-                    window_end = min(resolution_edge.valid.end, window_start + timedelta(days=default_days))
-                if window_end <= window_start:
-                    continue
-                known_at = max(advisory_edge.commit_at, resolution_edge.commit_at)
-                case_id = f"{package}@{version}:{format_time(window_start)}:{resolution_edge.source_id}"
-                observation = self.oracle.observe(
-                    registry,
-                    package,
-                    version,
-                    (window_start, window_end),
+            key = (registry, package, version)
+            previous = affected.get(key)
+            if previous is None or (advisory_edge.commit_at, advisory_edge.edge_id) < (previous.commit_at, previous.edge_id):
+                affected[key] = advisory_edge
+
+        seen: set[tuple[str, str, str, datetime, datetime, datetime]] = set()
+        for target in self.oracle.discover_targets(set(affected)):
+            advisory_edge = affected[(target.registry, target.package, target.version)]
+            window_start = max(advisory_edge.valid.start, target.snapshot.committed_at)
+            window_end = min(
+                target.snapshot.valid_to or window_start + timedelta(days=default_days),
+                window_start + timedelta(days=default_days),
+            )
+            if advisory_edge.valid.end is not None:
+                window_end = min(window_end, advisory_edge.valid.end)
+            if window_end <= window_start:
+                continue
+            known_at = max(advisory_edge.commit_at, target.snapshot.committed_at)
+            key = (target.registry, target.package, target.version, window_start, window_end, known_at)
+            if key in seen:
+                continue
+            seen.add(key)
+            observation = self.oracle.observe(
+                target.registry,
+                target.package,
+                target.version,
+                (window_start, window_end),
+                known_at,
+            )
+            case_id = (
+                f"{target.package}@{target.version}:{format_time(window_start)}:"
+                f"snapshot:{target.snapshot.snapshot_id}"
+            )
+            cases.append(
+                VerificationCase(
+                    case_id,
+                    target.registry,
+                    target.package,
+                    target.version,
+                    window_start,
+                    window_end,
                     known_at,
+                    observation.repositories,
+                    observation.abstentions,
                 )
-                cases.append(
-                    VerificationCase(
-                        case_id,
-                        registry,
-                        package,
-                        version,
-                        window_start,
-                        window_end,
-                        known_at,
-                        observation.repositories,
-                        observation.abstentions,
-                    )
-                )
-                if len(cases) >= limit:
-                    return tuple(cases)
+            )
+            if len(cases) >= limit:
+                return tuple(cases)
         return tuple(cases)
 
     def grade(self) -> Scorecard:

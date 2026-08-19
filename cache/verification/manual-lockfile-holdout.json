@@ -1,0 +1,46 @@
+{
+  "cases": [
+    {
+      "ecosystem": "npm",
+      "expected_present": true,
+      "package": "lodash",
+      "payload_hash": "0ca81c926baaf67185b964fcd991d90d97d85e138ba275402de64892a4e78ced",
+      "raw_evidence": "node_modules/tap/node_modules/lodash has version 4.17.21",
+      "raw_url": "https://raw.githubusercontent.com/npm/cli/230e2214d15453909c607523c32e35271a615498/package-lock.json",
+      "snapshot_id": "npm/cli:package-lock.json@230e2214d15453909c607523c32e35271a615498",
+      "version": "4.17.21"
+    },
+    {
+      "ecosystem": "npm",
+      "expected_present": true,
+      "package": "lodash",
+      "payload_hash": "3e30196dfadc95ca1efeb008608528b8d0dc58da97cdbf19a6550c22e8e5452e",
+      "raw_evidence": "/lodash@4.17.21 has an exact resolution entry",
+      "raw_url": "https://raw.githubusercontent.com/Codehagen/regnskapsloop-crm/7bc634cb5a021c9d5274a5af695985f636693dee/pnpm-lock.yaml",
+      "snapshot_id": "Codehagen/regnskapsloop-crm:pnpm-lock.yaml@7bc634cb5a021c9d5274a5af695985f636693dee",
+      "version": "4.17.21"
+    },
+    {
+      "ecosystem": "npm",
+      "expected_present": false,
+      "package": "lodash",
+      "payload_hash": "239350ca076ddde1c3f0ff0f94c85561c0b51ae4e7ad143abbd5428d87effd98",
+      "raw_evidence": "the exact lodash entry is 4.18.1, not 4.17.21",
+      "raw_url": "https://raw.githubusercontent.com/HenryQW/Awesome-TTRSS/2234f76c662de8d35267c7d0ae04bbade857e0be/pnpm-lock.yaml",
+      "snapshot_id": "HenryQW/Awesome-TTRSS:pnpm-lock.yaml@2234f76c662de8d35267c7d0ae04bbade857e0be",
+      "version": "4.17.21"
+    },
+    {
+      "ecosystem": "npm",
+      "expected_present": false,
+      "package": "lodash",
+      "payload_hash": "1fc6c2d796925118f3c486bd7661a4c83a3619d4b997908e475e1f709fa2c027",
+      "raw_evidence": "lodash.merge is present, but no exact lodash@4.17.21 entry exists",
+      "raw_url": "https://raw.githubusercontent.com/CAPHTECH/kiri/370eb92c89d9ca2f9efd56402747cf26cce31662/pnpm-lock.yaml",
+      "snapshot_id": "CAPHTECH/kiri:pnpm-lock.yaml@370eb92c89d9ca2f9efd56402747cf26cce31662",
+      "version": "4.17.21"
+    }
+  ],
+  "labeling_method": "Exact package/version entries were manually reviewed in the immutable raw payloads before running the Blastline parser.",
+  "reviewed_at": "2026-08-19"
+}

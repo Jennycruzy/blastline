@@ -1,0 +1,27 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test-and-verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Restore and fingerprint offline evidence
+        run: make prepare-graph
+      - name: Run unit tests
+        run: make test
+      - name: Check ledger-derived verification
+        run: make verify-check
+      - name: Check manually reviewed parser holdout
+        run: make verify-holdout
