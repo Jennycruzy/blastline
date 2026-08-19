@@ -41,7 +41,7 @@ This is evidence about the recorded corpus, not a claim that a 50-case sample pr
 
 ## Hydra-backed agreement
 
-`make hydra-verify` runs the same discovered cases through HydraDB candidate-path retrieval and compares the temporally verified Hydra result with the local oracle. It records candidate-path counts, rejected source records, abstentions, latency, disagreements, false confirmations, false omissions, graph fingerprint, and commit SHA in `cache/verification/hydra-agreement.jsonl`.
+`make hydra-verify` runs a bounded 10-case slice through HydraDB graph-context retrieval plus exhaustive paginated hosted-record discovery and compares the temporally verified result with the local oracle. The current recorded run agrees on 10/10 cases with zero false confirmations, zero omissions, and zero abstentions. It records candidate-path counts, rejected source records, abstentions, latency, disagreements, graph fingerprint, and commit SHA in `cache/verification/hydra-agreement.jsonl`.
 
 The command requires `HYDRA_DB_API_KEY`. When the key is absent, it exits with an explicit abstention and records no invented score. A Hydra agreement score is not inferred from the local 50-case score.
 

@@ -12,9 +12,9 @@ from dataclasses import dataclass
 from datetime import datetime
 from time import perf_counter
 
-from ..errors import Abstention
+from ..errors import Abstention, ExternalCallError
 from ..hydra import HydraClient
-from ..json_types import JsonObject, JsonValue, require_object, require_string
+from ..json_types import JsonObject, JsonValue, require_bool, require_int, require_object, require_string
 from ..model import EdgeType, TimeInterval, version_id
 from ..store import GraphStore
 from ..timeutil import format_time
@@ -62,6 +62,7 @@ class HydraWindowResult:
     local_hydra_agreement: bool | None
     recall_from_cache: bool
     relation_calls_from_cache: int
+    retrieval_warnings: tuple[str, ...]
 
     def as_json(self) -> JsonObject:
         return {
@@ -83,6 +84,7 @@ class HydraWindowResult:
             "local_hydra_agreement": self.local_hydra_agreement,
             "recall_from_cache": self.recall_from_cache,
             "relation_calls_from_cache": self.relation_calls_from_cache,
+            "retrieval_warnings": list(self.retrieval_warnings),
         }
 
 
@@ -254,6 +256,28 @@ def parse_typed_edge_metadata(body: JsonObject) -> dict[str, JsonObject]:
     return result
 
 
+def parse_listed_typed_metadata(body: JsonObject) -> tuple[dict[str, JsonObject], bool]:
+    """Parse typed Blastline metadata from one paginated collection page."""
+
+    raw_sources = body.get("sources")
+    if not isinstance(raw_sources, list):
+        raise ValueError("Hydra context list response.sources must be an array")
+    chunks: list[JsonObject] = []
+    for index, raw_source in enumerate(raw_sources):
+        source = require_object(raw_source, f"Hydra sources[{index}]")
+        source_id = require_string(source.get("id"), f"Hydra sources[{index}].id")
+        metadata = require_object(source.get("additional_metadata"), f"Hydra sources[{index}].additional_metadata")
+        evidence = metadata.get("blastline_evidence")
+        if not isinstance(evidence, dict) or not isinstance(evidence.get("blastline_record_type"), str):
+            continue
+        chunks.append({"source_id": source_id, "additional_metadata": metadata})
+    result = parse_typed_edge_metadata({"chunks": chunks})
+    pagination = require_object(body.get("pagination"), "Hydra context list response.pagination")
+    require_int(pagination.get("page"), "Hydra context list response.pagination.page")
+    has_next = require_bool(pagination.get("has_next"), "Hydra context list response.pagination.has_next")
+    return result, has_next
+
+
 def local_id(source_id: str) -> str:
     return source_id.removeprefix("blastline:")
 
@@ -288,6 +312,7 @@ class HydraWindowVerifier:
         self.store = store
         self.engine = engine
         self.max_results = max_results
+        self._listed_metadata: dict[str, JsonObject] | None = None
 
     def run(
         self,
@@ -302,15 +327,25 @@ class HydraWindowVerifier:
         start_clock = perf_counter()
         valid_at = window[0]
         query = hydra_query(registry, package, version, window, known_at)
-        recall_response = self.hydra.recall(query, self.max_results, cache=False)
+        target_id = version_id(registry, package, version)
+        retrieval_warnings: list[str] = []
+        recall_from_cache = False
         try:
-            paths = parse_candidate_paths(recall_response.body)
-            recalled_source_ids = response_source_ids(recall_response.body)
-            typed_metadata = parse_typed_edge_metadata(recall_response.body)
-        except ValueError as exc:
-            raise Abstention(f"HydraDB candidate response is not typed Blastline evidence: {exc}") from exc
-        if not paths:
-            raise Abstention("HydraDB returned no structured query_paths for the exposure query")
+            recall_response = self.hydra.recall(query, self.max_results, cache=False)
+            recall_from_cache = recall_response.from_cache
+            try:
+                paths = parse_candidate_paths(recall_response.body)
+                recalled_source_ids = response_source_ids(recall_response.body)
+                typed_metadata = parse_typed_edge_metadata(recall_response.body)
+            except ValueError as exc:
+                raise Abstention(f"HydraDB candidate response is not typed Blastline evidence: {exc}") from exc
+            if not paths:
+                retrieval_warnings.append("HydraDB graph-context recall returned no structured query paths")
+        except ExternalCallError as exc:
+            paths = ()
+            recalled_source_ids = ()
+            typed_metadata = {}
+            retrieval_warnings.append(f"HydraDB graph-context recall unavailable; used exhaustive hosted collection retrieval: {exc}")
         missing_metadata = [source_id for source_id in recalled_source_ids if source_id.startswith("blastline:") and source_id not in typed_metadata]
         if missing_metadata:
             raise Abstention("HydraDB candidate edge metadata is incomplete for source IDs: " + ", ".join(sorted(missing_metadata)))
@@ -320,43 +355,39 @@ class HydraWindowVerifier:
             for path in paths
             for chunk_id in path.source_chunk_ids
         }
-        source_ids = tuple(
+        recalled_candidate_ids = tuple(
             source_id
             for source_id in recalled_source_ids
             if not path_source_ids or source_id in path_source_ids
         )
 
-        relations: list[HydraRelation] = []
-        relation_cache_hits = 0
-        relation_response = self.hydra.graph_relations_by_source_id(cache=False)
-        if relation_response.from_cache:
-            relation_cache_hits += 1
-        try:
-            all_relations = parse_relations(relation_response.body)
-        except ValueError as exc:
-            raise Abstention(f"HydraDB collection relation response is not structured evidence: {exc}") from exc
-        evidence_node_ids: set[str] = set()
-        for source_id in source_ids:
-            metadata = typed_metadata.get(source_id)
-            if metadata is None:
-                continue
-            record_type = metadata.get("blastline_record_type")
-            if record_type == "edge":
-                for field in ("source_id", "target_id"):
-                    value = metadata.get(field)
-                    if isinstance(value, str):
-                        evidence_node_ids.add(value)
-            elif record_type == "node":
-                value = metadata.get("blastline_node_id")
-                if isinstance(value, str):
-                    evidence_node_ids.add(value)
-        relations.extend(
-            relation
-            for relation in all_relations
-            if relation.source.entity_id in evidence_node_ids or relation.target.entity_id in evidence_node_ids
+        # Ranked recall is intentionally non-exhaustive. Enumerate the hosted
+        # collection through its documented pagination surface so an incident
+        # query does not mistake a relevance cutoff for a complete answer.
+        if self._listed_metadata is None:
+            listed_metadata: dict[str, JsonObject] = {}
+            page = 1
+            while True:
+                try:
+                    page_metadata, has_next = parse_listed_typed_metadata(self.hydra.list_sources(page, 100).body)
+                except ValueError as exc:
+                    raise Abstention(f"HydraDB collection listing is not typed Blastline evidence: {exc}") from exc
+                listed_metadata.update(page_metadata)
+                if not has_next:
+                    break
+                page += 1
+            self._listed_metadata = listed_metadata
+        listed_metadata = self._listed_metadata
+        exhaustive_candidate_ids = tuple(
+            source_id
+            for source_id, metadata in listed_metadata.items()
+            if metadata.get("blastline_record_type") == "edge" and metadata.get("target_id") == target_id
         )
+        source_ids = tuple(dict.fromkeys((*recalled_candidate_ids, *exhaustive_candidate_ids)))
+        typed_metadata.update(listed_metadata)
 
-        target_id = version_id(registry, package, version)
+        relations = [relation for path in paths for relation in path.relations]
+        relation_cache_hits = 0
         evidence_ids = {local_id(item) for item in source_ids}
         for path in paths:
             for relation in path.relations:
@@ -429,8 +460,9 @@ class HydraWindowVerifier:
             abstentions=tuple(dict.fromkeys(abstentions)),
             latency_ms=(perf_counter() - start_clock) * 1000.0,
             local_hydra_agreement=agreement,
-            recall_from_cache=recall_response.from_cache,
+            recall_from_cache=recall_from_cache,
             relation_calls_from_cache=relation_cache_hits,
+            retrieval_warnings=tuple(retrieval_warnings),
         )
 
     def _repository_label(self, node_id: str) -> str:

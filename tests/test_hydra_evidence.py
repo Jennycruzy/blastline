@@ -6,6 +6,7 @@ from blastline.query.hydra_evidence import (
     hydra_query,
     local_id,
     parse_candidate_paths,
+    parse_listed_typed_metadata,
     parse_relations,
     parse_typed_edge_metadata,
     response_source_ids,
@@ -96,6 +97,31 @@ class HydraEvidenceParserTest(unittest.TestCase):
         )
         self.assertEqual(relations[0].target.entity_id, "version:npm:lodash@4.17.21")
         self.assertEqual(relations[0].predicate, "RESOLVED_TO")
+
+    def test_parses_paginated_collection_evidence(self) -> None:
+        metadata, has_next = parse_listed_typed_metadata(
+            {
+                "sources": [
+                    {
+                        "id": "blastline:edge:resolved",
+                        "additional_metadata": {
+                            "blastline_evidence": {
+                                "blastline_record_type": "edge",
+                                "blastline_edge_id": "edge:resolved",
+                                "blastline_source_id": "resolution:one",
+                                "blastline_target_id": "version:npm:lodash@4.17.21",
+                                "blastline_valid_start": "2026-07-08T18:00:00Z",
+                                "blastline_commit_at": "2026-07-08T18:05:00Z",
+                                "blastline_graph_fingerprint": "fingerprint",
+                            }
+                        },
+                    }
+                ],
+                "pagination": {"page": 1, "has_next": False},
+            }
+        )
+        self.assertFalse(has_next)
+        self.assertEqual(metadata["blastline:edge:resolved"]["target_id"], "version:npm:lodash@4.17.21")
 
     def test_query_is_deterministic_and_contains_temporal_axes(self) -> None:
         valid_at = parse_time("2026-07-08T19:00:00Z")

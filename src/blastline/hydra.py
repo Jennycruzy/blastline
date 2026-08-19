@@ -10,6 +10,7 @@ exact temporal traversal and offline verification.
 from __future__ import annotations
 
 import hashlib
+import http.client
 import json
 import os
 import time
@@ -188,7 +189,14 @@ class HydraClient:
                     raise ExternalCallError(f"HydraDB {method} {path} failed with HTTP {exc.code}: {detail}") from exc
                 last_detail = exc.read().decode("utf-8", errors="replace")
                 last_error = exc
-            except (URLError, TimeoutError, OSError, json.JSONDecodeError, ValueError) as exc:
+            except (
+                URLError,
+                TimeoutError,
+                OSError,
+                http.client.IncompleteRead,
+                json.JSONDecodeError,
+                ValueError,
+            ) as exc:
                 last_error = exc
             if attempt + 1 < self.config.retry_attempts:
                 time.sleep(self.config.retry_base_seconds * (2**attempt))
@@ -332,6 +340,19 @@ class HydraClient:
             "ids": [source_id],
         }
         response = self.request("POST", "/context/list", payload)
+        return self._data_response(response, "context list")
+
+    def list_sources(self, page: int, page_size: int, cache: bool = False) -> HydraResponse:
+        if page < 1 or page_size < 1:
+            raise ValueError("HydraDB context list pagination must be positive")
+        payload: JsonObject = {
+            "database": self.config.tenant_id,
+            "collection": self.config.sub_tenant_id,
+            "type": "knowledge",
+            "page": page,
+            "page_size": page_size,
+        }
+        response = self.request("POST", "/context/list", payload, cache=cache)
         return self._data_response(response, "context list")
 
 

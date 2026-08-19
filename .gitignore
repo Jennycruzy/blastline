@@ -8,6 +8,7 @@ __pycache__/
 .ruff_cache/
 .env
 cache/registry/
+cache/http/
 data/*
 !data/graph.tar.zst
 !cache/registry.tar.gz

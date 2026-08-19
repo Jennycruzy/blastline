@@ -305,8 +305,15 @@ def run_query(settings: Settings, args: argparse.Namespace) -> int:
             engine,
             settings.integer("hydra", "candidate_result_limit"),
         ).run(registry, args.package, args.version, (start, end), known_at)
+        hydra_record = hydra_result.as_json()
+        hydra_record["graph_fingerprint"] = build_store(settings).fingerprint()
+        hydra_record["recorded_at"] = format_time(now_utc())
+        hydra_record_path = settings.root / "cache" / "verification" / "hydra-window.jsonl"
+        hydra_record_path.parent.mkdir(parents=True, exist_ok=True)
+        with hydra_record_path.open("a", encoding="utf-8") as handle:
+            handle.write(json.dumps(hydra_record, sort_keys=True, separators=(",", ":")) + "\n")
         if args.json:
-            print(json.dumps(hydra_result.as_json(), sort_keys=True, indent=2))
+            print(json.dumps(hydra_record, sort_keys=True, indent=2))
         else:
             print("BLASTLINE HYDRA WINDOW QUERY")
             print(f"target: {hydra_result.target}")
@@ -318,6 +325,9 @@ def run_query(settings: Settings, args: argparse.Namespace) -> int:
             print(f"temporal paths accepted: {len(hydra_result.accepted_results)}")
             print(f"candidate sources rejected: {len(hydra_result.rejected_source_ids)}")
             print(f"abstentions: {len(hydra_result.abstentions)}")
+            print(f"retrieval warnings: {len(hydra_result.retrieval_warnings)}")
+            for warning in hydra_result.retrieval_warnings:
+                print(f"  {warning}")
             print(f"historical repositories: {len(hydra_result.historical_repositories)}")
             print(f"current repositories: {len(hydra_result.current_repositories)}")
             print(
@@ -335,6 +345,7 @@ def run_query(settings: Settings, args: argparse.Namespace) -> int:
             agreement = hydra_result.local_hydra_agreement
             print(f"LOCAL/HYDRA AGREEMENT: {'PASS' if agreement is True else 'FAIL' if agreement is False else 'ABSTAINED'}")
             print(f"latency_ms: {hydra_result.latency_ms:.3f}")
+            print(f"append-only Hydra window run: {hydra_record_path}")
         return 0
     elif args.command == "first-affected":
         response = engine.first_affected_version(registry, args.package, args.version, parse_optional_time(args.known_at, "first-affected known_at"))

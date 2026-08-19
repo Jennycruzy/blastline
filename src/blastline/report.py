@@ -15,8 +15,17 @@ from .query.hydra_evidence import HydraWindowVerifier
 from .store import GraphStore
 from .timeutil import format_time, now_utc, parse_time
 from .verify.grader import Verifier
-from .verify.hydra_scorecard import HydraAgreementVerifier
 from .verify.manual_holdout import ManualHoldoutVerifier
+
+
+def _latest_jsonl(path: Path) -> JsonObject | None:
+    if not path.exists():
+        return None
+    lines = [line for line in path.read_text(encoding="utf-8").splitlines() if line.strip()]
+    if not lines:
+        return None
+    value = json.loads(lines[-1])
+    return value if isinstance(value, dict) else None
 
 
 def generate_incident_report(settings: Settings) -> tuple[Path, JsonObject]:
@@ -45,24 +54,31 @@ def generate_incident_report(settings: Settings) -> tuple[Path, JsonObject]:
     hydra_window: JsonObject
     hydra_agreement: JsonObject
     if hydra_client.live_enabled:
-        try:
-            hydra_window_result = HydraWindowVerifier(
-                hydra_client,
-                store,
-                engine,
-                settings.integer("hydra", "candidate_result_limit"),
-            ).run(registry, package, version, (start, end), end)
-            hydra_window = hydra_window_result.as_json()
-        except Abstention as exc:
-            hydra_window = {"status": "ABSTAINED", "reason": str(exc)}
-        agreement_verifier = HydraAgreementVerifier(store, settings)
-        try:
-            agreement_scorecard = agreement_verifier.grade()
-            agreement_path = agreement_verifier.record(agreement_scorecard)
-            hydra_agreement = agreement_scorecard.as_json()
+        hydra_window_path = settings.root / "cache" / "verification" / "hydra-window.jsonl"
+        latest_window = _latest_jsonl(hydra_window_path)
+        expected_target = f"{registry}:{package}@{version}"
+        if (
+            latest_window is not None
+            and latest_window.get("graph_fingerprint") == store.fingerprint()
+            and latest_window.get("target") == expected_target
+        ):
+            hydra_window = latest_window
+            hydra_window["record"] = str(hydra_window_path.relative_to(settings.root))
+        else:
+            hydra_window = {
+                "status": "ABSTAINED",
+                "reason": "no recorded Hydra window run matches the current target and graph fingerprint",
+            }
+        agreement_path = settings.root / "cache" / "verification" / "hydra-agreement.jsonl"
+        latest_agreement = _latest_jsonl(agreement_path)
+        if latest_agreement is not None and latest_agreement.get("graph_fingerprint") == store.fingerprint():
+            hydra_agreement = latest_agreement
             hydra_agreement["record"] = str(agreement_path.relative_to(settings.root))
-        except Abstention as exc:
-            hydra_agreement = {"status": "ABSTAINED", "reason": str(exc)}
+        else:
+            hydra_agreement = {
+                "status": "ABSTAINED",
+                "reason": "no recorded Hydra agreement scorecard matches the current graph fingerprint",
+            }
     else:
         hydra_window = {"status": "ABSTAINED", "reason": "HYDRA_DB_API_KEY is not set"}
         hydra_agreement = {"status": "ABSTAINED", "reason": "HYDRA_DB_API_KEY is not set"}

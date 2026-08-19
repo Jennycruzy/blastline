@@ -20,7 +20,7 @@ current exposure: 27 repositories still resolve lodash@4.17.21
 historical only: 3 repositories now have a verified different resolution
 local verification: 50 gradable cases; TP=337; FP=103; FN=1; precision 0.7659; recall 0.9970
 manual parser holdout: 4 of 4 reviewed labels pass
-Hydra/local agreement: ABSTAINED — HYDRA_DB_API_KEY is not set
+Hydra/local agreement: 10/10 cases; 0 false confirmations; 0 false omissions; 0 abstentions
 measured package coverage: npm 0.132512%; PyPI 0.000804%
 graph fingerprint: b5fa455a5d3eea7bb0cda7e6a882e1ecccdb1fa16631889e16e711126a346619
 ```
@@ -62,7 +62,7 @@ make report
 
 `make prepare-graph` is offline and deterministic with the committed recordings. It first unpacks the compressed registry cache and `data/graph.tar.zst` when available, verifies the graph fingerprint against the committed report, and otherwise restores the recorded seed (including the cached `vs-deploy` baseline required by the corpus manifest) and replays the corpus. The loose cache projection, `data/graph/` directory, and readiness markers are ignored. Graph-consuming Make targets invoke it automatically, so a fresh clone follows the same path before verification or a demo query.
 
-The offline `window` command runs the exact local temporal oracle. `hydra-window` uses HydraDB graph-context recall and source-level relation inspection to obtain candidate paths, then validates their typed temporal evidence locally before accepting them. Without a key, it abstains rather than presenting local output as Hydra-backed. In the committed demo, the historical set contains 30 repositories, the latest recorded state contains 27, and three are historical-only. The timeline begins before the first recorded `lodash@4.17.21` resolution and grows from zero to the full historical set as the scrubber crosses real lockfile commits.
+The offline `window` command runs the exact local temporal oracle. `hydra-window` uses HydraDB graph-context recall for multi-hop navigation and paginated hosted collection retrieval for exhaustive typed candidates, then validates temporal evidence locally before accepting them. A graph-context outage is recorded as a warning; failure of the exhaustive hosted evidence path remains an error. Without a key, it abstains rather than presenting local output as Hydra-backed. In the committed demo, the historical set contains 30 repositories, the latest recorded state contains 27, and three are historical-only. The timeline begins before the first recorded `lodash@4.17.21` resolution and grows from zero to the full historical set as the scrubber crosses real lockfile commits.
 
 `make ingest` advances the cached incremental feeds. `make ingest-full` bootstraps npm from the supported paginated replication catalog, then enumerates the complete PyPI Simple index; both paths checkpoint progress and report every failed record. `make ingest-pypi-full` runs only the PyPI catalog path. Full ecosystem ingestion is network- and disk-bound, so the checked-in demo remains deliberately labeled as a measured partial corpus rather than a completeness claim.
 
