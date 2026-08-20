@@ -1,0 +1,30 @@
+version: 2.1
+
+jobs:
+  test-and-verify:
+    docker:
+      - image: cimg/python:3.11
+    resource_class: medium
+    steps:
+      - checkout
+      - run:
+          name: Restore and fingerprint offline evidence
+          command: make prepare-graph
+          no_output_timeout: 15m
+      - run:
+          name: Run unit tests
+          command: make test
+          no_output_timeout: 15m
+      - run:
+          name: Check ledger-derived verification
+          command: make verify-check
+          no_output_timeout: 15m
+      - run:
+          name: Check manually reviewed parser holdout
+          command: make verify-holdout
+          no_output_timeout: 15m
+
+workflows:
+  verify:
+    jobs:
+      - test-and-verify
