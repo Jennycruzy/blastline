@@ -9,6 +9,7 @@ __pycache__/
 .env
 cache/registry/
 cache/http/
+cache/metadata-enrichment/
 data/*
 !data/graph.tar.zst
 !cache/registry.tar.gz

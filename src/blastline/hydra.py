@@ -34,6 +34,7 @@ class HydraConfig:
     retry_attempts: int
     retry_base_seconds: float
     cache_directory: Path
+    context_status_batch_size: int = 50
 
 
 @dataclass(frozen=True, slots=True)
@@ -55,6 +56,7 @@ def load_hydra_config(root: Path, values: JsonObject) -> HydraConfig:
     attempts_value = section.get("retry_attempts")
     base_retry_value = section.get("retry_base_seconds")
     cache_value = section.get("cache_directory")
+    status_batch_value = section.get("context_status_batch_size", 50)
     if not isinstance(base_url_value, str) or not isinstance(tenant_value, str) or not isinstance(subtenant_value, str):
         raise ConfigurationError("hydra URL and tenant identifiers must be strings")
     if isinstance(timeout_value, bool) or not isinstance(timeout_value, int):
@@ -65,6 +67,8 @@ def load_hydra_config(root: Path, values: JsonObject) -> HydraConfig:
         raise ConfigurationError("hydra retry base must be numeric")
     if not isinstance(cache_value, str):
         raise ConfigurationError("hydra cache directory must be a string")
+    if isinstance(status_batch_value, bool) or not isinstance(status_batch_value, int) or status_batch_value < 1:
+        raise ConfigurationError("hydra context status batch size must be a positive integer")
     cache_path = Path(cache_value)
     if not cache_path.is_absolute():
         cache_path = root / cache_path
@@ -76,6 +80,7 @@ def load_hydra_config(root: Path, values: JsonObject) -> HydraConfig:
         retry_attempts=attempts_value,
         retry_base_seconds=float(base_retry_value),
         cache_directory=cache_path,
+        context_status_batch_size=status_batch_value,
     )
 
 
@@ -301,33 +306,62 @@ class HydraClient:
         return self._data_response(response, "context status")
 
     def wait_for_sources(self, source_ids: tuple[str, ...], attempts: int, delay_seconds: float) -> None:
+        if not source_ids:
+            raise ValueError("HydraDB context wait requires at least one source ID")
         if attempts < 1 or delay_seconds < 0:
             raise ValueError("HydraDB context wait configuration is invalid")
+        batch_size = self.config.context_status_batch_size
+        if batch_size < 1:
+            raise ValueError("HydraDB context status batch size must be positive")
+        status_batches = tuple(
+            source_ids[start : start + batch_size]
+            for start in range(0, len(source_ids), batch_size)
+        )
         terminal = {"completed"}
+        last_status_error: ExternalCallError | None = None
         for attempt in range(attempts):
-            response = self.context_status(source_ids)
-            raw_statuses = response.body.get("statuses")
-            if not isinstance(raw_statuses, list):
-                raise ExternalCallError("HydraDB context status did not return statuses")
-            statuses: list[str] = []
-            for index, raw_status in enumerate(raw_statuses):
-                status = require_object(raw_status, f"Hydra context status[{index}]")
-                state = require_string(status.get("indexing_status"), f"Hydra context status[{index}].indexing_status")
-                statuses.append(state)
-                if state == "errored":
-                    error_code = status.get("error_code")
-                    error_message = status.get("error_message")
-                    raise ExternalCallError(
-                        f"HydraDB failed to process source {status.get('id')}: "
-                        f"{error_code if isinstance(error_code, str) else 'unknown'} "
-                        f"{error_message if isinstance(error_message, str) else ''}".strip()
-                    )
-            if len(statuses) != len(source_ids):
-                raise ExternalCallError("HydraDB context status omitted one or more submitted source IDs")
+            try:
+                statuses: list[str] = []
+                for status_batch in status_batches:
+                    response = self.context_status(status_batch)
+                    raw_statuses = response.body.get("statuses")
+                    if not isinstance(raw_statuses, list):
+                        raise ExternalCallError("HydraDB context status did not return statuses")
+                    if len(raw_statuses) != len(status_batch):
+                        raise ExternalCallError("HydraDB context status omitted one or more submitted source IDs")
+                    for index, raw_status in enumerate(raw_statuses):
+                        status = require_object(raw_status, f"Hydra context status[{index}]")
+                        state = require_string(
+                            status.get("indexing_status"),
+                            f"Hydra context status[{index}].indexing_status",
+                        )
+                        statuses.append(state)
+                        if state == "errored":
+                            error_code = status.get("error_code")
+                            error_message = status.get("error_message")
+                            raise ExternalCallError(
+                                f"HydraDB failed to process source {status.get('id')}: "
+                                f"{error_code if isinstance(error_code, str) else 'unknown'} "
+                                f"{error_message if isinstance(error_message, str) else ''}".strip()
+                            )
+            except ExternalCallError as exc:
+                # The ingest endpoint can accept a batch before the status
+                # endpoint is responsive. Keep polling instead of converting
+                # one transient readiness failure into a failed publication.
+                last_status_error = exc
+                if attempt + 1 < attempts:
+                    time.sleep(delay_seconds)
+                    continue
+                break
+            last_status_error = None
             if all(state in terminal for state in statuses):
                 return
             if attempt + 1 < attempts:
                 time.sleep(delay_seconds)
+        if last_status_error is not None:
+            raise ExternalCallError(
+                "HydraDB context status remained unavailable before the configured wait limit"
+            ) from last_status_error
         raise ExternalCallError("HydraDB context did not reach completed graph state before the configured wait limit")
 
     def list_source(self, source_id: str) -> HydraResponse:

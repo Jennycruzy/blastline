@@ -82,13 +82,13 @@
     "query": "Q8 abstention and coverage",
     "results": []
   },
-  "generated_at": "2026-08-20T08:56:46Z",
+  "generated_at": "2026-08-20T15:51:40Z",
   "graph": {
-    "edge_count": 816375,
-    "fingerprint": "b383f58b343e0db6e167c13a3078e7051ee149b2ae4f8c8c7335f9deaf92243d",
+    "edge_count": 941169,
+    "fingerprint": "a82daf6c4e1a957733d17a413740d256273cc19f950de209c9ab30a0a03f4722",
     "node_counts": {
       "Advisory": 10,
-      "Maintainer": 116,
+      "Maintainer": 3299,
       "Package": 5693,
       "PublishInfra": 2,
       "Repository": 54,
@@ -1868,11 +1868,11 @@
         "hydra_verified_result": [
           "Thinker-ljn/vite-plugin-tampermonkey"
         ],
-        "latency_ms": 32268.54010500392,
+        "latency_ms": 80003.52399300027,
         "local_result": [
           "Thinker-ljn/vite-plugin-tampermonkey"
         ],
-        "rejected_source_count": 176
+        "rejected_source_count": 175
       },
       {
         "agreement": true,
@@ -1898,11 +1898,11 @@
         "hydra_verified_result": [
           "Thinker-ljn/vite-plugin-tampermonkey"
         ],
-        "latency_ms": 8043.088442005683,
+        "latency_ms": 11723.550294000233,
         "local_result": [
           "Thinker-ljn/vite-plugin-tampermonkey"
         ],
-        "rejected_source_count": 176
+        "rejected_source_count": 175
       },
       {
         "agreement": true,
@@ -1928,7 +1928,7 @@
         "hydra_verified_result": [
           "Thinker-ljn/vite-plugin-tampermonkey"
         ],
-        "latency_ms": 7501.879884999653,
+        "latency_ms": 8837.99983499921,
         "local_result": [
           "Thinker-ljn/vite-plugin-tampermonkey"
         ],
@@ -1958,11 +1958,11 @@
         "hydra_verified_result": [
           "Thinker-ljn/vite-plugin-tampermonkey"
         ],
-        "latency_ms": 8142.942069003766,
+        "latency_ms": 22543.74692499914,
         "local_result": [
           "Thinker-ljn/vite-plugin-tampermonkey"
         ],
-        "rejected_source_count": 175
+        "rejected_source_count": 176
       },
       {
         "agreement": true,
@@ -1988,7 +1988,7 @@
         "hydra_verified_result": [
           "Thinker-ljn/vite-plugin-tampermonkey"
         ],
-        "latency_ms": 8645.474516000831,
+        "latency_ms": 38661.55134900146,
         "local_result": [
           "Thinker-ljn/vite-plugin-tampermonkey"
         ],
@@ -2020,7 +2020,7 @@
           "Thinker-ljn/vite-plugin-tampermonkey",
           "linbudu599/TypeScript-Tiny-Book"
         ],
-        "latency_ms": 7971.7168799979845,
+        "latency_ms": 9325.464923000254,
         "local_result": [
           "Thinker-ljn/vite-plugin-tampermonkey",
           "linbudu599/TypeScript-Tiny-Book"
@@ -2053,7 +2053,7 @@
           "Thinker-ljn/vite-plugin-tampermonkey",
           "linbudu599/TypeScript-Tiny-Book"
         ],
-        "latency_ms": 8427.579054994567,
+        "latency_ms": 10190.491338000356,
         "local_result": [
           "Thinker-ljn/vite-plugin-tampermonkey",
           "linbudu599/TypeScript-Tiny-Book"
@@ -2081,17 +2081,17 @@
         "false_omissions": [],
         "hydra_abstained": false,
         "hydra_abstentions": [],
-        "hydra_candidate_paths": 5,
+        "hydra_candidate_paths": 15,
         "hydra_verified_result": [
           "Thinker-ljn/vite-plugin-tampermonkey",
           "linbudu599/TypeScript-Tiny-Book"
         ],
-        "latency_ms": 11487.710913999763,
+        "latency_ms": 8895.787454001038,
         "local_result": [
           "Thinker-ljn/vite-plugin-tampermonkey",
           "linbudu599/TypeScript-Tiny-Book"
         ],
-        "rejected_source_count": 183
+        "rejected_source_count": 176
       },
       {
         "agreement": true,
@@ -2121,7 +2121,7 @@
           "linbudu599/TypeScript-Tiny-Book",
           "timolins/react-hot-toast"
         ],
-        "latency_ms": 8798.888331002672,
+        "latency_ms": 9905.89669899964,
         "local_result": [
           "Thinker-ljn/vite-plugin-tampermonkey",
           "linbudu599/TypeScript-Tiny-Book",
@@ -2151,30 +2151,30 @@
         "false_omissions": [],
         "hydra_abstained": false,
         "hydra_abstentions": [],
-        "hydra_candidate_paths": 15,
+        "hydra_candidate_paths": 5,
         "hydra_verified_result": [
           "Thinker-ljn/vite-plugin-tampermonkey",
           "linbudu599/TypeScript-Tiny-Book",
           "timolins/react-hot-toast"
         ],
-        "latency_ms": 7639.456548997259,
+        "latency_ms": 32985.87334500007,
         "local_result": [
           "Thinker-ljn/vite-plugin-tampermonkey",
           "linbudu599/TypeScript-Tiny-Book",
           "timolins/react-hot-toast"
         ],
-        "rejected_source_count": 173
+        "rejected_source_count": 185
       }
     ],
-    "commit_sha": "5861f8cb92e6fe487c7a600dc41e5ccc6f64cd07",
+    "commit_sha": "b25f7f49f103b3545ad35957ddb5358a9c22b06f",
     "disagreement_cases": 0,
     "executed_cases": 10,
     "false_confirmations": 0,
     "false_omissions": 0,
-    "graph_fingerprint": "b383f58b343e0db6e167c13a3078e7051ee149b2ae4f8c8c7335f9deaf92243d",
+    "graph_fingerprint": "a82daf6c4e1a957733d17a413740d256273cc19f950de209c9ab30a0a03f4722",
     "hydra_abstentions": 0,
     "record": "cache/verification/hydra-agreement.jsonl",
-    "recorded_at": "2026-08-20T08:50:06Z"
+    "recorded_at": "2026-08-20T15:48:34Z"
   },
   "hydra_window": {
     "abstentions": [],
@@ -2510,7 +2510,7 @@
       "vkubilays/Get-Starknet",
       "wangzmgit/leaf"
     ],
-    "graph_fingerprint": "b383f58b343e0db6e167c13a3078e7051ee149b2ae4f8c8c7335f9deaf92243d",
+    "graph_fingerprint": "a82daf6c4e1a957733d17a413740d256273cc19f950de209c9ab30a0a03f4722",
     "historical_differs_current": true,
     "historical_repositories": [
       "Codehagen/regnskapsloop-crm",
@@ -2546,18 +2546,18 @@
     ],
     "inspected_relation_count": 15,
     "inspected_source_ids": [
+      "blastline:version:npm:lodash@4.17.21",
       "blastline:e342bfe81d46da5330d639d7434b269c8843244a7b5c95ff8cd7b26bc12c5746",
       "blastline:25d5bd2ee0942e5e987463a0a69aea401a086bc8231e01e989a62e6ff2cff439",
       "blastline:1c2fc746b5ea892c8341d5f4f1a12cb98080feb7e3a8299796e21e4e8b9feb47",
-      "blastline:version:npm:lodash@4.17.21",
+      "blastline:c0f343aaef4fbfb86e6ff4fd56a3eb51e22683dbad5ec0c3642c11141ddf6e33",
       "blastline:e11a7687d2b5b7895006be4b6e0740b6bb573f4c4608e7998d5b6c6067ec234f",
-      "blastline:afba4e8f2513276a07aa0911c27e3fd7947684de046f3f643db2dea95b0c415e",
-      "blastline:7a39daa0b41d988eb937223b2d31b6ece11294217e582a2c696d4a181df39ee5",
       "blastline:f346fec28bc2ba3651044014c72a4502bcbd3b046268b905346e8e1011b43ff8",
+      "blastline:7a39daa0b41d988eb937223b2d31b6ece11294217e582a2c696d4a181df39ee5",
       "blastline:83a3f179f7c11eb627059a00cf86edf86bbaf5eab2480604facfcdbecff501f5",
-      "blastline:925a9385e9bebf92da3d916ee18bd91b36941d2883c1e24556131262f0c008b3",
+      "blastline:7ec24b51e919e4f88145262e4d0d40eda5b9644bc288179436e01f34715ee9d2",
       "blastline:cbd467f187c179a8de6ff25df0862ae95d6fc2cc8c67165539a08d3f157615c2",
-      "blastline:5ae02c18093cefa13d2e82de61918365b6b397ab67814a012bca5ff3e54f4b01",
+      "blastline:b846ce3b1f6ed13e14246561232cf263aa5513f21bc114fd92ccffc006438e28",
       "blastline:69a953df9b9fa42fc17c3768bda0965c8e561d2c57a1556ad6eddf1b9d28e1c5",
       "blastline:01612b564726c23b24e2cf7b9849b89ed2d1c2e5cde713d1fc4872aeff289be3",
       "blastline:4adc36b44e45094dc0bcbf4a0eb811a280cb07930c1043d9d074d7ecd80f1df4",
@@ -2575,6 +2575,7 @@
       "blastline:e035e3cfb3a7d518d092d958c0caf521dd04f89db55c8d534d6b8a89a7b0801f",
       "blastline:1ea425ff54d4f1d76e7c26f03da67a5c45503b5f371c094edfc2ad2cfb7d60c8",
       "blastline:23a1fd1938bac86cb506cc15637e89eabb57538a55f7c996179d0ccd95b65e92",
+      "blastline:5ae02c18093cefa13d2e82de61918365b6b397ab67814a012bca5ff3e54f4b01",
       "blastline:1aed80be772c6571ef80a1cf0a94328df71dedb3f2309894f497496b98c435ea",
       "blastline:41599cb9df5de331da8160a82ba3af7f7b2878d9c4fbf5277042e065ccf763d5",
       "blastline:1d0f1bb81d028513756e11e3810f544eb8d363d65ed2171a31f02de584d00d45",
@@ -2594,7 +2595,6 @@
       "blastline:22ac1d2f4f433dbfea205ffbf4b826c0f676140e2dd72a203cfeb5c5828c3a5e",
       "blastline:ce1d606b4ab1dfaf6e51ea2dc7addc3730ef2131da3b9223cd70c6c2e96df310",
       "blastline:7a97094c63c3cf79b62776874788770d71693b68da821397d391d66e4479c9d7",
-      "blastline:7ec24b51e919e4f88145262e4d0d40eda5b9644bc288179436e01f34715ee9d2",
       "blastline:20f059dbb39435854abd5029bd473cd3b45a2dd4147f94ddc55b6f569dc32f49",
       "blastline:9322ff8d7e8422d83ae9503aa072ccd8a6fcb74f7578cea4f29352bd1bd13c12",
       "blastline:c1fc417090344041b59aeb11fea94f32782efbb43f6e70d6fc74d5d9eabc239f",
@@ -2638,7 +2638,6 @@
       "blastline:47796ca900f34cd4c166483f9eef9483783b7322ca2aee21ae43e7247359b0a0",
       "blastline:be34bfcf25beb92ef32aedc9496978b315e881102cab447ff84ed6f89855bb89",
       "blastline:9bb8f7ca93f5b23073274afa02c2978dc316a5a61bb20448d15ed1afa0d81158",
-      "blastline:c0f343aaef4fbfb86e6ff4fd56a3eb51e22683dbad5ec0c3642c11141ddf6e33",
       "blastline:3f82a6fee357fcc7ed3df7814638bb57bf19670159490e54bf5269abbfd88f50",
       "blastline:2fff7b75f7cbed320746be6f152be4e26f74b8a6be15d657bfa02442b092d3dd",
       "blastline:d17ac3c62fefebb6135592d98b61c681370a00f98c19001098a970fc39282924",
@@ -2659,6 +2658,7 @@
       "blastline:17aaa7f3085b0acdd690fea1150b19b8a2d0f9731098da431dc9e2829df13fc8",
       "blastline:c4d3900278d1759323486d6b29de2844c8fe81f71194c420c31cf3a767a79492",
       "blastline:e24145e165ac14b5e6f322639578d8a9c3534d7c5189bb5a77b737c76097b704",
+      "blastline:afba4e8f2513276a07aa0911c27e3fd7947684de046f3f643db2dea95b0c415e",
       "blastline:8f8e33af0a376e29ee187d0817c723ff9fc75c920c6d8336cf2c0b48f81498bd",
       "blastline:f63d7c8947c1337d747d109ae006582b3a1e1501fb2a47ab2e3dcd1335706c92",
       "blastline:04bb2cf52f26af0d2eef8417007a6f1970229c57146edab3937687611ce39bc9",
@@ -2690,7 +2690,6 @@
       "blastline:42e847633bd2ae2708d5d9cccc08c92e8dae46a9d9c13f60471736a1d5d2e8d9",
       "blastline:0e04ab9eb0fd4d643b06d0b002f8cd1b943bb87da7ff80c66859ae293212d01a",
       "blastline:c7a90291367a6c9dc424ec515f0eeff7a495b931234fac021dfac9cd0e1277f5",
-      "blastline:b846ce3b1f6ed13e14246561232cf263aa5513f21bc114fd92ccffc006438e28",
       "blastline:ad0ee25afd37e1364e6488aeb5b9e4c0e4810ab5ef9fd6e6ebc8eee20a914c30",
       "blastline:c527148b72b2540c6fcf53f66fb7b3282c9560443ab28af7f1c77d08dba65a7e",
       "blastline:ddb4e65f1feb3599157d87aeccb95a15684d3ac07513528bcbc16d4d5b8bc69b",
@@ -2715,6 +2714,7 @@
       "blastline:b621aba1c5328e446ed1db4b5d73e13f8fcb2978552a742400bcf9f748b54320",
       "blastline:8935604f01515bbb0be17591c48405c7b2485156c1618711d2bc81a0a84d6670",
       "blastline:7b9b824bfba1962ced8cbf9c3c75cc3be61a9bce53c9405c87f6e63baaa3b66c",
+      "blastline:925a9385e9bebf92da3d916ee18bd91b36941d2883c1e24556131262f0c008b3",
       "blastline:a5c36f7bf5d0196202932d1380365051036bf00658206845cb4294f0d0d5a85f",
       "blastline:f71dea6265c8390ca3df63b87acf902b769c696ddc149e88789908dc1ad80556",
       "blastline:7cf7711d5ec80d749860bf2e0727777da55b6a8e20eb66f7e375a12a1b37c006",
@@ -2725,12 +2725,12 @@
       "blastline:30d1b9911f9648f9faaeaa232c5e11d3182c76ab24e43849c6b903a1c16093e0"
     ],
     "known_at": null,
-    "latency_ms": 99727.822,
+    "latency_ms": 166515.318,
     "local_hydra_agreement": true,
     "query": "Blastline supply-chain exposure graph path for npm/lodash@4.17.21; valid_window=[2021-02-20T15:42:16Z,2026-08-01T00:00:00Z); valid_at=2021-02-20T15:42:16Z; known_at=latest-known; required path Repository DECLARES Resolution RESOLVED_TO Version",
     "recall_from_cache": false,
     "record": "cache/verification/hydra-window.jsonl",
-    "recorded_at": "2026-08-20T08:44:36Z",
+    "recorded_at": "2026-08-20T15:29:05Z",
     "rejected_source_ids": [
       "1c2fc746b5ea892c8341d5f4f1a12cb98080feb7e3a8299796e21e4e8b9feb47",
       "25d5bd2ee0942e5e987463a0a69aea401a086bc8231e01e989a62e6ff2cff439",
@@ -2815,8 +2815,8 @@
         "repository": "npm/cli",
         "resolution": "resolution:728ae11bd1a86c6e9f13c9c2685ad2b5d3d17c76152576dfe1ca4aa799fc7853",
         "valid_overlap": {
-          "end": "2026-08-20T08:53:41Z",
-          "start": "2026-08-20T08:53:41Z"
+          "end": "2026-08-20T15:49:36Z",
+          "start": "2026-08-20T15:49:36Z"
         }
       },
       {
@@ -2825,8 +2825,8 @@
         "repository": "Codehagen/regnskapsloop-crm",
         "resolution": "resolution:7345826cbbfa3b32efcf499a689008249495f3f4d58cba54d3feb4d8768e4956",
         "valid_overlap": {
-          "end": "2026-08-20T08:53:41Z",
-          "start": "2026-08-20T08:53:41Z"
+          "end": "2026-08-20T15:49:36Z",
+          "start": "2026-08-20T15:49:36Z"
         }
       },
       {
@@ -2835,8 +2835,8 @@
         "repository": "Eliav2/express-typed",
         "resolution": "resolution:e9777b8e5dff7643723c08d8c8f842ea6f390b5c87e9b88e6b5235dff80a706e",
         "valid_overlap": {
-          "end": "2026-08-20T08:53:41Z",
-          "start": "2026-08-20T08:53:41Z"
+          "end": "2026-08-20T15:49:36Z",
+          "start": "2026-08-20T15:49:36Z"
         }
       },
       {
@@ -2845,8 +2845,8 @@
         "repository": "Marinerer/unity-webgl",
         "resolution": "resolution:50d73f82bf3a5710a2ee404eb626e4dc13ea32434bbc81af2010a43d732affc4",
         "valid_overlap": {
-          "end": "2026-08-20T08:53:41Z",
-          "start": "2026-08-20T08:53:41Z"
+          "end": "2026-08-20T15:49:36Z",
+          "start": "2026-08-20T15:49:36Z"
         }
       },
       {
@@ -2855,8 +2855,8 @@
         "repository": "Teernage/AI-Mock",
         "resolution": "resolution:57595816c24f2a4720af9507252a8c4cfb6c6a150c7fdd7a19c7261c3ee11d1f",
         "valid_overlap": {
-          "end": "2026-08-20T08:53:41Z",
-          "start": "2026-08-20T08:53:41Z"
+          "end": "2026-08-20T15:49:36Z",
+          "start": "2026-08-20T15:49:36Z"
         }
       },
       {
@@ -2865,8 +2865,8 @@
         "repository": "Thinker-ljn/vite-plugin-tampermonkey",
         "resolution": "resolution:0b4a0ee7063b8722dacc8a375bc4a604914cef049a196b9dd402de00cd018895",
         "valid_overlap": {
-          "end": "2026-08-20T08:53:41Z",
-          "start": "2026-08-20T08:53:41Z"
+          "end": "2026-08-20T15:49:36Z",
+          "start": "2026-08-20T15:49:36Z"
         }
       },
       {
@@ -2875,8 +2875,8 @@
         "repository": "btreitz/nextjs-shopify-ecom-demo",
         "resolution": "resolution:c1e719a21a5760aa266d193407b06e3915612f40da99833b7f13058cd42b24a4",
         "valid_overlap": {
-          "end": "2026-08-20T08:53:41Z",
-          "start": "2026-08-20T08:53:41Z"
+          "end": "2026-08-20T15:49:36Z",
+          "start": "2026-08-20T15:49:36Z"
         }
       },
       {
@@ -2885,8 +2885,8 @@
         "repository": "caiquecamargo/custom-parser",
         "resolution": "resolution:21cc4d406a3557ec797e65627eaccf4bff447e371a7df158d04f3b7f4307c6a3",
         "valid_overlap": {
-          "end": "2026-08-20T08:53:41Z",
-          "start": "2026-08-20T08:53:41Z"
+          "end": "2026-08-20T15:49:36Z",
+          "start": "2026-08-20T15:49:36Z"
         }
       },
       {
@@ -2895,8 +2895,8 @@
         "repository": "codyzu/use-orama",
         "resolution": "resolution:98f378fabdda9d345bbf4529dc77455f70fa88d2bcc72879ed16e1dd2ddfb32c",
         "valid_overlap": {
-          "end": "2026-08-20T08:53:41Z",
-          "start": "2026-08-20T08:53:41Z"
+          "end": "2026-08-20T15:49:36Z",
+          "start": "2026-08-20T15:49:36Z"
         }
       },
       {
@@ -2905,8 +2905,8 @@
         "repository": "decipad/safejs",
         "resolution": "resolution:74bbad8543833f19c5f3617262f6be18c9370b7730cb39ea1a9ee111f230e5ad",
         "valid_overlap": {
-          "end": "2026-08-20T08:53:41Z",
-          "start": "2026-08-20T08:53:41Z"
+          "end": "2026-08-20T15:49:36Z",
+          "start": "2026-08-20T15:49:36Z"
         }
       },
       {
@@ -2915,8 +2915,8 @@
         "repository": "esafwan/dashboard-starter",
         "resolution": "resolution:806ae58488c5c53ba2f43b283816374f8e37ac943b5cfce2a9b00e51665f72cd",
         "valid_overlap": {
-          "end": "2026-08-20T08:53:41Z",
-          "start": "2026-08-20T08:53:41Z"
+          "end": "2026-08-20T15:49:36Z",
+          "start": "2026-08-20T15:49:36Z"
         }
       },
       {
@@ -2925,8 +2925,8 @@
         "repository": "hackforla/lucky-parking",
         "resolution": "resolution:8358bc63d0d6636c9c81dc239dba58ce4bf58d64e2bbaef5fe91af3d987e5a24",
         "valid_overlap": {
-          "end": "2026-08-20T08:53:41Z",
-          "start": "2026-08-20T08:53:41Z"
+          "end": "2026-08-20T15:49:36Z",
+          "start": "2026-08-20T15:49:36Z"
         }
       },
       {
@@ -2935,8 +2935,8 @@
         "repository": "himself65/affine-minimum",
         "resolution": "resolution:8a759588a704696af8ccd56c2101471b83911c5589badfce391c3a5ceab09646",
         "valid_overlap": {
-          "end": "2026-08-20T08:53:41Z",
-          "start": "2026-08-20T08:53:41Z"
+          "end": "2026-08-20T15:49:36Z",
+          "start": "2026-08-20T15:49:36Z"
         }
       },
       {
@@ -2945,8 +2945,8 @@
         "repository": "jbxamora/kronosdocs",
         "resolution": "resolution:64d82e56e0c23eb483f3f19515ef43dd75f57a6f2b4527cefe07b1e3e955a21e",
         "valid_overlap": {
-          "end": "2026-08-20T08:53:41Z",
-          "start": "2026-08-20T08:53:41Z"
+          "end": "2026-08-20T15:49:36Z",
+          "start": "2026-08-20T15:49:36Z"
         }
       },
       {
@@ -2955,8 +2955,8 @@
         "repository": "lilingxi01/ams-date-picker",
         "resolution": "resolution:1a8405f34f6fbcad3695a3480d2b0c604a9ebe644ac2facc57b93910286559b7",
         "valid_overlap": {
-          "end": "2026-08-20T08:53:41Z",
-          "start": "2026-08-20T08:53:41Z"
+          "end": "2026-08-20T15:49:36Z",
+          "start": "2026-08-20T15:49:36Z"
         }
       },
       {
@@ -2965,8 +2965,8 @@
         "repository": "linbudu599/TypeScript-Tiny-Book",
         "resolution": "resolution:a0de12bbc56450505f34ebaea05190886f790a68fa149d3388d069aa7a5f217d",
         "valid_overlap": {
-          "end": "2026-08-20T08:53:41Z",
-          "start": "2026-08-20T08:53:41Z"
+          "end": "2026-08-20T15:49:36Z",
+          "start": "2026-08-20T15:49:36Z"
         }
       },
       {
@@ -2975,8 +2975,8 @@
         "repository": "mag123c/nestjs-stdschema",
         "resolution": "resolution:62754cb096e960aadf30c05a1a9d3458aacda7f61e68de72f5d019c956dbad97",
         "valid_overlap": {
-          "end": "2026-08-20T08:53:41Z",
-          "start": "2026-08-20T08:53:41Z"
+          "end": "2026-08-20T15:49:36Z",
+          "start": "2026-08-20T15:49:36Z"
         }
       },
       {
@@ -2985,8 +2985,8 @@
         "repository": "paescuj/ctrlc-wrapper",
         "resolution": "resolution:65aac49f23d92401f297b8b432a0e06e328f985c3bbe3427ff21ac451368563d",
         "valid_overlap": {
-          "end": "2026-08-20T08:53:41Z",
-          "start": "2026-08-20T08:53:41Z"
+          "end": "2026-08-20T15:49:36Z",
+          "start": "2026-08-20T15:49:36Z"
         }
       },
       {
@@ -2995,8 +2995,8 @@
         "repository": "pdanpdan/vue-keyboard-trap",
         "resolution": "resolution:18f8ebfc5ab456def172ec87ca29b6a62af143af56d87c78571c7b848fa712b7",
         "valid_overlap": {
-          "end": "2026-08-20T08:53:41Z",
-          "start": "2026-08-20T08:53:41Z"
+          "end": "2026-08-20T15:49:36Z",
+          "start": "2026-08-20T15:49:36Z"
         }
       },
       {
@@ -3005,8 +3005,8 @@
         "repository": "privatenumber/tsx",
         "resolution": "resolution:36c1ee21369c661032fc2db486fe2675da9af0b6e11f1ad5176ed834c204a4bd",
         "valid_overlap": {
-          "end": "2026-08-20T08:53:41Z",
-          "start": "2026-08-20T08:53:41Z"
+          "end": "2026-08-20T15:49:36Z",
+          "start": "2026-08-20T15:49:36Z"
         }
       },
       {
@@ -3015,8 +3015,8 @@
         "repository": "roberthgnz/nuxt-feature-flags",
         "resolution": "resolution:9f83a90648f95ffa6dcbccf1f5bee26863847a3647a683e4ebe7c7d88a2622ba",
         "valid_overlap": {
-          "end": "2026-08-20T08:53:41Z",
-          "start": "2026-08-20T08:53:41Z"
+          "end": "2026-08-20T15:49:36Z",
+          "start": "2026-08-20T15:49:36Z"
         }
       },
       {
@@ -3025,8 +3025,8 @@
         "repository": "timolins/react-hot-toast",
         "resolution": "resolution:d2004955f8ce195edd91632bd55d02160b0959e227b36f24fa960d9653a72aff",
         "valid_overlap": {
-          "end": "2026-08-20T08:53:41Z",
-          "start": "2026-08-20T08:53:41Z"
+          "end": "2026-08-20T15:49:36Z",
+          "start": "2026-08-20T15:49:36Z"
         }
       },
       {
@@ -3035,8 +3035,8 @@
         "repository": "trevorpfiz/BioxML-allergen-epitopes",
         "resolution": "resolution:6b9034647cff14bdbf8703c171a349b0520ad42559a4bd429c0706a17914a125",
         "valid_overlap": {
-          "end": "2026-08-20T08:53:41Z",
-          "start": "2026-08-20T08:53:41Z"
+          "end": "2026-08-20T15:49:36Z",
+          "start": "2026-08-20T15:49:36Z"
         }
       },
       {
@@ -3045,8 +3045,8 @@
         "repository": "u3u/console.img",
         "resolution": "resolution:8462068297e910a91968ac8912837b5ae38bfba209c5c21b8bba02caa4afc411",
         "valid_overlap": {
-          "end": "2026-08-20T08:53:41Z",
-          "start": "2026-08-20T08:53:41Z"
+          "end": "2026-08-20T15:49:36Z",
+          "start": "2026-08-20T15:49:36Z"
         }
       },
       {
@@ -3055,8 +3055,8 @@
         "repository": "unjs/uncrypto",
         "resolution": "resolution:e3a8acdc512900be9833404b4820ec845cd254394a2df1b41ef1df0ede514098",
         "valid_overlap": {
-          "end": "2026-08-20T08:53:41Z",
-          "start": "2026-08-20T08:53:41Z"
+          "end": "2026-08-20T15:49:36Z",
+          "start": "2026-08-20T15:49:36Z"
         }
       },
       {
@@ -3065,8 +3065,8 @@
         "repository": "vkubilays/Get-Starknet",
         "resolution": "resolution:7a7e99476822cb6b6bac4ddeb7abe117db22c1d15894c465421e8a4adc0c76b7",
         "valid_overlap": {
-          "end": "2026-08-20T08:53:41Z",
-          "start": "2026-08-20T08:53:41Z"
+          "end": "2026-08-20T15:49:36Z",
+          "start": "2026-08-20T15:49:36Z"
         }
       },
       {
@@ -3075,8 +3075,8 @@
         "repository": "wangzmgit/leaf",
         "resolution": "resolution:098dafc3cad3dbe38d5cb919c75231012fa814b4517a4e588f74040e10a0c3a5",
         "valid_overlap": {
-          "end": "2026-08-20T08:53:41Z",
-          "start": "2026-08-20T08:53:41Z"
+          "end": "2026-08-20T15:49:36Z",
+          "start": "2026-08-20T15:49:36Z"
         }
       }
     ]
@@ -5763,11 +5763,11 @@
         ]
       }
     ],
-    "commit_sha": "5861f8cb92e6fe487c7a600dc41e5ccc6f64cd07",
+    "commit_sha": "b25f7f49f103b3545ad35957ddb5358a9c22b06f",
     "false_negatives": 0,
     "false_positives": 0,
     "gradable_cases": 50,
-    "graph_fingerprint": "b383f58b343e0db6e167c13a3078e7051ee149b2ae4f8c8c7335f9deaf92243d",
+    "graph_fingerprint": "a82daf6c4e1a957733d17a413740d256273cc19f950de209c9ab30a0a03f4722",
     "observed_positive_pairs": 338,
     "positive_pair_decisions": 338,
     "precision": 1.0,

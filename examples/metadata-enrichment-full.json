@@ -1,0 +1,27 @@
+{
+  "checkpoint": "cache/metadata-enrichment/checkpoint.json",
+  "dependency_edges_created": 0,
+  "graph_fingerprint": "a82daf6c4e1a957733d17a413740d256273cc19f950de209c9ab30a0a03f4722",
+  "outcome_ledger": "cache/metadata-enrichment/outcomes.jsonl",
+  "outcomes": {
+    "batches_completed": 5654,
+    "enriched": 5435,
+    "fetch_error": 214,
+    "infrastructure_edges": 16189,
+    "maintainer_edges": 95466,
+    "maintainer_nodes": 18718,
+    "matched_versions": 16596,
+    "metadata_empty": 1,
+    "no_matching_versions": 4,
+    "parse_error": 0
+  },
+  "repository_nodes_created": 0,
+  "selection": {
+    "batch_size": 1,
+    "package_count": 5654,
+    "package_list_fingerprint": "ca1e7288d893f41d1f0b59df44c2366b69c46e411d3976e5524c2e58b4634eec",
+    "registry": null,
+    "strategy": "all graph packages sorted by registry and package name"
+  },
+  "version_nodes_created": 0
+}

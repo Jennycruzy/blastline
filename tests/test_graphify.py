@@ -3,7 +3,7 @@ from __future__ import annotations
 import unittest
 from datetime import datetime, timezone
 
-from blastline.ingest.graphify import graphify_package
+from blastline.ingest.graphify import graphify_infrastructure, graphify_package
 from blastline.ingest.records import RegistryPackage, RegistryVersion
 from blastline.model import EdgeType, NodeType
 
@@ -41,6 +41,23 @@ class GraphifyMetadataTest(unittest.TestCase):
                 EdgeType.MAINTAINS,
             },
         )
+
+    def test_infrastructure_fallback_does_not_claim_maintainer_attribution(self) -> None:
+        published = datetime(2026, 8, 1, tzinfo=timezone.utc)
+
+        edges = graphify_infrastructure(
+            "npm",
+            "example-package",
+            (("1.0.0", published), ("2.0.0", published)),
+            {"1.0.0"},
+        )
+
+        self.assertEqual(len(edges), 1)
+        self.assertEqual(edges[0].edge_type, EdgeType.PUBLISHED_THROUGH)
+        self.assertEqual(edges[0].source_id, "package:npm:example-package")
+        self.assertEqual(edges[0].target_id, "publish-infra:npm")
+        self.assertEqual(edges[0].metadata["source"], "graph-registry-identity")
+        self.assertEqual(edges[0].metadata["version"], "2.0.0")
 
 
 if __name__ == "__main__":

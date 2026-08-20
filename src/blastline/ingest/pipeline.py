@@ -6,6 +6,7 @@ import json
 import hashlib
 from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass
+from datetime import datetime
 from pathlib import Path
 
 from ..config import Settings
@@ -14,10 +15,11 @@ from ..json_types import JsonObject
 from ..model import Edge, EdgeType, Node, NodeType, repository_id, version_id
 from ..hydra import HydraClient, load_hydra_config, response_success
 from ..store import GraphStore
+from ..timeutil import parse_time
 from .corpus import GitHubCorpusDiscoverer
 from .failures import FailureLedger
 from .github import GitHubCommit, GitHubLockfileSource
-from .graphify import graphify_metadata, graphify_package
+from .graphify import graphify_infrastructure, graphify_metadata, graphify_package
 from .http import DiskHttpClient, HttpPolicy, HttpResponse
 from .lockfiles import graphify_lockfile, parse_lockfile
 from .osv import OsvClient, OsvTarget, attach_advisories
@@ -463,6 +465,310 @@ class RegistryIngestor:
                     break
             registries = next_registries
         return selected
+
+    def enrich_metadata_full(
+        self,
+        batch_size: int,
+        registry: str | None = None,
+        refresh: bool = False,
+        max_packages: int | None = None,
+    ) -> JsonObject:
+        """Run a checkpointed metadata pass over every graph package.
+
+        The pass is safe to interrupt between batches. Registry responses are
+        cached by the existing HTTP layer, graph writes are idempotent, and
+        the append-only outcome ledger distinguishes unavailable metadata from
+        a successful package with no maintainer field.
+        """
+
+        if batch_size < 1:
+            raise BlastlineError("full metadata batch size must be positive")
+        if registry is not None and registry not in {"npm", "pypi"}:
+            raise BlastlineError("metadata enrichment registry must be npm or pypi")
+        if max_packages is not None and max_packages < 1:
+            raise BlastlineError("full metadata max_packages must be positive")
+        candidates = self._all_metadata_candidates(registry)
+        if max_packages is not None:
+            candidates = candidates[:max_packages]
+        package_manifest = [
+            {"registry": item[0], "package": item[1], "resolution_count": item[2]}
+            for item in candidates
+        ]
+        manifest_body = json.dumps(package_manifest, sort_keys=True, separators=(",", ":")).encode()
+        manifest_fingerprint = hashlib.sha256(manifest_body).hexdigest()
+        state_directory = self.settings.root / "cache" / "metadata-enrichment"
+        state_directory.mkdir(parents=True, exist_ok=True)
+        manifest_path = state_directory / "manifest.json"
+        checkpoint_path = state_directory / "checkpoint.json"
+        outcomes_path = state_directory / "outcomes.jsonl"
+        manifest_path.write_text(
+            json.dumps(
+                {
+                    "strategy": "all graph packages sorted by registry and package name",
+                    "registry": registry,
+                    "package_count": len(candidates),
+                    "package_list_fingerprint": manifest_fingerprint,
+                    "packages": package_manifest,
+                },
+                sort_keys=True,
+                indent=2,
+            )
+            + "\n",
+            encoding="utf-8",
+        )
+        next_index = 0
+        if checkpoint_path.exists():
+            try:
+                checkpoint = json.loads(checkpoint_path.read_text(encoding="utf-8"))
+                if (
+                    isinstance(checkpoint, dict)
+                    and checkpoint.get("package_list_fingerprint") == manifest_fingerprint
+                    and isinstance(checkpoint.get("next_index"), int)
+                ):
+                    next_index = min(checkpoint["next_index"], len(candidates))
+            except (OSError, json.JSONDecodeError, ValueError):
+                next_index = 0
+
+        outcome_by_key: dict[tuple[str, str], JsonObject] = {}
+        if outcomes_path.exists():
+            for line in outcomes_path.read_text(encoding="utf-8").splitlines():
+                try:
+                    parsed = json.loads(line)
+                except json.JSONDecodeError:
+                    continue
+                if not isinstance(parsed, dict):
+                    continue
+                item_registry = parsed.get("registry")
+                package_name = parsed.get("package")
+                if isinstance(item_registry, str) and isinstance(package_name, str):
+                    outcome_by_key[(item_registry, package_name)] = parsed
+
+        existing_version_ids = {node.node_id for node in self.store.nodes_of_type(NodeType.VERSION)}
+        existing_through: dict[tuple[str, str], set[str]] = {}
+        for edge in self.store.edges():
+            if edge.edge_type is not EdgeType.PUBLISHED_THROUGH:
+                continue
+            version_value = edge.metadata.get("version")
+            if isinstance(version_value, str):
+                existing_through.setdefault((edge.source_id, edge.target_id), set()).add(version_value)
+        totals = {
+            "enriched": 0,
+            "metadata_empty": 0,
+            "no_matching_versions": 0,
+            "fetch_error": 0,
+            "parse_error": 0,
+            "matched_versions": 0,
+            "maintainer_nodes": 0,
+            "maintainer_edges": 0,
+            "infrastructure_edges": 0,
+            "batches_completed": 0,
+        }
+        while next_index < len(candidates):
+            batch = candidates[next_index : next_index + batch_size]
+            fetched = self._fetch_metadata_batch(batch, refresh)
+            batch_nodes: list[Node] = []
+            batch_edges: list[Edge] = []
+            batch_outcomes: list[JsonObject] = []
+            for (item_registry, package_name, resolution_count), (response, error) in zip(batch, fetched, strict=True):
+                package_node_id = f"package:{item_registry}:{package_name}"
+                through_key = (package_node_id, f"publish-infra:{item_registry}")
+                existing_versions = existing_through.setdefault(through_key, set())
+                outcome: JsonObject = {
+                    "registry": item_registry,
+                    "package": package_name,
+                    "resolution_count": resolution_count,
+                }
+                if error is not None or response is None:
+                    fallback = self._fallback_infrastructure_edges(item_registry, package_name, existing_versions)
+                    batch_edges.extend(fallback)
+                    existing_versions.update(edge.metadata["version"] for edge in fallback if isinstance(edge.metadata.get("version"), str))
+                    outcome.update({"status": "fetch-error", "error": error or "empty response", "infrastructure_edges": len(fallback)})
+                    totals["fetch_error"] += 1
+                    totals["infrastructure_edges"] += len(fallback)
+                    batch_outcomes.append(outcome)
+                    continue
+                try:
+                    package, issues = (
+                        parse_npm(response.body, response.url)
+                        if item_registry == "npm"
+                        else parse_pypi(response.body, response.url)
+                    )
+                except (TypeError, ValueError) as exc:
+                    fallback = self._fallback_infrastructure_edges(item_registry, package_name, existing_versions)
+                    batch_edges.extend(fallback)
+                    existing_versions.update(edge.metadata["version"] for edge in fallback if isinstance(edge.metadata.get("version"), str))
+                    outcome.update({"status": "parse-error", "error": str(exc), "infrastructure_edges": len(fallback)})
+                    totals["parse_error"] += 1
+                    totals["infrastructure_edges"] += len(fallback)
+                    batch_outcomes.append(outcome)
+                    continue
+                metadata_nodes, metadata_edges, matched_versions, maintainer_edges = graphify_metadata(
+                    package,
+                    existing_version_ids,
+                    existing_versions,
+                )
+                matched_versions_value = matched_versions
+                if matched_versions == 0:
+                    fallback_versions = self._existing_package_versions(item_registry, package_name)
+                    fallback = graphify_infrastructure(item_registry, package_name, fallback_versions, existing_versions)
+                    batch_edges.extend(fallback)
+                    existing_versions.update(edge.metadata["version"] for edge in fallback if isinstance(edge.metadata.get("version"), str))
+                    status = "no-matching-versions"
+                    totals["no_matching_versions"] += 1
+                    totals["infrastructure_edges"] += len(fallback)
+                    infrastructure_edges = len(fallback)
+                else:
+                    batch_nodes.extend(metadata_nodes)
+                    batch_edges.extend(metadata_edges)
+                    infrastructure_edges = sum(1 for edge in metadata_edges if edge.edge_type is EdgeType.PUBLISHED_THROUGH)
+                    existing_versions.update(
+                        edge.metadata["version"]
+                        for edge in metadata_edges
+                        if edge.edge_type is EdgeType.PUBLISHED_THROUGH and isinstance(edge.metadata.get("version"), str)
+                    )
+                    maintainer_nodes = sum(1 for node in metadata_nodes if node.node_type is NodeType.MAINTAINER)
+                    status = "enriched" if maintainer_nodes else "metadata-empty"
+                    totals["enriched" if status == "enriched" else "metadata_empty"] += 1
+                    totals["maintainer_nodes"] += maintainer_nodes
+                    totals["maintainer_edges"] += maintainer_edges
+                    totals["infrastructure_edges"] += infrastructure_edges
+                totals["matched_versions"] += matched_versions_value
+                outcome.update(
+                    {
+                        "status": status,
+                        "cached": response.from_cache,
+                        "matched_versions": matched_versions_value,
+                        "maintainer_nodes": maintainer_nodes if matched_versions else 0,
+                        "maintainer_edges": maintainer_edges,
+                        "infrastructure_edges": infrastructure_edges,
+                        "parse_issues": len(issues),
+                    }
+                )
+                batch_outcomes.append(outcome)
+            self.store.add_nodes(batch_nodes)
+            self.store.add_edges(batch_edges)
+            for outcome in batch_outcomes:
+                item_registry = outcome.get("registry")
+                package_name = outcome.get("package")
+                if isinstance(item_registry, str) and isinstance(package_name, str):
+                    outcome_by_key[(item_registry, package_name)] = outcome
+            with outcomes_path.open("a", encoding="utf-8") as handle:
+                for outcome in batch_outcomes:
+                    handle.write(json.dumps(outcome, sort_keys=True, separators=(",", ":")) + "\n")
+            next_index += len(batch)
+            totals["batches_completed"] += 1
+            checkpoint_path.write_text(
+                json.dumps(
+                    {
+                        "package_list_fingerprint": manifest_fingerprint,
+                        "next_index": next_index,
+                        "package_count": len(candidates),
+                    },
+                    sort_keys=True,
+                    indent=2,
+                )
+                + "\n",
+                encoding="utf-8",
+            )
+        totals = {
+            "enriched": 0,
+            "metadata_empty": 0,
+            "no_matching_versions": 0,
+            "fetch_error": 0,
+            "parse_error": 0,
+            "matched_versions": 0,
+            "maintainer_nodes": 0,
+            "maintainer_edges": 0,
+            "infrastructure_edges": 0,
+            "batches_completed": (next_index + batch_size - 1) // batch_size if next_index else 0,
+        }
+        for outcome in outcome_by_key.values():
+            status = outcome.get("status")
+            if status == "enriched":
+                totals["enriched"] += 1
+            elif status == "metadata-empty":
+                totals["metadata_empty"] += 1
+            elif status == "no-matching-versions":
+                totals["no_matching_versions"] += 1
+            elif status == "fetch-error":
+                totals["fetch_error"] += 1
+            elif status == "parse-error":
+                totals["parse_error"] += 1
+            for field in ("matched_versions", "maintainer_nodes", "maintainer_edges", "infrastructure_edges"):
+                value = outcome.get(field)
+                if isinstance(value, int) and not isinstance(value, bool):
+                    totals[field] += value
+        artifact: JsonObject = {
+            "selection": {
+                "strategy": "all graph packages sorted by registry and package name",
+                "registry": registry,
+                "package_count": len(candidates),
+                "batch_size": batch_size,
+                "package_list_fingerprint": manifest_fingerprint,
+            },
+            "outcomes": totals,
+            "checkpoint": str(checkpoint_path.relative_to(self.settings.root)),
+            "outcome_ledger": str(outcomes_path.relative_to(self.settings.root)),
+            "graph_fingerprint": self.store.fingerprint(),
+            "version_nodes_created": 0,
+            "dependency_edges_created": 0,
+            "repository_nodes_created": 0,
+        }
+        artifact_path = self.settings.root / "examples" / "metadata-enrichment-full.json"
+        artifact_path.write_text(json.dumps(artifact, sort_keys=True, indent=2) + "\n", encoding="utf-8")
+        return artifact
+
+    def _all_metadata_candidates(self, registry: str | None) -> list[tuple[str, str, int]]:
+        counts: dict[tuple[str, str], int] = {}
+        for version in self.store.nodes_of_type(NodeType.VERSION):
+            item_registry = version.attributes.get("registry")
+            package_name = version.attributes.get("package")
+            if not isinstance(item_registry, str) or not isinstance(package_name, str):
+                continue
+            if registry is not None and item_registry != registry:
+                continue
+            key = (item_registry, package_name)
+            counts[key] = counts.get(key, 0) + len(self.store.incoming(version.node_id, EdgeType.RESOLVED_TO))
+        return sorted((item_registry, package_name, count) for (item_registry, package_name), count in counts.items())
+
+    def _fetch_metadata_batch(
+        self,
+        batch: list[tuple[str, str, int]],
+        refresh: bool,
+    ) -> list[tuple[HttpResponse | None, str | None]]:
+        def fetch(item: tuple[str, str, int]) -> tuple[HttpResponse | None, str | None]:
+            item_registry, package_name, _ = item
+            try:
+                response = self.npm.package(package_name, refresh=refresh) if item_registry == "npm" else self.pypi.package(package_name, refresh=refresh)
+                return response, None
+            except ExternalCallError as exc:
+                return None, str(exc)
+
+        with ThreadPoolExecutor(max_workers=self._fetch_concurrency()) as executor:
+            return list(executor.map(fetch, batch))
+
+    def _existing_package_versions(self, registry: str, package_name: str) -> tuple[tuple[str, datetime], ...]:
+        versions: list[tuple[str, datetime]] = []
+        for node in self.store.nodes_of_type(NodeType.VERSION):
+            if node.attributes.get("registry") != registry or node.attributes.get("package") != package_name:
+                continue
+            version = node.attributes.get("version")
+            published_at = node.attributes.get("published_at")
+            if not isinstance(version, str) or not isinstance(published_at, str):
+                continue
+            try:
+                versions.append((version, parse_time(published_at, f"{node.node_id}.published_at")))
+            except ValueError:
+                continue
+        return tuple(versions)
+
+    def _fallback_infrastructure_edges(self, registry: str, package_name: str, existing_versions: set[str]) -> list[Edge]:
+        return graphify_infrastructure(
+            registry,
+            package_name,
+            self._existing_package_versions(registry, package_name),
+            existing_versions,
+        )
 
     def pypi_packages(self, names: tuple[str, ...], refresh: bool = False) -> IngestReport:
         report = IngestReport("pypi")

@@ -23,9 +23,9 @@ historical only: 3 repositories now have a verified different resolution
 local verification: 50 gradable cases; TP=338; FP=0; FN=0; precision 1.0000; recall 1.0000
 manual parser holdout: 4 of 4 reviewed labels pass
 Hydra/local agreement: 10/10 cases; 0 false confirmations; 0 false omissions; 0 abstentions
-Hydra flagship retrieval: 30/30 temporal paths accepted; 0 abstentions; graph-context outage warning recorded
+Hydra flagship retrieval: 30/30 temporal paths accepted; 0 abstentions; 0 retrieval warnings
 measured package coverage: npm 0.132512%; PyPI 0.000804%
-graph fingerprint: b383f58b343e0db6e167c13a3078e7051ee149b2ae4f8c8c7335f9deaf92243d
+graph fingerprint: a82daf6c4e1a957733d17a413740d256273cc19f950de209c9ab30a0a03f4722
 ```
 
 The package coverage percentages are measured against the authoritative npm `_all_docs.total_rows` and PyPI Simple index counts captured by `make measure-coverage`. They describe the submitted graph, not ecosystem-wide completeness.
@@ -90,13 +90,13 @@ Live HydraDB calls require `HYDRA_DB_API_KEY`; tenant and sub-tenant defaults ar
 - Cached, resumable npm/PyPI/OSV/GitHub ingestion with idempotent graph writes and content-addressed fingerprints.
 - Strict parsers for npm `package-lock.json`, Yarn, pnpm, Poetry, and pinned requirements files.
 
-`make enrich-metadata` selects 24 packages deterministically by resolved-repository count, interleaves npm and PyPI where available, and attaches registry publisher/maintainer metadata only to versions already in the graph. The run is recorded in [`examples/metadata-enrichment.json`](examples/metadata-enrichment.json); it created no version, dependency, or repository nodes. The earlier baseline exposed only 8 maintainer nodes and 2 publish-infrastructure nodes; the representative enrichment now exposes 116 maintainers, while the infrastructure coverage remains 2 registries. This is still a partial metadata slice, not publisher coverage for all 5,693 packages.
+`make enrich-metadata` selects a small representative slice. `make enrich-metadata-full` runs the resumable pass over all 5,654 existing graph packages selected by registry and package name; it created no version, dependency, or repository nodes. The full run matched 16,596 graph versions and produced usable maintainer metadata for 5,435 package outcomes, with 214 fetch errors, one empty metadata response, four packages without matching versions, and zero parse errors. It added 95,466 maintainer edges and 16,189 infrastructure edges; the resulting graph has 3,299 unique maintainer nodes and 2 publish-infrastructure nodes. The detailed outcome artifact is [`examples/metadata-enrichment-full.json`](examples/metadata-enrichment-full.json). Maintainer attribution remains explicitly incomplete for the failed or empty outcomes.
 
 The `Resolution` node is deliberately first-class. A manifest range is not exposure: the same `^4.17.0` can resolve to a safe version, a compromised version, and a safe version again without the repository changing. Only a time-bounded resolution records those three states.
 
 ## Measured demo snapshot
 
-The current local graph contains 5,693 packages, 17,007 versions, 116 maintainers, 2 publish-infrastructure records, 54 repositories, 204,976 resolutions, 10 advisories, and 816,375 edges. It includes the real-response demo slice plus 327 parsed snapshots from the reproducible 53-repository GitHub lockfile corpus. The corpus pass reported 10 failed records and no failed repositories; the append-only failure ledger currently contains 981 records across all ingestion runs. This is still a measured partial corpus, not an ecosystem-wide completeness claim; the resumable catalog paths are the route to broader coverage.
+The current local graph contains 5,693 packages, 17,007 versions, 3,299 unique maintainers, 2 publish-infrastructure records, 54 repositories, 204,976 resolutions, 10 advisories, and 941,169 edges. It includes the real-response demo slice plus 327 parsed snapshots from the reproducible 53-repository GitHub lockfile corpus. The corpus pass reported 10 failed records and no failed repositories; the append-only failure ledger currently contains 981 records across all ingestion runs. This is still a measured partial corpus, not an ecosystem-wide completeness claim; the resumable catalog paths are the route to broader coverage.
 
 The generated incident artifact is [`examples/incident-report.json`](examples/incident-report.json). It includes the historical/current comparison, repositories with unresolved current risk, coverage, graph fingerprint, local verification scorecard, and Hydra status or agreement scorecard. The measured graph report is [`examples/coverage-report.json`](examples/coverage-report.json).
 

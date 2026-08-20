@@ -1,5 +1,5 @@
 {
-  "edge_count": 816375,
+  "edge_count": 941169,
   "failures": {
     "by_source": {
       "github-lockfile": 655,
@@ -9,10 +9,10 @@
     },
     "total": 981
   },
-  "graph_fingerprint": "b383f58b343e0db6e167c13a3078e7051ee149b2ae4f8c8c7335f9deaf92243d",
+  "graph_fingerprint": "a82daf6c4e1a957733d17a413740d256273cc19f950de209c9ab30a0a03f4722",
   "node_counts": {
     "Advisory": 10,
-    "Maintainer": 116,
+    "Maintainer": 3299,
     "Package": 5693,
     "PublishInfra": 2,
     "Repository": 54,
@@ -22,7 +22,7 @@
   "registries": {
     "npm": {
       "coverage_status": "measured",
-      "maintainers": 116,
+      "maintainers": 3299,
       "package_name_coverage_percent": 0.132512,
       "package_name_denominator": 4290928,
       "package_name_denominator_source": "npm replication _all_docs.total_rows",

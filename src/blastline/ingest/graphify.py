@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from collections.abc import Iterable
+from datetime import datetime
 
 from ..model import Edge, EdgeType, Node, NodeType, TimeInterval, package_id, version_id
 from .records import RegistryPackage, RegistryVersion
@@ -108,6 +109,7 @@ def graphify_package(package: RegistryPackage) -> tuple[list[Node], list[Edge]]:
 def graphify_metadata(
     package: RegistryPackage,
     existing_version_ids: set[str],
+    existing_published_through_versions: set[str] | None = None,
 ) -> tuple[list[Node], list[Edge], int, int]:
     """Attach registry metadata without expanding the graph's version set."""
 
@@ -136,16 +138,17 @@ def graphify_metadata(
                 {"source": version.source_identifier},
             )
         )
-        edges.append(
-            Edge.create(
-                package_node_id,
-                EdgeType.PUBLISHED_THROUGH,
-                infra_node_id,
-                interval,
-                version.modified_at,
-                {"source": version.source_identifier, "version": version.version},
+        if existing_published_through_versions is None or version.version not in existing_published_through_versions:
+            edges.append(
+                Edge.create(
+                    package_node_id,
+                    EdgeType.PUBLISHED_THROUGH,
+                    infra_node_id,
+                    interval,
+                    version.modified_at,
+                    {"source": version.source_identifier, "version": version.version},
+                )
             )
-        )
         for maintainer_name in version.maintainers:
             maintainer_node_id = f"maintainer:{package.registry}:{maintainer_name}"
             nodes.append(
@@ -177,6 +180,39 @@ def graphify_metadata(
             )
             maintainer_edges += 2
     return deduplicate_nodes(nodes), deduplicate_edges(edges), matched_versions, maintainer_edges
+
+
+def graphify_infrastructure(
+    registry: str,
+    package_name: str,
+    versions: Iterable[tuple[str, datetime]],
+    existing_versions: set[str],
+) -> list[Edge]:
+    """Map known package versions to their registry infrastructure.
+
+    This fallback is intentionally not maintainer attribution. The graph
+    already knows a package's registry, so it can retain complete
+    package-to-infrastructure coverage even when a registry document is
+    unavailable or omits maintainer fields.
+    """
+
+    package_node_id = package_id(registry, package_name)
+    infra_node_id = f"publish-infra:{registry}"
+    edges: list[Edge] = []
+    for version, published_at in versions:
+        if version in existing_versions:
+            continue
+        edges.append(
+            Edge.create(
+                package_node_id,
+                EdgeType.PUBLISHED_THROUGH,
+                infra_node_id,
+                TimeInterval(published_at),
+                published_at,
+                {"source": "graph-registry-identity", "version": version},
+            )
+        )
+    return deduplicate_edges(edges)
 
 
 def deduplicate_nodes(nodes: Iterable[Node]) -> list[Node]:

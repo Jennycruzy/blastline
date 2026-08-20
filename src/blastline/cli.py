@@ -220,6 +220,27 @@ def enrich_metadata(settings: Settings, limit: int, registry: str | None, refres
     return 0
 
 
+def enrich_metadata_full(
+    settings: Settings,
+    batch_size: int,
+    registry: str | None,
+    refresh: bool,
+    max_packages: int | None,
+) -> int:
+    artifact = RegistryIngestor(settings).enrich_metadata_full(
+        batch_size,
+        registry=registry,
+        refresh=refresh,
+        max_packages=max_packages,
+    )
+    print(
+        f"full metadata enrichment: {artifact['outcomes']['matched_versions']} matched versions; "
+        f"artifact examples/metadata-enrichment-full.json; graph fingerprint {artifact['graph_fingerprint']}"
+    )
+    print(json.dumps(artifact["outcomes"], sort_keys=True))
+    return 0
+
+
 def discover_corpus(settings: Settings, refresh: bool) -> int:
     manifest = RegistryIngestor(settings).discover_github_corpus(refresh=refresh)
     print(
@@ -508,6 +529,11 @@ def parser() -> argparse.ArgumentParser:
     metadata_parser.add_argument("--limit", type=int, default=24)
     metadata_parser.add_argument("--registry", choices=("npm", "pypi"))
     metadata_parser.add_argument("--refresh", action="store_true")
+    full_metadata_parser = subparsers.add_parser("enrich-metadata-full")
+    full_metadata_parser.add_argument("--batch-size", type=int, default=50)
+    full_metadata_parser.add_argument("--max-packages", type=int)
+    full_metadata_parser.add_argument("--registry", choices=("npm", "pypi"))
+    full_metadata_parser.add_argument("--refresh", action="store_true")
     subparsers.add_parser("publish-graph")
     subparsers.add_parser("publish-flagship")
     subparsers.add_parser("publish-verification")
@@ -584,6 +610,8 @@ def main(argv: list[str] | None = None) -> int:
         return measure_coverage(settings, args.refresh)
     if args.command == "enrich-metadata":
         return enrich_metadata(settings, args.limit, args.registry, args.refresh)
+    if args.command == "enrich-metadata-full":
+        return enrich_metadata_full(settings, args.batch_size, args.registry, args.refresh, args.max_packages)
     if args.command == "publish-graph":
         return publish_graph(settings)
     if args.command == "publish-flagship":

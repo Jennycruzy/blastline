@@ -1,6 +1,11 @@
 from __future__ import annotations
 
 import unittest
+from pathlib import Path
+from unittest.mock import patch
+
+from blastline.errors import ExternalCallError
+from blastline.hydra import HydraClient, HydraConfig, HydraResponse
 
 from blastline.query.hydra_evidence import (
     hydra_query,
@@ -133,6 +138,46 @@ class HydraEvidenceParserTest(unittest.TestCase):
         self.assertIn("valid_at=2026-07-08T19:00:00Z", first)
         self.assertIn("valid_window=[2026-07-08T19:00:00Z,2026-07-08T20:30:00Z)", first)
         self.assertIn("known_at=2026-07-08T20:30:00Z", first)
+
+
+class HydraReadinessTest(unittest.TestCase):
+    def test_wait_for_sources_chunks_status_requests_and_retries_transient_failure(self) -> None:
+        client = object.__new__(HydraClient)
+        client.config = HydraConfig(
+            base_url="https://example.invalid",
+            tenant_id="tenant",
+            sub_tenant_id="collection",
+            timeout_seconds=1,
+            retry_attempts=1,
+            retry_base_seconds=0,
+            cache_directory=Path("/tmp/blastline-test-hydra"),
+            context_status_batch_size=2,
+        )
+        source_ids = ("a", "b", "c", "d", "e")
+        calls: list[tuple[str, ...]] = []
+
+        def fake_context_status(batch: tuple[str, ...]) -> HydraResponse:
+            calls.append(batch)
+            if len(calls) == 1:
+                raise ExternalCallError("status endpoint temporarily unavailable")
+            return HydraResponse(
+                status=200,
+                body={
+                    "statuses": [
+                        {"id": source_id, "indexing_status": "completed"}
+                        for source_id in batch
+                    ]
+                },
+                from_cache=False,
+                etag=None,
+            )
+
+        client.context_status = fake_context_status
+        with patch("blastline.hydra.time.sleep") as sleep:
+            client.wait_for_sources(source_ids, attempts=2, delay_seconds=2)
+
+        self.assertEqual(calls, [("a", "b"), ("a", "b"), ("c", "d"), ("e",)])
+        sleep.assert_called_once_with(2)
 
 
 if __name__ == "__main__":

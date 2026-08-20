@@ -13,7 +13,8 @@
     "database_ready_attempts": 30,
     "database_poll_seconds": 2,
     "ingestion_ready_attempts": 30,
-    "ingestion_poll_seconds": 2
+    "ingestion_poll_seconds": 2,
+    "context_status_batch_size": 50
   },
   "ingest": {
     "user_agent": "blastline/0.1.0 (Hack Hydra supply-chain research)",
