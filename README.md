@@ -10,7 +10,9 @@ Blastline does not only ask what depends on a vulnerable package today. It recon
 
 ## Verification first
 
-The scorecard is generated from real OSV advisory records and real public GitHub lockfile history. Cases are selected by finding affected versions directly in the raw snapshot ledger, not by following graph `Resolution` edges. The graph-free observation oracle then reparses those immutable payloads. The current check covers 50 gradable temporal cases and 441 positive repository-pair decisions: TP=337, FP=103, FN=1, precision 0.7659, recall 0.9970. True negatives are not enumerated. A separate four-case manually reviewed parser holdout passes two positive and two negative labels. This is a small measured corpus, not an ecosystem-wide accuracy claim. Every recorded run preserves its graph fingerprint, commit SHA, denominator, abstentions, and misses in [`cache/verification/runs.jsonl`](cache/verification/runs.jsonl). Current-source failures remain itemized in [`cache/ingest-failures.jsonl`](cache/ingest-failures.jsonl).
+The scorecard is generated from real OSV advisory records and real public GitHub lockfile history. Cases are selected by finding affected versions directly in the raw snapshot ledger, not by following graph `Resolution` edges. The graph-free observation oracle then reparses those immutable payloads. The corrected check covers 50 gradable temporal cases and 338 positive repository-pair decisions: TP=338, FP=0, FN=0, precision 1.0000, recall 1.0000. True negatives are not enumerated. A separate four-case manually reviewed parser holdout passes two positive and two negative labels. This is a small measured corpus, not an ecosystem-wide accuracy claim. Every recorded run preserves its graph fingerprint, commit SHA, denominator, abstentions, and misses in [`cache/verification/runs.jsonl`](cache/verification/runs.jsonl). Current-source failures remain itemized in [`cache/ingest-failures.jsonl`](cache/ingest-failures.jsonl).
+
+The prior pre-fix scorecard is retained in the append-only ledger as TP=337, FP=103, FN=1: those 103 false positives came from comparing Q1’s transitive blast-radius candidates at the window’s opening instant with the oracle’s direct lockfile exposure set, rather than using Q3 interval intersection for the temporal case.
 
 ## Current measured snapshot
 
@@ -18,12 +20,12 @@ The scorecard is generated from real OSV advisory records and real public GitHub
 historical exposure: 30 repositories resolved lodash@4.17.21 during the recorded vulnerability interval
 current exposure: 27 repositories still resolve lodash@4.17.21
 historical only: 3 repositories now have a verified different resolution
-local verification: 50 gradable cases; TP=337; FP=103; FN=1; precision 0.7659; recall 0.9970
+local verification: 50 gradable cases; TP=338; FP=0; FN=0; precision 1.0000; recall 1.0000
 manual parser holdout: 4 of 4 reviewed labels pass
 Hydra/local agreement: 10/10 cases; 0 false confirmations; 0 false omissions; 0 abstentions
 Hydra flagship retrieval: 30/30 temporal paths accepted; 0 abstentions; graph-context outage warning recorded
 measured package coverage: npm 0.132512%; PyPI 0.000804%
-graph fingerprint: b5fa455a5d3eea7bb0cda7e6a882e1ecccdb1fa16631889e16e711126a346619
+graph fingerprint: b383f58b343e0db6e167c13a3078e7051ee149b2ae4f8c8c7335f9deaf92243d
 ```
 
 The package coverage percentages are measured against the authoritative npm `_all_docs.total_rows` and PyPI Simple index counts captured by `make measure-coverage`. They describe the submitted graph, not ecosystem-wide completeness.
@@ -59,6 +61,7 @@ make verify-holdout
 make hydra-verify
 make measure-coverage
 make report
+make enrich-metadata
 ```
 
 `make prepare-graph` is offline and deterministic with the committed recordings. It first unpacks the compressed registry cache and `data/graph.tar.zst` when available, verifies the graph fingerprint against the committed report, and otherwise restores the recorded seed (including the cached `vs-deploy` baseline required by the corpus manifest) and replays the corpus. The loose cache projection, `data/graph/` directory, and readiness markers are ignored. Graph-consuming Make targets invoke it automatically, so a fresh clone follows the same path before verification or a demo query.
@@ -87,11 +90,13 @@ Live HydraDB calls require `HYDRA_DB_API_KEY`; tenant and sub-tenant defaults ar
 - Cached, resumable npm/PyPI/OSV/GitHub ingestion with idempotent graph writes and content-addressed fingerprints.
 - Strict parsers for npm `package-lock.json`, Yarn, pnpm, Poetry, and pinned requirements files.
 
+`make enrich-metadata` selects 24 packages deterministically by resolved-repository count, interleaves npm and PyPI where available, and attaches registry publisher/maintainer metadata only to versions already in the graph. The run is recorded in [`examples/metadata-enrichment.json`](examples/metadata-enrichment.json); it created no version, dependency, or repository nodes. The earlier baseline exposed only 8 maintainer nodes and 2 publish-infrastructure nodes; the representative enrichment now exposes 116 maintainers, while the infrastructure coverage remains 2 registries. This is still a partial metadata slice, not publisher coverage for all 5,693 packages.
+
 The `Resolution` node is deliberately first-class. A manifest range is not exposure: the same `^4.17.0` can resolve to a safe version, a compromised version, and a safe version again without the repository changing. Only a time-bounded resolution records those three states.
 
 ## Measured demo snapshot
 
-The current local graph contains 5,693 packages, 17,007 versions, 8 maintainers, 2 publish-infrastructure records, 54 repositories, 204,976 resolutions, 10 advisories, and 814,455 edges. It includes the real-response demo slice plus 327 parsed snapshots from the reproducible 53-repository GitHub lockfile corpus. The corpus pass reported 10 failed records and no failed repositories; the append-only failure ledger currently contains 981 records across all ingestion runs. This is still a measured partial corpus, not an ecosystem-wide completeness claim; the resumable catalog paths are the route to broader coverage.
+The current local graph contains 5,693 packages, 17,007 versions, 116 maintainers, 2 publish-infrastructure records, 54 repositories, 204,976 resolutions, 10 advisories, and 816,375 edges. It includes the real-response demo slice plus 327 parsed snapshots from the reproducible 53-repository GitHub lockfile corpus. The corpus pass reported 10 failed records and no failed repositories; the append-only failure ledger currently contains 981 records across all ingestion runs. This is still a measured partial corpus, not an ecosystem-wide completeness claim; the resumable catalog paths are the route to broader coverage.
 
 The generated incident artifact is [`examples/incident-report.json`](examples/incident-report.json). It includes the historical/current comparison, repositories with unresolved current risk, coverage, graph fingerprint, local verification scorecard, and Hydra status or agreement scorecard. The measured graph report is [`examples/coverage-report.json`](examples/coverage-report.json).
 

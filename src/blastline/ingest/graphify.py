@@ -50,6 +50,16 @@ def graphify_package(package: RegistryPackage) -> tuple[list[Node], list[Edge]]:
                 {"source": version.source_identifier},
             )
         )
+        edges.append(
+            Edge.create(
+                package_node_id,
+                EdgeType.PUBLISHED_THROUGH,
+                infra_node_id,
+                interval,
+                version.modified_at,
+                {"source": version.source_identifier, "version": version.version},
+            )
+        )
         for dependency in version.dependencies:
             dependency_node_id = package_id(package.registry, dependency.name)
             nodes.append(
@@ -93,6 +103,80 @@ def graphify_package(package: RegistryPackage) -> tuple[list[Node], list[Edge]]:
                 )
             )
     return deduplicate_nodes(nodes), deduplicate_edges(edges)
+
+
+def graphify_metadata(
+    package: RegistryPackage,
+    existing_version_ids: set[str],
+) -> tuple[list[Node], list[Edge], int, int]:
+    """Attach registry metadata without expanding the graph's version set."""
+
+    package_node_id = package_id(package.registry, package.name)
+    infra_node_id = f"publish-infra:{package.registry}"
+    nodes: list[Node] = [
+        Node(package_node_id, NodeType.PACKAGE, {"registry": package.registry, "name": package.name}),
+        Node(infra_node_id, NodeType.PUBLISH_INFRA, {"registry": package.registry}),
+    ]
+    edges: list[Edge] = []
+    matched_versions = 0
+    maintainer_edges = 0
+    for version in package.versions:
+        version_node_id = version_id(package.registry, package.name, version.version)
+        if version_node_id not in existing_version_ids:
+            continue
+        matched_versions += 1
+        interval = TimeInterval(version.published_at)
+        edges.append(
+            Edge.create(
+                version_node_id,
+                EdgeType.PUBLISHED_FROM,
+                infra_node_id,
+                interval,
+                version.modified_at,
+                {"source": version.source_identifier},
+            )
+        )
+        edges.append(
+            Edge.create(
+                package_node_id,
+                EdgeType.PUBLISHED_THROUGH,
+                infra_node_id,
+                interval,
+                version.modified_at,
+                {"source": version.source_identifier, "version": version.version},
+            )
+        )
+        for maintainer_name in version.maintainers:
+            maintainer_node_id = f"maintainer:{package.registry}:{maintainer_name}"
+            nodes.append(
+                Node(
+                    maintainer_node_id,
+                    NodeType.MAINTAINER,
+                    {"name": maintainer_name, "registry": package.registry},
+                )
+            )
+            edges.append(
+                Edge.create(
+                    version_node_id,
+                    EdgeType.PUBLISHED_BY,
+                    maintainer_node_id,
+                    interval,
+                    version.modified_at,
+                    {"source": version.source_identifier},
+                )
+            )
+            edges.append(
+                Edge.create(
+                    maintainer_node_id,
+                    EdgeType.MAINTAINS,
+                    package_node_id,
+                    interval,
+                    version.modified_at,
+                    {"source": version.source_identifier},
+                )
+            )
+            maintainer_edges += 2
+    return deduplicate_nodes(nodes), deduplicate_edges(edges), matched_versions, maintainer_edges
 
 
 def deduplicate_nodes(nodes: Iterable[Node]) -> list[Node]:

@@ -205,6 +205,21 @@ def measure_coverage(settings: Settings, refresh: bool) -> int:
     return coverage_report(settings, False)
 
 
+def enrich_metadata(settings: Settings, limit: int, registry: str | None, refresh: bool) -> int:
+    artifact = RegistryIngestor(settings).enrich_metadata(limit, registry=registry, refresh=refresh)
+    selected = artifact.get("selected_packages")
+    results = artifact.get("results")
+    if not isinstance(selected, list) or not isinstance(results, list):
+        raise BlastlineError("metadata enrichment artifact has invalid shape")
+    print(
+        f"metadata enrichment: selected {len(selected)} packages; "
+        f"artifact examples/metadata-enrichment.json; graph fingerprint {artifact['graph_fingerprint']}"
+    )
+    for result in results:
+        print("  " + json.dumps(result, sort_keys=True))
+    return 0
+
+
 def discover_corpus(settings: Settings, refresh: bool) -> int:
     manifest = RegistryIngestor(settings).discover_github_corpus(refresh=refresh)
     print(
@@ -489,6 +504,10 @@ def parser() -> argparse.ArgumentParser:
     ingest_parser.add_argument("--refresh", action="store_true")
     measure_coverage_parser = subparsers.add_parser("measure-coverage")
     measure_coverage_parser.add_argument("--refresh", action="store_true")
+    metadata_parser = subparsers.add_parser("enrich-metadata")
+    metadata_parser.add_argument("--limit", type=int, default=24)
+    metadata_parser.add_argument("--registry", choices=("npm", "pypi"))
+    metadata_parser.add_argument("--refresh", action="store_true")
     subparsers.add_parser("publish-graph")
     subparsers.add_parser("publish-flagship")
     subparsers.add_parser("publish-verification")
@@ -563,6 +582,8 @@ def main(argv: list[str] | None = None) -> int:
         return discover_corpus(settings, args.refresh)
     if args.command == "measure-coverage":
         return measure_coverage(settings, args.refresh)
+    if args.command == "enrich-metadata":
+        return enrich_metadata(settings, args.limit, args.registry, args.refresh)
     if args.command == "publish-graph":
         return publish_graph(settings)
     if args.command == "publish-flagship":

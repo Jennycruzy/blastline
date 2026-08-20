@@ -14,7 +14,7 @@ Blastline treats supply-chain exposure as a temporal graph problem. The graph is
 | `Advisory` | An externally auditable disclosure event with a knowledge timestamp. | Maliciousness would be confused with publication or installation time. |
 | `PublishInfra` | Registry/account/provenance grouping for shared-infrastructure questions. | Q5 would have to infer shared publishing from unrelated text. |
 
-The edge vocabulary is `DEPENDS_ON`, `RESOLVED_TO`, `DECLARES`, `PUBLISHED_BY`, `MAINTAINS`, `PUBLISHED_FROM`, `AFFECTS`, and derived `SIMILAR_NAME_TO`. Derived similarity is never treated as an asserted dependency.
+The edge vocabulary is `DEPENDS_ON`, `RESOLVED_TO`, `DECLARES`, `PUBLISHED_BY`, `MAINTAINS`, `PUBLISHED_FROM`, `PUBLISHED_THROUGH`, `AFFECTS`, and derived `SIMILAR_NAME_TO`. `Version → PUBLISHED_FROM → PublishInfra` preserves the version-level registry evidence; `Package → PUBLISHED_THROUGH → PublishInfra` is the package-level index used by Q5. Derived similarity is never treated as an asserted dependency.
 
 ## Why `Resolution` is the decisive node
 

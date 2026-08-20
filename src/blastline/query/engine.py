@@ -369,6 +369,40 @@ class QueryEngine:
                     other_version = other.attributes.get("version")
                     if isinstance(other_package, str) and isinstance(other_version, str) and other_package != package:
                         grouped.setdefault((edge_type.value, edge.target_id, other_package), set()).add(other_version)
+        package_node = self._package_node_for_version(target)
+        for edge in self.store.outgoing(package_node.node_id, EdgeType.PUBLISHED_THROUGH, valid_at=instant):
+            keys.add((EdgeType.PUBLISHED_THROUGH.value, edge.target_id))
+            for shared_edge in self.store.incoming(edge.target_id, EdgeType.PUBLISHED_THROUGH, valid_at=instant):
+                if shared_edge.source_id == package_node.node_id:
+                    continue
+                other_package_node = self.store.node(shared_edge.source_id)
+                if other_package_node is None or other_package_node.node_type is not NodeType.PACKAGE:
+                    abstentions.append(AbstentionNotice(shared_edge.edge_id, "shared infrastructure target Package is missing"))
+                    continue
+                other_package = other_package_node.attributes.get("name")
+                other_registry = other_package_node.attributes.get("registry")
+                if not isinstance(other_package, str) or not isinstance(other_registry, str) or other_package == package:
+                    continue
+                versions: set[str] = set()
+                for other_version_node in self.store.nodes_of_type(NodeType.VERSION):
+                    if (
+                        other_version_node.attributes.get("registry") != other_registry
+                        or other_version_node.attributes.get("package") != other_package
+                    ):
+                        continue
+                    if self.store.outgoing(other_version_node.node_id, EdgeType.PUBLISHED_FROM, valid_at=instant):
+                        versions_value = other_version_node.attributes.get("version")
+                        if isinstance(versions_value, str):
+                            versions.add(versions_value)
+                if versions:
+                    grouped.setdefault((EdgeType.PUBLISHED_THROUGH.value, edge.target_id, other_package), set()).update(versions)
+                else:
+                    abstentions.append(
+                        AbstentionNotice(
+                            shared_edge.edge_id,
+                            "shared Package infrastructure edge exists, but no valid Version evidence is present",
+                        )
+                    )
         results: list[JsonObject] = [
             {
                 "shared_by": edge_type,

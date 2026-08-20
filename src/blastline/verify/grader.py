@@ -219,12 +219,16 @@ class Verifier:
         false_positives = 0
         gradable = 0
         for case in cases:
-            response = self.engine.blast_radius(
+            # Verification cases describe an exposure interval.  Q1 at the
+            # interval start can miss a repository that first resolves the
+            # target later in that same interval; Q3 is the temporal query
+            # whose interval-intersection semantics match the oracle.
+            response = self.engine.window_exposure(
                 case.registry,
                 case.package,
                 case.version,
-                valid_at=case.window_start,
-                commit_at=case.known_at,
+                (case.window_start, case.window_end),
+                known_at=case.known_at,
             )
             predicted = {
                 str(item["repository"])

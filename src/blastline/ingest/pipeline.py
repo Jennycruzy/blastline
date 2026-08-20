@@ -17,7 +17,7 @@ from ..store import GraphStore
 from .corpus import GitHubCorpusDiscoverer
 from .failures import FailureLedger
 from .github import GitHubCommit, GitHubLockfileSource
-from .graphify import graphify_package
+from .graphify import graphify_metadata, graphify_package
 from .http import DiskHttpClient, HttpPolicy, HttpResponse
 from .lockfiles import graphify_lockfile, parse_lockfile
 from .osv import OsvClient, OsvTarget, attach_advisories
@@ -349,6 +349,120 @@ class RegistryIngestor:
                     report.cached_requests += 1
                 self._add_package(response.body, "npm", report)
         return report
+
+    def enrich_metadata(
+        self,
+        limit: int,
+        registry: str | None = None,
+        refresh: bool = False,
+    ) -> JsonObject:
+        """Enrich a deterministic representative slice of the local graph.
+
+        This is deliberately narrower than normal package ingestion: registry
+        documents can contain thousands of historical versions, but metadata
+        enrichment must not silently turn a representative slice into an
+        unbounded ecosystem import. Only versions already in the local graph
+        receive publisher/maintainer edges.
+        """
+
+        if limit < 1:
+            raise BlastlineError("metadata enrichment limit must be positive")
+        if registry is not None and registry not in {"npm", "pypi"}:
+            raise BlastlineError("metadata enrichment registry must be npm or pypi")
+        selected = self._metadata_candidates(limit, registry)
+        before = self.store.fingerprint()
+        existing_version_ids = {node.node_id for node in self.store.nodes_of_type(NodeType.VERSION)}
+        results: list[JsonObject] = []
+        for selected_registry, package_name, resolution_count in selected:
+            try:
+                response = (
+                    self.npm.package(package_name, refresh=refresh)
+                    if selected_registry == "npm"
+                    else self.pypi.package(package_name, refresh=refresh)
+                )
+                package, issues = (
+                    parse_npm(response.body, response.url)
+                    if selected_registry == "npm"
+                    else parse_pypi(response.body, response.url)
+                )
+                nodes, edges, matched_versions, maintainer_edges = graphify_metadata(package, existing_version_ids)
+                nodes_added = self.store.add_nodes(nodes) if matched_versions else 0
+                edges_added = self.store.add_edges(edges) if matched_versions else 0
+                results.append(
+                    {
+                        "registry": selected_registry,
+                        "package": package_name,
+                        "resolution_count": resolution_count,
+                        "cached": response.from_cache,
+                        "matched_versions": matched_versions,
+                        "maintainer_edges": maintainer_edges,
+                        "nodes_added": nodes_added,
+                        "edges_added": edges_added,
+                        "parse_issues": len(issues),
+                    }
+                )
+            except (ExternalCallError, TypeError, ValueError) as exc:
+                results.append(
+                    {
+                        "registry": selected_registry,
+                        "package": package_name,
+                        "resolution_count": resolution_count,
+                        "error": str(exc),
+                    }
+                )
+        artifact: JsonObject = {
+            "selection": {
+                "strategy": "interleaved registries ranked by incoming RESOLVED_TO edges",
+                "limit": limit,
+                "registry": registry,
+                "graph_fingerprint_before": before,
+            },
+            "selected_packages": [
+                {"registry": item[0], "package": item[1], "resolution_count": item[2]}
+                for item in selected
+            ],
+            "results": results,
+            "graph_fingerprint": self.store.fingerprint(),
+            "version_nodes_created": 0,
+            "dependency_edges_created": 0,
+            "repository_nodes_created": 0,
+        }
+        artifact_path = self.settings.root / "examples" / "metadata-enrichment.json"
+        artifact_path.write_text(json.dumps(artifact, sort_keys=True, indent=2) + "\n", encoding="utf-8")
+        return artifact
+
+    def _metadata_candidates(self, limit: int, registry: str | None) -> list[tuple[str, str, int]]:
+        counts: dict[tuple[str, str], int] = {}
+        for version in self.store.nodes_of_type(NodeType.VERSION):
+            version_registry = version.attributes.get("registry")
+            package_name = version.attributes.get("package")
+            if not isinstance(version_registry, str) or not isinstance(package_name, str):
+                continue
+            if registry is not None and version_registry != registry:
+                continue
+            counts[(version_registry, package_name)] = counts.get((version_registry, package_name), 0) + len(
+                self.store.incoming(version.node_id, EdgeType.RESOLVED_TO)
+            )
+        by_registry: dict[str, list[tuple[str, int]]] = {}
+        for (item_registry, package_name), count in counts.items():
+            by_registry.setdefault(item_registry, []).append((package_name, count))
+        for values in by_registry.values():
+            values.sort(key=lambda item: (-item[1], item[0]))
+        selected: list[tuple[str, str, int]] = []
+        registries = sorted(by_registry)
+        while registries and len(selected) < limit:
+            next_registries: list[str] = []
+            for item_registry in registries:
+                values = by_registry[item_registry]
+                if values:
+                    package_name, count = values.pop(0)
+                    selected.append((item_registry, package_name, count))
+                if values:
+                    next_registries.append(item_registry)
+                if len(selected) >= limit:
+                    break
+            registries = next_registries
+        return selected
 
     def pypi_packages(self, names: tuple[str, ...], refresh: bool = False) -> IngestReport:
         report = IngestReport("pypi")

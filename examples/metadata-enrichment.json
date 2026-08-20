@@ -1,0 +1,400 @@
+{
+  "dependency_edges_created": 0,
+  "graph_fingerprint": "b383f58b343e0db6e167c13a3078e7051ee149b2ae4f8c8c7335f9deaf92243d",
+  "repository_nodes_created": 0,
+  "results": [
+    {
+      "cached": false,
+      "edges_added": 34,
+      "maintainer_edges": 22,
+      "matched_versions": 6,
+      "nodes_added": 2,
+      "package": "ansi-styles",
+      "parse_issues": 0,
+      "registry": "npm",
+      "resolution_count": 739
+    },
+    {
+      "cached": true,
+      "edges_added": 0,
+      "maintainer_edges": 0,
+      "matched_versions": 160,
+      "nodes_added": 0,
+      "package": "requests",
+      "parse_issues": 3,
+      "registry": "pypi",
+      "resolution_count": 0
+    },
+    {
+      "cached": false,
+      "edges_added": 290,
+      "maintainer_edges": 244,
+      "matched_versions": 23,
+      "nodes_added": 17,
+      "package": "semver",
+      "parse_issues": 0,
+      "registry": "npm",
+      "resolution_count": 735
+    },
+    {
+      "cached": false,
+      "edges_added": 108,
+      "maintainer_edges": 54,
+      "matched_versions": 27,
+      "nodes_added": 0,
+      "package": "minimatch",
+      "parse_issues": 0,
+      "registry": "npm",
+      "resolution_count": 634
+    },
+    {
+      "cached": false,
+      "edges_added": 80,
+      "maintainer_edges": 40,
+      "matched_versions": 20,
+      "nodes_added": 0,
+      "package": "type-fest",
+      "parse_issues": 0,
+      "registry": "npm",
+      "resolution_count": 610
+    },
+    {
+      "cached": false,
+      "edges_added": 66,
+      "maintainer_edges": 44,
+      "matched_versions": 11,
+      "nodes_added": 1,
+      "package": "chalk",
+      "parse_issues": 0,
+      "registry": "npm",
+      "resolution_count": 598
+    },
+    {
+      "cached": false,
+      "edges_added": 102,
+      "maintainer_edges": 80,
+      "matched_versions": 11,
+      "nodes_added": 4,
+      "package": "debug",
+      "parse_issues": 0,
+      "registry": "npm",
+      "resolution_count": 587
+    },
+    {
+      "cached": false,
+      "edges_added": 18,
+      "maintainer_edges": 10,
+      "matched_versions": 4,
+      "nodes_added": 1,
+      "package": "escape-string-regexp",
+      "parse_issues": 0,
+      "registry": "npm",
+      "resolution_count": 574
+    },
+    {
+      "cached": false,
+      "edges_added": 34,
+      "maintainer_edges": 22,
+      "matched_versions": 6,
+      "nodes_added": 0,
+      "package": "supports-color",
+      "parse_issues": 0,
+      "registry": "npm",
+      "resolution_count": 570
+    },
+    {
+      "cached": false,
+      "edges_added": 96,
+      "maintainer_edges": 64,
+      "matched_versions": 16,
+      "nodes_added": 1,
+      "package": "brace-expansion",
+      "parse_issues": 0,
+      "registry": "npm",
+      "resolution_count": 546
+    },
+    {
+      "cached": false,
+      "edges_added": 90,
+      "maintainer_edges": 48,
+      "matched_versions": 21,
+      "nodes_added": 0,
+      "package": "lru-cache",
+      "parse_issues": 0,
+      "registry": "npm",
+      "resolution_count": 546
+    },
+    {
+      "cached": false,
+      "edges_added": 24,
+      "maintainer_edges": 20,
+      "matched_versions": 2,
+      "nodes_added": 4,
+      "package": "glob-parent",
+      "parse_issues": 0,
+      "registry": "npm",
+      "resolution_count": 511
+    },
+    {
+      "cached": false,
+      "edges_added": 32,
+      "maintainer_edges": 16,
+      "matched_versions": 8,
+      "nodes_added": 0,
+      "package": "p-limit",
+      "parse_issues": 0,
+      "registry": "npm",
+      "resolution_count": 498
+    },
+    {
+      "cached": false,
+      "edges_added": 76,
+      "maintainer_edges": 38,
+      "matched_versions": 19,
+      "nodes_added": 0,
+      "package": "glob",
+      "parse_issues": 0,
+      "registry": "npm",
+      "resolution_count": 486
+    },
+    {
+      "cached": false,
+      "edges_added": 8,
+      "maintainer_edges": 4,
+      "matched_versions": 2,
+      "nodes_added": 1,
+      "package": "color-name",
+      "parse_issues": 0,
+      "registry": "npm",
+      "resolution_count": 480
+    },
+    {
+      "cached": false,
+      "edges_added": 224,
+      "maintainer_edges": 216,
+      "matched_versions": 4,
+      "nodes_added": 66,
+      "package": "ms",
+      "parse_issues": 0,
+      "registry": "npm",
+      "resolution_count": 479
+    },
+    {
+      "cached": false,
+      "edges_added": 10,
+      "maintainer_edges": 6,
+      "matched_versions": 2,
+      "nodes_added": 1,
+      "package": "color-convert",
+      "parse_issues": 0,
+      "registry": "npm",
+      "resolution_count": 478
+    },
+    {
+      "cached": false,
+      "edges_added": 70,
+      "maintainer_edges": 56,
+      "matched_versions": 7,
+      "nodes_added": 2,
+      "package": "picomatch",
+      "parse_issues": 0,
+      "registry": "npm",
+      "resolution_count": 458
+    },
+    {
+      "cached": false,
+      "edges_added": 32,
+      "maintainer_edges": 20,
+      "matched_versions": 6,
+      "nodes_added": 0,
+      "package": "strip-ansi",
+      "parse_issues": 0,
+      "registry": "npm",
+      "resolution_count": 450
+    },
+    {
+      "cached": false,
+      "edges_added": 40,
+      "maintainer_edges": 26,
+      "matched_versions": 7,
+      "nodes_added": 0,
+      "package": "ansi-regex",
+      "parse_issues": 0,
+      "registry": "npm",
+      "resolution_count": 448
+    },
+    {
+      "cached": false,
+      "edges_added": 16,
+      "maintainer_edges": 10,
+      "matched_versions": 3,
+      "nodes_added": 0,
+      "package": "has-flag",
+      "parse_issues": 0,
+      "registry": "npm",
+      "resolution_count": 442
+    },
+    {
+      "cached": false,
+      "edges_added": 220,
+      "maintainer_edges": 180,
+      "matched_versions": 20,
+      "nodes_added": 5,
+      "package": "commander",
+      "parse_issues": 0,
+      "registry": "npm",
+      "resolution_count": 440
+    },
+    {
+      "cached": false,
+      "edges_added": 20,
+      "maintainer_edges": 10,
+      "matched_versions": 5,
+      "nodes_added": 0,
+      "package": "p-locate",
+      "parse_issues": 0,
+      "registry": "npm",
+      "resolution_count": 434
+    },
+    {
+      "cached": false,
+      "edges_added": 70,
+      "maintainer_edges": 46,
+      "matched_versions": 12,
+      "nodes_added": 3,
+      "package": "eslint-visitor-keys",
+      "parse_issues": 0,
+      "registry": "npm",
+      "resolution_count": 431
+    }
+  ],
+  "selected_packages": [
+    {
+      "package": "ansi-styles",
+      "registry": "npm",
+      "resolution_count": 739
+    },
+    {
+      "package": "requests",
+      "registry": "pypi",
+      "resolution_count": 0
+    },
+    {
+      "package": "semver",
+      "registry": "npm",
+      "resolution_count": 735
+    },
+    {
+      "package": "minimatch",
+      "registry": "npm",
+      "resolution_count": 634
+    },
+    {
+      "package": "type-fest",
+      "registry": "npm",
+      "resolution_count": 610
+    },
+    {
+      "package": "chalk",
+      "registry": "npm",
+      "resolution_count": 598
+    },
+    {
+      "package": "debug",
+      "registry": "npm",
+      "resolution_count": 587
+    },
+    {
+      "package": "escape-string-regexp",
+      "registry": "npm",
+      "resolution_count": 574
+    },
+    {
+      "package": "supports-color",
+      "registry": "npm",
+      "resolution_count": 570
+    },
+    {
+      "package": "brace-expansion",
+      "registry": "npm",
+      "resolution_count": 546
+    },
+    {
+      "package": "lru-cache",
+      "registry": "npm",
+      "resolution_count": 546
+    },
+    {
+      "package": "glob-parent",
+      "registry": "npm",
+      "resolution_count": 511
+    },
+    {
+      "package": "p-limit",
+      "registry": "npm",
+      "resolution_count": 498
+    },
+    {
+      "package": "glob",
+      "registry": "npm",
+      "resolution_count": 486
+    },
+    {
+      "package": "color-name",
+      "registry": "npm",
+      "resolution_count": 480
+    },
+    {
+      "package": "ms",
+      "registry": "npm",
+      "resolution_count": 479
+    },
+    {
+      "package": "color-convert",
+      "registry": "npm",
+      "resolution_count": 478
+    },
+    {
+      "package": "picomatch",
+      "registry": "npm",
+      "resolution_count": 458
+    },
+    {
+      "package": "strip-ansi",
+      "registry": "npm",
+      "resolution_count": 450
+    },
+    {
+      "package": "ansi-regex",
+      "registry": "npm",
+      "resolution_count": 448
+    },
+    {
+      "package": "has-flag",
+      "registry": "npm",
+      "resolution_count": 442
+    },
+    {
+      "package": "commander",
+      "registry": "npm",
+      "resolution_count": 440
+    },
+    {
+      "package": "p-locate",
+      "registry": "npm",
+      "resolution_count": 434
+    },
+    {
+      "package": "eslint-visitor-keys",
+      "registry": "npm",
+      "resolution_count": 431
+    }
+  ],
+  "selection": {
+    "graph_fingerprint_before": "fda65f7dfe3167d12f9594a6c4285128085c10bdff6baa693b60f2198f0286a3",
+    "limit": 24,
+    "registry": null,
+    "strategy": "interleaved registries ranked by incoming RESOLVED_TO edges"
+  },
+  "version_nodes_created": 0
+}

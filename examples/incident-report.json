@@ -82,13 +82,13 @@
     "query": "Q8 abstention and coverage",
     "results": []
   },
-  "generated_at": "2026-08-19T19:32:29Z",
+  "generated_at": "2026-08-20T08:56:46Z",
   "graph": {
-    "edge_count": 814455,
-    "fingerprint": "b5fa455a5d3eea7bb0cda7e6a882e1ecccdb1fa16631889e16e711126a346619",
+    "edge_count": 816375,
+    "fingerprint": "b383f58b343e0db6e167c13a3078e7051ee149b2ae4f8c8c7335f9deaf92243d",
     "node_counts": {
       "Advisory": 10,
-      "Maintainer": 8,
+      "Maintainer": 116,
       "Package": 5693,
       "PublishInfra": 2,
       "Repository": 54,
@@ -1868,11 +1868,11 @@
         "hydra_verified_result": [
           "Thinker-ljn/vite-plugin-tampermonkey"
         ],
-        "latency_ms": 61178.126494000026,
+        "latency_ms": 32268.54010500392,
         "local_result": [
           "Thinker-ljn/vite-plugin-tampermonkey"
         ],
-        "rejected_source_count": 175
+        "rejected_source_count": 176
       },
       {
         "agreement": true,
@@ -1898,11 +1898,11 @@
         "hydra_verified_result": [
           "Thinker-ljn/vite-plugin-tampermonkey"
         ],
-        "latency_ms": 10505.49223300186,
+        "latency_ms": 8043.088442005683,
         "local_result": [
           "Thinker-ljn/vite-plugin-tampermonkey"
         ],
-        "rejected_source_count": 175
+        "rejected_source_count": 176
       },
       {
         "agreement": true,
@@ -1928,7 +1928,7 @@
         "hydra_verified_result": [
           "Thinker-ljn/vite-plugin-tampermonkey"
         ],
-        "latency_ms": 26157.804070000566,
+        "latency_ms": 7501.879884999653,
         "local_result": [
           "Thinker-ljn/vite-plugin-tampermonkey"
         ],
@@ -1958,7 +1958,7 @@
         "hydra_verified_result": [
           "Thinker-ljn/vite-plugin-tampermonkey"
         ],
-        "latency_ms": 12222.49222300161,
+        "latency_ms": 8142.942069003766,
         "local_result": [
           "Thinker-ljn/vite-plugin-tampermonkey"
         ],
@@ -1988,7 +1988,7 @@
         "hydra_verified_result": [
           "Thinker-ljn/vite-plugin-tampermonkey"
         ],
-        "latency_ms": 46142.78718400237,
+        "latency_ms": 8645.474516000831,
         "local_result": [
           "Thinker-ljn/vite-plugin-tampermonkey"
         ],
@@ -2020,7 +2020,7 @@
           "Thinker-ljn/vite-plugin-tampermonkey",
           "linbudu599/TypeScript-Tiny-Book"
         ],
-        "latency_ms": 26655.060641998716,
+        "latency_ms": 7971.7168799979845,
         "local_result": [
           "Thinker-ljn/vite-plugin-tampermonkey",
           "linbudu599/TypeScript-Tiny-Book"
@@ -2053,7 +2053,7 @@
           "Thinker-ljn/vite-plugin-tampermonkey",
           "linbudu599/TypeScript-Tiny-Book"
         ],
-        "latency_ms": 12892.144506997283,
+        "latency_ms": 8427.579054994567,
         "local_result": [
           "Thinker-ljn/vite-plugin-tampermonkey",
           "linbudu599/TypeScript-Tiny-Book"
@@ -2081,17 +2081,17 @@
         "false_omissions": [],
         "hydra_abstained": false,
         "hydra_abstentions": [],
-        "hydra_candidate_paths": 15,
+        "hydra_candidate_paths": 5,
         "hydra_verified_result": [
           "Thinker-ljn/vite-plugin-tampermonkey",
           "linbudu599/TypeScript-Tiny-Book"
         ],
-        "latency_ms": 24461.90041099908,
+        "latency_ms": 11487.710913999763,
         "local_result": [
           "Thinker-ljn/vite-plugin-tampermonkey",
           "linbudu599/TypeScript-Tiny-Book"
         ],
-        "rejected_source_count": 176
+        "rejected_source_count": 183
       },
       {
         "agreement": true,
@@ -2121,7 +2121,7 @@
           "linbudu599/TypeScript-Tiny-Book",
           "timolins/react-hot-toast"
         ],
-        "latency_ms": 18305.010824999044,
+        "latency_ms": 8798.888331002672,
         "local_result": [
           "Thinker-ljn/vite-plugin-tampermonkey",
           "linbudu599/TypeScript-Tiny-Book",
@@ -2157,7 +2157,7 @@
           "linbudu599/TypeScript-Tiny-Book",
           "timolins/react-hot-toast"
         ],
-        "latency_ms": 20940.991974999633,
+        "latency_ms": 7639.456548997259,
         "local_result": [
           "Thinker-ljn/vite-plugin-tampermonkey",
           "linbudu599/TypeScript-Tiny-Book",
@@ -2166,15 +2166,15 @@
         "rejected_source_count": 173
       }
     ],
-    "commit_sha": "af967a688f4745e2f23831f65f707ac7f5f7c140",
+    "commit_sha": "5861f8cb92e6fe487c7a600dc41e5ccc6f64cd07",
     "disagreement_cases": 0,
     "executed_cases": 10,
     "false_confirmations": 0,
     "false_omissions": 0,
-    "graph_fingerprint": "b5fa455a5d3eea7bb0cda7e6a882e1ecccdb1fa16631889e16e711126a346619",
+    "graph_fingerprint": "b383f58b343e0db6e167c13a3078e7051ee149b2ae4f8c8c7335f9deaf92243d",
     "hydra_abstentions": 0,
     "record": "cache/verification/hydra-agreement.jsonl",
-    "recorded_at": "2026-08-19T18:21:31Z"
+    "recorded_at": "2026-08-20T08:50:06Z"
   },
   "hydra_window": {
     "abstentions": [],
@@ -2480,7 +2480,7 @@
         }
       }
     ],
-    "candidate_path_count": 0,
+    "candidate_path_count": 15,
     "current_repositories": [
       "Codehagen/regnskapsloop-crm",
       "Eliav2/express-typed",
@@ -2510,7 +2510,7 @@
       "vkubilays/Get-Starknet",
       "wangzmgit/leaf"
     ],
-    "graph_fingerprint": "b5fa455a5d3eea7bb0cda7e6a882e1ecccdb1fa16631889e16e711126a346619",
+    "graph_fingerprint": "b383f58b343e0db6e167c13a3078e7051ee149b2ae4f8c8c7335f9deaf92243d",
     "historical_differs_current": true,
     "historical_repositories": [
       "Codehagen/regnskapsloop-crm",
@@ -2544,8 +2544,21 @@
       "wangzmgit/leaf",
       "webpro-nl/remove-unused-vars"
     ],
-    "inspected_relation_count": 0,
+    "inspected_relation_count": 15,
     "inspected_source_ids": [
+      "blastline:e342bfe81d46da5330d639d7434b269c8843244a7b5c95ff8cd7b26bc12c5746",
+      "blastline:25d5bd2ee0942e5e987463a0a69aea401a086bc8231e01e989a62e6ff2cff439",
+      "blastline:1c2fc746b5ea892c8341d5f4f1a12cb98080feb7e3a8299796e21e4e8b9feb47",
+      "blastline:version:npm:lodash@4.17.21",
+      "blastline:e11a7687d2b5b7895006be4b6e0740b6bb573f4c4608e7998d5b6c6067ec234f",
+      "blastline:afba4e8f2513276a07aa0911c27e3fd7947684de046f3f643db2dea95b0c415e",
+      "blastline:7a39daa0b41d988eb937223b2d31b6ece11294217e582a2c696d4a181df39ee5",
+      "blastline:f346fec28bc2ba3651044014c72a4502bcbd3b046268b905346e8e1011b43ff8",
+      "blastline:83a3f179f7c11eb627059a00cf86edf86bbaf5eab2480604facfcdbecff501f5",
+      "blastline:925a9385e9bebf92da3d916ee18bd91b36941d2883c1e24556131262f0c008b3",
+      "blastline:cbd467f187c179a8de6ff25df0862ae95d6fc2cc8c67165539a08d3f157615c2",
+      "blastline:5ae02c18093cefa13d2e82de61918365b6b397ab67814a012bca5ff3e54f4b01",
+      "blastline:69a953df9b9fa42fc17c3768bda0965c8e561d2c57a1556ad6eddf1b9d28e1c5",
       "blastline:01612b564726c23b24e2cf7b9849b89ed2d1c2e5cde713d1fc4872aeff289be3",
       "blastline:4adc36b44e45094dc0bcbf4a0eb811a280cb07930c1043d9d074d7ecd80f1df4",
       "blastline:cb9119b5ae95a8235ac0c914d0caec51054a101da1c3d8f828662aeb01199bd8",
@@ -2562,7 +2575,6 @@
       "blastline:e035e3cfb3a7d518d092d958c0caf521dd04f89db55c8d534d6b8a89a7b0801f",
       "blastline:1ea425ff54d4f1d76e7c26f03da67a5c45503b5f371c094edfc2ad2cfb7d60c8",
       "blastline:23a1fd1938bac86cb506cc15637e89eabb57538a55f7c996179d0ccd95b65e92",
-      "blastline:5ae02c18093cefa13d2e82de61918365b6b397ab67814a012bca5ff3e54f4b01",
       "blastline:1aed80be772c6571ef80a1cf0a94328df71dedb3f2309894f497496b98c435ea",
       "blastline:41599cb9df5de331da8160a82ba3af7f7b2878d9c4fbf5277042e065ccf763d5",
       "blastline:1d0f1bb81d028513756e11e3810f544eb8d363d65ed2171a31f02de584d00d45",
@@ -2590,7 +2602,6 @@
       "blastline:b3a86964e525cb9ba413eb4def367a9382d70e1181fb859c3812ec024ef7839e",
       "blastline:fa4bc5a72ec329420a25716c96c286335c8f6fe68c71bbc894172d095a1e77a2",
       "blastline:1faae2d0a0f574e4ab1ec94d898ab49306d49ee566eb14bcb44e69268ff85d2e",
-      "blastline:e11a7687d2b5b7895006be4b6e0740b6bb573f4c4608e7998d5b6c6067ec234f",
       "blastline:b0facfc9519f3b5456117e6e9098b455bcc8d9abcdad59ab7cf540f9099c130a",
       "blastline:a18232f2f3182e39be14e3d2c539fda791168bc5c087a4887c9c80b49d0ed83b",
       "blastline:07eb7fb8caf14a0ca628a86405a06eb68dbdb75c66900073ce7e91f4165b9607",
@@ -2603,13 +2614,11 @@
       "blastline:0797de57eed10f75683edc1c34937e5eb29566683f0aa3492bd0e8d62397566d",
       "blastline:b1c747a5a936f214eeeebfcc4c7119daed3d525166b703e6549bdf6d4660a027",
       "blastline:61f70eadd50ea7154875134b8d76f58f0a76df001297895778816bf641628c8f",
-      "blastline:83a3f179f7c11eb627059a00cf86edf86bbaf5eab2480604facfcdbecff501f5",
       "blastline:5cc9c19446fa680d4880effdd1258b303eeae033d282db92e35aa80f7384dbc3",
       "blastline:5d730d6044e92d43b33a5fb41d0ad6e5a21ebd976f8a4f8c7d03d02070ec60c8",
       "blastline:eb0dba89db2cea75c1b0cdd245816901587bc715cefd0bbe6e3b9a36b553ce94",
       "blastline:53d9a732d9bd2b226e8cd497e7a5b88919c24444e7b2d24679ad7a102f378d5e",
       "blastline:6d3c209ed3bae5ba879040ffa473c1bf2d0b328e3f90aa21d12df5f8dc276214",
-      "blastline:69a953df9b9fa42fc17c3768bda0965c8e561d2c57a1556ad6eddf1b9d28e1c5",
       "blastline:3ed60b30e7f335bb85a81e8255e937c23d23314b8e28077f92c9b42b3ca61192",
       "blastline:4619b09da3f6d8dccf4773eee24c94722a936ee36c5890e613092012f29ba2ce",
       "blastline:4aea9ef27d901515ce0e8d688a459d7e5deba779be948ec4086f87a1b3544e8d",
@@ -2650,7 +2659,6 @@
       "blastline:17aaa7f3085b0acdd690fea1150b19b8a2d0f9731098da431dc9e2829df13fc8",
       "blastline:c4d3900278d1759323486d6b29de2844c8fe81f71194c420c31cf3a767a79492",
       "blastline:e24145e165ac14b5e6f322639578d8a9c3534d7c5189bb5a77b737c76097b704",
-      "blastline:afba4e8f2513276a07aa0911c27e3fd7947684de046f3f643db2dea95b0c415e",
       "blastline:8f8e33af0a376e29ee187d0817c723ff9fc75c920c6d8336cf2c0b48f81498bd",
       "blastline:f63d7c8947c1337d747d109ae006582b3a1e1501fb2a47ab2e3dcd1335706c92",
       "blastline:04bb2cf52f26af0d2eef8417007a6f1970229c57146edab3937687611ce39bc9",
@@ -2668,7 +2676,6 @@
       "blastline:b29ea8a2d8abd44fb68e8596c9af323c433d09de20fedd4cf3956f674d6fdc28",
       "blastline:c4ad3d2327396e46406b83209434d07ea7c3298b3a375905a393ba1b25adc44c",
       "blastline:eabcce161d8c01df8e1dead5e2e017bfa0d12b0a9da5567bdec29428f18c0ce5",
-      "blastline:7a39daa0b41d988eb937223b2d31b6ece11294217e582a2c696d4a181df39ee5",
       "blastline:75300eaca3e4e285cd96b9a25723ad4cd8594574972a42abb76568680d4cc331",
       "blastline:ca5bb574fbf5511e9458b2e915661fddf57aabb0b1b2cb72f71fe2c40dc04f9c",
       "blastline:cbd26672bbb15ebc0c5b61256244b051d89ffe1cd62082d3e0ed9ebefba379c3",
@@ -2708,37 +2715,29 @@
       "blastline:b621aba1c5328e446ed1db4b5d73e13f8fcb2978552a742400bcf9f748b54320",
       "blastline:8935604f01515bbb0be17591c48405c7b2485156c1618711d2bc81a0a84d6670",
       "blastline:7b9b824bfba1962ced8cbf9c3c75cc3be61a9bce53c9405c87f6e63baaa3b66c",
-      "blastline:925a9385e9bebf92da3d916ee18bd91b36941d2883c1e24556131262f0c008b3",
       "blastline:a5c36f7bf5d0196202932d1380365051036bf00658206845cb4294f0d0d5a85f",
-      "blastline:cbd467f187c179a8de6ff25df0862ae95d6fc2cc8c67165539a08d3f157615c2",
       "blastline:f71dea6265c8390ca3df63b87acf902b769c696ddc149e88789908dc1ad80556",
       "blastline:7cf7711d5ec80d749860bf2e0727777da55b6a8e20eb66f7e375a12a1b37c006",
       "blastline:17742f20222b02a7af6983bcfc4605f66e46f04b1d9b9d25a3b89de511a4e8d1",
       "blastline:f318ce66c4f98fd5e01a7985f5b7c736bcbfc6d86cfa852bdd8082e6bcdc9f10",
-      "blastline:25d5bd2ee0942e5e987463a0a69aea401a086bc8231e01e989a62e6ff2cff439",
       "blastline:74de1123f3ac5a2894fe6a9bb71a6912d502eb9b8b9124c575a00ec48e5bc02d",
-      "blastline:e342bfe81d46da5330d639d7434b269c8843244a7b5c95ff8cd7b26bc12c5746",
       "blastline:7d41147dcddee3c942347efa5255b0074d44b4ae4a23574da91e7ccfd30e1bba",
-      "blastline:f346fec28bc2ba3651044014c72a4502bcbd3b046268b905346e8e1011b43ff8",
-      "blastline:30d1b9911f9648f9faaeaa232c5e11d3182c76ab24e43849c6b903a1c16093e0",
-      "blastline:1c2fc746b5ea892c8341d5f4f1a12cb98080feb7e3a8299796e21e4e8b9feb47"
+      "blastline:30d1b9911f9648f9faaeaa232c5e11d3182c76ab24e43849c6b903a1c16093e0"
     ],
     "known_at": null,
-    "latency_ms": 223609.551,
+    "latency_ms": 99727.822,
     "local_hydra_agreement": true,
     "query": "Blastline supply-chain exposure graph path for npm/lodash@4.17.21; valid_window=[2021-02-20T15:42:16Z,2026-08-01T00:00:00Z); valid_at=2021-02-20T15:42:16Z; known_at=latest-known; required path Repository DECLARES Resolution RESOLVED_TO Version",
     "recall_from_cache": false,
     "record": "cache/verification/hydra-window.jsonl",
-    "recorded_at": "2026-08-19T19:27:05Z",
+    "recorded_at": "2026-08-20T08:44:36Z",
     "rejected_source_ids": [
       "1c2fc746b5ea892c8341d5f4f1a12cb98080feb7e3a8299796e21e4e8b9feb47",
       "25d5bd2ee0942e5e987463a0a69aea401a086bc8231e01e989a62e6ff2cff439",
       "e342bfe81d46da5330d639d7434b269c8843244a7b5c95ff8cd7b26bc12c5746"
     ],
     "relation_calls_from_cache": 0,
-    "retrieval_warnings": [
-      "HydraDB graph-context recall unavailable; used exhaustive hosted collection retrieval: HydraDB POST /query failed after retries"
-    ],
+    "retrieval_warnings": [],
     "target": "npm:lodash@4.17.21",
     "valid_at": "2021-02-20T15:42:16Z",
     "window_end": "2026-08-01T00:00:00Z"
@@ -2816,8 +2815,8 @@
         "repository": "npm/cli",
         "resolution": "resolution:728ae11bd1a86c6e9f13c9c2685ad2b5d3d17c76152576dfe1ca4aa799fc7853",
         "valid_overlap": {
-          "end": "2026-08-19T19:30:20Z",
-          "start": "2026-08-19T19:30:20Z"
+          "end": "2026-08-20T08:53:41Z",
+          "start": "2026-08-20T08:53:41Z"
         }
       },
       {
@@ -2826,8 +2825,8 @@
         "repository": "Codehagen/regnskapsloop-crm",
         "resolution": "resolution:7345826cbbfa3b32efcf499a689008249495f3f4d58cba54d3feb4d8768e4956",
         "valid_overlap": {
-          "end": "2026-08-19T19:30:20Z",
-          "start": "2026-08-19T19:30:20Z"
+          "end": "2026-08-20T08:53:41Z",
+          "start": "2026-08-20T08:53:41Z"
         }
       },
       {
@@ -2836,8 +2835,8 @@
         "repository": "Eliav2/express-typed",
         "resolution": "resolution:e9777b8e5dff7643723c08d8c8f842ea6f390b5c87e9b88e6b5235dff80a706e",
         "valid_overlap": {
-          "end": "2026-08-19T19:30:20Z",
-          "start": "2026-08-19T19:30:20Z"
+          "end": "2026-08-20T08:53:41Z",
+          "start": "2026-08-20T08:53:41Z"
         }
       },
       {
@@ -2846,8 +2845,8 @@
         "repository": "Marinerer/unity-webgl",
         "resolution": "resolution:50d73f82bf3a5710a2ee404eb626e4dc13ea32434bbc81af2010a43d732affc4",
         "valid_overlap": {
-          "end": "2026-08-19T19:30:20Z",
-          "start": "2026-08-19T19:30:20Z"
+          "end": "2026-08-20T08:53:41Z",
+          "start": "2026-08-20T08:53:41Z"
         }
       },
       {
@@ -2856,8 +2855,8 @@
         "repository": "Teernage/AI-Mock",
         "resolution": "resolution:57595816c24f2a4720af9507252a8c4cfb6c6a150c7fdd7a19c7261c3ee11d1f",
         "valid_overlap": {
-          "end": "2026-08-19T19:30:20Z",
-          "start": "2026-08-19T19:30:20Z"
+          "end": "2026-08-20T08:53:41Z",
+          "start": "2026-08-20T08:53:41Z"
         }
       },
       {
@@ -2866,8 +2865,8 @@
         "repository": "Thinker-ljn/vite-plugin-tampermonkey",
         "resolution": "resolution:0b4a0ee7063b8722dacc8a375bc4a604914cef049a196b9dd402de00cd018895",
         "valid_overlap": {
-          "end": "2026-08-19T19:30:20Z",
-          "start": "2026-08-19T19:30:20Z"
+          "end": "2026-08-20T08:53:41Z",
+          "start": "2026-08-20T08:53:41Z"
         }
       },
       {
@@ -2876,8 +2875,8 @@
         "repository": "btreitz/nextjs-shopify-ecom-demo",
         "resolution": "resolution:c1e719a21a5760aa266d193407b06e3915612f40da99833b7f13058cd42b24a4",
         "valid_overlap": {
-          "end": "2026-08-19T19:30:20Z",
-          "start": "2026-08-19T19:30:20Z"
+          "end": "2026-08-20T08:53:41Z",
+          "start": "2026-08-20T08:53:41Z"
         }
       },
       {
@@ -2886,8 +2885,8 @@
         "repository": "caiquecamargo/custom-parser",
         "resolution": "resolution:21cc4d406a3557ec797e65627eaccf4bff447e371a7df158d04f3b7f4307c6a3",
         "valid_overlap": {
-          "end": "2026-08-19T19:30:20Z",
-          "start": "2026-08-19T19:30:20Z"
+          "end": "2026-08-20T08:53:41Z",
+          "start": "2026-08-20T08:53:41Z"
         }
       },
       {
@@ -2896,8 +2895,8 @@
         "repository": "codyzu/use-orama",
         "resolution": "resolution:98f378fabdda9d345bbf4529dc77455f70fa88d2bcc72879ed16e1dd2ddfb32c",
         "valid_overlap": {
-          "end": "2026-08-19T19:30:20Z",
-          "start": "2026-08-19T19:30:20Z"
+          "end": "2026-08-20T08:53:41Z",
+          "start": "2026-08-20T08:53:41Z"
         }
       },
       {
@@ -2906,8 +2905,8 @@
         "repository": "decipad/safejs",
         "resolution": "resolution:74bbad8543833f19c5f3617262f6be18c9370b7730cb39ea1a9ee111f230e5ad",
         "valid_overlap": {
-          "end": "2026-08-19T19:30:20Z",
-          "start": "2026-08-19T19:30:20Z"
+          "end": "2026-08-20T08:53:41Z",
+          "start": "2026-08-20T08:53:41Z"
         }
       },
       {
@@ -2916,8 +2915,8 @@
         "repository": "esafwan/dashboard-starter",
         "resolution": "resolution:806ae58488c5c53ba2f43b283816374f8e37ac943b5cfce2a9b00e51665f72cd",
         "valid_overlap": {
-          "end": "2026-08-19T19:30:20Z",
-          "start": "2026-08-19T19:30:20Z"
+          "end": "2026-08-20T08:53:41Z",
+          "start": "2026-08-20T08:53:41Z"
         }
       },
       {
@@ -2926,8 +2925,8 @@
         "repository": "hackforla/lucky-parking",
         "resolution": "resolution:8358bc63d0d6636c9c81dc239dba58ce4bf58d64e2bbaef5fe91af3d987e5a24",
         "valid_overlap": {
-          "end": "2026-08-19T19:30:20Z",
-          "start": "2026-08-19T19:30:20Z"
+          "end": "2026-08-20T08:53:41Z",
+          "start": "2026-08-20T08:53:41Z"
         }
       },
       {
@@ -2936,8 +2935,8 @@
         "repository": "himself65/affine-minimum",
         "resolution": "resolution:8a759588a704696af8ccd56c2101471b83911c5589badfce391c3a5ceab09646",
         "valid_overlap": {
-          "end": "2026-08-19T19:30:20Z",
-          "start": "2026-08-19T19:30:20Z"
+          "end": "2026-08-20T08:53:41Z",
+          "start": "2026-08-20T08:53:41Z"
         }
       },
       {
@@ -2946,8 +2945,8 @@
         "repository": "jbxamora/kronosdocs",
         "resolution": "resolution:64d82e56e0c23eb483f3f19515ef43dd75f57a6f2b4527cefe07b1e3e955a21e",
         "valid_overlap": {
-          "end": "2026-08-19T19:30:20Z",
-          "start": "2026-08-19T19:30:20Z"
+          "end": "2026-08-20T08:53:41Z",
+          "start": "2026-08-20T08:53:41Z"
         }
       },
       {
@@ -2956,8 +2955,8 @@
         "repository": "lilingxi01/ams-date-picker",
         "resolution": "resolution:1a8405f34f6fbcad3695a3480d2b0c604a9ebe644ac2facc57b93910286559b7",
         "valid_overlap": {
-          "end": "2026-08-19T19:30:20Z",
-          "start": "2026-08-19T19:30:20Z"
+          "end": "2026-08-20T08:53:41Z",
+          "start": "2026-08-20T08:53:41Z"
         }
       },
       {
@@ -2966,8 +2965,8 @@
         "repository": "linbudu599/TypeScript-Tiny-Book",
         "resolution": "resolution:a0de12bbc56450505f34ebaea05190886f790a68fa149d3388d069aa7a5f217d",
         "valid_overlap": {
-          "end": "2026-08-19T19:30:20Z",
-          "start": "2026-08-19T19:30:20Z"
+          "end": "2026-08-20T08:53:41Z",
+          "start": "2026-08-20T08:53:41Z"
         }
       },
       {
@@ -2976,8 +2975,8 @@
         "repository": "mag123c/nestjs-stdschema",
         "resolution": "resolution:62754cb096e960aadf30c05a1a9d3458aacda7f61e68de72f5d019c956dbad97",
         "valid_overlap": {
-          "end": "2026-08-19T19:30:20Z",
-          "start": "2026-08-19T19:30:20Z"
+          "end": "2026-08-20T08:53:41Z",
+          "start": "2026-08-20T08:53:41Z"
         }
       },
       {
@@ -2986,8 +2985,8 @@
         "repository": "paescuj/ctrlc-wrapper",
         "resolution": "resolution:65aac49f23d92401f297b8b432a0e06e328f985c3bbe3427ff21ac451368563d",
         "valid_overlap": {
-          "end": "2026-08-19T19:30:20Z",
-          "start": "2026-08-19T19:30:20Z"
+          "end": "2026-08-20T08:53:41Z",
+          "start": "2026-08-20T08:53:41Z"
         }
       },
       {
@@ -2996,8 +2995,8 @@
         "repository": "pdanpdan/vue-keyboard-trap",
         "resolution": "resolution:18f8ebfc5ab456def172ec87ca29b6a62af143af56d87c78571c7b848fa712b7",
         "valid_overlap": {
-          "end": "2026-08-19T19:30:20Z",
-          "start": "2026-08-19T19:30:20Z"
+          "end": "2026-08-20T08:53:41Z",
+          "start": "2026-08-20T08:53:41Z"
         }
       },
       {
@@ -3006,8 +3005,8 @@
         "repository": "privatenumber/tsx",
         "resolution": "resolution:36c1ee21369c661032fc2db486fe2675da9af0b6e11f1ad5176ed834c204a4bd",
         "valid_overlap": {
-          "end": "2026-08-19T19:30:20Z",
-          "start": "2026-08-19T19:30:20Z"
+          "end": "2026-08-20T08:53:41Z",
+          "start": "2026-08-20T08:53:41Z"
         }
       },
       {
@@ -3016,8 +3015,8 @@
         "repository": "roberthgnz/nuxt-feature-flags",
         "resolution": "resolution:9f83a90648f95ffa6dcbccf1f5bee26863847a3647a683e4ebe7c7d88a2622ba",
         "valid_overlap": {
-          "end": "2026-08-19T19:30:20Z",
-          "start": "2026-08-19T19:30:20Z"
+          "end": "2026-08-20T08:53:41Z",
+          "start": "2026-08-20T08:53:41Z"
         }
       },
       {
@@ -3026,8 +3025,8 @@
         "repository": "timolins/react-hot-toast",
         "resolution": "resolution:d2004955f8ce195edd91632bd55d02160b0959e227b36f24fa960d9653a72aff",
         "valid_overlap": {
-          "end": "2026-08-19T19:30:20Z",
-          "start": "2026-08-19T19:30:20Z"
+          "end": "2026-08-20T08:53:41Z",
+          "start": "2026-08-20T08:53:41Z"
         }
       },
       {
@@ -3036,8 +3035,8 @@
         "repository": "trevorpfiz/BioxML-allergen-epitopes",
         "resolution": "resolution:6b9034647cff14bdbf8703c171a349b0520ad42559a4bd429c0706a17914a125",
         "valid_overlap": {
-          "end": "2026-08-19T19:30:20Z",
-          "start": "2026-08-19T19:30:20Z"
+          "end": "2026-08-20T08:53:41Z",
+          "start": "2026-08-20T08:53:41Z"
         }
       },
       {
@@ -3046,8 +3045,8 @@
         "repository": "u3u/console.img",
         "resolution": "resolution:8462068297e910a91968ac8912837b5ae38bfba209c5c21b8bba02caa4afc411",
         "valid_overlap": {
-          "end": "2026-08-19T19:30:20Z",
-          "start": "2026-08-19T19:30:20Z"
+          "end": "2026-08-20T08:53:41Z",
+          "start": "2026-08-20T08:53:41Z"
         }
       },
       {
@@ -3056,8 +3055,8 @@
         "repository": "unjs/uncrypto",
         "resolution": "resolution:e3a8acdc512900be9833404b4820ec845cd254394a2df1b41ef1df0ede514098",
         "valid_overlap": {
-          "end": "2026-08-19T19:30:20Z",
-          "start": "2026-08-19T19:30:20Z"
+          "end": "2026-08-20T08:53:41Z",
+          "start": "2026-08-20T08:53:41Z"
         }
       },
       {
@@ -3066,8 +3065,8 @@
         "repository": "vkubilays/Get-Starknet",
         "resolution": "resolution:7a7e99476822cb6b6bac4ddeb7abe117db22c1d15894c465421e8a4adc0c76b7",
         "valid_overlap": {
-          "end": "2026-08-19T19:30:20Z",
-          "start": "2026-08-19T19:30:20Z"
+          "end": "2026-08-20T08:53:41Z",
+          "start": "2026-08-20T08:53:41Z"
         }
       },
       {
@@ -3076,8 +3075,8 @@
         "repository": "wangzmgit/leaf",
         "resolution": "resolution:098dafc3cad3dbe38d5cb919c75231012fa814b4517a4e588f74040e10a0c3a5",
         "valid_overlap": {
-          "end": "2026-08-19T19:30:20Z",
-          "start": "2026-08-19T19:30:20Z"
+          "end": "2026-08-20T08:53:41Z",
+          "start": "2026-08-20T08:53:41Z"
         }
       }
     ]
@@ -3616,16 +3615,13 @@
           "window_start": "2022-01-25T05:53:34Z"
         },
         "false_negatives": [],
-        "false_positives": [
-          "advaith1/slashtags"
-        ],
+        "false_positives": [],
         "gradable": true,
         "observed_repositories": [
           "Thinker-ljn/vite-plugin-tampermonkey"
         ],
         "predicted_repositories": [
-          "Thinker-ljn/vite-plugin-tampermonkey",
-          "advaith1/slashtags"
+          "Thinker-ljn/vite-plugin-tampermonkey"
         ]
       },
       {
@@ -3645,16 +3641,13 @@
           "window_start": "2022-04-20T10:34:50Z"
         },
         "false_negatives": [],
-        "false_positives": [
-          "advaith1/slashtags"
-        ],
+        "false_positives": [],
         "gradable": true,
         "observed_repositories": [
           "Thinker-ljn/vite-plugin-tampermonkey"
         ],
         "predicted_repositories": [
-          "Thinker-ljn/vite-plugin-tampermonkey",
-          "advaith1/slashtags"
+          "Thinker-ljn/vite-plugin-tampermonkey"
         ]
       },
       {
@@ -3674,16 +3667,13 @@
           "window_start": "2022-05-01T06:08:24Z"
         },
         "false_negatives": [],
-        "false_positives": [
-          "advaith1/slashtags"
-        ],
+        "false_positives": [],
         "gradable": true,
         "observed_repositories": [
           "Thinker-ljn/vite-plugin-tampermonkey"
         ],
         "predicted_repositories": [
-          "Thinker-ljn/vite-plugin-tampermonkey",
-          "advaith1/slashtags"
+          "Thinker-ljn/vite-plugin-tampermonkey"
         ]
       },
       {
@@ -3703,16 +3693,13 @@
           "window_start": "2022-05-10T07:15:59Z"
         },
         "false_negatives": [],
-        "false_positives": [
-          "advaith1/slashtags"
-        ],
+        "false_positives": [],
         "gradable": true,
         "observed_repositories": [
           "Thinker-ljn/vite-plugin-tampermonkey"
         ],
         "predicted_repositories": [
-          "Thinker-ljn/vite-plugin-tampermonkey",
-          "advaith1/slashtags"
+          "Thinker-ljn/vite-plugin-tampermonkey"
         ]
       },
       {
@@ -3732,16 +3719,13 @@
           "window_start": "2022-05-30T10:08:35Z"
         },
         "false_negatives": [],
-        "false_positives": [
-          "advaith1/slashtags"
-        ],
+        "false_positives": [],
         "gradable": true,
         "observed_repositories": [
           "Thinker-ljn/vite-plugin-tampermonkey"
         ],
         "predicted_repositories": [
-          "Thinker-ljn/vite-plugin-tampermonkey",
-          "advaith1/slashtags"
+          "Thinker-ljn/vite-plugin-tampermonkey"
         ]
       },
       {
@@ -3762,9 +3746,7 @@
           "window_start": "2022-06-18T03:05:16Z"
         },
         "false_negatives": [],
-        "false_positives": [
-          "advaith1/slashtags"
-        ],
+        "false_positives": [],
         "gradable": true,
         "observed_repositories": [
           "Thinker-ljn/vite-plugin-tampermonkey",
@@ -3772,7 +3754,6 @@
         ],
         "predicted_repositories": [
           "Thinker-ljn/vite-plugin-tampermonkey",
-          "advaith1/slashtags",
           "linbudu599/TypeScript-Tiny-Book"
         ]
       },
@@ -3794,9 +3775,7 @@
           "window_start": "2022-06-18T03:13:34Z"
         },
         "false_negatives": [],
-        "false_positives": [
-          "advaith1/slashtags"
-        ],
+        "false_positives": [],
         "gradable": true,
         "observed_repositories": [
           "Thinker-ljn/vite-plugin-tampermonkey",
@@ -3804,7 +3783,6 @@
         ],
         "predicted_repositories": [
           "Thinker-ljn/vite-plugin-tampermonkey",
-          "advaith1/slashtags",
           "linbudu599/TypeScript-Tiny-Book"
         ]
       },
@@ -3826,9 +3804,7 @@
           "window_start": "2022-06-19T06:40:51Z"
         },
         "false_negatives": [],
-        "false_positives": [
-          "advaith1/slashtags"
-        ],
+        "false_positives": [],
         "gradable": true,
         "observed_repositories": [
           "Thinker-ljn/vite-plugin-tampermonkey",
@@ -3836,7 +3812,6 @@
         ],
         "predicted_repositories": [
           "Thinker-ljn/vite-plugin-tampermonkey",
-          "advaith1/slashtags",
           "linbudu599/TypeScript-Tiny-Book"
         ]
       },
@@ -3858,12 +3833,8 @@
           "window_end": "2022-07-13T09:52:20Z",
           "window_start": "2022-07-12T09:52:20Z"
         },
-        "false_negatives": [
-          "timolins/react-hot-toast"
-        ],
-        "false_positives": [
-          "advaith1/slashtags"
-        ],
+        "false_negatives": [],
+        "false_positives": [],
         "gradable": true,
         "observed_repositories": [
           "Thinker-ljn/vite-plugin-tampermonkey",
@@ -3872,8 +3843,8 @@
         ],
         "predicted_repositories": [
           "Thinker-ljn/vite-plugin-tampermonkey",
-          "advaith1/slashtags",
-          "linbudu599/TypeScript-Tiny-Book"
+          "linbudu599/TypeScript-Tiny-Book",
+          "timolins/react-hot-toast"
         ]
       },
       {
@@ -3895,10 +3866,7 @@
           "window_start": "2022-07-12T20:12:10Z"
         },
         "false_negatives": [],
-        "false_positives": [
-          "Protagonistss/auxer",
-          "advaith1/slashtags"
-        ],
+        "false_positives": [],
         "gradable": true,
         "observed_repositories": [
           "Thinker-ljn/vite-plugin-tampermonkey",
@@ -3906,9 +3874,7 @@
           "timolins/react-hot-toast"
         ],
         "predicted_repositories": [
-          "Protagonistss/auxer",
           "Thinker-ljn/vite-plugin-tampermonkey",
-          "advaith1/slashtags",
           "linbudu599/TypeScript-Tiny-Book",
           "timolins/react-hot-toast"
         ]
@@ -3932,10 +3898,7 @@
           "window_start": "2022-07-15T21:25:12Z"
         },
         "false_negatives": [],
-        "false_positives": [
-          "Protagonistss/auxer",
-          "advaith1/slashtags"
-        ],
+        "false_positives": [],
         "gradable": true,
         "observed_repositories": [
           "Thinker-ljn/vite-plugin-tampermonkey",
@@ -3943,9 +3906,7 @@
           "timolins/react-hot-toast"
         ],
         "predicted_repositories": [
-          "Protagonistss/auxer",
           "Thinker-ljn/vite-plugin-tampermonkey",
-          "advaith1/slashtags",
           "linbudu599/TypeScript-Tiny-Book",
           "timolins/react-hot-toast"
         ]
@@ -3970,10 +3931,7 @@
           "window_start": "2022-08-14T06:25:27Z"
         },
         "false_negatives": [],
-        "false_positives": [
-          "Protagonistss/auxer",
-          "advaith1/slashtags"
-        ],
+        "false_positives": [],
         "gradable": true,
         "observed_repositories": [
           "Thinker-ljn/vite-plugin-tampermonkey",
@@ -3982,9 +3940,7 @@
           "timolins/react-hot-toast"
         ],
         "predicted_repositories": [
-          "Protagonistss/auxer",
           "Thinker-ljn/vite-plugin-tampermonkey",
-          "advaith1/slashtags",
           "lilingxi01/ams-date-picker",
           "linbudu599/TypeScript-Tiny-Book",
           "timolins/react-hot-toast"
@@ -4010,10 +3966,7 @@
           "window_start": "2022-08-14T14:40:56Z"
         },
         "false_negatives": [],
-        "false_positives": [
-          "Protagonistss/auxer",
-          "advaith1/slashtags"
-        ],
+        "false_positives": [],
         "gradable": true,
         "observed_repositories": [
           "Thinker-ljn/vite-plugin-tampermonkey",
@@ -4022,9 +3975,7 @@
           "timolins/react-hot-toast"
         ],
         "predicted_repositories": [
-          "Protagonistss/auxer",
           "Thinker-ljn/vite-plugin-tampermonkey",
-          "advaith1/slashtags",
           "lilingxi01/ams-date-picker",
           "linbudu599/TypeScript-Tiny-Book",
           "timolins/react-hot-toast"
@@ -4050,10 +4001,7 @@
           "window_start": "2022-08-15T01:07:44Z"
         },
         "false_negatives": [],
-        "false_positives": [
-          "Protagonistss/auxer",
-          "advaith1/slashtags"
-        ],
+        "false_positives": [],
         "gradable": true,
         "observed_repositories": [
           "Thinker-ljn/vite-plugin-tampermonkey",
@@ -4062,9 +4010,7 @@
           "timolins/react-hot-toast"
         ],
         "predicted_repositories": [
-          "Protagonistss/auxer",
           "Thinker-ljn/vite-plugin-tampermonkey",
-          "advaith1/slashtags",
           "lilingxi01/ams-date-picker",
           "linbudu599/TypeScript-Tiny-Book",
           "timolins/react-hot-toast"
@@ -4090,10 +4036,7 @@
           "window_start": "2022-08-17T03:13:59Z"
         },
         "false_negatives": [],
-        "false_positives": [
-          "Protagonistss/auxer",
-          "advaith1/slashtags"
-        ],
+        "false_positives": [],
         "gradable": true,
         "observed_repositories": [
           "Thinker-ljn/vite-plugin-tampermonkey",
@@ -4102,9 +4045,7 @@
           "timolins/react-hot-toast"
         ],
         "predicted_repositories": [
-          "Protagonistss/auxer",
           "Thinker-ljn/vite-plugin-tampermonkey",
-          "advaith1/slashtags",
           "lilingxi01/ams-date-picker",
           "linbudu599/TypeScript-Tiny-Book",
           "timolins/react-hot-toast"
@@ -4130,10 +4071,7 @@
           "window_start": "2022-08-17T03:59:39Z"
         },
         "false_negatives": [],
-        "false_positives": [
-          "Protagonistss/auxer",
-          "advaith1/slashtags"
-        ],
+        "false_positives": [],
         "gradable": true,
         "observed_repositories": [
           "Thinker-ljn/vite-plugin-tampermonkey",
@@ -4142,9 +4080,7 @@
           "timolins/react-hot-toast"
         ],
         "predicted_repositories": [
-          "Protagonistss/auxer",
           "Thinker-ljn/vite-plugin-tampermonkey",
-          "advaith1/slashtags",
           "lilingxi01/ams-date-picker",
           "linbudu599/TypeScript-Tiny-Book",
           "timolins/react-hot-toast"
@@ -4170,10 +4106,7 @@
           "window_start": "2022-08-17T04:08:05Z"
         },
         "false_negatives": [],
-        "false_positives": [
-          "Protagonistss/auxer",
-          "advaith1/slashtags"
-        ],
+        "false_positives": [],
         "gradable": true,
         "observed_repositories": [
           "Thinker-ljn/vite-plugin-tampermonkey",
@@ -4182,9 +4115,7 @@
           "timolins/react-hot-toast"
         ],
         "predicted_repositories": [
-          "Protagonistss/auxer",
           "Thinker-ljn/vite-plugin-tampermonkey",
-          "advaith1/slashtags",
           "lilingxi01/ams-date-picker",
           "linbudu599/TypeScript-Tiny-Book",
           "timolins/react-hot-toast"
@@ -4210,10 +4141,7 @@
           "window_start": "2022-08-17T04:16:28Z"
         },
         "false_negatives": [],
-        "false_positives": [
-          "Protagonistss/auxer",
-          "advaith1/slashtags"
-        ],
+        "false_positives": [],
         "gradable": true,
         "observed_repositories": [
           "Thinker-ljn/vite-plugin-tampermonkey",
@@ -4222,9 +4150,7 @@
           "timolins/react-hot-toast"
         ],
         "predicted_repositories": [
-          "Protagonistss/auxer",
           "Thinker-ljn/vite-plugin-tampermonkey",
-          "advaith1/slashtags",
           "lilingxi01/ams-date-picker",
           "linbudu599/TypeScript-Tiny-Book",
           "timolins/react-hot-toast"
@@ -4250,10 +4176,7 @@
           "window_start": "2022-08-17T04:57:19Z"
         },
         "false_negatives": [],
-        "false_positives": [
-          "Protagonistss/auxer",
-          "advaith1/slashtags"
-        ],
+        "false_positives": [],
         "gradable": true,
         "observed_repositories": [
           "Thinker-ljn/vite-plugin-tampermonkey",
@@ -4262,9 +4185,7 @@
           "timolins/react-hot-toast"
         ],
         "predicted_repositories": [
-          "Protagonistss/auxer",
           "Thinker-ljn/vite-plugin-tampermonkey",
-          "advaith1/slashtags",
           "lilingxi01/ams-date-picker",
           "linbudu599/TypeScript-Tiny-Book",
           "timolins/react-hot-toast"
@@ -4291,10 +4212,7 @@
           "window_start": "2022-08-18T10:59:13Z"
         },
         "false_negatives": [],
-        "false_positives": [
-          "Protagonistss/auxer",
-          "advaith1/slashtags"
-        ],
+        "false_positives": [],
         "gradable": true,
         "observed_repositories": [
           "Thinker-ljn/vite-plugin-tampermonkey",
@@ -4304,9 +4222,7 @@
           "timolins/react-hot-toast"
         ],
         "predicted_repositories": [
-          "Protagonistss/auxer",
           "Thinker-ljn/vite-plugin-tampermonkey",
-          "advaith1/slashtags",
           "lilingxi01/ams-date-picker",
           "linbudu599/TypeScript-Tiny-Book",
           "paescuj/ctrlc-wrapper",
@@ -4334,10 +4250,7 @@
           "window_start": "2022-08-18T11:05:10Z"
         },
         "false_negatives": [],
-        "false_positives": [
-          "Protagonistss/auxer",
-          "advaith1/slashtags"
-        ],
+        "false_positives": [],
         "gradable": true,
         "observed_repositories": [
           "Thinker-ljn/vite-plugin-tampermonkey",
@@ -4347,9 +4260,7 @@
           "timolins/react-hot-toast"
         ],
         "predicted_repositories": [
-          "Protagonistss/auxer",
           "Thinker-ljn/vite-plugin-tampermonkey",
-          "advaith1/slashtags",
           "lilingxi01/ams-date-picker",
           "linbudu599/TypeScript-Tiny-Book",
           "paescuj/ctrlc-wrapper",
@@ -4378,10 +4289,7 @@
           "window_start": "2022-11-14T12:51:56Z"
         },
         "false_negatives": [],
-        "false_positives": [
-          "Protagonistss/auxer",
-          "advaith1/slashtags"
-        ],
+        "false_positives": [],
         "gradable": true,
         "observed_repositories": [
           "Thinker-ljn/vite-plugin-tampermonkey",
@@ -4392,9 +4300,7 @@
           "timolins/react-hot-toast"
         ],
         "predicted_repositories": [
-          "Protagonistss/auxer",
           "Thinker-ljn/vite-plugin-tampermonkey",
-          "advaith1/slashtags",
           "lilingxi01/ams-date-picker",
           "linbudu599/TypeScript-Tiny-Book",
           "ossjs/release",
@@ -4425,10 +4331,7 @@
           "window_start": "2022-11-30T23:14:35Z"
         },
         "false_negatives": [],
-        "false_positives": [
-          "Protagonistss/auxer",
-          "advaith1/slashtags"
-        ],
+        "false_positives": [],
         "gradable": true,
         "observed_repositories": [
           "Thinker-ljn/vite-plugin-tampermonkey",
@@ -4440,9 +4343,7 @@
           "vkubilays/Get-Starknet"
         ],
         "predicted_repositories": [
-          "Protagonistss/auxer",
           "Thinker-ljn/vite-plugin-tampermonkey",
-          "advaith1/slashtags",
           "lilingxi01/ams-date-picker",
           "linbudu599/TypeScript-Tiny-Book",
           "ossjs/release",
@@ -4474,10 +4375,7 @@
           "window_start": "2022-12-07T16:09:11Z"
         },
         "false_negatives": [],
-        "false_positives": [
-          "Protagonistss/auxer",
-          "advaith1/slashtags"
-        ],
+        "false_positives": [],
         "gradable": true,
         "observed_repositories": [
           "Thinker-ljn/vite-plugin-tampermonkey",
@@ -4489,9 +4387,7 @@
           "vkubilays/Get-Starknet"
         ],
         "predicted_repositories": [
-          "Protagonistss/auxer",
           "Thinker-ljn/vite-plugin-tampermonkey",
-          "advaith1/slashtags",
           "lilingxi01/ams-date-picker",
           "linbudu599/TypeScript-Tiny-Book",
           "ossjs/release",
@@ -4524,10 +4420,7 @@
           "window_start": "2023-01-09T02:17:21Z"
         },
         "false_negatives": [],
-        "false_positives": [
-          "Protagonistss/auxer",
-          "advaith1/slashtags"
-        ],
+        "false_positives": [],
         "gradable": true,
         "observed_repositories": [
           "Thinker-ljn/vite-plugin-tampermonkey",
@@ -4540,9 +4433,7 @@
           "wangzmgit/leaf"
         ],
         "predicted_repositories": [
-          "Protagonistss/auxer",
           "Thinker-ljn/vite-plugin-tampermonkey",
-          "advaith1/slashtags",
           "lilingxi01/ams-date-picker",
           "linbudu599/TypeScript-Tiny-Book",
           "ossjs/release",
@@ -4576,10 +4467,7 @@
           "window_start": "2023-01-14T05:22:17Z"
         },
         "false_negatives": [],
-        "false_positives": [
-          "Protagonistss/auxer",
-          "advaith1/slashtags"
-        ],
+        "false_positives": [],
         "gradable": true,
         "observed_repositories": [
           "Thinker-ljn/vite-plugin-tampermonkey",
@@ -4592,9 +4480,7 @@
           "wangzmgit/leaf"
         ],
         "predicted_repositories": [
-          "Protagonistss/auxer",
           "Thinker-ljn/vite-plugin-tampermonkey",
-          "advaith1/slashtags",
           "lilingxi01/ams-date-picker",
           "linbudu599/TypeScript-Tiny-Book",
           "ossjs/release",
@@ -4628,10 +4514,7 @@
           "window_start": "2023-01-14T08:27:59Z"
         },
         "false_negatives": [],
-        "false_positives": [
-          "Protagonistss/auxer",
-          "advaith1/slashtags"
-        ],
+        "false_positives": [],
         "gradable": true,
         "observed_repositories": [
           "Thinker-ljn/vite-plugin-tampermonkey",
@@ -4644,9 +4527,7 @@
           "wangzmgit/leaf"
         ],
         "predicted_repositories": [
-          "Protagonistss/auxer",
           "Thinker-ljn/vite-plugin-tampermonkey",
-          "advaith1/slashtags",
           "lilingxi01/ams-date-picker",
           "linbudu599/TypeScript-Tiny-Book",
           "ossjs/release",
@@ -4680,10 +4561,7 @@
           "window_start": "2023-01-19T09:52:12Z"
         },
         "false_negatives": [],
-        "false_positives": [
-          "Protagonistss/auxer",
-          "advaith1/slashtags"
-        ],
+        "false_positives": [],
         "gradable": true,
         "observed_repositories": [
           "Thinker-ljn/vite-plugin-tampermonkey",
@@ -4696,9 +4574,7 @@
           "wangzmgit/leaf"
         ],
         "predicted_repositories": [
-          "Protagonistss/auxer",
           "Thinker-ljn/vite-plugin-tampermonkey",
-          "advaith1/slashtags",
           "lilingxi01/ams-date-picker",
           "linbudu599/TypeScript-Tiny-Book",
           "ossjs/release",
@@ -4733,10 +4609,7 @@
           "window_start": "2023-01-22T20:48:23Z"
         },
         "false_negatives": [],
-        "false_positives": [
-          "Protagonistss/auxer",
-          "advaith1/slashtags"
-        ],
+        "false_positives": [],
         "gradable": true,
         "observed_repositories": [
           "Thinker-ljn/vite-plugin-tampermonkey",
@@ -4750,9 +4623,7 @@
           "wangzmgit/leaf"
         ],
         "predicted_repositories": [
-          "Protagonistss/auxer",
           "Thinker-ljn/vite-plugin-tampermonkey",
-          "advaith1/slashtags",
           "esafwan/dashboard-starter",
           "lilingxi01/ams-date-picker",
           "linbudu599/TypeScript-Tiny-Book",
@@ -4788,10 +4659,7 @@
           "window_start": "2023-01-24T13:39:59Z"
         },
         "false_negatives": [],
-        "false_positives": [
-          "Protagonistss/auxer",
-          "advaith1/slashtags"
-        ],
+        "false_positives": [],
         "gradable": true,
         "observed_repositories": [
           "Thinker-ljn/vite-plugin-tampermonkey",
@@ -4805,9 +4673,7 @@
           "wangzmgit/leaf"
         ],
         "predicted_repositories": [
-          "Protagonistss/auxer",
           "Thinker-ljn/vite-plugin-tampermonkey",
-          "advaith1/slashtags",
           "esafwan/dashboard-starter",
           "lilingxi01/ams-date-picker",
           "linbudu599/TypeScript-Tiny-Book",
@@ -4843,10 +4709,7 @@
           "window_start": "2023-01-25T02:54:39Z"
         },
         "false_negatives": [],
-        "false_positives": [
-          "Protagonistss/auxer",
-          "advaith1/slashtags"
-        ],
+        "false_positives": [],
         "gradable": true,
         "observed_repositories": [
           "Thinker-ljn/vite-plugin-tampermonkey",
@@ -4860,9 +4723,7 @@
           "wangzmgit/leaf"
         ],
         "predicted_repositories": [
-          "Protagonistss/auxer",
           "Thinker-ljn/vite-plugin-tampermonkey",
-          "advaith1/slashtags",
           "esafwan/dashboard-starter",
           "lilingxi01/ams-date-picker",
           "linbudu599/TypeScript-Tiny-Book",
@@ -4898,10 +4759,7 @@
           "window_start": "2023-01-25T12:23:32Z"
         },
         "false_negatives": [],
-        "false_positives": [
-          "Protagonistss/auxer",
-          "advaith1/slashtags"
-        ],
+        "false_positives": [],
         "gradable": true,
         "observed_repositories": [
           "Thinker-ljn/vite-plugin-tampermonkey",
@@ -4915,9 +4773,7 @@
           "wangzmgit/leaf"
         ],
         "predicted_repositories": [
-          "Protagonistss/auxer",
           "Thinker-ljn/vite-plugin-tampermonkey",
-          "advaith1/slashtags",
           "esafwan/dashboard-starter",
           "lilingxi01/ams-date-picker",
           "linbudu599/TypeScript-Tiny-Book",
@@ -4954,10 +4810,7 @@
           "window_start": "2023-03-14T09:36:58Z"
         },
         "false_negatives": [],
-        "false_positives": [
-          "Protagonistss/auxer",
-          "advaith1/slashtags"
-        ],
+        "false_positives": [],
         "gradable": true,
         "observed_repositories": [
           "Thinker-ljn/vite-plugin-tampermonkey",
@@ -4972,9 +4825,7 @@
           "wangzmgit/leaf"
         ],
         "predicted_repositories": [
-          "Protagonistss/auxer",
           "Thinker-ljn/vite-plugin-tampermonkey",
-          "advaith1/slashtags",
           "codyzu/use-orama",
           "esafwan/dashboard-starter",
           "lilingxi01/ams-date-picker",
@@ -5012,10 +4863,7 @@
           "window_start": "2023-03-22T09:18:33Z"
         },
         "false_negatives": [],
-        "false_positives": [
-          "Protagonistss/auxer",
-          "advaith1/slashtags"
-        ],
+        "false_positives": [],
         "gradable": true,
         "observed_repositories": [
           "Thinker-ljn/vite-plugin-tampermonkey",
@@ -5030,9 +4878,7 @@
           "wangzmgit/leaf"
         ],
         "predicted_repositories": [
-          "Protagonistss/auxer",
           "Thinker-ljn/vite-plugin-tampermonkey",
-          "advaith1/slashtags",
           "codyzu/use-orama",
           "esafwan/dashboard-starter",
           "lilingxi01/ams-date-picker",
@@ -5070,10 +4916,7 @@
           "window_start": "2023-03-22T10:11:35Z"
         },
         "false_negatives": [],
-        "false_positives": [
-          "Protagonistss/auxer",
-          "advaith1/slashtags"
-        ],
+        "false_positives": [],
         "gradable": true,
         "observed_repositories": [
           "Thinker-ljn/vite-plugin-tampermonkey",
@@ -5088,9 +4931,7 @@
           "wangzmgit/leaf"
         ],
         "predicted_repositories": [
-          "Protagonistss/auxer",
           "Thinker-ljn/vite-plugin-tampermonkey",
-          "advaith1/slashtags",
           "codyzu/use-orama",
           "esafwan/dashboard-starter",
           "lilingxi01/ams-date-picker",
@@ -5128,10 +4969,7 @@
           "window_start": "2023-03-22T10:53:02Z"
         },
         "false_negatives": [],
-        "false_positives": [
-          "Protagonistss/auxer",
-          "advaith1/slashtags"
-        ],
+        "false_positives": [],
         "gradable": true,
         "observed_repositories": [
           "Thinker-ljn/vite-plugin-tampermonkey",
@@ -5146,9 +4984,7 @@
           "wangzmgit/leaf"
         ],
         "predicted_repositories": [
-          "Protagonistss/auxer",
           "Thinker-ljn/vite-plugin-tampermonkey",
-          "advaith1/slashtags",
           "codyzu/use-orama",
           "esafwan/dashboard-starter",
           "lilingxi01/ams-date-picker",
@@ -5186,10 +5022,7 @@
           "window_start": "2023-03-23T12:27:02Z"
         },
         "false_negatives": [],
-        "false_positives": [
-          "Protagonistss/auxer",
-          "advaith1/slashtags"
-        ],
+        "false_positives": [],
         "gradable": true,
         "observed_repositories": [
           "Thinker-ljn/vite-plugin-tampermonkey",
@@ -5204,9 +5037,7 @@
           "wangzmgit/leaf"
         ],
         "predicted_repositories": [
-          "Protagonistss/auxer",
           "Thinker-ljn/vite-plugin-tampermonkey",
-          "advaith1/slashtags",
           "codyzu/use-orama",
           "esafwan/dashboard-starter",
           "lilingxi01/ams-date-picker",
@@ -5244,10 +5075,7 @@
           "window_start": "2023-03-23T15:25:50Z"
         },
         "false_negatives": [],
-        "false_positives": [
-          "Protagonistss/auxer",
-          "advaith1/slashtags"
-        ],
+        "false_positives": [],
         "gradable": true,
         "observed_repositories": [
           "Thinker-ljn/vite-plugin-tampermonkey",
@@ -5262,9 +5090,7 @@
           "wangzmgit/leaf"
         ],
         "predicted_repositories": [
-          "Protagonistss/auxer",
           "Thinker-ljn/vite-plugin-tampermonkey",
-          "advaith1/slashtags",
           "codyzu/use-orama",
           "esafwan/dashboard-starter",
           "lilingxi01/ams-date-picker",
@@ -5302,11 +5128,7 @@
           "window_start": "2023-03-31T12:43:34Z"
         },
         "false_negatives": [],
-        "false_positives": [
-          "FreeCodeCamp-Chengdu/IT-events",
-          "Protagonistss/auxer",
-          "advaith1/slashtags"
-        ],
+        "false_positives": [],
         "gradable": true,
         "observed_repositories": [
           "Thinker-ljn/vite-plugin-tampermonkey",
@@ -5321,10 +5143,7 @@
           "wangzmgit/leaf"
         ],
         "predicted_repositories": [
-          "FreeCodeCamp-Chengdu/IT-events",
-          "Protagonistss/auxer",
           "Thinker-ljn/vite-plugin-tampermonkey",
-          "advaith1/slashtags",
           "codyzu/use-orama",
           "esafwan/dashboard-starter",
           "lilingxi01/ams-date-picker",
@@ -5362,11 +5181,7 @@
           "window_start": "2023-04-05T14:55:11Z"
         },
         "false_negatives": [],
-        "false_positives": [
-          "FreeCodeCamp-Chengdu/IT-events",
-          "Protagonistss/auxer",
-          "advaith1/slashtags"
-        ],
+        "false_positives": [],
         "gradable": true,
         "observed_repositories": [
           "Thinker-ljn/vite-plugin-tampermonkey",
@@ -5381,10 +5196,7 @@
           "wangzmgit/leaf"
         ],
         "predicted_repositories": [
-          "FreeCodeCamp-Chengdu/IT-events",
-          "Protagonistss/auxer",
           "Thinker-ljn/vite-plugin-tampermonkey",
-          "advaith1/slashtags",
           "codyzu/use-orama",
           "esafwan/dashboard-starter",
           "lilingxi01/ams-date-picker",
@@ -5422,11 +5234,7 @@
           "window_start": "2023-04-18T13:12:57Z"
         },
         "false_negatives": [],
-        "false_positives": [
-          "FreeCodeCamp-Chengdu/IT-events",
-          "Protagonistss/auxer",
-          "advaith1/slashtags"
-        ],
+        "false_positives": [],
         "gradable": true,
         "observed_repositories": [
           "Thinker-ljn/vite-plugin-tampermonkey",
@@ -5441,10 +5249,7 @@
           "wangzmgit/leaf"
         ],
         "predicted_repositories": [
-          "FreeCodeCamp-Chengdu/IT-events",
-          "Protagonistss/auxer",
           "Thinker-ljn/vite-plugin-tampermonkey",
-          "advaith1/slashtags",
           "codyzu/use-orama",
           "esafwan/dashboard-starter",
           "lilingxi01/ams-date-picker",
@@ -5482,11 +5287,7 @@
           "window_start": "2023-04-28T11:31:12Z"
         },
         "false_negatives": [],
-        "false_positives": [
-          "FreeCodeCamp-Chengdu/IT-events",
-          "Protagonistss/auxer",
-          "advaith1/slashtags"
-        ],
+        "false_positives": [],
         "gradable": true,
         "observed_repositories": [
           "Thinker-ljn/vite-plugin-tampermonkey",
@@ -5501,10 +5302,7 @@
           "wangzmgit/leaf"
         ],
         "predicted_repositories": [
-          "FreeCodeCamp-Chengdu/IT-events",
-          "Protagonistss/auxer",
           "Thinker-ljn/vite-plugin-tampermonkey",
-          "advaith1/slashtags",
           "codyzu/use-orama",
           "esafwan/dashboard-starter",
           "lilingxi01/ams-date-picker",
@@ -5543,11 +5341,7 @@
           "window_start": "2023-04-30T22:07:19Z"
         },
         "false_negatives": [],
-        "false_positives": [
-          "FreeCodeCamp-Chengdu/IT-events",
-          "Protagonistss/auxer",
-          "advaith1/slashtags"
-        ],
+        "false_positives": [],
         "gradable": true,
         "observed_repositories": [
           "Thinker-ljn/vite-plugin-tampermonkey",
@@ -5563,10 +5357,7 @@
           "wangzmgit/leaf"
         ],
         "predicted_repositories": [
-          "FreeCodeCamp-Chengdu/IT-events",
-          "Protagonistss/auxer",
           "Thinker-ljn/vite-plugin-tampermonkey",
-          "advaith1/slashtags",
           "codyzu/use-orama",
           "esafwan/dashboard-starter",
           "himself65/affine-minimum",
@@ -5606,11 +5397,7 @@
           "window_start": "2023-05-02T02:45:44Z"
         },
         "false_negatives": [],
-        "false_positives": [
-          "FreeCodeCamp-Chengdu/IT-events",
-          "Protagonistss/auxer",
-          "advaith1/slashtags"
-        ],
+        "false_positives": [],
         "gradable": true,
         "observed_repositories": [
           "Thinker-ljn/vite-plugin-tampermonkey",
@@ -5626,10 +5413,7 @@
           "wangzmgit/leaf"
         ],
         "predicted_repositories": [
-          "FreeCodeCamp-Chengdu/IT-events",
-          "Protagonistss/auxer",
           "Thinker-ljn/vite-plugin-tampermonkey",
-          "advaith1/slashtags",
           "codyzu/use-orama",
           "esafwan/dashboard-starter",
           "himself65/affine-minimum",
@@ -5669,11 +5453,7 @@
           "window_start": "2023-05-02T03:35:08Z"
         },
         "false_negatives": [],
-        "false_positives": [
-          "FreeCodeCamp-Chengdu/IT-events",
-          "Protagonistss/auxer",
-          "advaith1/slashtags"
-        ],
+        "false_positives": [],
         "gradable": true,
         "observed_repositories": [
           "Thinker-ljn/vite-plugin-tampermonkey",
@@ -5689,10 +5469,7 @@
           "wangzmgit/leaf"
         ],
         "predicted_repositories": [
-          "FreeCodeCamp-Chengdu/IT-events",
-          "Protagonistss/auxer",
           "Thinker-ljn/vite-plugin-tampermonkey",
-          "advaith1/slashtags",
           "codyzu/use-orama",
           "esafwan/dashboard-starter",
           "himself65/affine-minimum",
@@ -5732,11 +5509,7 @@
           "window_start": "2023-05-02T04:59:04Z"
         },
         "false_negatives": [],
-        "false_positives": [
-          "FreeCodeCamp-Chengdu/IT-events",
-          "Protagonistss/auxer",
-          "advaith1/slashtags"
-        ],
+        "false_positives": [],
         "gradable": true,
         "observed_repositories": [
           "Thinker-ljn/vite-plugin-tampermonkey",
@@ -5752,10 +5525,7 @@
           "wangzmgit/leaf"
         ],
         "predicted_repositories": [
-          "FreeCodeCamp-Chengdu/IT-events",
-          "Protagonistss/auxer",
           "Thinker-ljn/vite-plugin-tampermonkey",
-          "advaith1/slashtags",
           "codyzu/use-orama",
           "esafwan/dashboard-starter",
           "himself65/affine-minimum",
@@ -5795,11 +5565,7 @@
           "window_start": "2023-05-02T20:38:02Z"
         },
         "false_negatives": [],
-        "false_positives": [
-          "FreeCodeCamp-Chengdu/IT-events",
-          "Protagonistss/auxer",
-          "advaith1/slashtags"
-        ],
+        "false_positives": [],
         "gradable": true,
         "observed_repositories": [
           "Thinker-ljn/vite-plugin-tampermonkey",
@@ -5815,10 +5581,7 @@
           "wangzmgit/leaf"
         ],
         "predicted_repositories": [
-          "FreeCodeCamp-Chengdu/IT-events",
-          "Protagonistss/auxer",
           "Thinker-ljn/vite-plugin-tampermonkey",
-          "advaith1/slashtags",
           "codyzu/use-orama",
           "esafwan/dashboard-starter",
           "himself65/affine-minimum",
@@ -5858,11 +5621,7 @@
           "window_start": "2023-05-08T15:09:22Z"
         },
         "false_negatives": [],
-        "false_positives": [
-          "FreeCodeCamp-Chengdu/IT-events",
-          "Protagonistss/auxer",
-          "advaith1/slashtags"
-        ],
+        "false_positives": [],
         "gradable": true,
         "observed_repositories": [
           "Thinker-ljn/vite-plugin-tampermonkey",
@@ -5878,10 +5637,7 @@
           "wangzmgit/leaf"
         ],
         "predicted_repositories": [
-          "FreeCodeCamp-Chengdu/IT-events",
-          "Protagonistss/auxer",
           "Thinker-ljn/vite-plugin-tampermonkey",
-          "advaith1/slashtags",
           "codyzu/use-orama",
           "esafwan/dashboard-starter",
           "himself65/affine-minimum",
@@ -5921,11 +5677,7 @@
           "window_start": "2023-06-19T13:48:29Z"
         },
         "false_negatives": [],
-        "false_positives": [
-          "FreeCodeCamp-Chengdu/IT-events",
-          "Protagonistss/auxer",
-          "advaith1/slashtags"
-        ],
+        "false_positives": [],
         "gradable": true,
         "observed_repositories": [
           "Thinker-ljn/vite-plugin-tampermonkey",
@@ -5941,10 +5693,7 @@
           "wangzmgit/leaf"
         ],
         "predicted_repositories": [
-          "FreeCodeCamp-Chengdu/IT-events",
-          "Protagonistss/auxer",
           "Thinker-ljn/vite-plugin-tampermonkey",
-          "advaith1/slashtags",
           "codyzu/use-orama",
           "esafwan/dashboard-starter",
           "himself65/affine-minimum",
@@ -5984,11 +5733,7 @@
           "window_start": "2023-06-19T14:02:42Z"
         },
         "false_negatives": [],
-        "false_positives": [
-          "FreeCodeCamp-Chengdu/IT-events",
-          "Protagonistss/auxer",
-          "advaith1/slashtags"
-        ],
+        "false_positives": [],
         "gradable": true,
         "observed_repositories": [
           "Thinker-ljn/vite-plugin-tampermonkey",
@@ -6004,10 +5749,7 @@
           "wangzmgit/leaf"
         ],
         "predicted_repositories": [
-          "FreeCodeCamp-Chengdu/IT-events",
-          "Protagonistss/auxer",
           "Thinker-ljn/vite-plugin-tampermonkey",
-          "advaith1/slashtags",
           "codyzu/use-orama",
           "esafwan/dashboard-starter",
           "himself65/affine-minimum",
@@ -6021,17 +5763,17 @@
         ]
       }
     ],
-    "commit_sha": "92d3bcbfd8eab2b88012afc21ff252085891a978",
-    "false_negatives": 1,
-    "false_positives": 103,
+    "commit_sha": "5861f8cb92e6fe487c7a600dc41e5ccc6f64cd07",
+    "false_negatives": 0,
+    "false_positives": 0,
     "gradable_cases": 50,
-    "graph_fingerprint": "b5fa455a5d3eea7bb0cda7e6a882e1ecccdb1fa16631889e16e711126a346619",
+    "graph_fingerprint": "b383f58b343e0db6e167c13a3078e7051ee149b2ae4f8c8c7335f9deaf92243d",
     "observed_positive_pairs": 338,
-    "positive_pair_decisions": 441,
-    "precision": 0.7659090909090909,
-    "predicted_positive_pairs": 440,
-    "recall": 0.9970414201183432,
-    "true_positives": 337,
+    "positive_pair_decisions": 338,
+    "precision": 1.0,
+    "predicted_positive_pairs": 338,
+    "recall": 1.0,
+    "true_positives": 338,
     "ungradable_cases": 0
   },
   "verification_record": "cache/verification/runs.jsonl"

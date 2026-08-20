@@ -2,6 +2,10 @@
 
 Blastline treats “these repositories are exposed” as a falsifiable claim.
 
+## Known recorded false negative
+
+The recorded pre-fix scorecard contains one known miss: `lodash@4.17.21`, window `2022-07-12T09:52:20Z`–`2022-07-13T09:52:20Z`, snapshot `linbudu599/TypeScript-Tiny-Book:pnpm-lock.yaml@bb9c3330908bdd3b6ec41b51742b16925d754ac6`, observed repository `timolins/react-hot-toast`. Its lockfile state began at `2022-07-12T20:12:10Z`, inside the window; the verifier had graded Q1 at the window start, so it could not see a resolution that started later. The verifier now uses Q3 interval intersection for temporal cases. The historical FN remains published in the append-only scorecard rather than being erased.
+
 ## Protocol
 
 1. Select affected package versions from real public OSV.dev advisories.
@@ -27,13 +31,13 @@ This separates two failure classes: the graph query can disagree with the lockfi
 The current corpus contains 53 selected public GitHub repositories, 54 repositories in the graph, 332 valid raw lockfile snapshots, 10 advisories, and 50 gradable ledger-derived verification cases. The current check records:
 
 ```text
-TP=337  FP=103  FN=1
-441 positive repository-pair decisions; true negatives not enumerated
+TP=338  FP=0  FN=0
+338 positive repository-pair decisions; true negatives not enumerated
 50 gradable, 0 ungradable and excluded
-precision=0.7659  recall=0.9970
+precision=1.0000  recall=1.0000
 ```
 
-This is evidence about the recorded corpus, not a claim that a 50-case sample proves ecosystem-wide correctness. The observed false negative is published rather than tuned away. The run is intentionally accompanied by the append-only failure ledger; the latest corpus pass added 10 explicit failures and no failed repositories. Those are misses in coverage, not fabricated “safe” outcomes.
+This is evidence about the recorded corpus, not a claim that a 50-case sample proves ecosystem-wide correctness. The latest run uses Q3 interval intersection to match the temporal oracle. The earlier append-only scorecards remain auditable: their TP=337, FP=103, FN=1 result came from grading Q1’s transitive blast-radius candidates at the window start against direct lockfile exposure, and the known FN is documented above. The run is intentionally accompanied by the append-only failure ledger; the latest corpus pass added 10 explicit failures and no failed repositories. Those are misses in coverage, not fabricated “safe” outcomes.
 
 ## Manually reviewed parser holdout
 
