@@ -458,7 +458,9 @@ def report(settings: Settings, as_json: bool) -> int:
         print(f"verification: {payload['verification']['precision']} precision, {payload['verification']['recall']} recall")
         print(
             "manual parser holdout: "
-            f"{payload['manual_parser_holdout']['passed']} of {payload['manual_parser_holdout']['cases']} passed"
+            f"{payload['manual_parser_holdout']['passed']} of {payload['manual_parser_holdout']['cases']} passed "
+            f"({payload['manual_parser_holdout']['positive_cases']} positive, "
+            f"{payload['manual_parser_holdout']['negative_cases']} negative)"
         )
         print(f"generated artifact: {artifact.relative_to(settings.root)}")
     return 0

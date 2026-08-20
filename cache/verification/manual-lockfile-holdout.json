@@ -1,6 +1,7 @@
 {
   "cases": [
     {
+      "case_class": "nested-transitive-resolution",
       "ecosystem": "npm",
       "expected_present": true,
       "package": "lodash",
@@ -11,6 +12,7 @@
       "version": "4.17.21"
     },
     {
+      "case_class": "exact-resolution",
       "ecosystem": "npm",
       "expected_present": true,
       "package": "lodash",
@@ -21,6 +23,7 @@
       "version": "4.17.21"
     },
     {
+      "case_class": "alternate-version",
       "ecosystem": "npm",
       "expected_present": false,
       "package": "lodash",
@@ -31,6 +34,7 @@
       "version": "4.17.21"
     },
     {
+      "case_class": "lookalike-package",
       "ecosystem": "npm",
       "expected_present": false,
       "package": "lodash",
@@ -39,8 +43,184 @@
       "raw_url": "https://raw.githubusercontent.com/CAPHTECH/kiri/370eb92c89d9ca2f9efd56402747cf26cce31662/pnpm-lock.yaml",
       "snapshot_id": "CAPHTECH/kiri:pnpm-lock.yaml@370eb92c89d9ca2f9efd56402747cf26cce31662",
       "version": "4.17.21"
+    },
+    {
+      "case_class": "exact-resolution",
+      "ecosystem": "npm",
+      "expected_present": true,
+      "package": "lodash",
+      "payload_hash": "34e5a620688cf7a3a204c175c43f643c19ee53542a7a4705b3fb88d9c0e8631c",
+      "raw_evidence": "lodash@4.17.21 appears as an exact pnpm package resolution",
+      "raw_url": "https://raw.githubusercontent.com/Eliav2/express-typed/074202d081d99ad65a2e299997c9d427d43c9353/pnpm-lock.yaml",
+      "snapshot_id": "Eliav2/express-typed:pnpm-lock.yaml@074202d081d99ad65a2e299997c9d427d43c9353",
+      "version": "4.17.21"
+    },
+    {
+      "case_class": "exact-resolution",
+      "ecosystem": "npm",
+      "expected_present": true,
+      "package": "lodash",
+      "payload_hash": "75a4cbef874292e414bace7422ee64093f7d533a2a13e96e4f5c9e242ac15d39",
+      "raw_evidence": "lodash@4.17.21 appears as an exact pnpm package resolution",
+      "raw_url": "https://raw.githubusercontent.com/Marinerer/unity-webgl/e27906f33d5985c31d7c197bfc5c83cd9ab13289/pnpm-lock.yaml",
+      "snapshot_id": "Marinerer/unity-webgl:pnpm-lock.yaml@e27906f33d5985c31d7c197bfc5c83cd9ab13289",
+      "version": "4.17.21"
+    },
+    {
+      "case_class": "exact-resolution",
+      "ecosystem": "npm",
+      "expected_present": true,
+      "package": "lodash",
+      "payload_hash": "11e37a62d50c4f47c33bde5b01cb7754382bd954c207e606d00a8fc31b087356",
+      "raw_evidence": "lodash@4.17.21 appears as an exact pnpm package resolution",
+      "raw_url": "https://raw.githubusercontent.com/btreitz/nextjs-shopify-ecom-demo/7a26dc369ea8fdc3ecfb9ed1cafb57b16ed16a24/pnpm-lock.yaml",
+      "snapshot_id": "btreitz/nextjs-shopify-ecom-demo:pnpm-lock.yaml@7a26dc369ea8fdc3ecfb9ed1cafb57b16ed16a24",
+      "version": "4.17.21"
+    },
+    {
+      "case_class": "exact-resolution",
+      "ecosystem": "npm",
+      "expected_present": true,
+      "package": "lodash",
+      "payload_hash": "a95ee124302771fd23696af9e2f09eba823211773c1478e3e603de53631b98e0",
+      "raw_evidence": "the pnpm package section contains /lodash@4.17.21",
+      "raw_url": "https://raw.githubusercontent.com/decipad/safejs/e49999456bc47c9c8be2ee974b92cc73cda50394/pnpm-lock.yaml",
+      "snapshot_id": "decipad/safejs:pnpm-lock.yaml@e49999456bc47c9c8be2ee974b92cc73cda50394",
+      "version": "4.17.21"
+    },
+    {
+      "case_class": "exact-resolution",
+      "ecosystem": "npm",
+      "expected_present": true,
+      "package": "lodash",
+      "payload_hash": "d52743ffe4b032977dcc1949b5a0060366193785892fe7e091275b805ee15023",
+      "raw_evidence": "the pnpm lockfile resolves lodash to 4.17.21",
+      "raw_url": "https://raw.githubusercontent.com/hackforla/lucky-parking/52f4b00a4dca7c5d4e045d3fc7e94b87d11fdafc/pnpm-lock.yaml",
+      "snapshot_id": "hackforla/lucky-parking:pnpm-lock.yaml@52f4b00a4dca7c5d4e045d3fc7e94b87d11fdafc",
+      "version": "4.17.21"
+    },
+    {
+      "case_class": "state-before-safe-upgrade",
+      "ecosystem": "npm",
+      "expected_present": true,
+      "package": "lodash",
+      "payload_hash": "099ca0e4c8d9d15b8acf25f50b49bb1bdc4a0242aeb82ddde605be2252d7f026",
+      "raw_evidence": "the frontend pnpm lockfile contains lodash@4.17.21 before later snapshots resolve 4.18.1",
+      "raw_url": "https://raw.githubusercontent.com/kafbat/kafka-ui/2c4adde6d5e2d5d90302c9c1d52d8a768bd1a5ed/frontend/pnpm-lock.yaml",
+      "snapshot_id": "kafbat/kafka-ui:frontend/pnpm-lock.yaml@2c4adde6d5e2d5d90302c9c1d52d8a768bd1a5ed",
+      "version": "4.17.21"
+    },
+    {
+      "case_class": "state-after-target-arrival",
+      "ecosystem": "npm",
+      "expected_present": true,
+      "package": "lodash",
+      "payload_hash": "151d964b29f29eda8b91b3db0b6b3cfd7399b26e4f45de622244fa56ddf4491c",
+      "raw_evidence": "the pnpm package section contains /lodash@4.17.21",
+      "raw_url": "https://raw.githubusercontent.com/timolins/react-hot-toast/92aef531e3655dbdd5071bb13ec137626c856f94/pnpm-lock.yaml",
+      "snapshot_id": "timolins/react-hot-toast:pnpm-lock.yaml@92aef531e3655dbdd5071bb13ec137626c856f94",
+      "version": "4.17.21"
+    },
+    {
+      "case_class": "state-before-removal",
+      "ecosystem": "npm",
+      "expected_present": true,
+      "package": "lodash",
+      "payload_hash": "295dc9fa116356ee4394c70da21d9784d82a0d03ded3acd0218b0357b27eadab",
+      "raw_evidence": "the pnpm package section contains lodash@4.17.21 before a later snapshot removes the exact package",
+      "raw_url": "https://raw.githubusercontent.com/webpro-nl/remove-unused-vars/d536d743f17fd7eaa77e3fc6f69f816f8658f0e7/pnpm-lock.yaml",
+      "snapshot_id": "webpro-nl/remove-unused-vars:pnpm-lock.yaml@d536d743f17fd7eaa77e3fc6f69f816f8658f0e7",
+      "version": "4.17.21"
+    },
+    {
+      "case_class": "lookalike-package",
+      "ecosystem": "npm",
+      "expected_present": false,
+      "package": "lodash",
+      "payload_hash": "70e5927d2cfa3904e5480b5ee02b07f755479684b6bbd5731e00ccb9a08f6dd3",
+      "raw_evidence": "the lockfile contains lodash.merge and lodash.memoize, but no exact lodash package entry",
+      "raw_url": "https://raw.githubusercontent.com/FreeCodeCamp-Chengdu/IT-events/78f17b937ae9a660a8cf08e6fa68a1839d400c9a/pnpm-lock.yaml",
+      "snapshot_id": "FreeCodeCamp-Chengdu/IT-events:pnpm-lock.yaml@78f17b937ae9a660a8cf08e6fa68a1839d400c9a",
+      "version": "4.17.21"
+    },
+    {
+      "case_class": "lookalike-package",
+      "ecosystem": "npm",
+      "expected_present": false,
+      "package": "lodash",
+      "payload_hash": "23dd8994aac1856c9c2e602c38e2d05a3d8c89d1a2aeb8fa125916a54f74cd00",
+      "raw_evidence": "the lockfile contains lodash.get, but no exact lodash package entry",
+      "raw_url": "https://raw.githubusercontent.com/OtterMind/fastexcel-doc/54806c2aa8e849e65200e2cd91aa050a407ea00c/pnpm-lock.yaml",
+      "snapshot_id": "OtterMind/fastexcel-doc:pnpm-lock.yaml@54806c2aa8e849e65200e2cd91aa050a407ea00c",
+      "version": "4.17.21"
+    },
+    {
+      "case_class": "absent-package",
+      "ecosystem": "npm",
+      "expected_present": false,
+      "package": "lodash",
+      "payload_hash": "b1a370e6a42706a10e701c7ec5c049f9f6162097cd7f8974b302ce1126880cf0",
+      "raw_evidence": "the raw pnpm lockfile has no lodash package or dependency entry",
+      "raw_url": "https://raw.githubusercontent.com/esafwan/dashboard-starter/776017afbd6754e69eb97749f3b7576b080aabe7/pnpm-lock.yaml",
+      "snapshot_id": "esafwan/dashboard-starter:pnpm-lock.yaml@776017afbd6754e69eb97749f3b7576b080aabe7",
+      "version": "4.17.21"
+    },
+    {
+      "case_class": "state-after-safe-upgrade",
+      "ecosystem": "npm",
+      "expected_present": false,
+      "package": "lodash",
+      "payload_hash": "14886307cc9ec7a4baff68f5bdafa15019e97e270c27a75f0edd0495b346da11",
+      "raw_evidence": "the exact lodash entry is 4.18.1 after earlier snapshots resolved 4.17.21",
+      "raw_url": "https://raw.githubusercontent.com/kafbat/kafka-ui/80bd8c4b63d8b0733934dc842f3c16c864b50d4e/frontend/pnpm-lock.yaml",
+      "snapshot_id": "kafbat/kafka-ui:frontend/pnpm-lock.yaml@80bd8c4b63d8b0733934dc842f3c16c864b50d4e",
+      "version": "4.17.21"
+    },
+    {
+      "case_class": "absent-before-target-arrival",
+      "ecosystem": "npm",
+      "expected_present": false,
+      "package": "lodash",
+      "payload_hash": "03a4f56e5363c5d6e72097e16f9c0900be7dc33ffb2ae74293e04ee1274795e0",
+      "raw_evidence": "the raw lockfile contains lodash.merge, but no exact lodash package entry before later snapshots add lodash",
+      "raw_url": "https://raw.githubusercontent.com/himself65/affine-minimum/a9b3a194533d6694739e5c0f85d499edc6d26dd9/pnpm-lock.yaml",
+      "snapshot_id": "himself65/affine-minimum:pnpm-lock.yaml@a9b3a194533d6694739e5c0f85d499edc6d26dd9",
+      "version": "4.17.21"
+    },
+    {
+      "case_class": "state-after-removal",
+      "ecosystem": "npm",
+      "expected_present": false,
+      "package": "lodash",
+      "payload_hash": "e0c6ae9d9c6050d7f884268a66d1388885b43a90354dc010a561a9d77e34eda2",
+      "raw_evidence": "the later lockfile retains lodash subpackages but no exact lodash@4.17.21 entry",
+      "raw_url": "https://raw.githubusercontent.com/webpro-nl/remove-unused-vars/da4bc68ea9fe02a8d8fc2c80f8498d6bfc31fc60/pnpm-lock.yaml",
+      "snapshot_id": "webpro-nl/remove-unused-vars:pnpm-lock.yaml@da4bc68ea9fe02a8d8fc2c80f8498d6bfc31fc60",
+      "version": "4.17.21"
+    },
+    {
+      "case_class": "lookalike-package",
+      "ecosystem": "npm",
+      "expected_present": false,
+      "package": "lodash",
+      "payload_hash": "27fab0d05c3c02b836e8deedd2fb4be749a0e65027b05a763dd896faaf8067c3",
+      "raw_evidence": "the lockfile contains lodash-es@4.18.1, not the lodash package",
+      "raw_url": "https://raw.githubusercontent.com/PlatformRelay/Kubernetes-Workshop/1b70a773e493728289a6773e4d5b4594a66af788/pnpm-lock.yaml",
+      "snapshot_id": "PlatformRelay/Kubernetes-Workshop:pnpm-lock.yaml@1b70a773e493728289a6773e4d5b4594a66af788",
+      "version": "4.17.21"
+    },
+    {
+      "case_class": "absent-package",
+      "ecosystem": "npm",
+      "expected_present": false,
+      "package": "lodash",
+      "payload_hash": "6c5f02c131fa14b38b4003c4373fbfaa4ff31b84f5234d7cecaa0bc81b39133f",
+      "raw_evidence": "the raw pnpm lockfile contains lodash.castarray, lodash.isplainobject, and lodash.merge, but no exact lodash entry",
+      "raw_url": "https://raw.githubusercontent.com/gnoverse/gnops/b50a2c463f94e15925552efe8393dc734438cc3b/pnpm-lock.yaml",
+      "snapshot_id": "gnoverse/gnops:pnpm-lock.yaml@b50a2c463f94e15925552efe8393dc734438cc3b",
+      "version": "4.17.21"
     }
   ],
-  "labeling_method": "Exact package/version entries were manually reviewed in the immutable raw payloads before running the Blastline parser.",
-  "reviewed_at": "2026-08-19"
+  "labeling_method": "Cases were selected from immutable raw lockfile payloads without consulting graph Resolution edges. Each exact package/version label, case class, raw URL, payload hash, and review evidence was recorded before running the Blastline parser.",
+  "reviewed_at": "2026-08-20"
 }

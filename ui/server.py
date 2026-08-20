@@ -187,7 +187,7 @@ def serve(root: Path, host: str, port: int) -> None:
     handler.html_path = root / "ui" / "index.html"
     server = ThreadingHTTPServer((host, port), handler)
     print(f"Blastline timeline: http://{host}:{port}/")
-    print("Every frame is a live Q3 temporal query; stop with Ctrl-C.")
+    print("Every frame is a live temporal exposure query; stop with Ctrl-C.")
     try:
         server.serve_forever()
     except KeyboardInterrupt:

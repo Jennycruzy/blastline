@@ -12,9 +12,9 @@ Blastline treats supply-chain exposure as a temporal graph problem. The graph is
 | `Repository` | The service/application a defender must remediate. | A package graph without an application endpoint answers the wrong operational question. |
 | `Resolution` | A repository resolved one package to one version during one interval. | A dependency range would be mistaken for exposure; safe → malicious → safe resolution changes would collapse. |
 | `Advisory` | An externally auditable disclosure event with a knowledge timestamp. | Maliciousness would be confused with publication or installation time. |
-| `PublishInfra` | Registry/account/provenance grouping for shared-infrastructure questions. | Q5 would have to infer shared publishing from unrelated text. |
+| `PublishInfra` | Registry/account/provenance grouping for shared-infrastructure questions. | A shared-publishing query would have to infer shared publishing from unrelated text. |
 
-The edge vocabulary is `DEPENDS_ON`, `RESOLVED_TO`, `DECLARES`, `PUBLISHED_BY`, `MAINTAINS`, `PUBLISHED_FROM`, `PUBLISHED_THROUGH`, `AFFECTS`, and derived `SIMILAR_NAME_TO`. `Version → PUBLISHED_FROM → PublishInfra` preserves the version-level registry evidence; `Package → PUBLISHED_THROUGH → PublishInfra` is the package-level index used by Q5. Derived similarity is never treated as an asserted dependency.
+The edge vocabulary is `DEPENDS_ON`, `RESOLVED_TO`, `DECLARES`, `PUBLISHED_BY`, `MAINTAINS`, `PUBLISHED_FROM`, `PUBLISHED_THROUGH`, `AFFECTS`, and derived `SIMILAR_NAME_TO`. `Version → PUBLISHED_FROM → PublishInfra` preserves the version-level registry evidence; `Package → PUBLISHED_THROUGH → PublishInfra` is the package-level index used by shared-publishing queries. Derived similarity is never treated as an asserted dependency.
 
 ## Why `Resolution` is the decisive node
 
@@ -32,7 +32,7 @@ Blastline therefore stores:
 Repository ─DECLARES→ Resolution ─RESOLVED_TO→ Version
 ```
 
-with `Resolution.valid = [T1,T2)`. Q3 intersects that interval with the incident window. A graph that stores only `Repository —DEPENDS_ON→ Package` has no value for `T1`, `T2`, or the concrete version and cannot write the query at all.
+with `Resolution.valid = [T1,T2)`. The temporal exposure query intersects that interval with the incident window. A graph that stores only `Repository —DEPENDS_ON→ Package` has no value for `T1`, `T2`, or the concrete version and cannot write the query at all.
 
 This is why Blastline answers a different question from a current dependency dashboard. It reconstructs the repositories that resolved a compromised version during an exposure window, retains the path through `Repository → Resolution → Version`, and keeps that historical answer separate from the repository’s current resolution. The path is only accepted when its typed edge metadata and temporal bounds can be verified; otherwise the result is unknown.
 
@@ -79,7 +79,7 @@ WHERE target.version_id = :compromised_version
 
 That SQL can be made correct, but the application must maintain typed edge history, interval indexing, append-only updates, and the multi-hop reverse dependency closure beside it. The graph keeps the relationship path as the result and makes the next hop (`Version ← DEPENDS_ON ← Package`) the same operation. A vector index can retrieve text that mentions “lodash” but cannot prove an exact resolved version, interval intersection, or repository path; cosine similarity is not used for any security claim here.
 
-The honest cost is storage and index maintenance. A graph traversal is proportional to the reachable subgraph, `O(V_reachable + E_reachable)` in the local replay projection, plus the cost of materializing typed edges. Q3 is a direct indexed reverse lookup over `RESOLVED_TO` and `DECLARES`; Q1 is a bounded breadth-first traversal with the configured depth cap; Q4 is maintainer-to-package followed by the same reverse closure; Q5 is two-hop shared-target lookup; Q6 scans candidate package names and then their graph statistics. The depth cap is a safety boundary: reaching it produces an abstention, never an invented completion.
+The honest cost is storage and index maintenance. A graph traversal is proportional to the reachable subgraph, `O(V_reachable + E_reachable)` in the local replay projection, plus the cost of materializing typed edges. Temporal exposure is a direct indexed reverse lookup over `RESOLVED_TO` and `DECLARES`; reverse blast radius is a bounded breadth-first traversal with the configured depth cap; maintainer credential blast radius is maintainer-to-package followed by the same reverse closure; shared publishing is a two-hop shared-target lookup; proximity scoring scans candidate package names and then their graph statistics. The depth cap is a safety boundary: reaching it produces an abstention, never an invented completion.
 
 ## Ingestion invariants
 

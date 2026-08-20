@@ -4,14 +4,14 @@ Blastline treats “these repositories are exposed” as a falsifiable claim.
 
 ## Known recorded false negative
 
-The recorded pre-fix scorecard contains one known miss: `lodash@4.17.21`, window `2022-07-12T09:52:20Z`–`2022-07-13T09:52:20Z`, snapshot `linbudu599/TypeScript-Tiny-Book:pnpm-lock.yaml@bb9c3330908bdd3b6ec41b51742b16925d754ac6`, observed repository `timolins/react-hot-toast`. Its lockfile state began at `2022-07-12T20:12:10Z`, inside the window; the verifier had graded Q1 at the window start, so it could not see a resolution that started later. The verifier now uses Q3 interval intersection for temporal cases. The historical FN remains published in the append-only scorecard rather than being erased.
+The recorded pre-fix scorecard contains one known miss: `lodash@4.17.21`, window `2022-07-12T09:52:20Z`–`2022-07-13T09:52:20Z`, snapshot `linbudu599/TypeScript-Tiny-Book:pnpm-lock.yaml@bb9c3330908bdd3b6ec41b51742b16925d754ac6`, observed repository `timolins/react-hot-toast`. Its lockfile state began at `2022-07-12T20:12:10Z`, inside the window; the verifier had graded the point-in-time reverse blast radius at the window start, so it could not see a resolution that started later. The verifier now uses temporal interval intersection for exposure cases. The historical FN remains published in the append-only scorecard rather than being erased.
 
 ## Protocol
 
 1. Select affected package versions from real public OSV.dev advisories.
 2. Discover positive cases by parsing the raw snapshot ledger directly; graph `RESOLVED_TO` edges are not used to choose cases.
 3. Ingest registry history, advisory disclosure data, and repository lockfile commits. The GitHub adapter parses each committed snapshot instead of treating a manifest range as a resolved version.
-4. Predict exposure with Q1/Q3 from the graph.
+4. Predict exposure with the point-in-time reverse blast radius and temporal window exposure from the graph.
 5. Resolve the same raw lockfile snapshots through the strict parser again, using the graph-free cached-lockfile oracle. Records that have no resolved version are retained in the failure ledger and are not silently counted as no exposure.
 6. Compare predicted and observed repository sets. False negatives are printed before aggregate metrics.
 7. Append the scorecard, graph fingerprint, and Git commit SHA to `cache/verification/runs.jsonl` unless `--no-record` is used for CI.
@@ -37,11 +37,11 @@ TP=338  FP=0  FN=0
 precision=1.0000  recall=1.0000
 ```
 
-This is evidence about the recorded corpus, not a claim that a 50-case sample proves ecosystem-wide correctness. The latest run uses Q3 interval intersection to match the temporal oracle. The earlier append-only scorecards remain auditable: their TP=337, FP=103, FN=1 result came from grading Q1’s transitive blast-radius candidates at the window start against direct lockfile exposure, and the known FN is documented above. The run is intentionally accompanied by the append-only failure ledger; the latest corpus pass added 10 explicit failures and no failed repositories. Those are misses in coverage, not fabricated “safe” outcomes.
+This is evidence about the recorded corpus, not a claim that a 50-case sample proves ecosystem-wide correctness. The latest run uses temporal interval intersection to match the temporal oracle. The earlier append-only scorecards remain auditable: their TP=337, FP=103, FN=1 result came from grading transitive reverse-blast-radius candidates at the window start against direct lockfile exposure, and the known FN is documented above. The run is intentionally accompanied by the append-only failure ledger; the latest corpus pass added 10 explicit failures and no failed repositories. Those are misses in coverage, not fabricated “safe” outcomes.
 
 ## Manually reviewed parser holdout
 
-`make verify-holdout` checks immutable raw payloads against four human-reviewable labels in [`cache/verification/manual-lockfile-holdout.json`](../cache/verification/manual-lockfile-holdout.json): package-lock and pnpm positives for `lodash@4.17.21`, a pnpm lockfile containing `lodash@4.18.1` instead, and a pnpm lockfile containing only a different `lodash.*` package. Each label includes the raw URL, payload hash, and the exact evidence that was reviewed before parser execution. This small holdout tests parser behavior independently of graph projection; it is intentionally not presented as broad parser accuracy.
+`make verify-holdout` checks 20 immutable raw payloads against human-reviewable labels in [`cache/verification/manual-lockfile-holdout.json`](../cache/verification/manual-lockfile-holdout.json): 10 positives and 10 negatives. The set includes nested transitive resolution, a different version of the same package, exact package lookalikes, an absent package, a state before the target arrived, a state after a safe upgrade, a state before removal, and a state after removal. Each label includes the raw URL, payload hash, case class, and the exact evidence that was reviewed before parser execution. Selection and labeling bypassed graph `Resolution` edges and parser output. This holdout is the independent check on parser correctness; it is still a small sample, not broad parser accuracy.
 
 ## Hydra-backed agreement
 
@@ -67,7 +67,7 @@ precision = TP / (TP + FP)
 recall    = TP / (TP + FN)
 ```
 
-An undefined denominator is printed as `not-defined`, never as zero. The same rule applies to Q6 component scores when the registry does not publish the required account timestamp.
+An undefined denominator is printed as `not-defined`, never as zero. The same rule applies to proximity component scores when the registry does not publish the required account timestamp.
 
 ## Reproducing it
 

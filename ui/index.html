@@ -32,7 +32,7 @@
 </head>
 <body>
 <main>
-  <div class="eyebrow">Blastline / Q3</div>
+  <div class="eyebrow">Blastline / temporal exposure</div>
   <h1>Who was exposed while nobody knew?</h1>
   <p class="lede">Scrub the incident window. Every frame asks the bitemporal graph a fresh question and reports the query latency beside the result.</p>
   <section class="panel">
@@ -65,7 +65,7 @@
     to.textContent = frame.to;
     count.textContent = frame.exposed_repositories.length;
     repos.replaceChildren(...frame.exposed_repositories.map(repo => { const item=document.createElement('li'); item.textContent=repo; return item; }));
-    evidence.textContent = `Q3 window query\n${frame.from} → ${frame.to}\nlatency ${frame.latency_ms} ms\nHydra candidate paths ${frame.hydra_candidate_paths}\nHydra accepted paths ${frame.hydra_accepted_paths}\nrejected sources ${frame.hydra_rejected_sources}\nhistorical differs from current ${frame.historical_differs_current}\n\n${JSON.stringify(frame.query, null, 2)}`;
+    evidence.textContent = `Temporal window exposure\n${frame.from} → ${frame.to}\nlatency ${frame.latency_ms} ms\nHydra candidate paths ${frame.hydra_candidate_paths}\nHydra accepted paths ${frame.hydra_accepted_paths}\nrejected sources ${frame.hydra_rejected_sources}\nhistorical differs from current ${frame.historical_differs_current}\n\n${JSON.stringify(frame.query, null, 2)}`;
   }
   async function load() {
     try {

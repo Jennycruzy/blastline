@@ -219,10 +219,11 @@ class Verifier:
         false_positives = 0
         gradable = 0
         for case in cases:
-            # Verification cases describe an exposure interval.  Q1 at the
-            # interval start can miss a repository that first resolves the
-            # target later in that same interval; Q3 is the temporal query
-            # whose interval-intersection semantics match the oracle.
+            # Verification cases describe an exposure interval.  A point-in-
+            # time reverse blast-radius query at the interval start can miss
+            # a repository that first resolves the target later in that same
+            # interval; temporal window exposure uses the interval-
+            # intersection semantics that match the oracle.
             response = self.engine.window_exposure(
                 case.registry,
                 case.package,

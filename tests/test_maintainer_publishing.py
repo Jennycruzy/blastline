@@ -11,8 +11,8 @@ from blastline.query.engine import QueryEngine
 from blastline.store import GraphStore
 
 
-class Q4Q5QueryTest(unittest.TestCase):
-    def test_q4_returns_repository_blast_radius_for_valid_maintainer_edge(self) -> None:
+class MaintainerAndPublishingQueryTest(unittest.TestCase):
+    def test_maintainer_risk_returns_repository_blast_radius_for_valid_edge(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             instant = datetime(2026, 8, 1, tzinfo=timezone.utc)
             store = GraphStore(Path(directory))
@@ -46,7 +46,7 @@ class Q4Q5QueryTest(unittest.TestCase):
             self.assertEqual(response.results[0]["package"], "shared-package")
             self.assertEqual(response.results[0]["transitive_repositories"], ["example/app"])
 
-    def test_q5_uses_package_published_through_relation(self) -> None:
+    def test_shared_publishing_uses_package_published_through_relation(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             instant = datetime(2026, 8, 1, tzinfo=timezone.utc)
             store = GraphStore(Path(directory))

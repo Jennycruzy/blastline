@@ -1,4 +1,4 @@
-"""Q1-Q8 graph traversals over the append-only local Hydra projection."""
+"""Graph traversals over the append-only local Hydra projection."""
 
 from __future__ import annotations
 
@@ -213,7 +213,7 @@ class QueryEngine:
             )
         if not results and not abstentions:
             abstentions.append(AbstentionNotice(f"{registry}:{package}@{version}", "no repository path is supported by the observed graph at this time"))
-        return self._response(f"Q1 blast radius {registry}:{package}@{version}", results, abstentions)
+        return self._response(f"Reverse blast radius {registry}:{package}@{version}", results, abstentions)
 
     def window_exposure(
         self,
@@ -232,7 +232,7 @@ class QueryEngine:
             version_node = self._version_node(registry, package, version)
         except Abstention as exc:
             abstentions.append(AbstentionNotice(f"{registry}:{package}@{version}", str(exc)))
-            return self._response(f"Q3 window exposure {registry}:{package}@{version}", results, abstentions)
+            return self._response(f"Temporal window exposure {registry}:{package}@{version}", results, abstentions)
         target_interval = self._interval(start, end)
         for resolved_edge in self.store.incoming(version_node.node_id, EdgeType.RESOLVED_TO, commit_at=known_at):
             if not resolved_edge.valid.intersects(target_interval):
@@ -264,7 +264,7 @@ class QueryEngine:
                         "no observed Resolution record is available for the requested window",
                     )
                 )
-        return self._response(f"Q3 window exposure {registry}:{package}@{version}", dedupe_objects(results), abstentions)
+        return self._response(f"Temporal window exposure {registry}:{package}@{version}", dedupe_objects(results), abstentions)
 
     def current_exposure(self, registry: str, package: str, version: str, as_of: datetime | None = None) -> QueryResponse:
         instant = as_of if as_of is not None else now_utc()
@@ -287,11 +287,11 @@ class QueryEngine:
         try:
             target = self._version_node(registry, package, version)
         except Abstention as exc:
-            return self._response(f"Q2 first affected version {registry}:{package}@{version}", [], [AbstentionNotice(version, str(exc))])
+            return self._response(f"First affected version {registry}:{package}@{version}", [], [AbstentionNotice(version, str(exc))])
         advisory_edges = self.store.incoming(target.node_id, EdgeType.AFFECTS, commit_at=known_at)
         if not advisory_edges:
             abstentions.append(AbstentionNotice(target.node_id, "no OSV AFFECTS edge is available for this version"))
-            return self._response(f"Q2 first affected version {registry}:{package}@{version}", [], abstentions)
+            return self._response(f"First affected version {registry}:{package}@{version}", [], abstentions)
         candidates_by_id: dict[str, Node] = {}
         for advisory_edge in advisory_edges:
             for affected_edge in self.store.outgoing(advisory_edge.source_id, EdgeType.AFFECTS, commit_at=known_at):
@@ -305,7 +305,7 @@ class QueryEngine:
         candidates.sort(key=lambda item: str(item.attributes.get("published_at", "")))
         if not candidates:
             abstentions.append(AbstentionNotice(target.node_id, "advisory exists but no earlier affected version is present in the graph"))
-            return self._response(f"Q2 first affected version {registry}:{package}@{version}", [], abstentions)
+            return self._response(f"First affected version {registry}:{package}@{version}", [], abstentions)
         first = candidates[0]
         result: JsonObject = {
             "requested_version": version,
@@ -314,7 +314,7 @@ class QueryEngine:
             "chain_length": len(candidates),
             "versions_in_advisory": [str(item.attributes.get("version", "unknown")) for item in candidates],
         }
-        return self._response(f"Q2 first affected version {registry}:{package}@{version}", [result], abstentions)
+        return self._response(f"First affected version {registry}:{package}@{version}", [result], abstentions)
 
     def maintainer_risk(self, maintainer: str, valid_at: datetime | None = None) -> QueryResponse:
         instant = valid_at if valid_at is not None else now_utc()
@@ -344,7 +344,7 @@ class QueryEngine:
                 )
         if not results and not abstentions:
             abstentions.append(AbstentionNotice(maintainer, "no MAINTAINS edge is valid at the requested time"))
-        return self._response(f"Q4 credential blast radius {maintainer}", results, abstentions)
+        return self._response(f"Maintainer credential blast radius {maintainer}", results, abstentions)
 
     def shared_infrastructure(self, registry: str, package: str, version: str, valid_at: datetime | None = None) -> QueryResponse:
         instant = valid_at if valid_at is not None else now_utc()
@@ -353,7 +353,7 @@ class QueryEngine:
         try:
             target = self._version_node(registry, package, version)
         except Abstention as exc:
-            return self._response(f"Q5 shared infrastructure {registry}:{package}@{version}", [], [AbstentionNotice(version, str(exc))])
+            return self._response(f"Shared publishing infrastructure {registry}:{package}@{version}", [], [AbstentionNotice(version, str(exc))])
         keys: set[tuple[str, str]] = set()
         for edge_type in (EdgeType.PUBLISHED_FROM, EdgeType.PUBLISHED_BY):
             for edge in self.store.outgoing(target.node_id, edge_type, valid_at=instant):
@@ -417,7 +417,7 @@ class QueryEngine:
             abstentions.append(AbstentionNotice(target.node_id, "compromised Version has no publish maintainer or infrastructure edge"))
         elif not results:
             abstentions.append(AbstentionNotice(target.node_id, "shared publisher/infrastructure edge exists, but no distinct package has corroborating Version evidence"))
-        return self._response(f"Q5 shared infrastructure {registry}:{package}@{version}", dedupe_objects(results), abstentions)
+        return self._response(f"Shared publishing infrastructure {registry}:{package}@{version}", dedupe_objects(results), abstentions)
 
     def still_dirty(
         self,
@@ -474,7 +474,7 @@ class QueryEngine:
                     "no historically exposed repository is currently exposed or missing a current package resolution",
                 )
             )
-        return self._response(f"Q7 historical exposure with unresolved current risk {registry}:{package}@{version}", results, abstentions)
+        return self._response(f"Historical exposure with unresolved current risk {registry}:{package}@{version}", results, abstentions)
 
     def _current_versions_for_repository(
         self,
@@ -503,7 +503,7 @@ class QueryEngine:
 
     def coverage_report(self) -> QueryResponse:
         coverage = self.coverage()
-        return QueryResponse("Q8 abstention and coverage", (), (), coverage)
+        return QueryResponse("Abstention and coverage", (), (), coverage)
 
     @staticmethod
     def _interval(start: datetime, end: datetime):

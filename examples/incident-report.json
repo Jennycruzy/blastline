@@ -79,10 +79,10 @@
         "zjy365/gh-explorer"
       ]
     },
-    "query": "Q8 abstention and coverage",
+    "query": "Abstention and coverage",
     "results": []
   },
-  "generated_at": "2026-08-20T15:51:40Z",
+  "generated_at": "2026-08-20T20:49:47Z",
   "graph": {
     "edge_count": 941169,
     "fingerprint": "a82daf6c4e1a957733d17a413740d256273cc19f950de209c9ab30a0a03f4722",
@@ -107,7 +107,7 @@
         "zjy365/gh-explorer"
       ]
     },
-    "query": "Q3 window exposure npm:lodash@4.17.21",
+    "query": "Temporal window exposure npm:lodash@4.17.21",
     "results": [
       {
         "edge_commit_at": "2026-07-08T18:17:43Z",
@@ -2752,13 +2752,29 @@
     }
   },
   "manual_parser_holdout": {
-    "cases": 4,
+    "case_classes": {
+      "absent-before-target-arrival": 1,
+      "absent-package": 2,
+      "alternate-version": 1,
+      "exact-resolution": 6,
+      "lookalike-package": 4,
+      "nested-transitive-resolution": 1,
+      "state-after-removal": 1,
+      "state-after-safe-upgrade": 1,
+      "state-after-target-arrival": 1,
+      "state-before-removal": 1,
+      "state-before-safe-upgrade": 1
+    },
+    "cases": 20,
     "failed": 0,
-    "labeling_method": "Exact package/version entries were manually reviewed in the immutable raw payloads before running the Blastline parser.",
-    "passed": 4,
+    "labeling_method": "Cases were selected from immutable raw lockfile payloads without consulting graph Resolution edges. Each exact package/version label, case class, raw URL, payload hash, and review evidence was recorded before running the Blastline parser.",
+    "negative_cases": 10,
+    "passed": 20,
+    "positive_cases": 10,
     "results": [
       {
         "actual_present": true,
+        "case_class": "nested-transitive-resolution",
         "expected_present": true,
         "package": "lodash",
         "passed": true,
@@ -2768,6 +2784,7 @@
       },
       {
         "actual_present": true,
+        "case_class": "exact-resolution",
         "expected_present": true,
         "package": "lodash",
         "passed": true,
@@ -2777,6 +2794,7 @@
       },
       {
         "actual_present": false,
+        "case_class": "alternate-version",
         "expected_present": false,
         "package": "lodash",
         "passed": true,
@@ -2786,15 +2804,176 @@
       },
       {
         "actual_present": false,
+        "case_class": "lookalike-package",
         "expected_present": false,
         "package": "lodash",
         "passed": true,
         "raw_evidence": "lodash.merge is present, but no exact lodash@4.17.21 entry exists",
         "snapshot_id": "CAPHTECH/kiri:pnpm-lock.yaml@370eb92c89d9ca2f9efd56402747cf26cce31662",
         "version": "4.17.21"
+      },
+      {
+        "actual_present": true,
+        "case_class": "exact-resolution",
+        "expected_present": true,
+        "package": "lodash",
+        "passed": true,
+        "raw_evidence": "lodash@4.17.21 appears as an exact pnpm package resolution",
+        "snapshot_id": "Eliav2/express-typed:pnpm-lock.yaml@074202d081d99ad65a2e299997c9d427d43c9353",
+        "version": "4.17.21"
+      },
+      {
+        "actual_present": true,
+        "case_class": "exact-resolution",
+        "expected_present": true,
+        "package": "lodash",
+        "passed": true,
+        "raw_evidence": "lodash@4.17.21 appears as an exact pnpm package resolution",
+        "snapshot_id": "Marinerer/unity-webgl:pnpm-lock.yaml@e27906f33d5985c31d7c197bfc5c83cd9ab13289",
+        "version": "4.17.21"
+      },
+      {
+        "actual_present": true,
+        "case_class": "exact-resolution",
+        "expected_present": true,
+        "package": "lodash",
+        "passed": true,
+        "raw_evidence": "lodash@4.17.21 appears as an exact pnpm package resolution",
+        "snapshot_id": "btreitz/nextjs-shopify-ecom-demo:pnpm-lock.yaml@7a26dc369ea8fdc3ecfb9ed1cafb57b16ed16a24",
+        "version": "4.17.21"
+      },
+      {
+        "actual_present": true,
+        "case_class": "exact-resolution",
+        "expected_present": true,
+        "package": "lodash",
+        "passed": true,
+        "raw_evidence": "the pnpm package section contains /lodash@4.17.21",
+        "snapshot_id": "decipad/safejs:pnpm-lock.yaml@e49999456bc47c9c8be2ee974b92cc73cda50394",
+        "version": "4.17.21"
+      },
+      {
+        "actual_present": true,
+        "case_class": "exact-resolution",
+        "expected_present": true,
+        "package": "lodash",
+        "passed": true,
+        "raw_evidence": "the pnpm lockfile resolves lodash to 4.17.21",
+        "snapshot_id": "hackforla/lucky-parking:pnpm-lock.yaml@52f4b00a4dca7c5d4e045d3fc7e94b87d11fdafc",
+        "version": "4.17.21"
+      },
+      {
+        "actual_present": true,
+        "case_class": "state-before-safe-upgrade",
+        "expected_present": true,
+        "package": "lodash",
+        "passed": true,
+        "raw_evidence": "the frontend pnpm lockfile contains lodash@4.17.21 before later snapshots resolve 4.18.1",
+        "snapshot_id": "kafbat/kafka-ui:frontend/pnpm-lock.yaml@2c4adde6d5e2d5d90302c9c1d52d8a768bd1a5ed",
+        "version": "4.17.21"
+      },
+      {
+        "actual_present": true,
+        "case_class": "state-after-target-arrival",
+        "expected_present": true,
+        "package": "lodash",
+        "passed": true,
+        "raw_evidence": "the pnpm package section contains /lodash@4.17.21",
+        "snapshot_id": "timolins/react-hot-toast:pnpm-lock.yaml@92aef531e3655dbdd5071bb13ec137626c856f94",
+        "version": "4.17.21"
+      },
+      {
+        "actual_present": true,
+        "case_class": "state-before-removal",
+        "expected_present": true,
+        "package": "lodash",
+        "passed": true,
+        "raw_evidence": "the pnpm package section contains lodash@4.17.21 before a later snapshot removes the exact package",
+        "snapshot_id": "webpro-nl/remove-unused-vars:pnpm-lock.yaml@d536d743f17fd7eaa77e3fc6f69f816f8658f0e7",
+        "version": "4.17.21"
+      },
+      {
+        "actual_present": false,
+        "case_class": "lookalike-package",
+        "expected_present": false,
+        "package": "lodash",
+        "passed": true,
+        "raw_evidence": "the lockfile contains lodash.merge and lodash.memoize, but no exact lodash package entry",
+        "snapshot_id": "FreeCodeCamp-Chengdu/IT-events:pnpm-lock.yaml@78f17b937ae9a660a8cf08e6fa68a1839d400c9a",
+        "version": "4.17.21"
+      },
+      {
+        "actual_present": false,
+        "case_class": "lookalike-package",
+        "expected_present": false,
+        "package": "lodash",
+        "passed": true,
+        "raw_evidence": "the lockfile contains lodash.get, but no exact lodash package entry",
+        "snapshot_id": "OtterMind/fastexcel-doc:pnpm-lock.yaml@54806c2aa8e849e65200e2cd91aa050a407ea00c",
+        "version": "4.17.21"
+      },
+      {
+        "actual_present": false,
+        "case_class": "absent-package",
+        "expected_present": false,
+        "package": "lodash",
+        "passed": true,
+        "raw_evidence": "the raw pnpm lockfile has no lodash package or dependency entry",
+        "snapshot_id": "esafwan/dashboard-starter:pnpm-lock.yaml@776017afbd6754e69eb97749f3b7576b080aabe7",
+        "version": "4.17.21"
+      },
+      {
+        "actual_present": false,
+        "case_class": "state-after-safe-upgrade",
+        "expected_present": false,
+        "package": "lodash",
+        "passed": true,
+        "raw_evidence": "the exact lodash entry is 4.18.1 after earlier snapshots resolved 4.17.21",
+        "snapshot_id": "kafbat/kafka-ui:frontend/pnpm-lock.yaml@80bd8c4b63d8b0733934dc842f3c16c864b50d4e",
+        "version": "4.17.21"
+      },
+      {
+        "actual_present": false,
+        "case_class": "absent-before-target-arrival",
+        "expected_present": false,
+        "package": "lodash",
+        "passed": true,
+        "raw_evidence": "the raw lockfile contains lodash.merge, but no exact lodash package entry before later snapshots add lodash",
+        "snapshot_id": "himself65/affine-minimum:pnpm-lock.yaml@a9b3a194533d6694739e5c0f85d499edc6d26dd9",
+        "version": "4.17.21"
+      },
+      {
+        "actual_present": false,
+        "case_class": "state-after-removal",
+        "expected_present": false,
+        "package": "lodash",
+        "passed": true,
+        "raw_evidence": "the later lockfile retains lodash subpackages but no exact lodash@4.17.21 entry",
+        "snapshot_id": "webpro-nl/remove-unused-vars:pnpm-lock.yaml@da4bc68ea9fe02a8d8fc2c80f8498d6bfc31fc60",
+        "version": "4.17.21"
+      },
+      {
+        "actual_present": false,
+        "case_class": "lookalike-package",
+        "expected_present": false,
+        "package": "lodash",
+        "passed": true,
+        "raw_evidence": "the lockfile contains lodash-es@4.18.1, not the lodash package",
+        "snapshot_id": "PlatformRelay/Kubernetes-Workshop:pnpm-lock.yaml@1b70a773e493728289a6773e4d5b4594a66af788",
+        "version": "4.17.21"
+      },
+      {
+        "actual_present": false,
+        "case_class": "absent-package",
+        "expected_present": false,
+        "package": "lodash",
+        "passed": true,
+        "raw_evidence": "the raw pnpm lockfile contains lodash.castarray, lodash.isplainobject, and lodash.merge, but no exact lodash entry",
+        "snapshot_id": "gnoverse/gnops:pnpm-lock.yaml@b50a2c463f94e15925552efe8393dc734438cc3b",
+        "version": "4.17.21"
       }
     ],
-    "reviewed_at": "2026-08-19"
+    "reviewed_at": "2026-08-20"
   },
   "present_exposure": {
     "abstentions": [],
@@ -2807,7 +2986,7 @@
         "zjy365/gh-explorer"
       ]
     },
-    "query": "Q3 window exposure npm:lodash@4.17.21",
+    "query": "Temporal window exposure npm:lodash@4.17.21",
     "results": [
       {
         "edge_commit_at": "2026-07-27T23:11:54Z",
@@ -2815,8 +2994,8 @@
         "repository": "npm/cli",
         "resolution": "resolution:728ae11bd1a86c6e9f13c9c2685ad2b5d3d17c76152576dfe1ca4aa799fc7853",
         "valid_overlap": {
-          "end": "2026-08-20T15:49:36Z",
-          "start": "2026-08-20T15:49:36Z"
+          "end": "2026-08-20T20:47:42Z",
+          "start": "2026-08-20T20:47:42Z"
         }
       },
       {
@@ -2825,8 +3004,8 @@
         "repository": "Codehagen/regnskapsloop-crm",
         "resolution": "resolution:7345826cbbfa3b32efcf499a689008249495f3f4d58cba54d3feb4d8768e4956",
         "valid_overlap": {
-          "end": "2026-08-20T15:49:36Z",
-          "start": "2026-08-20T15:49:36Z"
+          "end": "2026-08-20T20:47:42Z",
+          "start": "2026-08-20T20:47:42Z"
         }
       },
       {
@@ -2835,8 +3014,8 @@
         "repository": "Eliav2/express-typed",
         "resolution": "resolution:e9777b8e5dff7643723c08d8c8f842ea6f390b5c87e9b88e6b5235dff80a706e",
         "valid_overlap": {
-          "end": "2026-08-20T15:49:36Z",
-          "start": "2026-08-20T15:49:36Z"
+          "end": "2026-08-20T20:47:42Z",
+          "start": "2026-08-20T20:47:42Z"
         }
       },
       {
@@ -2845,8 +3024,8 @@
         "repository": "Marinerer/unity-webgl",
         "resolution": "resolution:50d73f82bf3a5710a2ee404eb626e4dc13ea32434bbc81af2010a43d732affc4",
         "valid_overlap": {
-          "end": "2026-08-20T15:49:36Z",
-          "start": "2026-08-20T15:49:36Z"
+          "end": "2026-08-20T20:47:42Z",
+          "start": "2026-08-20T20:47:42Z"
         }
       },
       {
@@ -2855,8 +3034,8 @@
         "repository": "Teernage/AI-Mock",
         "resolution": "resolution:57595816c24f2a4720af9507252a8c4cfb6c6a150c7fdd7a19c7261c3ee11d1f",
         "valid_overlap": {
-          "end": "2026-08-20T15:49:36Z",
-          "start": "2026-08-20T15:49:36Z"
+          "end": "2026-08-20T20:47:42Z",
+          "start": "2026-08-20T20:47:42Z"
         }
       },
       {
@@ -2865,8 +3044,8 @@
         "repository": "Thinker-ljn/vite-plugin-tampermonkey",
         "resolution": "resolution:0b4a0ee7063b8722dacc8a375bc4a604914cef049a196b9dd402de00cd018895",
         "valid_overlap": {
-          "end": "2026-08-20T15:49:36Z",
-          "start": "2026-08-20T15:49:36Z"
+          "end": "2026-08-20T20:47:42Z",
+          "start": "2026-08-20T20:47:42Z"
         }
       },
       {
@@ -2875,8 +3054,8 @@
         "repository": "btreitz/nextjs-shopify-ecom-demo",
         "resolution": "resolution:c1e719a21a5760aa266d193407b06e3915612f40da99833b7f13058cd42b24a4",
         "valid_overlap": {
-          "end": "2026-08-20T15:49:36Z",
-          "start": "2026-08-20T15:49:36Z"
+          "end": "2026-08-20T20:47:42Z",
+          "start": "2026-08-20T20:47:42Z"
         }
       },
       {
@@ -2885,8 +3064,8 @@
         "repository": "caiquecamargo/custom-parser",
         "resolution": "resolution:21cc4d406a3557ec797e65627eaccf4bff447e371a7df158d04f3b7f4307c6a3",
         "valid_overlap": {
-          "end": "2026-08-20T15:49:36Z",
-          "start": "2026-08-20T15:49:36Z"
+          "end": "2026-08-20T20:47:42Z",
+          "start": "2026-08-20T20:47:42Z"
         }
       },
       {
@@ -2895,8 +3074,8 @@
         "repository": "codyzu/use-orama",
         "resolution": "resolution:98f378fabdda9d345bbf4529dc77455f70fa88d2bcc72879ed16e1dd2ddfb32c",
         "valid_overlap": {
-          "end": "2026-08-20T15:49:36Z",
-          "start": "2026-08-20T15:49:36Z"
+          "end": "2026-08-20T20:47:42Z",
+          "start": "2026-08-20T20:47:42Z"
         }
       },
       {
@@ -2905,8 +3084,8 @@
         "repository": "decipad/safejs",
         "resolution": "resolution:74bbad8543833f19c5f3617262f6be18c9370b7730cb39ea1a9ee111f230e5ad",
         "valid_overlap": {
-          "end": "2026-08-20T15:49:36Z",
-          "start": "2026-08-20T15:49:36Z"
+          "end": "2026-08-20T20:47:42Z",
+          "start": "2026-08-20T20:47:42Z"
         }
       },
       {
@@ -2915,8 +3094,8 @@
         "repository": "esafwan/dashboard-starter",
         "resolution": "resolution:806ae58488c5c53ba2f43b283816374f8e37ac943b5cfce2a9b00e51665f72cd",
         "valid_overlap": {
-          "end": "2026-08-20T15:49:36Z",
-          "start": "2026-08-20T15:49:36Z"
+          "end": "2026-08-20T20:47:42Z",
+          "start": "2026-08-20T20:47:42Z"
         }
       },
       {
@@ -2925,8 +3104,8 @@
         "repository": "hackforla/lucky-parking",
         "resolution": "resolution:8358bc63d0d6636c9c81dc239dba58ce4bf58d64e2bbaef5fe91af3d987e5a24",
         "valid_overlap": {
-          "end": "2026-08-20T15:49:36Z",
-          "start": "2026-08-20T15:49:36Z"
+          "end": "2026-08-20T20:47:42Z",
+          "start": "2026-08-20T20:47:42Z"
         }
       },
       {
@@ -2935,8 +3114,8 @@
         "repository": "himself65/affine-minimum",
         "resolution": "resolution:8a759588a704696af8ccd56c2101471b83911c5589badfce391c3a5ceab09646",
         "valid_overlap": {
-          "end": "2026-08-20T15:49:36Z",
-          "start": "2026-08-20T15:49:36Z"
+          "end": "2026-08-20T20:47:42Z",
+          "start": "2026-08-20T20:47:42Z"
         }
       },
       {
@@ -2945,8 +3124,8 @@
         "repository": "jbxamora/kronosdocs",
         "resolution": "resolution:64d82e56e0c23eb483f3f19515ef43dd75f57a6f2b4527cefe07b1e3e955a21e",
         "valid_overlap": {
-          "end": "2026-08-20T15:49:36Z",
-          "start": "2026-08-20T15:49:36Z"
+          "end": "2026-08-20T20:47:42Z",
+          "start": "2026-08-20T20:47:42Z"
         }
       },
       {
@@ -2955,8 +3134,8 @@
         "repository": "lilingxi01/ams-date-picker",
         "resolution": "resolution:1a8405f34f6fbcad3695a3480d2b0c604a9ebe644ac2facc57b93910286559b7",
         "valid_overlap": {
-          "end": "2026-08-20T15:49:36Z",
-          "start": "2026-08-20T15:49:36Z"
+          "end": "2026-08-20T20:47:42Z",
+          "start": "2026-08-20T20:47:42Z"
         }
       },
       {
@@ -2965,8 +3144,8 @@
         "repository": "linbudu599/TypeScript-Tiny-Book",
         "resolution": "resolution:a0de12bbc56450505f34ebaea05190886f790a68fa149d3388d069aa7a5f217d",
         "valid_overlap": {
-          "end": "2026-08-20T15:49:36Z",
-          "start": "2026-08-20T15:49:36Z"
+          "end": "2026-08-20T20:47:42Z",
+          "start": "2026-08-20T20:47:42Z"
         }
       },
       {
@@ -2975,8 +3154,8 @@
         "repository": "mag123c/nestjs-stdschema",
         "resolution": "resolution:62754cb096e960aadf30c05a1a9d3458aacda7f61e68de72f5d019c956dbad97",
         "valid_overlap": {
-          "end": "2026-08-20T15:49:36Z",
-          "start": "2026-08-20T15:49:36Z"
+          "end": "2026-08-20T20:47:42Z",
+          "start": "2026-08-20T20:47:42Z"
         }
       },
       {
@@ -2985,8 +3164,8 @@
         "repository": "paescuj/ctrlc-wrapper",
         "resolution": "resolution:65aac49f23d92401f297b8b432a0e06e328f985c3bbe3427ff21ac451368563d",
         "valid_overlap": {
-          "end": "2026-08-20T15:49:36Z",
-          "start": "2026-08-20T15:49:36Z"
+          "end": "2026-08-20T20:47:42Z",
+          "start": "2026-08-20T20:47:42Z"
         }
       },
       {
@@ -2995,8 +3174,8 @@
         "repository": "pdanpdan/vue-keyboard-trap",
         "resolution": "resolution:18f8ebfc5ab456def172ec87ca29b6a62af143af56d87c78571c7b848fa712b7",
         "valid_overlap": {
-          "end": "2026-08-20T15:49:36Z",
-          "start": "2026-08-20T15:49:36Z"
+          "end": "2026-08-20T20:47:42Z",
+          "start": "2026-08-20T20:47:42Z"
         }
       },
       {
@@ -3005,8 +3184,8 @@
         "repository": "privatenumber/tsx",
         "resolution": "resolution:36c1ee21369c661032fc2db486fe2675da9af0b6e11f1ad5176ed834c204a4bd",
         "valid_overlap": {
-          "end": "2026-08-20T15:49:36Z",
-          "start": "2026-08-20T15:49:36Z"
+          "end": "2026-08-20T20:47:42Z",
+          "start": "2026-08-20T20:47:42Z"
         }
       },
       {
@@ -3015,8 +3194,8 @@
         "repository": "roberthgnz/nuxt-feature-flags",
         "resolution": "resolution:9f83a90648f95ffa6dcbccf1f5bee26863847a3647a683e4ebe7c7d88a2622ba",
         "valid_overlap": {
-          "end": "2026-08-20T15:49:36Z",
-          "start": "2026-08-20T15:49:36Z"
+          "end": "2026-08-20T20:47:42Z",
+          "start": "2026-08-20T20:47:42Z"
         }
       },
       {
@@ -3025,8 +3204,8 @@
         "repository": "timolins/react-hot-toast",
         "resolution": "resolution:d2004955f8ce195edd91632bd55d02160b0959e227b36f24fa960d9653a72aff",
         "valid_overlap": {
-          "end": "2026-08-20T15:49:36Z",
-          "start": "2026-08-20T15:49:36Z"
+          "end": "2026-08-20T20:47:42Z",
+          "start": "2026-08-20T20:47:42Z"
         }
       },
       {
@@ -3035,8 +3214,8 @@
         "repository": "trevorpfiz/BioxML-allergen-epitopes",
         "resolution": "resolution:6b9034647cff14bdbf8703c171a349b0520ad42559a4bd429c0706a17914a125",
         "valid_overlap": {
-          "end": "2026-08-20T15:49:36Z",
-          "start": "2026-08-20T15:49:36Z"
+          "end": "2026-08-20T20:47:42Z",
+          "start": "2026-08-20T20:47:42Z"
         }
       },
       {
@@ -3045,8 +3224,8 @@
         "repository": "u3u/console.img",
         "resolution": "resolution:8462068297e910a91968ac8912837b5ae38bfba209c5c21b8bba02caa4afc411",
         "valid_overlap": {
-          "end": "2026-08-20T15:49:36Z",
-          "start": "2026-08-20T15:49:36Z"
+          "end": "2026-08-20T20:47:42Z",
+          "start": "2026-08-20T20:47:42Z"
         }
       },
       {
@@ -3055,8 +3234,8 @@
         "repository": "unjs/uncrypto",
         "resolution": "resolution:e3a8acdc512900be9833404b4820ec845cd254394a2df1b41ef1df0ede514098",
         "valid_overlap": {
-          "end": "2026-08-20T15:49:36Z",
-          "start": "2026-08-20T15:49:36Z"
+          "end": "2026-08-20T20:47:42Z",
+          "start": "2026-08-20T20:47:42Z"
         }
       },
       {
@@ -3065,8 +3244,8 @@
         "repository": "vkubilays/Get-Starknet",
         "resolution": "resolution:7a7e99476822cb6b6bac4ddeb7abe117db22c1d15894c465421e8a4adc0c76b7",
         "valid_overlap": {
-          "end": "2026-08-20T15:49:36Z",
-          "start": "2026-08-20T15:49:36Z"
+          "end": "2026-08-20T20:47:42Z",
+          "start": "2026-08-20T20:47:42Z"
         }
       },
       {
@@ -3075,8 +3254,8 @@
         "repository": "wangzmgit/leaf",
         "resolution": "resolution:098dafc3cad3dbe38d5cb919c75231012fa814b4517a4e588f74040e10a0c3a5",
         "valid_overlap": {
-          "end": "2026-08-20T15:49:36Z",
-          "start": "2026-08-20T15:49:36Z"
+          "end": "2026-08-20T20:47:42Z",
+          "start": "2026-08-20T20:47:42Z"
         }
       }
     ]
@@ -3092,7 +3271,7 @@
         "zjy365/gh-explorer"
       ]
     },
-    "query": "Q7 historical exposure with unresolved current risk npm:lodash@4.17.21",
+    "query": "Historical exposure with unresolved current risk npm:lodash@4.17.21",
     "results": [
       {
         "current_lockfile_versions": [
@@ -5763,7 +5942,7 @@
         ]
       }
     ],
-    "commit_sha": "b25f7f49f103b3545ad35957ddb5358a9c22b06f",
+    "commit_sha": "35fb57ec7af18739ca59f11e6842ad8ff8084dfb",
     "false_negatives": 0,
     "false_positives": 0,
     "gradable_cases": 50,

@@ -20,6 +20,7 @@ class ManualHoldoutResult:
     version: str
     expected_present: bool
     actual_present: bool
+    case_class: str
     raw_evidence: str
 
     def as_json(self) -> JsonObject:
@@ -29,6 +30,7 @@ class ManualHoldoutResult:
             "version": self.version,
             "expected_present": self.expected_present,
             "actual_present": self.actual_present,
+            "case_class": self.case_class,
             "raw_evidence": self.raw_evidence,
             "passed": self.expected_present == self.actual_present,
         }
@@ -44,11 +46,29 @@ class ManualHoldoutScorecard:
     def passed(self) -> int:
         return sum(item.expected_present == item.actual_present for item in self.results)
 
+    @property
+    def positive_cases(self) -> int:
+        return sum(item.expected_present for item in self.results)
+
+    @property
+    def negative_cases(self) -> int:
+        return len(self.results) - self.positive_cases
+
+    @property
+    def case_classes(self) -> dict[str, int]:
+        counts: dict[str, int] = {}
+        for item in self.results:
+            counts[item.case_class] = counts.get(item.case_class, 0) + 1
+        return dict(sorted(counts.items()))
+
     def as_json(self) -> JsonObject:
         return {
             "cases": len(self.results),
+            "positive_cases": self.positive_cases,
+            "negative_cases": self.negative_cases,
             "passed": self.passed,
             "failed": len(self.results) - self.passed,
+            "case_classes": self.case_classes,
             "labeling_method": self.labeling_method,
             "reviewed_at": self.reviewed_at,
             "results": [item.as_json() for item in self.results],
@@ -57,11 +77,15 @@ class ManualHoldoutScorecard:
     def human(self) -> str:
         lines = [
             "MANUALLY REVIEWED LOCKFILE HOLDOUT",
-            f"cases: {len(self.results)}; passed: {self.passed}; failed: {len(self.results) - self.passed}",
+            (
+                f"cases: {len(self.results)}; positives: {self.positive_cases}; "
+                f"negatives: {self.negative_cases}; passed: {self.passed}; "
+                f"failed: {len(self.results) - self.passed}"
+            ),
         ]
         lines.extend(
             f"  {'PASS' if item.expected_present == item.actual_present else 'FAIL'} "
-            f"{item.snapshot_id}: {item.package}@{item.version}"
+            f"{item.snapshot_id}: {item.package}@{item.version} [{item.case_class}]"
             for item in self.results
         )
         return "\n".join(lines)
@@ -100,6 +124,7 @@ class ManualHoldoutVerifier:
             package = require_string(case.get("package"), f"manual holdout cases[{index}].package")
             version = require_string(case.get("version"), f"manual holdout cases[{index}].version")
             expected = require_bool(case.get("expected_present"), f"manual holdout cases[{index}].expected_present")
+            case_class = require_string(case.get("case_class"), f"manual holdout cases[{index}].case_class")
             evidence = require_string(case.get("raw_evidence"), f"manual holdout cases[{index}].raw_evidence")
             snapshot = snapshots.get(snapshot_id)
             if snapshot is None or snapshot.raw_url != raw_url or snapshot.payload_hash != payload_hash:
@@ -113,7 +138,7 @@ class ManualHoldoutVerifier:
                 item.ecosystem == ecosystem and item.package_name == package and item.version == version
                 for item in parsed.resolutions
             )
-            results.append(ManualHoldoutResult(snapshot_id, package, version, expected, actual, evidence))
+            results.append(ManualHoldoutResult(snapshot_id, package, version, expected, actual, case_class, evidence))
         scorecard = ManualHoldoutScorecard(
             tuple(results),
             require_string(document.get("labeling_method"), "manual holdout labeling_method"),

@@ -59,7 +59,7 @@ class TyposquatScorer:
 
             coverage = Coverage(0, 0, 0)
             return QueryResponse(
-                f"Q6 typosquat proximity {registry}:{name}",
+                f"Typosquat proximity {registry}:{name}",
                 (),
                 (AbstentionNotice(name, "target Package node is missing"),),
                 coverage,
@@ -120,7 +120,7 @@ class TyposquatScorer:
         if not results and not abstentions:
             abstentions.append(AbstentionNotice(target.node_id, "no candidate is within the configured name-distance bound"))
         return QueryResponse(
-            f"Q6 typosquat proximity {registry}:{name}",
+            f"Typosquat proximity {registry}:{name}",
             tuple(results[: self.candidate_limit]),
             tuple(abstentions),
             self._coverage(),

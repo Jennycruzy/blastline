@@ -10,9 +10,9 @@ Blastline does not only ask what depends on a vulnerable package today. It recon
 
 ## Verification first
 
-The scorecard is generated from real OSV advisory records and real public GitHub lockfile history. Cases are selected by finding affected versions directly in the raw snapshot ledger, not by following graph `Resolution` edges. The graph-free observation oracle then reparses those immutable payloads. The corrected check covers 50 gradable temporal cases and 338 positive repository-pair decisions: TP=338, FP=0, FN=0, precision 1.0000, recall 1.0000. True negatives are not enumerated. A separate four-case manually reviewed parser holdout passes two positive and two negative labels. This is a small measured corpus, not an ecosystem-wide accuracy claim. Every recorded run preserves its graph fingerprint, commit SHA, denominator, abstentions, and misses in [`cache/verification/runs.jsonl`](cache/verification/runs.jsonl). Current-source failures remain itemized in [`cache/ingest-failures.jsonl`](cache/ingest-failures.jsonl).
+The scorecard is generated from real OSV advisory records and real public GitHub lockfile history. Cases are selected by finding affected versions directly in the raw snapshot ledger, not by following graph `Resolution` edges. The graph-free observation oracle then reparses those immutable payloads. The corrected check covers 50 gradable temporal cases and 338 positive repository-pair decisions: TP=338, FP=0, FN=0, precision 1.0000, recall 1.0000. True negatives are not enumerated. A separate 20-case manually reviewed parser holdout contains 10 positive and 10 negative labels and passes all 20 cases. This is a small measured corpus, not an ecosystem-wide accuracy claim. The 1.0000 establishes that temporal interval intersection agrees with a graph-free reparse of the same snapshots. It does not establish parser correctness — the manual holdout is the independent check on that. Every recorded run preserves its graph fingerprint, commit SHA, denominator, abstentions, and misses in [`cache/verification/runs.jsonl`](cache/verification/runs.jsonl). Current-source failures remain itemized in [`cache/ingest-failures.jsonl`](cache/ingest-failures.jsonl).
 
-The prior pre-fix scorecard is retained in the append-only ledger as TP=337, FP=103, FN=1: those 103 false positives came from comparing Q1’s transitive blast-radius candidates at the window’s opening instant with the oracle’s direct lockfile exposure set, rather than using Q3 interval intersection for the temporal case.
+The prior pre-fix scorecard is retained in the append-only ledger as TP=337, FP=103, FN=1: those 103 false positives came from comparing transitive reverse-blast-radius candidates at the window’s opening instant with the oracle’s direct lockfile exposure set, rather than using temporal interval intersection for the exposure case.
 
 ## Current measured snapshot
 
@@ -21,7 +21,7 @@ historical exposure: 30 repositories resolved lodash@4.17.21 during the recorded
 current exposure: 27 repositories still resolve lodash@4.17.21
 historical only: 3 repositories now have a verified different resolution
 local verification: 50 gradable cases; TP=338; FP=0; FN=0; precision 1.0000; recall 1.0000
-manual parser holdout: 4 of 4 reviewed labels pass
+manual parser holdout: 20 of 20 reviewed labels pass (10 positive, 10 negative)
 Hydra/local agreement: 10/10 cases; 0 false confirmations; 0 false omissions; 0 abstentions
 Hydra flagship retrieval: 30/30 temporal paths accepted; 0 abstentions; 0 retrieval warnings
 measured package coverage: npm 0.132512%; PyPI 0.000804%
@@ -72,20 +72,20 @@ The offline `window` command runs the exact local temporal oracle. `hydra-window
 
 `make discover-corpus` selects a reproducible corpus of real public GitHub lockfile histories from OSV-implicated package names. It requires an authenticated `GITHUB_TOKEN` or `GH_TOKEN`, enforces the configured minimum history and per-owner cap, documents the rule in [`docs/CORPUS.md`](docs/CORPUS.md), and records the selected repository list at the manifest path configured under `corpus`. `make ingest-corpus` then parses those real snapshots and reports distinct repositories, snapshots, resolutions, and failures together.
 
-Q8 can be exercised against an input that cannot be parsed: `make check-lockfile LOCKFILE=/path/to/bad/package-lock.json REPOSITORY=example/bad VALID_FROM=2026-08-13T00:00:00Z`. Blastline retains that real repository as unknown, records the failure, and prints the changed `M of N` coverage instead of treating it as no exposure.
+Abstention and coverage can be exercised against an input that cannot be parsed: `make check-lockfile LOCKFILE=/path/to/bad/package-lock.json REPOSITORY=example/bad VALID_FROM=2026-08-13T00:00:00Z`. Blastline retains that real repository as unknown, records the failure, and prints the changed `M of N` coverage instead of treating it as no exposure.
 
 Live HydraDB calls require `HYDRA_DB_API_KEY`; tenant and sub-tenant defaults are in [`config/default.json`](config/default.json). Without credentials, the exact local projection remains runnable and the live call says `ABSTAINED`.
 
 ## What is implemented
 
-- Q1 reverse blast radius with repository paths and depth.
-- Q2 advisory-backed first affected version.
-- Q3 bitemporal window exposure, with historical/current comparison.
-- Q4 maintainer credential blast radius.
-- Q5 shared publisher/infrastructure relationships.
-- Q6 explainable name-plus-topology proximity scoring.
-- Q7 historically exposed repositories with unresolved current risk after resolution changes.
-- Q8 explicit abstention and `M` of `N` repository coverage on every query.
+- Reverse repository blast radius with repository paths and depth.
+- Advisory-backed first affected version.
+- Bitemporal window exposure, with historical/current comparison.
+- Maintainer credential blast radius.
+- Shared publisher/infrastructure relationships.
+- Explainable name-plus-topology proximity scoring.
+- Historically exposed repositories with unresolved current risk after resolution changes.
+- Explicit abstention and `M` of `N` repository coverage on every query.
 - Hydra-backed candidate-path retrieval with typed temporal evidence validation and a measured local/Hydra agreement scorecard.
 - Cached, resumable npm/PyPI/OSV/GitHub ingestion with idempotent graph writes and content-addressed fingerprints.
 - Strict parsers for npm `package-lock.json`, Yarn, pnpm, Poetry, and pinned requirements files.
@@ -111,4 +111,6 @@ The generated incident artifact is [`examples/incident-report.json`](examples/in
 
 Blastline uses the public [npm registry](https://github.com/npm/registry), the [npm replication changes feed](https://github.com/npm/replicate), the [PyPI JSON API](https://warehouse.pypa.io/api-reference/json.html), the [PyPI Simple API](https://packaging.python.org/en/latest/specifications/simple-repository-api/), [OSV.dev](https://google.github.io/osv.dev/), and the [GitHub REST and raw-content APIs](https://docs.github.com/en/rest). Graph/context storage and graph-enriched recall use [HydraDB](https://docs.hydradb.com/api-reference), and the temporal edge model explicitly builds on its [graph-first architecture](https://docs.hydradb.com/essentials/architecture). The implementation uses Python 3.11 standard-library modules and is licensed under Apache 2.0.
 
-Development disclosure: Blastline was built with AI coding assistance. Its security claims are derived from committed source evidence and reproducible checks, not generated prose.
+## License
+
+Blastline is licensed under the Apache License, Version 2.0. See [`LICENSE`](LICENSE).
