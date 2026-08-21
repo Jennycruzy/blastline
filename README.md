@@ -10,6 +10,22 @@ The enabling primitive is a bitemporal dependency graph. `t_valid` is when a res
 
 The committed flagship incident is advisory-backed: the compromised npm version is `lodash@4.17.21`, examined over `[2021-02-20T15:42:16Z, 2026-08-01T00:00:00Z)`. Blastline follows that exact affected version; it does not treat every Lodash version as compromised.
 
+## Judge's 90-second path
+
+1. **The question:** who resolved the advisory-backed compromised `lodash@4.17.21` while the incident was active, and who still resolves it now? A package declaration or present-day dependency list cannot answer that.
+2. **The evidence:** Blastline stores typed `Repository → Resolution → Version` paths in a bitemporal graph. `t_valid` says when a lockfile resolution was active; `t_commit` says when that evidence became known. Exposure requires the exact version and the relevant interval evidence to agree.
+3. **The result:** the measured corpus contains 30 historically exposed repositories, 27 still-current resolutions, and 3 verified moves to a different version. Results retain the lockfile path, commit, resolution interval, and source/parser provenance.
+4. **HydraDB’s role:** HydraDB retrieves candidate multi-hop paths and typed graph evidence. Blastline validates those candidates locally against the temporal lockfile graph before accepting them; retrieval is evidence to check, not the security answer itself.
+5. **The limit:** the aligned `1.0000` score measures agreement with a graph-free reparse of the same snapshots, not universal parser correctness. The independent raw-lockfile holdout has 20 cases—10 positive and 10 negative—and all 20 pass. Invalid evidence becomes `unknown` through explicit abstention.
+
+To reproduce the headline result after cloning, run the query and show only its summary:
+
+```sh
+make window REGISTRY=npm PKG=lodash VERSION=4.17.21 \
+  FROM=2021-02-20T15:42:16Z TO=2026-08-01T00:00:00Z | tail -n 4
+make verify-holdout
+```
+
 ## What makes Blastline different
 
 Blastline does not only ask what depends on a vulnerable package today. It reconstructs which repositories resolved the compromised version during the exposure window, follows the `Repository → Resolution → Version` path, and separates historical exposure from current state. HydraDB returns the candidate relationship path; Blastline accepts it only after checking the typed edge evidence and exact temporal predicates. When the path or its timestamps cannot be verified, Blastline abstains instead of reporting no current exposure.
