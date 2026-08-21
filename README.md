@@ -4,6 +4,8 @@
 
 [Watch the 3-minute Blastline demo on YouTube](https://www.youtube.com/watch?v=6ecqZBsBWkU)
 
+[Read the Blastline project post on X](https://x.com/jennyoliver57/status/2090632570044059868)
+
 When a package version is found to be compromised or vulnerable, Blastline answers which real services were exposed during the affected interval, which moved to a verified different resolution, and which retain unresolved current risk.
 
 The enabling primitive is a bitemporal dependency graph. `t_valid` is when a resolution or malicious version was true in the world. `t_commit` is when Blastline learned it. Keeping those axes separate makes “who installed it while nobody knew?” a traversal instead of a guess.
