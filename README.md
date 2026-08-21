@@ -4,6 +4,8 @@ When a package version is found to be compromised or vulnerable, Blastline answe
 
 The enabling primitive is a bitemporal dependency graph. `t_valid` is when a resolution or malicious version was true in the world. `t_commit` is when Blastline learned it. Keeping those axes separate makes “who installed it while nobody knew?” a traversal instead of a guess.
 
+The committed flagship incident is advisory-backed: the compromised npm version is `lodash@4.17.21`, examined over `[2021-02-20T15:42:16Z, 2026-08-01T00:00:00Z)`. Blastline follows that exact affected version; it does not treat every Lodash version as compromised.
+
 ## What makes Blastline different
 
 Blastline does not only ask what depends on a vulnerable package today. It reconstructs which repositories resolved the compromised version during the exposure window, follows the `Repository → Resolution → Version` path, and separates historical exposure from current state. HydraDB returns the candidate relationship path; Blastline accepts it only after checking the typed edge evidence and exact temporal predicates. When the path or its timestamps cannot be verified, Blastline abstains instead of reporting no current exposure.
@@ -17,7 +19,7 @@ The prior pre-fix scorecard is retained in the append-only ledger as TP=337, FP=
 ## Current measured snapshot
 
 ```text
-historical exposure: 30 repositories resolved lodash@4.17.21 during the recorded vulnerability interval
+historical exposure: 30 repositories resolved the advisory-backed compromised version npm:lodash@4.17.21 during the recorded vulnerability interval
 current exposure: 27 repositories still resolve lodash@4.17.21
 historical only: 3 repositories now have a verified different resolution
 local verification: 50 gradable cases; TP=338; FP=0; FN=0; precision 1.0000; recall 1.0000
@@ -66,7 +68,7 @@ make enrich-metadata
 
 `make prepare-graph` is offline and deterministic with the committed recordings. It first unpacks the compressed registry cache and `data/graph.tar.zst` when available, verifies the graph fingerprint against the committed report, and otherwise restores the recorded seed (including the cached `vs-deploy` baseline required by the corpus manifest) and replays the corpus. The loose cache projection, `data/graph/` directory, and readiness markers are ignored. Graph-consuming Make targets invoke it automatically, so a fresh clone follows the same path before verification or a demo query.
 
-The offline `window` command runs the exact local temporal oracle. `hydra-window` uses HydraDB graph-context recall for multi-hop navigation and paginated hosted collection retrieval for exhaustive typed candidates, then validates temporal evidence locally before accepting them. A graph-context outage is recorded as a warning; failure of the exhaustive hosted evidence path remains an error. Without a key, it abstains rather than presenting local output as Hydra-backed. In the committed demo, the historical set contains 30 repositories, the latest recorded state contains 27, and three are historical-only. The timeline begins before the first recorded `lodash@4.17.21` resolution and grows from zero to the full historical set as the scrubber crosses real lockfile commits.
+The offline `window` command runs the exact local temporal oracle. `hydra-window` uses HydraDB graph-context recall for multi-hop navigation and paginated hosted collection retrieval for exhaustive typed candidates, then validates temporal evidence locally before accepting them. A graph-context outage is recorded as a warning; failure of the exhaustive hosted evidence path remains an error. Without a key, it abstains rather than presenting local output as Hydra-backed. In the committed demo, the historical set contains 30 repositories, the latest recorded state contains 27, and three are historical-only. The timeline begins before the first recorded resolution of the advisory-backed compromised `lodash@4.17.21` and grows from zero to the full historical set as the scrubber crosses real lockfile commits.
 
 `make ingest` advances the cached incremental feeds. `make ingest-full` bootstraps npm from the supported paginated replication catalog, then enumerates the complete PyPI Simple index; both paths checkpoint progress and report every failed record. `make ingest-pypi-full` runs only the PyPI catalog path. Full ecosystem ingestion is network- and disk-bound, so the checked-in demo remains deliberately labeled as a measured partial corpus rather than a completeness claim.
 

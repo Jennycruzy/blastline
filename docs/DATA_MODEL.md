@@ -2,6 +2,8 @@
 
 Blastline treats supply-chain exposure as a temporal graph problem. The graph is not a presentation of a relational table: its edge history is the evidence that a query is allowed to use.
 
+In the committed flagship incident, the OSV-backed affected unit is the compromised version `npm:lodash@4.17.21`. The package name alone is never treated as compromised; the graph and verification protocol operate on that exact `Version` node and its time-bounded resolutions.
+
 ## The node types
 
 | Node | Why it is separate | What folding it away breaks |

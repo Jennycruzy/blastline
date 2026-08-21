@@ -16,6 +16,8 @@ The recorded pre-fix scorecard contains one known miss: `lodash@4.17.21`, window
 6. Compare predicted and observed repository sets. False negatives are printed before aggregate metrics.
 7. Append the scorecard, graph fingerprint, and Git commit SHA to `cache/verification/runs.jsonl` unless `--no-record` is used for CI.
 
+The committed flagship case is the advisory-backed compromised npm version `lodash@4.17.21`, evaluated over the recorded exposure interval `[2021-02-20T15:42:16Z, 2026-08-01T00:00:00Z)`. The parser is evaluated against that exact version in raw lockfile snapshots; a declaration of `lodash` or a different Lodash version is not treated as equivalent evidence.
+
 The verification target is not merely “does this repository depend on the package today?” Blastline must reconstruct the repository’s historical resolution during the requested exposure window, preserve the `Repository → Resolution → Version` evidence path, and distinguish that result from the current state. A missing path, missing timestamp, or unresolved lockfile produces an explicit abstention rather than an unsupported no-exposure verdict.
 
 The verifier does not tune thresholds to a perfect number. It reports temporal cases separately from positive `(case, repository)` decisions and excludes ungradable cases from precision/recall. True negatives are not enumerated. Its case-level `abstentions` field preserves the reason a case was not gradable.
